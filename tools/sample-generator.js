@@ -7,36 +7,37 @@ module.exports = class extends Generator {
         super(args, opts);
     }
 
-    // Initialisation geenerator
+    // Your initialization methods (checking current project state, getting configs, etc)
     initializing() {
         
     }
 
-    // Prompt for user input for Custom Generator
+    // Where you prompt users for options
     prompting() {
 
     }
 
-    // adds additonal editor support in this case CSS Comb
+    // Saving configurations and configure the project 
     configuring() {
 
     }
 
-
+    // Where you write the generator specific files (routes, controllers, etc)
     writing() {
         
     }
+    
+    // Where conflicts are handled (used internally)
+    conflict(){
 
+    }
+
+    // Where installations are run (npm, bower)
     install() {
 
     }
 
-    install() {
-
-    }
-
-    // Run installer normally time to say goodbye
-    // If yarn is installed yarn will be used
+    // Called last, cleanup, say good bye, etc
     end() {
 
     }
