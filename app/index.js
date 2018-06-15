@@ -1,10 +1,17 @@
 // Base Yeoman generator
 const Generator = require('yeoman-generator');
 
+const help = require('./help');
+
 module.exports = class extends Generator {
 
     constructor(args, opts) {
         super(args, opts);
+
+        if(args.indexOf('--help') || args.indexOf('-h')){
+            this._showHelp();
+        }
+
     }
 
     // Initialisation geenerator
@@ -31,6 +38,11 @@ module.exports = class extends Generator {
     // If yarn is installed yarn will be used
     end() {
 
+    }
+
+    _showHelp(){
+        console.log("Show Help");
+        console.log(help.cmdOptions);
     }
 
 }
