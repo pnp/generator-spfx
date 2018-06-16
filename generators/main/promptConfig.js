@@ -24,7 +24,7 @@ const supportedFrameworks = [{
     }
 ];
 
-const addon = require('./generators/addons/promptConfig').config;
+// const addon = require('./generators/addons/promptConfig').config;
 
 const configOptions = [
     // select your framework
@@ -33,7 +33,8 @@ const configOptions = [
         message: "Choose your framwork",
         name: 'framework',
         choices: supportedFrameworks
-    }, addon
+    }
+    // , addon
 ]
 
 

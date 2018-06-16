@@ -7,8 +7,6 @@ module.exports = class extends Generator {
 
         super(args, opts);
 
-        this.promptConfig = require('./promptConfig');
-
     }
 
     // Initialisation geenerator
@@ -21,19 +19,19 @@ module.exports = class extends Generator {
     }
 
     configuring() {
-
+        console.log('>>> CONFIG: addon');
     }
 
     writing() {
-
+        console.log('>>> WRITING: addon');
     }
 
     install() {
-
+        console.log('>>> INSTALL: addon');
     }
 
     end() {
-
+        console.log('>>> END: addon');
     }
 
 }

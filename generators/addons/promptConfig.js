@@ -1,3 +1,5 @@
+const chalk = require('chalk');
+
 const jqueryOptions = [{
         'name': '3.x.x (recommended)',
         'value': '3.0.0',
@@ -23,7 +25,7 @@ const configOptions = [
     // jQuery version selection
     {
         type: 'list',
-        message: "Which version of jQuery to include",
+        message: `${chalk.bold.yellow('jQuery: ')} Please choose a version:`,
         name: 'jQueryVersion',
         choices: jqueryOptions,
         when: answers => answers.jsLibrary.indexOf('jQuery') !== -1

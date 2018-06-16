@@ -1,3 +1,8 @@
+const inquirer = require('inquirer');
+const chalk = require('chalk');
+
+const fgYellow = chalk.whiteBright.bold;
+
 const supportedFrameworks = [{
         name: 'Handlebars',
         value: 'handlebars'
@@ -10,16 +15,19 @@ const supportedFrameworks = [{
         name: 'Angular Elements',
         value: 'angularelement'
     },
+    new inquirer.Separator(
+        fgYellow('Default SPFx')
+    ),
     {
-        name: 'ReactJS',
+        name: '- ReactJS',
         value: 'reactjs'
     },
     {
-        name: 'Knockout',
+        name: '- Knockout',
         value: 'knockout'
     },
     {
-        name: 'No Framekwork',
+        name: '- No Framekwork',
         value: 'noframework'
     }
 ];
