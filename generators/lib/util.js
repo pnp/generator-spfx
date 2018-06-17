@@ -29,11 +29,15 @@ module.exports = {
                 }
                 // adding dev dependencies
             }
+
         }
 
+        console.log('_______________\n', dependencies);
+        console.log('_______________\n', devDependencies);
+
         // sort package properties
-        let sortedDependencies = Object.keys(dependencies).sort();
-        let sortedDevDependencies = Object.keys(devDependencies).sort();
+        let sortedDependencies = dependencies.sort(dependencies.keys).sort();
+        let sortedDevDependencies = Object.keys(devDependencies.keys).sort();
 
         // assing sorted dependencies
         config.dependencies = sortedDependencies;
