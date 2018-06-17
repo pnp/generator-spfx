@@ -29,6 +29,12 @@ module.exports = class extends Generator {
 
     install() {
 
+        // Copy static assets
+        this.fs.copy(
+            this.templatePath('config/copy-static-assets.js'),
+            this.destinationPath('config/copy-static-assets.js')
+        );
+
     }
 
     // Run installer normally time to say goodbye

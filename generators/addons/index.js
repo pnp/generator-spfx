@@ -6,6 +6,8 @@ const Generator = require('yeoman-generator');
 // filesystem
 const fs = require('fs');
 
+const util = require('../lib/util.js');
+
 module.exports = class extends Generator {
 
     constructor(args, opts) {
@@ -61,7 +63,8 @@ module.exports = class extends Generator {
         var requestedLibraries = this.options.libraries;
 
         // add addons to new package.json
-        var newPkgConfig = this._mergeAddons(addonConfig, requestedLibraries, config);
+        // var newPkgConfig = this._mergeAddons(addonConfig, requestedLibraries, config);
+        var newPkgConfig = util.mergeAddons(addonConfig, requestedLibraries, config);
 
         // console.log(
         //     this.destinationPath('package.json')
