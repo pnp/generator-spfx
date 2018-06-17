@@ -19,6 +19,18 @@ module.exports = class extends Generator {
 
         this.name = "Communit SPFx Generator"
 
+        rimraf(
+            this.destinationPath("*"), (error) => {
+                console.log(error);
+            }
+        );
+
+        rimraf(
+            this.destinationPath(".*"), (error) => {
+                console.log(error);
+            }
+        );
+
     }
 
     // Initialisation geenerator
@@ -34,8 +46,6 @@ module.exports = class extends Generator {
         /* DON NOT ENTER CODE HERE */
         this.prompt(prompting.config)
             .then(answers => {
-
-                console.log(answers);
 
                 // Choose appro
                 this.options.spfxFramework = this._evalSPFxGenerator(answers.framework);
@@ -77,12 +87,12 @@ module.exports = class extends Generator {
 
             switch (item) {
                 case "jquery":
-                    if(selections.jQueryVersion !== undefined){
+                    if (selections.jQueryVersion !== undefined) {
                         item = `${item}@${selections.jQueryVersion}`
                     }
 
                     break;
-            
+
                 default:
                     break
             }
@@ -127,8 +137,6 @@ module.exports = class extends Generator {
         this.composeWith(
             subGenerator.main, {}
         );
-
-        console.log('Config Generators', options);
 
         if (options.jslib.length !== undefined &&
             options.jslib.length !== 0) {
