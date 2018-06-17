@@ -1,0 +1,19 @@
+{
+    "jquery@2": {
+        "dependencies": {
+            "jquery": "^2.2.4",
+            "@types/jquery": "^2.0.49"
+        }
+    },
+    "jquery@3": {
+        "dependencies": {
+            "jquery": "^3.0.0",
+            "@types/jquery": "^3.0.0"
+        }
+    },
+    "@pnp/pnpjs": {
+        "dependencies": {
+            "@pnp/pnpjs": "^1.1.1"
+        }
+    }
+}

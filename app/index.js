@@ -32,19 +32,15 @@ module.exports = class extends Generator {
         /* DON NOT ENTER CODE HERE */
         this.prompt(prompting.config)
             .then(answers => {
+
                 console.log(answers);
-                this.options.framework = 'none';
 
                 // Choose appro
-                this.option.spfxFramework = this._configGenerators(answers.framework);
+                this.options.spfxFramework = this._evalSPFxGenerator(answers.framework);
 
-                this.options.jslib = answers.jsLibrary;
-
-                if (answers.jQueryVersion !== undefined) {
-
-                    this.options.jQuery = answers.jQueryVersion;
-
-                }
+                this.options.jslib = this._evalAddons(
+                    answers
+                );
 
 
                 this._configGenerators(this.options);
@@ -70,6 +66,28 @@ module.exports = class extends Generator {
     // Run installer normally time to say goodbye
     // If yarn is installed yarn will be used
     end() {
+
+    }
+
+    _evalAddons(selections) {
+
+        return selections.jsLibrary.map(item => {
+
+            switch (item) {
+                case "jquery":
+                    if(selections.jQueryVersion !== undefined){
+                        item = `${item}@${selections.jQueryVersion}`
+                    }
+
+                    break;
+            
+                default:
+                    break
+            }
+
+            return item;
+
+        });
 
     }
 
@@ -102,15 +120,16 @@ module.exports = class extends Generator {
 
     }
 
-    _configGenerators(config) {
-
-        console.log(config.jslib)
+    _configGenerators(options) {
 
         this.composeWith(
             subGenerator.main, {}
         );
 
-        if (config.jslib.length !== 0) {
+        console.log('Config Generators', options);
+
+        if (options.jslib.length !== undefined &&
+            options.jslib.length !== 0) {
 
             this.composeWith(
                 subGenerator.addons, {}
@@ -119,11 +138,12 @@ module.exports = class extends Generator {
         } else {
             console.log('--- No addons');
         }
-        console.log('SPFX Framework:    ' + config.spfxFramework)
+
+        console.log('SPFX Framework:    ' + options.spfxFramework)
 
         this.composeWith(
             subGenerator.spfx, {
-                'framework': config.spfxFramework,
+                'framework': options.spfxFramework,
                 'skip-install': true,
             }
         );
