@@ -27,7 +27,7 @@ const supportedFrameworks = [{
         value: 'knockout'
     },
     {
-        name: '- No Framekwork',
+        name: '- No Framework',
         value: 'noframework'
     }
 ];
@@ -36,7 +36,7 @@ let configOptions = [
     // select your framework
     {
         type: 'list',
-        message: "Choose your framwork",
+        message: "Choose your framework",
         name: 'framework',
         choices: supportedFrameworks
     }

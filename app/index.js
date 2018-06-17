@@ -15,10 +15,14 @@ module.exports = class extends Generator {
 
         super(args, opts);
 
+        this.name = "Communit SPFx Generator"
+
     }
 
     // Initialisation geenerator
     initializing() {
+
+        this.pkg = require('../package.json');
 
     }
 
@@ -31,23 +35,17 @@ module.exports = class extends Generator {
                 console.log(answers);
                 this.options.framework = 'none';
 
-                switch (answers.framework) {
-                    case "handlebars":
-                    case "vuejs":
-                    case "angularelements":
-                        this.options.spfxFramework = 'none';
-                        break;
+                // Choose appro
+                this.option.spfxFramework = this._configGenerators(answers.framework);
 
-                    case "reactjs":
-                        this.options.spfxFramework = 'reactjs';
-                    case "knockout":
-                        this.options.spfxFramework = 'knockout';
-                    case "noframework":
-                        this.options.spfxFramework = 'none';
-                        break;
-                    default:
-                        break;
+                this.options.jslib = answers.jsLibrary;
+
+                if (answers.jQueryVersion !== undefined) {
+
+                    this.options.jQuery = answers.jQueryVersion;
+
                 }
+
 
                 this._configGenerators(this.options);
 
@@ -75,18 +73,54 @@ module.exports = class extends Generator {
 
     }
 
+    // detects framework for custom generator
+    _evalSPFxGenerator(selectedFramework) {
+
+        let generatorFramework;
+
+        switch (selectedFramework) {
+            case "handlebars":
+            case "vuejs":
+            case "angularelements":
+                generatorFramework = 'none';
+                break;
+
+            case "reactjs":
+                generatorFramework = 'react';
+                break;
+            case "knockout":
+                generatorFramework = 'knockout';
+                break;
+            case "noframework":
+                generatorFramework = 'none';
+                break;
+            default:
+                break;
+        }
+
+        return generatorFramework;
+
+    }
+
     _configGenerators(config) {
 
-        console.log(config);
+        console.log(config.jslib)
 
         this.composeWith(
             subGenerator.main, {}
         );
 
-        this.composeWith(
-            subGenerator.addons, {}
-        )
-        
+        if (config.jslib.length !== 0) {
+
+            this.composeWith(
+                subGenerator.addons, {}
+            )
+
+        } else {
+            console.log('--- No addons');
+        }
+        console.log('SPFX Framework:    ' + config.spfxFramework)
+
         this.composeWith(
             subGenerator.spfx, {
                 'framework': config.spfxFramework,
