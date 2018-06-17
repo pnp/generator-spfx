@@ -1,3 +1,4 @@
+"use strict"
 // Base Yeoman generator
 const Generator = require('yeoman-generator');
 // Sub generators used by @pnp/spfx
@@ -5,6 +6,7 @@ const subGenerator = require('./subGenerators');
 
 // Prompt core configuration
 const prompting = require('./promptConfig');
+const rimraf = require('rimraf');
 
 // Help Message
 const help = require('./help');
@@ -132,7 +134,9 @@ module.exports = class extends Generator {
             options.jslib.length !== 0) {
 
             this.composeWith(
-                subGenerator.addons, {}
+                subGenerator.addons, {
+                    'libraries': options.jslib
+                }
             )
 
         } else {

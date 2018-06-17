@@ -24,6 +24,7 @@
         "yeoman-generator": "^2.0.5"
     },
     "devDependencies": {
-        "mocha": "^5.2.0"
+        "mocha": "^5.2.0",
+        "rimraf": "^2.6.2"
     }
 }

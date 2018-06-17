@@ -1,3 +1,5 @@
+"use strict"
+
 const supportedFrameworks = [{
         name: 'Handlebars',
         value: 'handlebars'

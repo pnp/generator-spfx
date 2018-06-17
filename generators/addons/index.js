@@ -1,5 +1,9 @@
+'use strict';
+
 // Base Yeoman generator
 const Generator = require('yeoman-generator');
+// filesystem
+const fs = require('fs');
 
 module.exports = class extends Generator {
 
@@ -27,7 +31,15 @@ module.exports = class extends Generator {
     }
 
     install() {
-        console.log('>>> INSTALL: addon');
+        
+        console.log(this.options);
+
+        let config = this.fs.readJSON(
+            this.destinationPath('package.json')
+        );
+
+        
+        
     }
 
     end() {
