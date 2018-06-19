@@ -17,7 +17,7 @@ module.exports = class extends Generator {
 
         super(args, opts);
 
-        this.name = "Communit SPFx Generator"
+        this.name = "Community SPFx Generator"
 
     }
 
