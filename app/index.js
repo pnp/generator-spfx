@@ -19,18 +19,6 @@ module.exports = class extends Generator {
 
         this.name = "Communit SPFx Generator"
 
-        rimraf(
-            this.destinationPath("*"), (error) => {
-                console.log(error);
-            }
-        );
-
-        rimraf(
-            this.destinationPath(".*"), (error) => {
-                console.log(error);
-            }
-        );
-
     }
 
     // Initialisation geenerator
@@ -53,6 +41,8 @@ module.exports = class extends Generator {
                 this.options.jslib = this._evalAddons(
                     answers
                 );
+
+                this.options.framework = answers.framework;
 
 
                 this._configGenerators(this.options);
@@ -134,8 +124,10 @@ module.exports = class extends Generator {
 
     _configGenerators(options) {
 
+        console.log('Selected Framework', options.framework);
+
         this.composeWith(
-            subGenerator.main, {}
+            subGenerator[options.framework], {}
         );
 
         if (options.jslib.length !== undefined &&

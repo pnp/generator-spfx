@@ -1,3 +1,16 @@
+const sortProps = (dependencies) => {
+
+    var sortedObject = {};
+    let sortedKeys = Object.keys(dependencies).sort();
+        
+    for(var i = 0; i < sortedKeys.length; i++){
+        sortedObject[sortedKeys[i]] = dependencies[sortedKeys[i]]
+    }
+    
+    return sortedObject;
+
+}
+
 module.exports = {
 
     mergeAddons: (addonConfig, requestedLibraries, config) => {
@@ -36,8 +49,8 @@ module.exports = {
         console.log('_______________\n', devDependencies);
 
         // sort package properties
-        let sortedDependencies = dependencies.sort(dependencies.keys).sort();
-        let sortedDevDependencies = Object.keys(devDependencies.keys).sort();
+        let sortedDependencies = sortProps(dependencies);
+        let sortedDevDependencies = sortProps(devDependencies);
 
         // assing sorted dependencies
         config.dependencies = sortedDependencies;
