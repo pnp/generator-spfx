@@ -45,9 +45,6 @@ module.exports = {
 
         }
 
-        console.log('_______________\n', dependencies);
-        console.log('_______________\n', devDependencies);
-
         // sort package properties
         let sortedDependencies = sortProps(dependencies);
         let sortedDevDependencies = sortProps(devDependencies);

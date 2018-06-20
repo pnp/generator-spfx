@@ -41,8 +41,6 @@ module.exports = class extends Generator {
             this.destinationPath('package.json')
         );
 
-        console.log(config);
-
         // request current addon configuration
         let addonConfig;
 

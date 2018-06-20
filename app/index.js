@@ -3,13 +3,8 @@
 const Generator = require('yeoman-generator');
 // Sub generators used by @pnp/spfx
 const subGenerator = require('./subGenerators');
-
 // Prompt core configuration
 const prompting = require('./promptConfig');
-const rimraf = require('rimraf');
-
-// Help Message
-const help = require('./help');
 
 module.exports = class extends Generator {
 
@@ -18,6 +13,12 @@ module.exports = class extends Generator {
         super(args, opts);
 
         this.name = "Community SPFx Generator"
+
+        this.SpfxOptions = {
+            'skip-install': true
+        };
+
+        this._generateSPFxOptions(this.options);
 
     }
 
@@ -31,12 +32,12 @@ module.exports = class extends Generator {
     // Prompt for user input for Custom Generator
     prompting() {
 
-        /* DON NOT ENTER CODE HERE */
+        /* DO NOT ENTER CODE HERE */
         this.prompt(prompting.config)
             .then(answers => {
 
                 // Choose appro
-                this.options.spfxFramework = this._evalSPFxGenerator(answers.framework);
+                this.SpfxOptions.framework = this._evalSPFxGenerator(answers.framework);
 
                 this.options.jslib = this._evalAddons(
                     answers
@@ -126,6 +127,8 @@ module.exports = class extends Generator {
 
         console.log('Selected Framework', options.framework);
 
+        console.log('SPFX Options', this.SpfxOptions);
+
         this.composeWith(
             subGenerator[options.framework], {}
         );
@@ -140,23 +143,75 @@ module.exports = class extends Generator {
             )
 
         } else {
+
             console.log('--- No addons');
+
         }
 
-        console.log('SPFX Framework:    ' + options.spfxFramework)
+        // {
+        //     'framework': options.spfxFramework,
+        //     'skip-install': true,
+        // }
 
         this.composeWith(
-            subGenerator.spfx, {
-                'framework': options.spfxFramework,
-                'skip-install': true,
-            }
+            subGenerator.spfx,
+            this.SpfxOptions
         );
 
     }
 
+    // this.options.hasKey('component-type') ? this.options.spfxOptions['content-type'] = this.options['content-type'] : ;
+    // this.spfxArgs
+    // '--component-type webpart',
+    // '--component-description HelloWorld',
+    // '--component-name helloworld',
+    // '--solution-name HelloWorld',
+    // '--environment spo'
+
+    _generateSPFxOptions(options) {
+
+        // console.log('OOOPPPTIONS', options);
+        // console.log('OOOPPPTIONS', options['component-type'])
+
+        if (options['component-type'] !== undefined) {
+            this.SpfxOptions['component-type'] = options['component-type'];
+        }
+
+        if (options['component-type']) {
+            this.SpfxOptions['component-type'] = options['component-type'];
+        }
+
+        if (options['component-description']) {
+            this.SpfxOptions['component-description'] = options['component-description'];
+        }
+
+        if (options['component-name']) {
+            this.SpfxOptions['component-name'] = options['component-name'];
+        }
+
+        if (options['solution-name']) {
+            this.SpfxOptions['solution-name'] = options['solution-name'];
+        }
+
+        if (options['environment']) {
+            this.SpfxOptions['environment'] = options['environment'];
+        }
+
+    }
+
+
     _showHelp() {
         console.log("Show Help");
         console.log(help.cmdOptions);
+    }
+
+    _convertArgsToOptions(defaultOptions, args) {
+        console.log(defaultOptions);
+
+        for (let i = 0; i < args.length; i++) {
+            let currentArg = args[i].replace('--', '').split(' ');
+            console.log(currentArg);
+        }
     }
 
 }

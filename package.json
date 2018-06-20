@@ -11,6 +11,9 @@
     "keywords": [
         "yeoman-generator"
     ],
+    "scripts": {
+        "test": "mocha"
+    },
     "maintainers": [
         {
             "name": "Stefan Bauer",
@@ -25,6 +28,8 @@
     },
     "devDependencies": {
         "mocha": "^5.2.0",
-        "rimraf": "^2.6.2"
+        "rimraf": "^2.6.2",
+        "yeoman-assert": "^3.1.1",
+        "yeoman-test": "^1.7.2"
     }
 }

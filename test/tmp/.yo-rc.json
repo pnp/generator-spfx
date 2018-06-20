@@ -1,0 +1,7 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "environment": "spo",
+    "framework": "none",
+    "isCreatingSolution": true
+  }
+}
