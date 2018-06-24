@@ -20,7 +20,7 @@ const supportedFrameworks = [{
     ),
     {
         name: '- ReactJS',
-        value: 'reactjs'
+        value: 'react'
     },
     {
         name: '- Knockout',

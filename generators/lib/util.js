@@ -19,8 +19,9 @@ module.exports = {
         let devDependencies = config.devDependencies;
 
         for (let key in addonConfig) {
-
-            if (requestedLibraries.indexOf(key)) {
+            console.log(key, requestedLibraries.indexOf(key));
+            if (requestedLibraries.indexOf(key) !== -1) {
+                
                 // inject dependencies
                 if (addonConfig[key].dependencies) {
 
@@ -31,6 +32,7 @@ module.exports = {
                     }
 
                 }
+
                 // inject dev dependencies
                 if (addonConfig[key].devDependencies) {
 

@@ -12,7 +12,7 @@
         "yeoman-generator"
     ],
     "scripts": {
-        "test": "mocha"
+        "test": "mocha --reporter spec --timeout 3000"
     },
     "maintainers": [
         {

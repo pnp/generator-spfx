@@ -14,11 +14,13 @@ module.exports = class extends Generator {
 
         this.name = "Community SPFx Generator"
 
-        this.SpfxOptions = {
+        this.options.SpfxOptions = {
             'skip-install': true
         };
 
-        this._generateSPFxOptions(this.options);
+        // console.log('all Options', this.options);
+
+        this._generateSPFxOptions();
 
     }
 
@@ -37,13 +39,13 @@ module.exports = class extends Generator {
             .then(answers => {
 
                 // Choose appro
-                this.SpfxOptions.framework = this._evalSPFxGenerator(answers.framework);
+                this.options.SpfxOptions['framework'] = this._evalSPFxGenerator(answers.framework);
 
-                this.options.jslib = this._evalAddons(
+                this.options.libraries = this._evalAddons(
                     answers
                 );
 
-                this.options.framework = answers.framework;
+                this.options.SPFxFramework = answers.framework;
 
 
                 this._configGenerators(this.options);
@@ -107,6 +109,7 @@ module.exports = class extends Generator {
                 break;
 
             case "reactjs":
+            case "react":
                 generatorFramework = 'react';
                 break;
             case "knockout":
@@ -125,21 +128,14 @@ module.exports = class extends Generator {
 
     _configGenerators(options) {
 
-        console.log('Selected Framework', options.framework);
+        
 
-        console.log('SPFX Options', this.SpfxOptions);
-
-        this.composeWith(
-            subGenerator[options.framework], {}
-        );
-
-        if (options.jslib.length !== undefined &&
-            options.jslib.length !== 0) {
+        if (options.libraries.length !== undefined &&
+            options.libraries.length !== 0) {
 
             this.composeWith(
-                subGenerator.addons, {
-                    'libraries': options.jslib
-                }
+                subGenerator.addons,
+                options
             )
 
         } else {
@@ -148,53 +144,45 @@ module.exports = class extends Generator {
 
         }
 
+        this.composeWith(
+            subGenerator.spfx,
+            options.SpfxOptions
+        );
+
         // {
         //     'framework': options.spfxFramework,
         //     'skip-install': true,
         // }
 
-        this.composeWith(
-            subGenerator.spfx,
-            this.SpfxOptions
-        );
+        // console.log(this.SpfxOptions);
+
 
     }
 
-    // this.options.hasKey('component-type') ? this.options.spfxOptions['content-type'] = this.options['content-type'] : ;
-    // this.spfxArgs
-    // '--component-type webpart',
-    // '--component-description HelloWorld',
-    // '--component-name helloworld',
-    // '--solution-name HelloWorld',
-    // '--environment spo'
+    _generateSPFxOptions() {
 
-    _generateSPFxOptions(options) {
-
-        // console.log('OOOPPPTIONS', options);
-        // console.log('OOOPPPTIONS', options['component-type'])
-
-        if (options['component-type'] !== undefined) {
-            this.SpfxOptions['component-type'] = options['component-type'];
+        if (this.options['component-type'] !== undefined) {
+            this.options.SpfxOptions['component-type'] = this.options['component-type'];
         }
 
-        if (options['component-type']) {
-            this.SpfxOptions['component-type'] = options['component-type'];
+        if (this.options['component-type'] !== undefined) {
+            this.options.SpfxOptions['component-type'] = this.options['component-type'];
         }
 
-        if (options['component-description']) {
-            this.SpfxOptions['component-description'] = options['component-description'];
+        if (this.options['component-description'] !== undefined) {
+            this.options.SpfxOptions['component-description'] = this.options['component-description'];
         }
 
-        if (options['component-name']) {
-            this.SpfxOptions['component-name'] = options['component-name'];
+        if (this.options['component-name'] !== undefined) {
+            this.options.SpfxOptions['component-name'] = this.options['component-name'];
         }
 
-        if (options['solution-name']) {
-            this.SpfxOptions['solution-name'] = options['solution-name'];
+        if (this.options['solution-name'] !== undefined) {
+            this.options.SpfxOptions['solution-name'] = this.options['solution-name'];
         }
 
-        if (options['environment']) {
-            this.SpfxOptions['environment'] = options['environment'];
+        if (this.options['environment'] !== undefined) {
+            this.options.SpfxOptions['environment'] = this.options['environment'];
         }
 
     }

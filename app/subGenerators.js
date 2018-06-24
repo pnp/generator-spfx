@@ -3,9 +3,10 @@ module.exports = {
     'main': require.resolve('../generators/main'),
     // Add additional addons
     'addons': require.resolve('../generators/addons'),
-    // SPFx
-    'spfx': require.resolve('@microsoft/generator-sharepoint/lib/generators/app'),
     // Handlebars
     'handlebars': require.resolve('../generators/handlebars'),
+    // SPFx
+    'spfx': require.resolve('@microsoft/generator-sharepoint/lib/generators/app'),
+    
 
 }

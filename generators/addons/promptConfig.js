@@ -2,8 +2,7 @@ const chalk = require('chalk');
 
 const jqueryOptions = [{
         'name': '3.x.x (recommended)',
-        'value': 3,
-        default: true
+        'value': 3
     },
     {
         'name': '2.x.x',
