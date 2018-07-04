@@ -12,7 +12,7 @@
         "yeoman-generator"
     ],
     "scripts": {
-        "test": "mocha --reporter spec --timeout 3000"
+        "spotest": "mocha './test/**/*.js' --reporter spec --timeout 5000 --recursive"
     },
     "maintainers": [
         {
@@ -21,9 +21,9 @@
         }
     ],
     "dependencies": {
-        "@microsoft/generator-sharepoint": "^1.5.0",
+        "@microsoft/generator-sharepoint": "^1.5.1",
         "chalk": "^2.4.1",
-        "command-exists": "^1.2.6",
+        "command-exists": "^1.2.7",
         "yeoman-generator": "^2.0.5"
     },
     "devDependencies": {

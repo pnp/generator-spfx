@@ -1,0 +1,400 @@
+/* eslint-env jest, mocha */
+'use strict';
+
+const path = require('path');
+const rimraf = require('rimraf');
+
+const assert = require('yeoman-assert');
+const helpers2 = require('yeoman-test');
+const fs = require('fs');
+
+const tempPath = path.join(__dirname, 'tmp');
+
+let spfxGenerators = require('./settings/spfxgenerators');
+
+
+// rimraf.sync(tempPath);
+
+describe('SPFx Yeoman No Framework Tests ', function () {
+
+    console.log('Test file name: no-framework-noenv.test');
+    let webPartConfig = {
+        componentType: 'webpart',
+        componentDescription: 'HelloWorld',
+        componentName: 'helloworld',
+        solutionName: 'HelloWorld',
+        // environement: 'spo',
+        framework: 'none'
+    }
+
+    // remove afterwards
+    let localTemp = path.join(tempPath, ''),
+        packageFile = path.join(localTemp, 'package.json'),
+        yorcFile = path.join(localTemp, '.yo-rc.json');
+
+    describe('WebPart: no environment + jQuery@2', function () {
+
+        let testConfig = {
+            framework: 'noframework',
+            jsLibrary: ['jquery'],
+            jQueryVersion: 2
+        };
+
+        before(function (done) {
+
+            helpers2.setUpTestDirectory(localTemp);
+
+            helpers2.run(path.join(__dirname, '../app'))
+                .inDir(localTemp)
+                .withGenerators(
+                    spfxGenerators
+                )
+                .withOptions(webPartConfig) // Mock options passed in
+                .withLocalConfig({})
+                .withPrompts(testConfig)
+                .on('error', (err) => {
+                    console.log('ERROR', err);
+                })
+                .on('end', done);
+
+        });
+
+        describe('', function () {
+
+            it("No Environment === SPO", function () {
+                assert.fileContent(yorcFile, /\"environment\": \"spo\",/);
+            })
+
+            it("Is Web Part", function () {
+                assert.fileContent(yorcFile, /\"componentType\": \"webpart\"/);
+            })
+
+            it('package.json exists', function () {
+
+                assert.file(packageFile);
+
+            })
+
+            it('no react', function () {
+
+                assert.noFileContent(packageFile, /react|react-dom/);
+
+            })
+
+            it('no knockout', function () {
+
+                assert.noFileContent(packageFile, /knockout/);
+
+            })
+
+            it('no pnpjs', function () {
+
+                assert.noFileContent(packageFile, /\"@pnp\/pnpjs\"/);
+
+            })
+
+            it('jquery 2.x', function () {
+
+                assert.fileContent(packageFile, /\"jquery\": \"\^2\./);
+
+            })
+
+        });
+
+    });
+
+    describe('WebPart: no environment + jQuery@3', function () {
+
+        const helpers = require('yeoman-test');
+
+        let testConfig = {
+            framework: 'noframework',
+            jsLibrary: ['jquery'],
+            jQueryVersion: 3
+        };
+
+        before(function (done) {
+
+            helpers.setUpTestDirectory(localTemp);
+
+            helpers.run(path.join(__dirname, '../app'))
+                .inDir(localTemp)
+                .withGenerators(
+                    spfxGenerators
+                )
+                .withOptions(webPartConfig) // Mock options passed in
+                .withLocalConfig({})
+                .withPrompts(testConfig)
+                .on('error', (err) => {
+                    console.log('ERROR', err);
+                })
+                .on('end', done);
+
+        });
+
+        describe('', function () {
+
+            it("No Environment === SPO", function () {
+
+                assert.fileContent(yorcFile, /\"environment\": \"spo\",/);
+
+            })
+
+            it("Is Web Part", function () {
+                assert.fileContent(yorcFile, /\"componentType\": \"webpart\"/);
+
+            })
+
+            it('package.json exists', function () {
+
+                assert.file(packageFile);
+
+            })
+
+            it('no react', function () {
+
+                assert.noFileContent(packageFile, /react|react-dom/);
+
+            })
+
+            it('no knockout', function () {
+
+                assert.noFileContent(packageFile, /knockout/);
+
+            })
+
+            it('no pnpjs', function () {
+
+                assert.noFileContent(packageFile, /\"@pnp\/pnpjs\"/);
+
+            })
+
+            it('jquery 3.x', function () {
+
+                assert.fileContent(packageFile, /\"jquery\": \"\^3\./);
+
+            })
+
+
+        })
+
+    });
+
+    describe('WebPart: no environment + jQuery@2 + pnpjs', function () {
+
+        const helpers = require('yeoman-test');
+
+        let testConfig = {
+            framework: 'noframework',
+            jsLibrary: ['jquery', 'pnpjs'],
+            jQueryVersion: 2
+        };
+
+        before(function (done) {
+
+
+            helpers.setUpTestDirectory(localTemp);
+
+            helpers.run(path.join(__dirname, '../app'))
+                .inDir(localTemp)
+                .withGenerators(
+                    spfxGenerators
+                )
+                .withOptions(webPartConfig) // Mock options passed in
+                .withPrompts(testConfig)
+                .withLocalConfig({})
+                .on('error', (err) => {
+                    console.log('ERROR', err);
+                })
+                .on('end', done)
+
+        });
+
+        describe('', function () {
+            it("No Environment === SPO", function () {
+                assert.fileContent(yorcFile, /\"environment\": \"spo\",/);
+            })
+
+            it("Is Web Part", function () {
+                assert.fileContent(yorcFile, /\"componentType\": \"webpart\"/);
+            })
+
+            it('package.json exists', function () {
+
+                assert.file(packageFile);
+
+            })
+
+            it('no react', function () {
+
+                assert.noFileContent(packageFile, /react|react-dom/);
+            })
+
+            it('no knockout', function () {
+
+                assert.noFileContent(packageFile, /knockout/);
+
+            })
+
+            it('pnpjs', function () {
+
+                assert.fileContent(packageFile, /\"@pnp\/pnpjs\"/);
+
+            })
+
+            it('jquery 2.x', function () {
+
+                assert.fileContent(packageFile, /\"jquery\": \"\^2\./);
+
+
+            })
+
+        });
+
+    });
+
+
+    describe('WebPart: no environment + jQuery@3 + pnpjs', function () {
+
+        const helpers = require('yeoman-test');
+
+        let testConfig = {
+            framework: 'noframework',
+            jsLibrary: ['jquery', 'pnpjs'],
+            jQueryVersion: 3
+        };
+
+        before(function (done) {
+
+            helpers.setUpTestDirectory(localTemp);
+
+            helpers.run(path.join(__dirname, '../app'))
+                .inDir(localTemp)
+                .withGenerators(
+                    spfxGenerators
+                )
+                .withOptions(webPartConfig) // Mock options passed in
+                .withLocalConfig({})
+                .withPrompts(testConfig)
+                .on('error', (err) => {
+                    console.log('ERROR', err);
+                })
+                .on('end', done);
+
+        });
+        describe('', function () {
+            it("No Environment === SPO", function () {
+                assert.fileContent(yorcFile, /\"environment\": \"spo\",/);
+            })
+
+            it("Is Web Part", function () {
+                assert.fileContent(yorcFile, /\"componentType\": \"webpart\"/)
+            })
+
+            it('package.json exists', function () {
+
+                assert.file(packageFile);
+
+            })
+
+            it('no react', function () {
+
+                assert.noFileContent(packageFile, /react|react-dom/);
+
+            })
+
+            it('no knockout', function () {
+
+                assert.noFileContent(packageFile, /knockout/);
+
+            })
+
+            it('pnpjs', function () {
+
+                assert.fileContent(packageFile, /\"@pnp\/pnpjs\"/);
+
+            })
+
+            it('jquery 3.x', function () {
+
+                assert.fileContent(packageFile, /\"jquery\": \"\^3\./);
+
+            })
+
+        })
+
+    });
+
+    describe('WebPart: no environment + pnpjs', function () {
+
+        const helpers = require('yeoman-test');
+
+        let testConfig = {
+            framework: 'noframework',
+            jsLibrary: ['pnpjs']
+        };
+
+        before(function (done) {
+
+            helpers.setUpTestDirectory(localTemp);
+
+            helpers.run(path.join(__dirname, '../app'))
+                .inDir(localTemp)
+                .withGenerators(
+                    spfxGenerators
+                )
+                .withOptions(webPartConfig) // Mock options passed in
+                .withLocalConfig({})
+                .withPrompts(testConfig)
+                .on('error', (err) => {
+                    console.log('ERROR', err);
+                })
+                .on('end', done);
+
+        });
+
+        describe('', function () {
+
+            it("No Environment === SPO", function () {
+                assert.fileContent(yorcFile, /\"environment\": \"spo\",/);
+            })
+
+            it("Is Web Part", function () {
+                assert.fileContent(yorcFile, /\"componentType\"\: \"webpart\"/);
+            })
+
+            it('package.json exists', function () {
+
+                assert.file(packageFile);
+
+            })
+
+            it('no react', function () {
+
+                assert.noFileContent(packageFile, /react|react-dom/);
+
+            })
+
+            it('no knockout', function () {
+
+                assert.noFileContent(packageFile, /knockout/);
+
+            })
+
+            it('pnpjs', function () {
+
+                assert.fileContent(packageFile, /\"@pnp\/pnpjs\"/);
+
+            })
+
+            it('no jquery', function () {
+
+                assert.noFileContent(packageFile, /\"jquery\": \"\^3\./);
+
+            })
+
+        })
+
+    });
+
+})

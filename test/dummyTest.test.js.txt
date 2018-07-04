@@ -1,0 +1,1440 @@
+/* eslint-env jest, mocha */
+'use strict';
+
+const path = require('path');
+const rimraf = require('rimraf');
+
+const assert = require('yeoman-assert');
+const helpers = require('yeoman-test');
+const fs = require('fs');
+
+const tempPath = path.join(__dirname, 'tmp');
+
+let spfxGenerators = require('./settings/spfxgenerators');
+
+// rimraf.sync(tempPath);
+
+describe('SPFx Yeoman No Framework Tests ', () => {
+
+
+    console.log('Test file name: no-framework-onprem.test');
+    let webPartConfig = {
+        componentType: 'webpart',
+        componentDescription: 'HelloWorld',
+        componentName: 'helloworld',
+        solutionName: 'HelloWorld',
+        environment: 'onprem',
+        framework: 'none'
+    }
+
+    // remove afterwards
+    let localTemp = path.join(tempPath, ''),
+        packageFile = path.join(localTemp, 'package.json'),
+        yorcFile = path.join(localTemp, '.yo-rc.json');
+
+    describe('WebPart: On Premises + jQuery@2', () => {
+
+        let localTemp = path.join(tempPath, '');
+
+        let testConfig = {
+            framework: 'noframework',
+            jsLibrary: ['jquery'],
+            jQueryVersion: 2,
+            force: true
+        };
+
+        before(() => {
+
+            return new Promise(function (resolve, reject) {
+                helpers.setUpTestDirectory(localTemp);
+
+                helpers.run(path.join(__dirname, '../app'))
+                    .inDir(localTemp)
+                    .withGenerators(
+                        spfxGenerators
+                    )
+                    .withOptions(webPartConfig) // Mock options passed in
+                    .withLocalConfig({})
+                    .withPrompts(testConfig)
+                    .on('error', (err) => {
+                        console.log('ERROR', err);
+                        rejct();
+                    })
+                    .on('end', ()=>{
+                        resolve();
+                    });
+            });
+
+        });
+
+        describe('', () => {
+
+            it("Environment: SPO", () => {
+                assert.fileContent(yorcFile, /\"environment\": \"onprem\",/);
+            })
+
+            it("Is Web Part", () => {
+                assert.fileContent(yorcFile, /\"componentType\": \"webpart\"/);
+            })
+
+            it('package.json exists', () => {
+
+                assert.file(packageFile);
+
+            })
+
+            it('no react', () => {
+
+                assert.noFileContent(packageFile, /react|react-dom/);
+
+            })
+
+            it('no knockout', () => {
+
+                assert.noFileContent(packageFile, /knockout/);
+
+            })
+
+            it('no pnpjs', () => {
+
+                assert.noFileContent(packageFile, /\"@pnp\/pnpjs\"/);
+
+            })
+
+            it('jquery 2.x', () => {
+
+                assert.fileContent(packageFile, /\"jquery\": \"\^2\./);
+
+            })
+
+        });
+
+    });
+    describe('WebPart: On Premises + jQuery@2', () => {
+
+        let localTemp = path.join(tempPath, '');
+
+        let testConfig = {
+            framework: 'noframework',
+            jsLibrary: ['jquery'],
+            jQueryVersion: 2,
+            force: true
+        };
+
+        before(() => {
+
+            return new Promise(function (resolve, reject) {
+                helpers.setUpTestDirectory(localTemp);
+
+                helpers.run(path.join(__dirname, '../app'))
+                    .inDir(localTemp)
+                    .withGenerators(
+                        spfxGenerators
+                    )
+                    .withOptions(webPartConfig) // Mock options passed in
+                    .withLocalConfig({})
+                    .withPrompts(testConfig)
+                    .on('error', (err) => {
+                        console.log('ERROR', err);
+                        rejct();
+                    })
+                    .on('end', ()=>{
+                        resolve();
+                    });
+            });
+
+        });
+
+        describe('', () => {
+
+            it("Environment: SPO", () => {
+                assert.fileContent(yorcFile, /\"environment\": \"onprem\",/);
+            })
+
+            it("Is Web Part", () => {
+                assert.fileContent(yorcFile, /\"componentType\": \"webpart\"/);
+            })
+
+            it('package.json exists', () => {
+
+                assert.file(packageFile);
+
+            })
+
+            it('no react', () => {
+
+                assert.noFileContent(packageFile, /react|react-dom/);
+
+            })
+
+            it('no knockout', () => {
+
+                assert.noFileContent(packageFile, /knockout/);
+
+            })
+
+            it('no pnpjs', () => {
+
+                assert.noFileContent(packageFile, /\"@pnp\/pnpjs\"/);
+
+            })
+
+            it('jquery 2.x', () => {
+
+                assert.fileContent(packageFile, /\"jquery\": \"\^2\./);
+
+            })
+
+        });
+
+    });
+    describe('WebPart: On Premises + jQuery@2', () => {
+
+        let localTemp = path.join(tempPath, '');
+
+        let testConfig = {
+            framework: 'noframework',
+            jsLibrary: ['jquery'],
+            jQueryVersion: 2,
+            force: true
+        };
+
+        before(() => {
+
+            return new Promise(function (resolve, reject) {
+                helpers.setUpTestDirectory(localTemp);
+
+                helpers.run(path.join(__dirname, '../app'))
+                    .inDir(localTemp)
+                    .withGenerators(
+                        spfxGenerators
+                    )
+                    .withOptions(webPartConfig) // Mock options passed in
+                    .withLocalConfig({})
+                    .withPrompts(testConfig)
+                    .on('error', (err) => {
+                        console.log('ERROR', err);
+                        rejct();
+                    })
+                    .on('end', ()=>{
+                        resolve();
+                    });
+            });
+
+        });
+
+        describe('', () => {
+
+            it("Environment: SPO", () => {
+                assert.fileContent(yorcFile, /\"environment\": \"onprem\",/);
+            })
+
+            it("Is Web Part", () => {
+                assert.fileContent(yorcFile, /\"componentType\": \"webpart\"/);
+            })
+
+            it('package.json exists', () => {
+
+                assert.file(packageFile);
+
+            })
+
+            it('no react', () => {
+
+                assert.noFileContent(packageFile, /react|react-dom/);
+
+            })
+
+            it('no knockout', () => {
+
+                assert.noFileContent(packageFile, /knockout/);
+
+            })
+
+            it('no pnpjs', () => {
+
+                assert.noFileContent(packageFile, /\"@pnp\/pnpjs\"/);
+
+            })
+
+            it('jquery 2.x', () => {
+
+                assert.fileContent(packageFile, /\"jquery\": \"\^2\./);
+
+            })
+
+        });
+
+    });
+    describe('WebPart: On Premises + jQuery@2', () => {
+
+        let localTemp = path.join(tempPath, '');
+
+        let testConfig = {
+            framework: 'noframework',
+            jsLibrary: ['jquery'],
+            jQueryVersion: 2,
+            force: true
+        };
+
+        before(() => {
+
+            return new Promise(function (resolve, reject) {
+                helpers.setUpTestDirectory(localTemp);
+
+                helpers.run(path.join(__dirname, '../app'))
+                    .inDir(localTemp)
+                    .withGenerators(
+                        spfxGenerators
+                    )
+                    .withOptions(webPartConfig) // Mock options passed in
+                    .withLocalConfig({})
+                    .withPrompts(testConfig)
+                    .on('error', (err) => {
+                        console.log('ERROR', err);
+                        rejct();
+                    })
+                    .on('end', ()=>{
+                        resolve();
+                    });
+            });
+
+        });
+
+        describe('', () => {
+
+            it("Environment: SPO", () => {
+                assert.fileContent(yorcFile, /\"environment\": \"onprem\",/);
+            })
+
+            it("Is Web Part", () => {
+                assert.fileContent(yorcFile, /\"componentType\": \"webpart\"/);
+            })
+
+            it('package.json exists', () => {
+
+                assert.file(packageFile);
+
+            })
+
+            it('no react', () => {
+
+                assert.noFileContent(packageFile, /react|react-dom/);
+
+            })
+
+            it('no knockout', () => {
+
+                assert.noFileContent(packageFile, /knockout/);
+
+            })
+
+            it('no pnpjs', () => {
+
+                assert.noFileContent(packageFile, /\"@pnp\/pnpjs\"/);
+
+            })
+
+            it('jquery 2.x', () => {
+
+                assert.fileContent(packageFile, /\"jquery\": \"\^2\./);
+
+            })
+
+        });
+
+    });
+    describe('WebPart: On Premises + jQuery@2', () => {
+
+        let localTemp = path.join(tempPath, '');
+
+        let testConfig = {
+            framework: 'noframework',
+            jsLibrary: ['jquery'],
+            jQueryVersion: 2,
+            force: true
+        };
+
+        before(() => {
+
+            return new Promise(function (resolve, reject) {
+                helpers.setUpTestDirectory(localTemp);
+
+                helpers.run(path.join(__dirname, '../app'))
+                    .inDir(localTemp)
+                    .withGenerators(
+                        spfxGenerators
+                    )
+                    .withOptions(webPartConfig) // Mock options passed in
+                    .withLocalConfig({})
+                    .withPrompts(testConfig)
+                    .on('error', (err) => {
+                        console.log('ERROR', err);
+                        rejct();
+                    })
+                    .on('end', ()=>{
+                        resolve();
+                    });
+            });
+
+        });
+
+        describe('', () => {
+
+            it("Environment: SPO", () => {
+                assert.fileContent(yorcFile, /\"environment\": \"onprem\",/);
+            })
+
+            it("Is Web Part", () => {
+                assert.fileContent(yorcFile, /\"componentType\": \"webpart\"/);
+            })
+
+            it('package.json exists', () => {
+
+                assert.file(packageFile);
+
+            })
+
+            it('no react', () => {
+
+                assert.noFileContent(packageFile, /react|react-dom/);
+
+            })
+
+            it('no knockout', () => {
+
+                assert.noFileContent(packageFile, /knockout/);
+
+            })
+
+            it('no pnpjs', () => {
+
+                assert.noFileContent(packageFile, /\"@pnp\/pnpjs\"/);
+
+            })
+
+            it('jquery 2.x', () => {
+
+                assert.fileContent(packageFile, /\"jquery\": \"\^2\./);
+
+            })
+
+        });
+
+    });
+    describe('WebPart: On Premises + jQuery@2', () => {
+
+        let localTemp = path.join(tempPath, '');
+
+        let testConfig = {
+            framework: 'noframework',
+            jsLibrary: ['jquery'],
+            jQueryVersion: 2,
+            force: true
+        };
+
+        before(() => {
+
+            return new Promise(function (resolve, reject) {
+                helpers.setUpTestDirectory(localTemp);
+
+                helpers.run(path.join(__dirname, '../app'))
+                    .inDir(localTemp)
+                    .withGenerators(
+                        spfxGenerators
+                    )
+                    .withOptions(webPartConfig) // Mock options passed in
+                    .withLocalConfig({})
+                    .withPrompts(testConfig)
+                    .on('error', (err) => {
+                        console.log('ERROR', err);
+                        rejct();
+                    })
+                    .on('end', ()=>{
+                        resolve();
+                    });
+            });
+
+        });
+
+        describe('', () => {
+
+            it("Environment: SPO", () => {
+                assert.fileContent(yorcFile, /\"environment\": \"onprem\",/);
+            })
+
+            it("Is Web Part", () => {
+                assert.fileContent(yorcFile, /\"componentType\": \"webpart\"/);
+            })
+
+            it('package.json exists', () => {
+
+                assert.file(packageFile);
+
+            })
+
+            it('no react', () => {
+
+                assert.noFileContent(packageFile, /react|react-dom/);
+
+            })
+
+            it('no knockout', () => {
+
+                assert.noFileContent(packageFile, /knockout/);
+
+            })
+
+            it('no pnpjs', () => {
+
+                assert.noFileContent(packageFile, /\"@pnp\/pnpjs\"/);
+
+            })
+
+            it('jquery 2.x', () => {
+
+                assert.fileContent(packageFile, /\"jquery\": \"\^2\./);
+
+            })
+
+        });
+
+    });
+    describe('WebPart: On Premises + jQuery@2', () => {
+
+        let localTemp = path.join(tempPath, '');
+
+        let testConfig = {
+            framework: 'noframework',
+            jsLibrary: ['jquery'],
+            jQueryVersion: 2,
+            force: true
+        };
+
+        before(() => {
+
+            return new Promise(function (resolve, reject) {
+                helpers.setUpTestDirectory(localTemp);
+
+                helpers.run(path.join(__dirname, '../app'))
+                    .inDir(localTemp)
+                    .withGenerators(
+                        spfxGenerators
+                    )
+                    .withOptions(webPartConfig) // Mock options passed in
+                    .withLocalConfig({})
+                    .withPrompts(testConfig)
+                    .on('error', (err) => {
+                        console.log('ERROR', err);
+                        rejct();
+                    })
+                    .on('end', ()=>{
+                        resolve();
+                    });
+            });
+
+        });
+
+        describe('', () => {
+
+            it("Environment: SPO", () => {
+                assert.fileContent(yorcFile, /\"environment\": \"onprem\",/);
+            })
+
+            it("Is Web Part", () => {
+                assert.fileContent(yorcFile, /\"componentType\": \"webpart\"/);
+            })
+
+            it('package.json exists', () => {
+
+                assert.file(packageFile);
+
+            })
+
+            it('no react', () => {
+
+                assert.noFileContent(packageFile, /react|react-dom/);
+
+            })
+
+            it('no knockout', () => {
+
+                assert.noFileContent(packageFile, /knockout/);
+
+            })
+
+            it('no pnpjs', () => {
+
+                assert.noFileContent(packageFile, /\"@pnp\/pnpjs\"/);
+
+            })
+
+            it('jquery 2.x', () => {
+
+                assert.fileContent(packageFile, /\"jquery\": \"\^2\./);
+
+            })
+
+        });
+
+    });
+    describe('WebPart: On Premises + jQuery@2', () => {
+
+        let localTemp = path.join(tempPath, '');
+
+        let testConfig = {
+            framework: 'noframework',
+            jsLibrary: ['jquery'],
+            jQueryVersion: 2,
+            force: true
+        };
+
+        before(() => {
+
+            return new Promise(function (resolve, reject) {
+                helpers.setUpTestDirectory(localTemp);
+
+                helpers.run(path.join(__dirname, '../app'))
+                    .inDir(localTemp)
+                    .withGenerators(
+                        spfxGenerators
+                    )
+                    .withOptions(webPartConfig) // Mock options passed in
+                    .withLocalConfig({})
+                    .withPrompts(testConfig)
+                    .on('error', (err) => {
+                        console.log('ERROR', err);
+                        rejct();
+                    })
+                    .on('end', ()=>{
+                        resolve();
+                    });
+            });
+
+        });
+
+        describe('', () => {
+
+            it("Environment: SPO", () => {
+                assert.fileContent(yorcFile, /\"environment\": \"onprem\",/);
+            })
+
+            it("Is Web Part", () => {
+                assert.fileContent(yorcFile, /\"componentType\": \"webpart\"/);
+            })
+
+            it('package.json exists', () => {
+
+                assert.file(packageFile);
+
+            })
+
+            it('no react', () => {
+
+                assert.noFileContent(packageFile, /react|react-dom/);
+
+            })
+
+            it('no knockout', () => {
+
+                assert.noFileContent(packageFile, /knockout/);
+
+            })
+
+            it('no pnpjs', () => {
+
+                assert.noFileContent(packageFile, /\"@pnp\/pnpjs\"/);
+
+            })
+
+            it('jquery 2.x', () => {
+
+                assert.fileContent(packageFile, /\"jquery\": \"\^2\./);
+
+            })
+
+        });
+
+    });
+    describe('WebPart: On Premises + jQuery@2', () => {
+
+        let localTemp = path.join(tempPath, '');
+
+        let testConfig = {
+            framework: 'noframework',
+            jsLibrary: ['jquery'],
+            jQueryVersion: 2,
+            force: true
+        };
+
+        before(() => {
+
+            return new Promise(function (resolve, reject) {
+                helpers.setUpTestDirectory(localTemp);
+
+                helpers.run(path.join(__dirname, '../app'))
+                    .inDir(localTemp)
+                    .withGenerators(
+                        spfxGenerators
+                    )
+                    .withOptions(webPartConfig) // Mock options passed in
+                    .withLocalConfig({})
+                    .withPrompts(testConfig)
+                    .on('error', (err) => {
+                        console.log('ERROR', err);
+                        rejct();
+                    })
+                    .on('end', ()=>{
+                        resolve();
+                    });
+            });
+
+        });
+
+        describe('', () => {
+
+            it("Environment: SPO", () => {
+                assert.fileContent(yorcFile, /\"environment\": \"onprem\",/);
+            })
+
+            it("Is Web Part", () => {
+                assert.fileContent(yorcFile, /\"componentType\": \"webpart\"/);
+            })
+
+            it('package.json exists', () => {
+
+                assert.file(packageFile);
+
+            })
+
+            it('no react', () => {
+
+                assert.noFileContent(packageFile, /react|react-dom/);
+
+            })
+
+            it('no knockout', () => {
+
+                assert.noFileContent(packageFile, /knockout/);
+
+            })
+
+            it('no pnpjs', () => {
+
+                assert.noFileContent(packageFile, /\"@pnp\/pnpjs\"/);
+
+            })
+
+            it('jquery 2.x', () => {
+
+                assert.fileContent(packageFile, /\"jquery\": \"\^2\./);
+
+            })
+
+        });
+
+    });
+    describe('WebPart: On Premises + jQuery@2', () => {
+
+        let localTemp = path.join(tempPath, '');
+
+        let testConfig = {
+            framework: 'noframework',
+            jsLibrary: ['jquery'],
+            jQueryVersion: 2,
+            force: true
+        };
+
+        before(() => {
+
+            return new Promise(function (resolve, reject) {
+                helpers.setUpTestDirectory(localTemp);
+
+                helpers.run(path.join(__dirname, '../app'))
+                    .inDir(localTemp)
+                    .withGenerators(
+                        spfxGenerators
+                    )
+                    .withOptions(webPartConfig) // Mock options passed in
+                    .withLocalConfig({})
+                    .withPrompts(testConfig)
+                    .on('error', (err) => {
+                        console.log('ERROR', err);
+                        rejct();
+                    })
+                    .on('end', ()=>{
+                        resolve();
+                    });
+            });
+
+        });
+
+        describe('', () => {
+
+            it("Environment: SPO", () => {
+                assert.fileContent(yorcFile, /\"environment\": \"onprem\",/);
+            })
+
+            it("Is Web Part", () => {
+                assert.fileContent(yorcFile, /\"componentType\": \"webpart\"/);
+            })
+
+            it('package.json exists', () => {
+
+                assert.file(packageFile);
+
+            })
+
+            it('no react', () => {
+
+                assert.noFileContent(packageFile, /react|react-dom/);
+
+            })
+
+            it('no knockout', () => {
+
+                assert.noFileContent(packageFile, /knockout/);
+
+            })
+
+            it('no pnpjs', () => {
+
+                assert.noFileContent(packageFile, /\"@pnp\/pnpjs\"/);
+
+            })
+
+            it('jquery 2.x', () => {
+
+                assert.fileContent(packageFile, /\"jquery\": \"\^2\./);
+
+            })
+
+        });
+
+    });
+    describe('WebPart: On Premises + jQuery@2', () => {
+
+        let localTemp = path.join(tempPath, '');
+
+        let testConfig = {
+            framework: 'noframework',
+            jsLibrary: ['jquery'],
+            jQueryVersion: 2,
+            force: true
+        };
+
+        before(() => {
+
+            return new Promise(function (resolve, reject) {
+                helpers.setUpTestDirectory(localTemp);
+
+                helpers.run(path.join(__dirname, '../app'))
+                    .inDir(localTemp)
+                    .withGenerators(
+                        spfxGenerators
+                    )
+                    .withOptions(webPartConfig) // Mock options passed in
+                    .withLocalConfig({})
+                    .withPrompts(testConfig)
+                    .on('error', (err) => {
+                        console.log('ERROR', err);
+                        rejct();
+                    })
+                    .on('end', ()=>{
+                        resolve();
+                    });
+            });
+
+        });
+
+        describe('', () => {
+
+            it("Environment: SPO", () => {
+                assert.fileContent(yorcFile, /\"environment\": \"onprem\",/);
+            })
+
+            it("Is Web Part", () => {
+                assert.fileContent(yorcFile, /\"componentType\": \"webpart\"/);
+            })
+
+            it('package.json exists', () => {
+
+                assert.file(packageFile);
+
+            })
+
+            it('no react', () => {
+
+                assert.noFileContent(packageFile, /react|react-dom/);
+
+            })
+
+            it('no knockout', () => {
+
+                assert.noFileContent(packageFile, /knockout/);
+
+            })
+
+            it('no pnpjs', () => {
+
+                assert.noFileContent(packageFile, /\"@pnp\/pnpjs\"/);
+
+            })
+
+            it('jquery 2.x', () => {
+
+                assert.fileContent(packageFile, /\"jquery\": \"\^2\./);
+
+            })
+
+        });
+
+    });
+    describe('WebPart: On Premises + jQuery@2', () => {
+
+        let localTemp = path.join(tempPath, '');
+
+        let testConfig = {
+            framework: 'noframework',
+            jsLibrary: ['jquery'],
+            jQueryVersion: 2,
+            force: true
+        };
+
+        before(() => {
+
+            return new Promise(function (resolve, reject) {
+                helpers.setUpTestDirectory(localTemp);
+
+                helpers.run(path.join(__dirname, '../app'))
+                    .inDir(localTemp)
+                    .withGenerators(
+                        spfxGenerators
+                    )
+                    .withOptions(webPartConfig) // Mock options passed in
+                    .withLocalConfig({})
+                    .withPrompts(testConfig)
+                    .on('error', (err) => {
+                        console.log('ERROR', err);
+                        rejct();
+                    })
+                    .on('end', ()=>{
+                        resolve();
+                    });
+            });
+
+        });
+
+        describe('', () => {
+
+            it("Environment: SPO", () => {
+                assert.fileContent(yorcFile, /\"environment\": \"onprem\",/);
+            })
+
+            it("Is Web Part", () => {
+                assert.fileContent(yorcFile, /\"componentType\": \"webpart\"/);
+            })
+
+            it('package.json exists', () => {
+
+                assert.file(packageFile);
+
+            })
+
+            it('no react', () => {
+
+                assert.noFileContent(packageFile, /react|react-dom/);
+
+            })
+
+            it('no knockout', () => {
+
+                assert.noFileContent(packageFile, /knockout/);
+
+            })
+
+            it('no pnpjs', () => {
+
+                assert.noFileContent(packageFile, /\"@pnp\/pnpjs\"/);
+
+            })
+
+            it('jquery 2.x', () => {
+
+                assert.fileContent(packageFile, /\"jquery\": \"\^2\./);
+
+            })
+
+        });
+
+    });
+    describe('WebPart: On Premises + jQuery@2', () => {
+
+        let localTemp = path.join(tempPath, '');
+
+        let testConfig = {
+            framework: 'noframework',
+            jsLibrary: ['jquery'],
+            jQueryVersion: 2,
+            force: true
+        };
+
+        before(() => {
+
+            return new Promise(function (resolve, reject) {
+                helpers.setUpTestDirectory(localTemp);
+
+                helpers.run(path.join(__dirname, '../app'))
+                    .inDir(localTemp)
+                    .withGenerators(
+                        spfxGenerators
+                    )
+                    .withOptions(webPartConfig) // Mock options passed in
+                    .withLocalConfig({})
+                    .withPrompts(testConfig)
+                    .on('error', (err) => {
+                        console.log('ERROR', err);
+                        rejct();
+                    })
+                    .on('end', ()=>{
+                        resolve();
+                    });
+            });
+
+        });
+
+        describe('', () => {
+
+            it("Environment: SPO", () => {
+                assert.fileContent(yorcFile, /\"environment\": \"onprem\",/);
+            })
+
+            it("Is Web Part", () => {
+                assert.fileContent(yorcFile, /\"componentType\": \"webpart\"/);
+            })
+
+            it('package.json exists', () => {
+
+                assert.file(packageFile);
+
+            })
+
+            it('no react', () => {
+
+                assert.noFileContent(packageFile, /react|react-dom/);
+
+            })
+
+            it('no knockout', () => {
+
+                assert.noFileContent(packageFile, /knockout/);
+
+            })
+
+            it('no pnpjs', () => {
+
+                assert.noFileContent(packageFile, /\"@pnp\/pnpjs\"/);
+
+            })
+
+            it('jquery 2.x', () => {
+
+                assert.fileContent(packageFile, /\"jquery\": \"\^2\./);
+
+            })
+
+        });
+
+    });
+    describe('WebPart: On Premises + jQuery@2', () => {
+
+        let localTemp = path.join(tempPath, '');
+
+        let testConfig = {
+            framework: 'noframework',
+            jsLibrary: ['jquery'],
+            jQueryVersion: 2,
+            force: true
+        };
+
+        before(() => {
+
+            return new Promise(function (resolve, reject) {
+                helpers.setUpTestDirectory(localTemp);
+
+                helpers.run(path.join(__dirname, '../app'))
+                    .inDir(localTemp)
+                    .withGenerators(
+                        spfxGenerators
+                    )
+                    .withOptions(webPartConfig) // Mock options passed in
+                    .withLocalConfig({})
+                    .withPrompts(testConfig)
+                    .on('error', (err) => {
+                        console.log('ERROR', err);
+                        rejct();
+                    })
+                    .on('end', ()=>{
+                        resolve();
+                    });
+            });
+
+        });
+
+        describe('', () => {
+
+            it("Environment: SPO", () => {
+                assert.fileContent(yorcFile, /\"environment\": \"onprem\",/);
+            })
+
+            it("Is Web Part", () => {
+                assert.fileContent(yorcFile, /\"componentType\": \"webpart\"/);
+            })
+
+            it('package.json exists', () => {
+
+                assert.file(packageFile);
+
+            })
+
+            it('no react', () => {
+
+                assert.noFileContent(packageFile, /react|react-dom/);
+
+            })
+
+            it('no knockout', () => {
+
+                assert.noFileContent(packageFile, /knockout/);
+
+            })
+
+            it('no pnpjs', () => {
+
+                assert.noFileContent(packageFile, /\"@pnp\/pnpjs\"/);
+
+            })
+
+            it('jquery 2.x', () => {
+
+                assert.fileContent(packageFile, /\"jquery\": \"\^2\./);
+
+            })
+
+        });
+
+    });
+    describe('WebPart: On Premises + jQuery@2', () => {
+
+        let localTemp = path.join(tempPath, '');
+
+        let testConfig = {
+            framework: 'noframework',
+            jsLibrary: ['jquery'],
+            jQueryVersion: 2,
+            force: true
+        };
+
+        before(() => {
+
+            return new Promise(function (resolve, reject) {
+                helpers.setUpTestDirectory(localTemp);
+
+                helpers.run(path.join(__dirname, '../app'))
+                    .inDir(localTemp)
+                    .withGenerators(
+                        spfxGenerators
+                    )
+                    .withOptions(webPartConfig) // Mock options passed in
+                    .withLocalConfig({})
+                    .withPrompts(testConfig)
+                    .on('error', (err) => {
+                        console.log('ERROR', err);
+                        rejct();
+                    })
+                    .on('end', ()=>{
+                        resolve();
+                    });
+            });
+
+        });
+
+        describe('', () => {
+
+            it("Environment: SPO", () => {
+                assert.fileContent(yorcFile, /\"environment\": \"onprem\",/);
+            })
+
+            it("Is Web Part", () => {
+                assert.fileContent(yorcFile, /\"componentType\": \"webpart\"/);
+            })
+
+            it('package.json exists', () => {
+
+                assert.file(packageFile);
+
+            })
+
+            it('no react', () => {
+
+                assert.noFileContent(packageFile, /react|react-dom/);
+
+            })
+
+            it('no knockout', () => {
+
+                assert.noFileContent(packageFile, /knockout/);
+
+            })
+
+            it('no pnpjs', () => {
+
+                assert.noFileContent(packageFile, /\"@pnp\/pnpjs\"/);
+
+            })
+
+            it('jquery 2.x', () => {
+
+                assert.fileContent(packageFile, /\"jquery\": \"\^2\./);
+
+            })
+
+        });
+
+    });
+    describe('WebPart: On Premises + jQuery@2', () => {
+
+        let localTemp = path.join(tempPath, '');
+
+        let testConfig = {
+            framework: 'noframework',
+            jsLibrary: ['jquery'],
+            jQueryVersion: 2,
+            force: true
+        };
+
+        before(() => {
+
+            return new Promise(function (resolve, reject) {
+                helpers.setUpTestDirectory(localTemp);
+
+                helpers.run(path.join(__dirname, '../app'))
+                    .inDir(localTemp)
+                    .withGenerators(
+                        spfxGenerators
+                    )
+                    .withOptions(webPartConfig) // Mock options passed in
+                    .withLocalConfig({})
+                    .withPrompts(testConfig)
+                    .on('error', (err) => {
+                        console.log('ERROR', err);
+                        rejct();
+                    })
+                    .on('end', ()=>{
+                        resolve();
+                    });
+            });
+
+        });
+
+        describe('', () => {
+
+            it("Environment: SPO", () => {
+                assert.fileContent(yorcFile, /\"environment\": \"onprem\",/);
+            })
+
+            it("Is Web Part", () => {
+                assert.fileContent(yorcFile, /\"componentType\": \"webpart\"/);
+            })
+
+            it('package.json exists', () => {
+
+                assert.file(packageFile);
+
+            })
+
+            it('no react', () => {
+
+                assert.noFileContent(packageFile, /react|react-dom/);
+
+            })
+
+            it('no knockout', () => {
+
+                assert.noFileContent(packageFile, /knockout/);
+
+            })
+
+            it('no pnpjs', () => {
+
+                assert.noFileContent(packageFile, /\"@pnp\/pnpjs\"/);
+
+            })
+
+            it('jquery 2.x', () => {
+
+                assert.fileContent(packageFile, /\"jquery\": \"\^2\./);
+
+            })
+
+        });
+
+    });
+    describe('WebPart: On Premises + jQuery@2', () => {
+
+        let localTemp = path.join(tempPath, '');
+
+        let testConfig = {
+            framework: 'noframework',
+            jsLibrary: ['jquery'],
+            jQueryVersion: 2,
+            force: true
+        };
+
+        before(() => {
+
+            return new Promise(function (resolve, reject) {
+                helpers.setUpTestDirectory(localTemp);
+
+                helpers.run(path.join(__dirname, '../app'))
+                    .inDir(localTemp)
+                    .withGenerators(
+                        spfxGenerators
+                    )
+                    .withOptions(webPartConfig) // Mock options passed in
+                    .withLocalConfig({})
+                    .withPrompts(testConfig)
+                    .on('error', (err) => {
+                        console.log('ERROR', err);
+                        rejct();
+                    })
+                    .on('end', ()=>{
+                        resolve();
+                    });
+            });
+
+        });
+
+        describe('', () => {
+
+            it("Environment: SPO", () => {
+                assert.fileContent(yorcFile, /\"environment\": \"onprem\",/);
+            })
+
+            it("Is Web Part", () => {
+                assert.fileContent(yorcFile, /\"componentType\": \"webpart\"/);
+            })
+
+            it('package.json exists', () => {
+
+                assert.file(packageFile);
+
+            })
+
+            it('no react', () => {
+
+                assert.noFileContent(packageFile, /react|react-dom/);
+
+            })
+
+            it('no knockout', () => {
+
+                assert.noFileContent(packageFile, /knockout/);
+
+            })
+
+            it('no pnpjs', () => {
+
+                assert.noFileContent(packageFile, /\"@pnp\/pnpjs\"/);
+
+            })
+
+            it('jquery 2.x', () => {
+
+                assert.fileContent(packageFile, /\"jquery\": \"\^2\./);
+
+            })
+
+        });
+
+    });
+    describe('WebPart: On Premises + jQuery@2', () => {
+
+        let localTemp = path.join(tempPath, '');
+
+        let testConfig = {
+            framework: 'noframework',
+            jsLibrary: ['jquery'],
+            jQueryVersion: 2,
+            force: true
+        };
+
+        before(() => {
+
+            return new Promise(function (resolve, reject) {
+                helpers.setUpTestDirectory(localTemp);
+
+                helpers.run(path.join(__dirname, '../app'))
+                    .inDir(localTemp)
+                    .withGenerators(
+                        spfxGenerators
+                    )
+                    .withOptions(webPartConfig) // Mock options passed in
+                    .withLocalConfig({})
+                    .withPrompts(testConfig)
+                    .on('error', (err) => {
+                        console.log('ERROR', err);
+                        rejct();
+                    })
+                    .on('end', ()=>{
+                        resolve();
+                    });
+            });
+
+        });
+
+        describe('', () => {
+
+            it("Environment: SPO", () => {
+                assert.fileContent(yorcFile, /\"environment\": \"onprem\",/);
+            })
+
+            it("Is Web Part", () => {
+                assert.fileContent(yorcFile, /\"componentType\": \"webpart\"/);
+            })
+
+            it('package.json exists', () => {
+
+                assert.file(packageFile);
+
+            })
+
+            it('no react', () => {
+
+                assert.noFileContent(packageFile, /react|react-dom/);
+
+            })
+
+            it('no knockout', () => {
+
+                assert.noFileContent(packageFile, /knockout/);
+
+            })
+
+            it('no pnpjs', () => {
+
+                assert.noFileContent(packageFile, /\"@pnp\/pnpjs\"/);
+
+            })
+
+            it('jquery 2.x', () => {
+
+                assert.fileContent(packageFile, /\"jquery\": \"\^2\./);
+
+            })
+
+        });
+
+    });
+
+})

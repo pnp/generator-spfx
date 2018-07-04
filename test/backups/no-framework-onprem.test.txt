@@ -1,0 +1,406 @@
+/* eslint-env jest, mocha */
+'use strict';
+
+const path = require('path');
+const rimraf = require('rimraf');
+
+const assert = require('yeoman-assert');
+const helpers = require('yeoman-test');
+const fs = require('fs');
+
+const tempPath = path.join(__dirname, 'tmp');
+
+let spfxGenerators = require('./settings/spfxgenerators');
+
+// rimraf.sync(tempPath);
+
+describe('SPFx Yeoman No Framework Tests ', () => {
+
+
+    console.log('Test file name: no-framework-onprem.test');
+    let webPartConfig = {
+        componentType: 'webpart',
+        componentDescription: 'HelloWorld',
+        componentName: 'helloworld',
+        solutionName: 'HelloWorld',
+        environment: 'onprem',
+        framework: 'none'
+    }
+
+    // remove afterwards
+    let localTemp = path.join(tempPath, ''),
+        packageFile = path.join(localTemp, 'package.json'),
+        yorcFile = path.join(localTemp, '.yo-rc.json');
+
+    describe('WebPart: On Premises + jQuery@2', () => {
+
+        let localTemp = path.join(tempPath, '');
+
+        let testConfig = {
+            framework: 'noframework',
+            jsLibrary: ['jquery'],
+            jQueryVersion: 2,
+            force: true
+        };
+
+        before((done) => {
+
+            helpers.setUpTestDirectory(localTemp);
+
+            helpers.run(path.join(__dirname, '../app'))
+                .inDir(localTemp)
+                .withGenerators(
+                    spfxGenerators
+                )
+                .withOptions(webPartConfig) // Mock options passed in
+                .withLocalConfig({})
+                .withPrompts(testConfig)
+                .on('error', (err) => {
+                    console.log('ERROR', err);
+                })
+                .on('end', done);
+
+        });
+
+        describe('', () => {
+
+            it("Environment: SPO", () => {
+                assert.fileContent(yorcFile, /\"environment\": \"onprem\",/);
+            })
+
+            it("Is Web Part", () => {
+                assert.fileContent(yorcFile, /\"componentType\": \"webpart\"/);
+            })
+
+            it('package.json exists', () => {
+
+                assert.file(packageFile);
+
+            })
+
+            it('no react', () => {
+
+                assert.noFileContent(packageFile, /react|react-dom/);
+
+            })
+
+            it('no knockout', () => {
+
+                assert.noFileContent(packageFile, /knockout/);
+
+            })
+
+            it('no pnpjs', () => {
+
+                assert.noFileContent(packageFile, /\"@pnp\/pnpjs\"/);
+
+            })
+
+            it('jquery 2.x', () => {
+
+                assert.fileContent(packageFile, /\"jquery\": \"\^2\./);
+
+            })
+
+        });
+
+    });
+
+    describe('WebPart: On Premises + jQuery@3', () => {
+
+        const helpers = require('yeoman-test');
+
+        let localTemp = path.join(tempPath, '');
+
+        let testConfig = {
+            framework: 'noframework',
+            jsLibrary: ['jquery'],
+            jQueryVersion: 3,
+            force: true
+        };
+
+        before((done) => {
+
+            helpers.setUpTestDirectory(localTemp);
+
+            helpers.run(path.join(__dirname, '../app'))
+                .inDir(localTemp)
+                .withGenerators(
+                    spfxGenerators
+                )
+                .withOptions(webPartConfig) // Mock options passed in
+                .withLocalConfig({})
+                .withPrompts(testConfig)
+                .on('error', (err) => {
+                    console.log('ERROR', err);
+                })
+                .on('end', done);
+
+        });
+
+        describe('', () => {
+            it("Environment: On Premises", () => {
+                assert.fileContent(yorcFile, /\"environment\": \"onprem\",/);
+            })
+
+            it("Is Web Part", () => {
+                assert.fileContent(yorcFile, /\"componentType\": \"webpart\"/);
+            })
+
+            it('package.json exists', () => {
+
+                assert.file(packageFile);
+
+            })
+
+            it('no react', () => {
+
+                assert.noFileContent(packageFile, /react|react-dom/);
+
+            })
+
+            it('no knockout', () => {
+
+                assert.noFileContent(packageFile, /knockout/);
+
+            })
+
+            it('no pnpjs', () => {
+
+                assert.noFileContent(packageFile, /\"@pnp\/pnpjs\"/);
+
+            })
+
+            it('jquery 3.x', () => {
+
+                assert.fileContent(packageFile, /\"jquery\": \"\^3\./);
+
+            })
+        })
+
+    });
+
+    describe('WebPart: On Premises + jQuery@2 + pnpjs', () => {
+
+        const helpers = require('yeoman-test');
+
+        let testConfig = {
+            framework: 'noframework',
+            jsLibrary: ['jquery', 'pnpjs'],
+            jQueryVersion: 2,
+            force: true
+        };
+
+        before((done) => {
+
+
+            helpers.setUpTestDirectory(localTemp);
+
+            helpers.run(path.join(__dirname, '../app'))
+                .inDir(localTemp)
+                .withGenerators(
+                    spfxGenerators
+                )
+                .withOptions(webPartConfig) // Mock options passed in
+                .withPrompts(testConfig)
+                .withLocalConfig({})
+                .on('error', (err) => {
+                    console.log('ERROR', err);
+                })
+                .on('end', done)
+
+        });
+        describe('', () => {
+            it("Environment: On Premises", () => {
+                assert.fileContent(yorcFile, /\"environment\": \"onprem\",/);
+            })
+
+            it("Is Web Part", () => {
+                assert.fileContent(yorcFile, /\"componentType\": \"webpart\"/)
+            })
+
+            it('package.json exists', () => {
+
+                assert.file(packageFile);
+
+            })
+
+            it('no react', () => {
+
+                assert.noFileContent(packageFile, /react|react-dom/);
+
+            })
+
+            it('no knockout', () => {
+
+                assert.noFileContent(packageFile, /knockout/);
+
+
+            })
+
+            it('pnpjs', () => {
+
+                assert.fileContent(packageFile, /\"@pnp\/pnpjs\"/);
+
+
+            })
+
+            it('jquery 2.x', () => {
+
+                assert.fileContent(packageFile, /\"jquery\": \"\^2\./);
+
+
+            })
+
+        });
+
+    });
+
+
+    describe('WebPart: On Premises + jQuery@3 + pnpjs', () => {
+
+        const helpers = require('yeoman-test');
+
+        let testConfig = {
+            framework: 'noframework',
+            jsLibrary: ['jquery', 'pnpjs'],
+            jQueryVersion: 3,
+            force: true
+        };
+
+        before((done) => {
+
+            helpers.setUpTestDirectory(localTemp);
+
+            helpers.run(path.join(__dirname, '../app'))
+                .inDir(localTemp)
+                .withGenerators(
+                    spfxGenerators
+                )
+                .withOptions(webPartConfig) // Mock options passed in
+                .withLocalConfig({})
+                .withPrompts(testConfig)
+                .on('error', (err) => {
+                    console.log('ERROR', err);
+                })
+                .on('end', done);
+
+        });
+
+        describe('', () => {
+
+            it("Environment: On Premises", () => {
+                assert.fileContent(yorcFile, /\"environment\": \"onprem\",/);
+            })
+
+            it("Is Web Part", () => {
+                assert.fileContent(yorcFile, /\"componentType\": \"webpart\"/)
+            })
+
+            it('package.json exists', () => {
+
+                assert.file(packageFile);
+
+            })
+
+            it('no react', () => {
+
+                assert.noFileContent(packageFile, /react|react-dom/);
+
+            })
+
+            it('no knockout', () => {
+
+                assert.noFileContent(packageFile, /knockout/);
+
+            })
+
+            it('pnpjs', () => {
+
+                assert.fileContent(packageFile, /\"@pnp\/pnpjs\"/);
+
+            })
+
+            it('jquery 3.x', () => {
+
+                assert.fileContent(packageFile, /\"jquery\": \"\^3\./);
+
+            })
+
+        });
+
+    });
+
+    describe('WebPart: On Premises + pnpjs', () => {
+
+        const helpers = require('yeoman-test');
+
+        let testConfig = {
+            framework: 'noframework',
+            jsLibrary: ['pnpjs'],
+            force: true
+        };
+
+        before((done) => {
+
+            helpers.setUpTestDirectory(localTemp);
+
+            helpers.run(path.join(__dirname, '../app'))
+                .inDir(localTemp)
+                .withGenerators(
+                    spfxGenerators
+                )
+                .withOptions(webPartConfig) // Mock options passed in
+                .withLocalConfig({})
+                .withPrompts(testConfig)
+                .on('error', (err) => {
+                    console.log('ERROR', err);
+                })
+                .on('end', done);
+
+        });
+        describe('', () => {
+
+            it("Environment: On Premises", () => {
+                assert.fileContent(yorcFile, /\"environment\": \"onprem\",/);
+            })
+
+            it("Is Web Part", () => {
+                assert.fileContent(yorcFile, /\"componentType\"\: \"webpart\"/);
+            })
+
+            it('package.json exists', () => {
+
+                assert.file(packageFile);
+
+            })
+
+            it('no react', () => {
+
+                assert.noFileContent(packageFile, /react|react-dom/);
+
+            })
+
+            it('no knockout', () => {
+
+                assert.noFileContent(packageFile, /knockout/);
+
+            })
+
+            it('pnpjs', () => {
+
+                assert.fileContent(packageFile, /\"@pnp\/pnpjs\"/);
+
+            })
+
+            it('no jquery', () => {
+
+                assert.noFileContent(packageFile, /\"jquery\": \"\^3\./);
+
+            })
+
+        });
+
+    });
+
+})

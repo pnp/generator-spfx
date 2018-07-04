@@ -47,7 +47,6 @@ module.exports = class extends Generator {
 
                 this.options.SPFxFramework = answers.framework;
 
-
                 this._configGenerators(this.options);
 
             });
@@ -61,7 +60,9 @@ module.exports = class extends Generator {
     }
 
     // adds additonal editor support in this case CSS Comb
-    writing() {}
+    writing() {
+
+    }
 
     // adds additonal editor support in this case CSS Comb
     install() {
@@ -128,8 +129,6 @@ module.exports = class extends Generator {
 
     _configGenerators(options) {
 
-        
-
         if (options.libraries.length !== undefined &&
             options.libraries.length !== 0) {
 
@@ -181,7 +180,9 @@ module.exports = class extends Generator {
             this.options.SpfxOptions['solution-name'] = this.options['solution-name'];
         }
 
-        if (this.options['environment'] !== undefined) {
+        if (this.options['environment'] !== undefined && this.options['environment'] === 'onprem') {
+            console.log('My Environment:', this.options['environment'])
+            console.log(this.options['environment'] !== '');
             this.options.SpfxOptions['environment'] = this.options['environment'];
         }
 

@@ -19,7 +19,7 @@ module.exports = {
         let devDependencies = config.devDependencies;
 
         for (let key in addonConfig) {
-            console.log(key, requestedLibraries.indexOf(key));
+
             if (requestedLibraries.indexOf(key) !== -1) {
                 
                 // inject dependencies

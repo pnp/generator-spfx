@@ -1,0 +1,7 @@
+--component-type webpart 
+--component-description HelloWorld 
+--component-name helloworld 
+--solution-name HelloWorld 
+--environment spo
+
+--component-type webpart --component-description HelloWorld --component-name helloworld --solution-name HelloWorld --environment spo
