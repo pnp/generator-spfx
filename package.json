@@ -28,13 +28,13 @@
         "chalk": "^2.4.1",
         "command-exists": "^1.2.7",
         "decache": "^4.4.0",
-        "yeoman-generator": "~3.1.0"
+        "yeoman-generator": "~3.1.1"
     },
     "devDependencies": {
         "@microsoft/generator-sharepoint": "^1.5.1",
         "mocha": "~5.2.0",
         "rimraf": "^2.6.2",
         "yeoman-assert": "~3.1.1",
-        "yeoman-test": "~1.8.0"
+        "yeoman-test": "~1.9.1"
     }
 }
