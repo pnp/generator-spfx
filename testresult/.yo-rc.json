@@ -1,12 +1,12 @@
 {
   "@pnp/generator-spfx": {},
   "@microsoft/generator-sharepoint": {
-    "environment": "onprem",
-    "framework": "none",
+    "framework": "react",
     "isCreatingSolution": true,
+    "environment": "spo",
     "version": "1.5.1",
     "libraryName": "testresult",
-    "libraryId": "e3fb27fe-fc10-4e68-a369-e6043e6e59cb",
+    "libraryId": "2c5a262a-a875-45d1-82c6-0c8bc7638594",
     "packageManager": "npm",
     "componentType": "webpart"
   }

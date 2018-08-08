@@ -1,15 +1,18 @@
 {
-  "entries": [
-    {
-      "entry": "./lib/webparts/helloWorld/HelloWorldWebPart.js",
-      "manifest": "./src/webparts/helloWorld/HelloWorldWebPart.manifest.json",
-      "outputPath": "./dist/hello-world-web-part.js"
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "hello-world-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/helloWorld/HelloWorldWebPart.js",
+          "manifest": "./src/webparts/helloWorld/HelloWorldWebPart.manifest.json"
+        }
+      ]
     }
-  ],
-  "externals": {
-    "handlebars": "./node_modules/handlebars/dist/handlebars.amd.min.js"
   },
+  "externals": {},
   "localizedResources": {
-    "HelloWorldWebPartStrings": "webparts/helloWorld/loc/{locale}.js"
+    "HelloWorldWebPartStrings": "lib/webparts/helloWorld/loc/{locale}.js"
   }
 }
