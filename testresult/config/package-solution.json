@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "testresult-client-side-solution",
+    "id": "e3fb27fe-fc10-4e68-a369-e6043e6e59cb",
+    "version": "1.0.0.0"
+  },
+  "paths": {
+    "zippedPackage": "solution/testresult.sppkg"
+  }
+}

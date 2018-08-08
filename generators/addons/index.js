@@ -25,7 +25,8 @@ module.exports = class extends Generator {
 
     configuring() {}
 
-    writing() {}
+    writing() {
+    }
 
     install() {}
 
@@ -38,8 +39,6 @@ module.exports = class extends Generator {
             let config = JSON.parse(fs.readFileSync(
                 this.destinationPath('package.json')
             ));
-
-            // console.log(config, this.destinationPath('package.json'));
 
             // // request current addon configuration
             let addonConfig;
@@ -60,14 +59,14 @@ module.exports = class extends Generator {
             var requestedLibraries = this.options.libraries;
 
             var newPkgConfig = util.mergeAddons(addonConfig, requestedLibraries, config);
-
+                        
             fs.writeFileSync(
                 this.destinationPath('package.json'),
                 JSON.stringify(newPkgConfig, null, 2)
             );
 
         }
-
+        
     }
 
 }

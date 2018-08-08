@@ -1,0 +1,15 @@
+{
+  "entries": [
+    {
+      "entry": "./lib/webparts/helloWorld/HelloWorldWebPart.js",
+      "manifest": "./src/webparts/helloWorld/HelloWorldWebPart.manifest.json",
+      "outputPath": "./dist/hello-world-web-part.js"
+    }
+  ],
+  "externals": {
+    "handlebars": "./node_modules/handlebars/dist/handlebars.amd.min.js"
+  },
+  "localizedResources": {
+    "HelloWorldWebPartStrings": "webparts/helloWorld/loc/{locale}.js"
+  }
+}

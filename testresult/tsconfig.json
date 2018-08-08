@@ -2,16 +2,14 @@
   "compilerOptions": {
     "target": "es5",
     "forceConsistentCasingInFileNames": true,
-    "module": "esnext",
-    "moduleResolution": "node",
+    "module": "commonjs",
     "jsx": "react",
     "declaration": true,
     "sourceMap": true,
     "experimentalDecorators": true,
     "skipLibCheck": true,
     "typeRoots": [
-      "./node_modules/@types",
-      "./node_modules/@microsoft"
+      "./node_modules/@types"
     ],
     "types": [
       "es6-promise",

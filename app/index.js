@@ -6,6 +6,9 @@ const subGenerator = require('./subGenerators');
 // Prompt core configuration
 const prompting = require('./promptConfig');
 
+const path = require('path');
+
+
 module.exports = class extends Generator {
 
     constructor(args, opts) {
@@ -40,6 +43,7 @@ module.exports = class extends Generator {
 
                 // Choose appro
                 this.options.SpfxOptions['framework'] = this._evalSPFxGenerator(answers.framework);
+                this.options.pnpFramework = answers.framework;
 
                 this.options.libraries = this._evalAddons(
                     answers
@@ -71,9 +75,7 @@ module.exports = class extends Generator {
 
     // Run installer normally time to say goodbye
     // If yarn is installed yarn will be used
-    end() {
-
-    }
+    end() {}
 
     _evalAddons(selections) {
 
@@ -108,7 +110,6 @@ module.exports = class extends Generator {
             case "angularelements":
                 generatorFramework = 'none';
                 break;
-
             case "reactjs":
             case "react":
                 generatorFramework = 'react';
@@ -143,26 +144,24 @@ module.exports = class extends Generator {
 
         }
 
+        if (this.options.pnpFramework !== undefined &&
+            subGenerator[this.options.pnpFramework] !== undefined) {
+
+            this.composeWith(
+                subGenerator[this.options.pnpFramework],
+                options.SpfxOptions
+            )
+
+        }
+
         this.composeWith(
             subGenerator.spfx,
             options.SpfxOptions
         );
 
-        // {
-        //     'framework': options.spfxFramework,
-        //     'skip-install': true,
-        // }
-
-        // console.log(this.SpfxOptions);
-
-
     }
 
     _generateSPFxOptions() {
-
-        if (this.options['component-type'] !== undefined) {
-            this.options.SpfxOptions['component-type'] = this.options['component-type'];
-        }
 
         if (this.options['component-type'] !== undefined) {
             this.options.SpfxOptions['component-type'] = this.options['component-type'];
@@ -181,25 +180,15 @@ module.exports = class extends Generator {
         }
 
         if (this.options['environment'] !== undefined && this.options['environment'] === 'onprem') {
-            console.log('My Environment:', this.options['environment'])
-            console.log(this.options['environment'] !== '');
             this.options.SpfxOptions['environment'] = this.options['environment'];
         }
 
     }
 
-
-    _showHelp() {
-        console.log("Show Help");
-        console.log(help.cmdOptions);
-    }
-
     _convertArgsToOptions(defaultOptions, args) {
-        console.log(defaultOptions);
 
         for (let i = 0; i < args.length; i++) {
             let currentArg = args[i].replace('--', '').split(' ');
-            console.log(currentArg);
         }
     }
 

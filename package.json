@@ -12,7 +12,11 @@
         "yeoman-generator"
     ],
     "scripts": {
-        "spotest": "mocha './test/**/*.js' --reporter spec --timeout 5000 --recursive"
+        "test": "mocha $(find test -name '*.test.*' | sort -V )",
+        "test-ko-spo": "mocha ./test/knockout.spo.test.js",
+        "test-ko-onprem": "mocha ./test/knockout.onprem.test.js",
+        "test-react-spo": "mocha ./test/react.spo.test.js",
+        "test-react-onprem": "mocha ./test/react.onprem.test.js"
     },
     "maintainers": [
         {
@@ -21,15 +25,16 @@
         }
     ],
     "dependencies": {
-        "@microsoft/generator-sharepoint": "^1.5.1",
         "chalk": "^2.4.1",
         "command-exists": "^1.2.7",
-        "yeoman-generator": "^2.0.5"
+        "decache": "^4.4.0",
+        "yeoman-generator": "~3.1.0"
     },
     "devDependencies": {
-        "mocha": "^5.2.0",
+        "@microsoft/generator-sharepoint": "^1.5.1",
+        "mocha": "~5.2.0",
         "rimraf": "^2.6.2",
-        "yeoman-assert": "^3.1.1",
-        "yeoman-test": "^1.7.2"
+        "yeoman-assert": "~3.1.1",
+        "yeoman-test": "~1.8.0"
     }
 }
