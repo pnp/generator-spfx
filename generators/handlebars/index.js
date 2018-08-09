@@ -15,7 +15,7 @@ module.exports = class extends Generator {
 
     // Initialisation geenerator
     initializing() {
-        
+
     }
 
     // Prompt for user input for Custom Generator
@@ -30,7 +30,7 @@ module.exports = class extends Generator {
 
 
     writing() {
-        
+
     }
 
     install() {
@@ -50,10 +50,11 @@ module.exports = class extends Generator {
         this._deployFiles();
         this._addExternals();
         this._addPackageDependencies();
+        this._injectToGulpFile();
 
     }
 
-    _deployFiles(){
+    _deployFiles() {
 
         this.fs.copy(
             this.templatePath('config/copy-static-assets.js'),
@@ -77,7 +78,7 @@ module.exports = class extends Generator {
 
     }
 
-    _addPackageDependencies(){
+    _addPackageDependencies() {
 
         if (fs.existsSync(this.destinationPath('package.json'))) {
 
@@ -103,12 +104,38 @@ module.exports = class extends Generator {
             var requestedLibraries = ['handlebars'];
 
             var newPkgConfig = util.mergeAddons(addonConfig, requestedLibraries, config);
-                        
+
             fs.writeFileSync(
                 this.destinationPath('package.json'),
                 JSON.stringify(newPkgConfig, null, 2)
             );
 
         }
+    }
+
+    _injectToGulpFile() {
+
+        if (fs.existsSync(this.destinationPath('gulpfile.js'))) {
+
+            var templateFile = fs.readFileSync(
+                this.templatePath('./gulp.js'),
+                'utf-8'
+            );
+
+            try {
+
+                fs.appendFileSync(
+                    this.destinationPath('gulpfile.js'),
+                    templateFile
+                );
+
+            } catch (error) {
+
+                throw error;
+
+            }
+
+        }
+
     }
 }

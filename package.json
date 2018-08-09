@@ -9,15 +9,10 @@
         "main"
     ],
     "keywords": [
-        "yeoman-generator"
+        "yeoman-generator",
+        "SPFx",
+        "SharePointFramework"
     ],
-    "scripts": {
-        "test": "mocha $(find test -name '*.test.*' | sort -V )",
-        "test-ko-spo": "mocha ./test/knockout.spo.test.js",
-        "test-ko-onprem": "mocha ./test/knockout.onprem.test.js",
-        "test-react-spo": "mocha ./test/react.spo.test.js",
-        "test-react-onprem": "mocha ./test/react.onprem.test.js"
-    },
     "maintainers": [
         {
             "name": "Stefan Bauer",
@@ -27,8 +22,6 @@
     "dependencies": {
         "chalk": "^2.4.1",
         "command-exists": "^1.2.7",
-        "decache": "^4.4.0",
-        "esprima": "^4.0.1",
         "yeoman-generator": "~3.1.1"
     },
     "devDependencies": {
