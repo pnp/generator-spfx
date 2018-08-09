@@ -7,14 +7,6 @@ const supportedFrameworks = [{
         name: 'Handlebars',
         value: 'handlebars'
     },
-    {
-        name: 'VueJS',
-        value: 'vuejs'
-    },
-    {
-        name: 'Angular Elements',
-        value: 'angularelement'
-    },
     new inquirer.Separator(
         fgYellow('Default SPFx')
     ),

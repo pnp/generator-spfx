@@ -15,9 +15,15 @@
             "@types/jquery": "^3.0.0"
         }
     },
-    "pnpjs": {
+    "@pnp/pnpjs": {
         "dependencies": {
             "@pnp/pnpjs": "^1.1.1"
         }
+    },
+    "@pnp/spfxreact": {
+        "dependencies": {
+            "@pnp/spfx-controls-react": "1.6.0"
+        }
     }
+
 }

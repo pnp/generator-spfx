@@ -17,11 +17,11 @@ const configOptions = [
         message: 'Which libraries to include',
         name: 'jsLibrary',
         choices: [{
-            name: "jQuery",
-            value: "jquery"
+            name: 'jQuery',
+            value: 'jquery'
         }, {
-            name: "pnpjs",
-            value: "@pnp/pnpjs"
+            name: 'pnpjs',
+            value: '@pnp/pnpjs'
         }]
     },
     // jQuery version selection

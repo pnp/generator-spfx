@@ -58,6 +58,8 @@ module.exports = class extends Generator {
             // let jsAddons = this.options.libaries;
             var requestedLibraries = this.options.libraries;
 
+            console.log("requestedLibraries :::::: ", requestedLibraries);
+
             var newPkgConfig = util.mergeAddons(addonConfig, requestedLibraries, config);
                         
             fs.writeFileSync(

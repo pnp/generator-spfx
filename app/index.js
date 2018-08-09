@@ -41,6 +41,8 @@ module.exports = class extends Generator {
         this.prompt(prompting.config)
             .then(answers => {
 
+                console.log(answers);
+
                 // Choose appro
                 this.options.SpfxOptions['framework'] = this._evalSPFxGenerator(answers.framework);
                 this.options.pnpFramework = answers.framework;
@@ -48,6 +50,8 @@ module.exports = class extends Generator {
                 this.options.libraries = this._evalAddons(
                     answers
                 );
+
+                console.log('LIBRARIES::::::: --- ',this.options.libraries);
 
                 this.options.SPFxFramework = answers.framework;
 
@@ -88,6 +92,7 @@ module.exports = class extends Generator {
                     }
 
                     break;
+
 
                 default:
                     break

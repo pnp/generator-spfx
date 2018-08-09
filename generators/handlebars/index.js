@@ -78,6 +78,7 @@ module.exports = class extends Generator {
     }
 
     _addPackageDependencies(){
+
         if (fs.existsSync(this.destinationPath('package.json'))) {
 
             let config = JSON.parse(fs.readFileSync(

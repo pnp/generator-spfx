@@ -20,6 +20,8 @@ module.exports = {
 
         for (let key in addonConfig) {
 
+            console.log("KEYS: ", key)
+
             if (requestedLibraries.indexOf(key) !== -1) {
                 
                 // inject dependencies
