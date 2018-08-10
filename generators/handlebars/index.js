@@ -35,12 +35,6 @@ module.exports = class extends Generator {
 
     install() {
 
-        // Copy static assets
-        // this.fs.copy(
-        //     this.templatePath('config/copy-static-assets.js'),
-        //     this.destinationPath('config/copy-static-assets.js')
-        // );
-
     }
 
     // Run installer normally time to say goodbye
@@ -74,7 +68,8 @@ module.exports = class extends Generator {
         // writing json
         fs.writeFileSync(
             this.destinationPath('config/config.json'),
-            JSON.stringify(config, null, 2));
+            JSON.stringify(config, null, 2)
+        );
 
     }
 
@@ -118,22 +113,16 @@ module.exports = class extends Generator {
         if (fs.existsSync(this.destinationPath('gulpfile.js'))) {
 
             var templateFile = fs.readFileSync(
-                this.templatePath('./gulp.js'),
+                this.templatePath('./gulpfile.js'),
                 'utf-8'
             );
 
-            try {
+            var coreGulpTemplate = this.templatePath('../../../app/templates/gulpfile.js');
+            var customGulpTemplate = this.templatePath('./gulpfile.js')
 
-                fs.appendFileSync(
-                    this.destinationPath('gulpfile.js'),
-                    templateFile
-                );
+            var mergedGulpFile = util.composeGulpFile(coreGulpTemplate, customGulpTemplate);
 
-            } catch (error) {
-
-                throw error;
-
-            }
+            fs.writeFileSync(this.destinationPath('./gulpfile.js'), mergedGulpFile, 'utf-8');
 
         }
 

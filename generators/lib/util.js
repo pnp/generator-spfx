@@ -1,12 +1,17 @@
+const fs = require('fs');
+const ejs = require('ejs');
+const esprima = require('esprima');
+const escodegen = require('escodegen');
+
 const sortProps = (dependencies) => {
 
     var sortedObject = {};
     let sortedKeys = Object.keys(dependencies).sort();
-        
-    for(var i = 0; i < sortedKeys.length; i++){
+
+    for (var i = 0; i < sortedKeys.length; i++) {
         sortedObject[sortedKeys[i]] = dependencies[sortedKeys[i]]
     }
-    
+
     return sortedObject;
 
 }
@@ -23,7 +28,7 @@ module.exports = {
             console.log("KEYS: ", key)
 
             if (requestedLibraries.indexOf(key) !== -1) {
-                
+
                 // inject dependencies
                 if (addonConfig[key].dependencies) {
 
@@ -59,6 +64,28 @@ module.exports = {
 
         // return new configuration
         return config;
+
+    },
+    composeGulpFile: (coreTemplate, customTemplate) => {
+
+        if (!fs.existsSync(coreTemplate)) {
+            const error = 'Error: File names ' + coreTemplate + ' cannot be found';
+            throw error;
+        }
+
+        if (!fs.existsSync(customTemplate)) {
+            const error = 'Error: File names ' + customTemplate + ' cannot be found';
+            throw error;
+        }
+
+        var coreTemplatContent = fs.readFileSync(coreTemplate, 'utf-8'),
+            customTemplateContent = fs.readFileSync(customTemplate, 'utf-8');
+
+        let gulpGileContent = ejs.render(coreTemplatContent, {
+            customTasks: customTemplateContent
+        });
+
+        return gulpGileContent;
 
     }
 
