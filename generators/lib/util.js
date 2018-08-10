@@ -87,6 +87,18 @@ module.exports = {
 
         return gulpGileContent;
 
+    },
+    runInstall: (yeoman) => {
+
+        const hasYarn = commandExists('yarn');
+
+        yeoman.installDependencies({
+            npm: !hasYarn,
+            bower: false,
+            yarn: hasYarn,
+            skipMessage: this.options['skip-install-message'],
+            skipInstall: this.options['skip-install']
+        });
     }
 
 }

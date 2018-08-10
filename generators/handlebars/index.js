@@ -6,7 +6,9 @@ const Generator = require('yeoman-generator');
 // filesystem
 const fs = require('fs');
 
+// importing utilities
 const util = require('../lib/util.js');
+
 module.exports = class extends Generator {
 
     constructor(args, opts) {
@@ -45,6 +47,7 @@ module.exports = class extends Generator {
         this._addExternals();
         this._addPackageDependencies();
         this._injectToGulpFile();
+        util.runInstall(this);
 
     }
 
@@ -96,9 +99,9 @@ module.exports = class extends Generator {
 
             }
 
-            var requestedLibraries = ['handlebars'];
+            let requestedLibraries = ['handlebars'];
 
-            var newPkgConfig = util.mergeAddons(addonConfig, requestedLibraries, config);
+            let newPkgConfig = util.mergeAddons(addonConfig, requestedLibraries, config);
 
             fs.writeFileSync(
                 this.destinationPath('package.json'),
@@ -112,19 +115,20 @@ module.exports = class extends Generator {
 
         if (fs.existsSync(this.destinationPath('gulpfile.js'))) {
 
-            var templateFile = fs.readFileSync(
+            let templateFile = fs.readFileSync(
                 this.templatePath('./gulpfile.js'),
                 'utf-8'
             );
 
-            var coreGulpTemplate = this.templatePath('../../../app/templates/gulpfile.js');
-            var customGulpTemplate = this.templatePath('./gulpfile.js')
+            let coreGulpTemplate = this.templatePath('../../../app/templates/gulpfile.js');
+            let customGulpTemplate = this.templatePath('./gulpfile.js')
 
-            var mergedGulpFile = util.composeGulpFile(coreGulpTemplate, customGulpTemplate);
+            let mergedGulpFile = util.composeGulpFile(coreGulpTemplate, customGulpTemplate);
 
             fs.writeFileSync(this.destinationPath('./gulpfile.js'), mergedGulpFile, 'utf-8');
 
         }
 
     }
+
 }
