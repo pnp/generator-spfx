@@ -18,8 +18,14 @@ module.exports = class extends Generator {
         this.name = "Community SPFx Generator"
 
         this.options.SpfxOptions = {
-            'skip-install': true
+            'skip-install': false
         };
+
+        this.option('package-manager', {
+            description: "Let you choose the package manager, npm, yarn, pnpm",
+            type: String,
+            alias: 'pm'
+        });
 
         // console.log('all Options', this.options);
 
@@ -51,7 +57,7 @@ module.exports = class extends Generator {
                     answers
                 );
 
-                console.log('LIBRARIES::::::: --- ',this.options.libraries);
+                console.log('LIBRARIES::::::: --- ', this.options.libraries);
 
                 this.options.SPFxFramework = answers.framework;
 
@@ -160,8 +166,9 @@ module.exports = class extends Generator {
         }
 
         this.composeWith(
-            subGenerator.spfx,
-            options.SpfxOptions
+            subGenerator.spfx, {
+                'skip-install': true // always skip SharePoint generator install
+            }
         );
 
     }
@@ -186,6 +193,12 @@ module.exports = class extends Generator {
 
         if (this.options['environment'] !== undefined && this.options['environment'] === 'onprem') {
             this.options.SpfxOptions['environment'] = this.options['environment'];
+        }
+
+        if (this.options['package-manager'] !== undefined) {
+            this.options.SpfxOptions['package-manager'] = this.options['package-manager'];
+        } else {
+            console.log('No Package Manager specified');
         }
 
     }

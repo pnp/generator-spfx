@@ -1,7 +1,7 @@
 const fs = require('fs');
 const ejs = require('ejs');
-const esprima = require('esprima');
-const escodegen = require('escodegen');
+const commandExists = require('command-exists');
+const { spawn } = require('child_process');
 
 const sortProps = (dependencies) => {
 
@@ -90,15 +90,39 @@ module.exports = {
     },
     runInstall: (yeoman) => {
 
-        const hasYarn = commandExists('yarn');
+        const packageManager = yeoman.options['package-manager'];
 
-        yeoman.installDependencies({
-            npm: !hasYarn,
-            bower: false,
-            yarn: hasYarn,
-            skipMessage: this.options['skip-install-message'],
-            skipInstall: this.options['skip-install']
-        });
+        if (packageManager === undefined ||
+            packageManager.toLowerCase() === "npm" ||
+            packageManager.toLowerCase() === "yarn") {
+
+            const hasYarn = commandExists('yarn');
+
+            // override yarn if npm is preferred
+            if(packageManager === 'npm'){
+                hasYarn = false;
+            }
+
+            yeoman.installDependencies({
+                npm: !hasYarn,
+                bower: false,
+                yarn: hasYarn,
+                skipMessage: yeoman.options['skip-install-message'],
+                skipInstall: yeoman.options['skip-install']
+            });
+
+        } else {
+
+            const hasPnpm = commandExists('pnpm');
+
+            if (hasPnpm) {
+                yeoman.spawnCommand('pnpm', ['install']);
+            } else {
+                throw "Cannot find pnpm";
+            }
+
+        }
+
     }
 
 }
