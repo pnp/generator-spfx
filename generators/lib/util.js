@@ -1,7 +1,9 @@
 const fs = require('fs');
 const ejs = require('ejs');
 const commandExists = require('command-exists');
-const { spawn } = require('child_process');
+const {
+    spawn
+} = require('child_process');
 
 const sortProps = (dependencies) => {
 
@@ -99,7 +101,7 @@ module.exports = {
             const hasYarn = commandExists('yarn');
 
             // override yarn if npm is preferred
-            if(packageManager === 'npm'){
+            if (packageManager === 'npm') {
                 hasYarn = false;
             }
 
@@ -113,12 +115,20 @@ module.exports = {
 
         } else {
 
-            const hasPnpm = commandExists('pnpm');
+            if (packageManager === 'pnpm') {
 
-            if (hasPnpm) {
-                yeoman.spawnCommand('pnpm', ['install']);
+                const hasPnpm = commandExists('pnpm');
+
+                if (hasPnpm) {
+                    yeoman.spawnCommand('pnpm', ['install']);
+                } else {
+                    throw "Cannot find pnpm";
+                }
+
             } else {
-                throw "Cannot find pnpm";
+
+                throw 'Error: Package Manager not defined ' + packageManager;
+
             }
 
         }
