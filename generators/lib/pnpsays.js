@@ -27,7 +27,12 @@ const pnpSays = (generator) => {
 
     // AUthor Information
     generator.log(
-        fgBlueLight.bold("Author:       "),
+        fgBlueLight.bold("  Generator:    "),
+        fgWhite.bold(generator.name)
+    )
+    // AUthor Information
+    generator.log(
+        fgBlueLight.bold("  Author:       "),
         fgWhite.bold(pkg.author.name)
     )
 
@@ -37,12 +42,12 @@ const pnpSays = (generator) => {
 
     // Main Contributor informations
     generator.log(
-        fgBlueLight.bold("Contributors: "),
+        fgBlueLight.bold("  Contributors: "),
         fgWhite(maintainerOut)
     )
 
     generator.log(
-        fgBlueLight.bold("Version:      "),
+        fgBlueLight.bold("  Version:      "),
         fgWhite(pkg.version), '\n'
     )
 
