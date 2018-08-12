@@ -2,7 +2,10 @@
     "name": "@pnp/generator-spfx",
     "version": "0.0.1",
     "description": "",
-    "author": "",
+    "author": {
+        "name": "Office 365 / SharePoint PnP Core Team",
+        "url": "https://github.com/pnp"
+    },
     "license": "MIT",
     "files": [
         "addons",
@@ -16,7 +19,8 @@
     "maintainers": [
         {
             "name": "Stefan Bauer",
-            "email": "stefan.bauer@n8d.at"
+            "email": "stefan.bauer@n8d.at",
+            "url": "https://www.n8d.at/"
         }
     ],
     "dependencies": {
@@ -24,6 +28,7 @@
         "command-exists": "^1.2.7",
         "escodegen": "^1.11.0",
         "esprima": "^4.0.1",
+        "update-notifier": "^2.5.0",
         "yeoman-generator": "~3.1.1"
     },
     "devDependencies": {

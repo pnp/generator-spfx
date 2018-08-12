@@ -2,7 +2,7 @@
   "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
   "solution": {
     "name": "testresult-client-side-solution",
-    "id": "a24cd683-07c3-4f4d-9fdb-ebfb37fe2ef5",
+    "id": "1a01e316-980b-4038-84a7-46955d062694",
     "version": "1.0.0.0",
     "includeClientSideAssets": true
   },

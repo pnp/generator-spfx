@@ -16,20 +16,8 @@ module.exports = class extends Generator {
 
         this.name = "Community SPFx Generator"
 
-        this.options.SpfxOptions = {
-            'skip-install': false
-        };
 
-        this.option('enviroment');
-
-        this.option('package-manager', {
-            description: "Let you choose the package manager, npm, yarn, pnpm",
-            type: String,
-            alias: 'pm'
-        });
-
-        pnpSays();
-
+        this._setupOptions();
         this._generateSPFxOptions();
 
     }
@@ -38,6 +26,8 @@ module.exports = class extends Generator {
     initializing() {
 
         this.pkg = require('../package.json');
+
+        pnpSays(this);
 
     }
 
@@ -84,6 +74,7 @@ module.exports = class extends Generator {
     // If yarn is installed yarn will be used
     end() {}
 
+    // Custom evalutation of Addon options
     _evalAddons(selections) {
 
         return selections.jsLibrary.map(item => {
@@ -136,8 +127,10 @@ module.exports = class extends Generator {
 
     }
 
+    // Configure and launch all required generators
     _configGenerators(options) {
 
+        // If required launch library generator
         if (options.libraries.length !== undefined &&
             options.libraries.length !== 0) {
 
@@ -148,6 +141,7 @@ module.exports = class extends Generator {
 
         }
 
+        // Launch custom framework generators
         if (this.options.pnpFramework !== undefined &&
             subGenerator[this.options.pnpFramework] !== undefined) {
 
@@ -157,6 +151,7 @@ module.exports = class extends Generator {
 
         }
 
+        // Launch Default SPFx generator
         this.composeWith(
             subGenerator.spfx,
             this.options.SpfxOptions
@@ -164,11 +159,73 @@ module.exports = class extends Generator {
 
     }
 
-    _generateSPFxOptions() {
+    // Setup Base Options
+    _setupOptions() {
 
-        if (this.options['component-type'] !== undefined) {
-            this.options.SpfxOptions['component-type'] = this.options['component-type'];
-        }
+        this.options.SpfxOptions = {
+            'skip-install': false
+        };
+
+        this.option('component-description', {
+            description: `Web part description`,
+            type: String
+        });
+
+        this.option('component-name', {
+            description: `Web part name`,
+            type: String
+        });
+
+        this.option('component-type', {
+            description: `The type of component:
+                                        - "webpart"
+                                        - "extension"`,
+            type: String
+        });
+
+        this.option('enviroment', {
+            description: `The target environment for the solution:
+                                        - "onprem" or "spo".`
+        });
+
+        this.option('extension-type', {
+            description: `The type of extension:
+                                        - "ApplicationCustomizer", 
+                                        - "FieldCustomizer"
+                                        - "ListViewCommandSet"`,
+            type: String
+        });
+
+        this.option('package-manager', {
+            description: `Let you choose the package manager:
+                                        - "npm"
+                                        - "yarn"
+                                        - "pnpm"`,
+            type: String,
+            alias: 'pm'
+        });
+
+        this.option('plusbeta', {
+            description: "Use the beta packages",
+            type: String
+        });
+
+        this.option('skip-feature-deployment', {
+            description: `If specified, allow the tenant admin the choice of being able
+                                      to deploy the components to all sites immediately without running any 
+                                      feature deployment or adding apps in sites`,
+            type: String
+        });
+
+        this.option('solution-name', {
+            description: `Solution name, as well as folder name`,
+            type: String
+        });
+
+    }
+
+    // Generatore SPFx specifc parameters
+    _generateSPFxOptions() {
 
         if (this.options['component-description'] !== undefined) {
             this.options.SpfxOptions['component-description'] = this.options['component-description'];
@@ -178,12 +235,24 @@ module.exports = class extends Generator {
             this.options.SpfxOptions['component-name'] = this.options['component-name'];
         }
 
+        if (this.options['component-type'] !== undefined) {
+            this.options.SpfxOptions['component-type'] = this.options['component-type'];
+        }
+
         if (this.options['solution-name'] !== undefined) {
             this.options.SpfxOptions['solution-name'] = this.options['solution-name'];
         }
 
+        if (this.options['plusbeta'] !== undefined) {
+            this.options.SpfxOptions['plusbeta'] = this.options['plusbeta'];
+        }
+
         if (this.options['environment'] !== undefined && this.options['environment'] === 'onprem') {
             this.options.SpfxOptions['environment'] = this.options['environment'];
+        }
+
+        if (this.options['extension-type'] !== undefined) {
+            this.options.SpfxOptions['extension-type'] = this.options['extension-type'];
         }
 
         // alweays skip install

@@ -1,13 +1,18 @@
-const chalk = require('chalk'),
-    bgBlue = chalk.bgHex('#0070B9'),
+const chalk = require('chalk');
+const updateNotifier = require('update-notifier');
+
+const bgBlue = chalk.bgHex('#0070B9'),
     bgWhite = chalk.bgWhite,
-    fgBlue = chalk.hex('#0070B9');
+    fgWhite = chalk.white,
+    fgBlue = chalk.hex('#0070B9'),
+    fgBlueLight = chalk.hex('#52A9DE');
 
-    const fs = require('fs');
+// Greet friendly all users
+const pnpSays = (generator) => {
 
-const pnpSays = () => {
+    const pkg = generator.pkg;
 
-    var logo =
+    let logo =
         fgBlue("▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄") + ("▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄\r\n") +
         bgBlue.white("    _____       _____     ") + fgBlue.bgWhite("     _____ _____  ______       \r\n") +
         bgBlue.white("   |████▄\\      |████▄\\   ") + fgBlue.bgWhite("   /▄█████|█████\\|██████|      \r\n") +
@@ -16,11 +21,41 @@ const pnpSays = () => {
         bgBlue.white("   |█|   |█▀  ▀█|█|       ") + fgBlue.bgWhite("    ____)█|█|    |█|   >██<    \r\n") +
         bgBlue.white("   |█|   |█|  |█|█|       ") + fgBlue.bgWhite("   |█████/|█|    |█|  ▄▀/\\▀▄   \r\n") +
         fgBlue("██████████████████████████") + ("███████████████████████████████\r\n")
+
+    // prining logo
+    generator.log(logo);
+
+    // AUthor Information
+    generator.log(
+        fgBlueLight.bold("Author:       "),
+        fgWhite.bold(pkg.author.name)
+    )
+
+    // Get list of maintainer
+    let maintainerName = pkg.maintainers.map(element => element.name);
+    let maintainerOut = maintainerName.join(', ');
+
+    // Main Contributor informations
+    generator.log(
+        fgBlueLight.bold("Contributors: "),
+        fgWhite(maintainerOut)
+    )
+
+    generator.log(
+        fgBlueLight.bold("Version:      "),
+        fgWhite(pkg.version), '\n'
+    )
+
+    // Check for updates
+    const notifier = updateNotifier({
+        pkg,
+        updateCheckInterval: 1000 * 60 * 60 * 24 * 7 // 1 week
+    });
     
-    console.log(logo);
-    
+    if (notifier.update) {
+        generator.log(`Update available: ${notifier.update.latest}`);
+    }
 
 }
 
 module.exports = pnpSays;
-
