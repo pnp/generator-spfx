@@ -5,9 +5,8 @@ const Generator = require('yeoman-generator');
 const subGenerator = require('./subGenerators');
 // Prompt core configuration
 const prompting = require('./promptConfig');
-
-const path = require('path');
-
+// Import PnP Says
+const pnpSays = require('../generators/lib/pnpsays');
 
 module.exports = class extends Generator {
 
@@ -21,13 +20,15 @@ module.exports = class extends Generator {
             'skip-install': false
         };
 
+        this.option('enviroment');
+
         this.option('package-manager', {
             description: "Let you choose the package manager, npm, yarn, pnpm",
             type: String,
             alias: 'pm'
         });
 
-        // console.log('all Options', this.options);
+        pnpSays();
 
         this._generateSPFxOptions();
 
@@ -47,8 +48,6 @@ module.exports = class extends Generator {
         this.prompt(prompting.config)
             .then(answers => {
 
-                console.log(answers);
-
                 // Choose appro
                 this.options.SpfxOptions['framework'] = this._evalSPFxGenerator(answers.framework);
                 this.options.pnpFramework = answers.framework;
@@ -56,8 +55,6 @@ module.exports = class extends Generator {
                 this.options.libraries = this._evalAddons(
                     answers
                 );
-
-                console.log('LIBRARIES::::::: --- ', this.options.libraries);
 
                 this.options.SPFxFramework = answers.framework;
 
@@ -149,26 +146,20 @@ module.exports = class extends Generator {
                 options
             )
 
-        } else {
-
-            console.log('--- No addons');
-
         }
 
         if (this.options.pnpFramework !== undefined &&
             subGenerator[this.options.pnpFramework] !== undefined) {
 
             this.composeWith(
-                subGenerator[this.options.pnpFramework],
-                options.SpfxOptions
+                subGenerator[this.options.pnpFramework]
             )
 
         }
 
         this.composeWith(
-            subGenerator.spfx, {
-                'skip-install': true // always skip SharePoint generator install
-            }
+            subGenerator.spfx,
+            this.options.SpfxOptions
         );
 
     }
@@ -195,19 +186,13 @@ module.exports = class extends Generator {
             this.options.SpfxOptions['environment'] = this.options['environment'];
         }
 
+        // alweays skip install
+        this.options.SpfxOptions['skip-install'] = true;
+
         if (this.options['package-manager'] !== undefined) {
             this.options.SpfxOptions['package-manager'] = this.options['package-manager'];
-        } else {
-            console.log('No Package Manager specified');
         }
 
-    }
-
-    _convertArgsToOptions(defaultOptions, args) {
-
-        for (let i = 0; i < args.length; i++) {
-            let currentArg = args[i].replace('--', '').split(' ');
-        }
     }
 
 }

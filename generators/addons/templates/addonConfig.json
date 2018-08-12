@@ -15,7 +15,7 @@
             "@types/jquery": "^3.0.0"
         }
     },
-    "@pnp/pnpjs": {
+    "pnpjs": {
         "dependencies": {
             "@pnp/pnpjs": "^1.1.1"
         }

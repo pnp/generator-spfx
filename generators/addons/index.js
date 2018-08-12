@@ -34,13 +34,11 @@ module.exports = class extends Generator {
 
         if (fs.existsSync(this.destinationPath('package.json'))) {
 
-            // console.log('FS EXISTs');
-
             let config = JSON.parse(fs.readFileSync(
                 this.destinationPath('package.json')
             ));
 
-            // // request current addon configuration
+            // request current addon configuration
             let addonConfig;
 
             try {
@@ -57,8 +55,6 @@ module.exports = class extends Generator {
 
             // let jsAddons = this.options.libaries;
             var requestedLibraries = this.options.libraries;
-
-            console.log("requestedLibraries :::::: ", requestedLibraries);
 
             var newPkgConfig = util.mergeAddons(addonConfig, requestedLibraries, config);
                         

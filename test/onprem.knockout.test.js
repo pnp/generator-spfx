@@ -91,7 +91,7 @@ describe('Knockout Test: On Premises', () => {
 
         it('No Environment === onprem', () => {
 
-            assert.fileContent(yorcFile, /\"environment\": \"onprem\",/);
+            assert.fileContent(yorcFile, /\"environment\": \"onprem\"/);
 
         });
 
@@ -168,7 +168,7 @@ describe('Knockout Test: On Premises', () => {
 
         it('No Environment === onprem', () => {
 
-            assert.fileContent(yorcFile, /\"environment\": \"onprem\",/);
+            assert.fileContent(yorcFile, /\"environment\": \"onprem\"/);
 
         });
 
@@ -241,7 +241,7 @@ describe('Knockout Test: On Premises', () => {
 
         it('No Environment === onprem', () => {
 
-            assert.fileContent(yorcFile, /\"environment\": \"onprem\",/);
+            assert.fileContent(yorcFile, /\"environment\": \"onprem\"/);
 
         });
 
@@ -317,7 +317,7 @@ describe('Knockout Test: On Premises', () => {
 
         it('No Environment === onprem', () => {
 
-            assert.fileContent(yorcFile, /\"environment\": \"onprem\",/);
+            assert.fileContent(yorcFile, /\"environment\": \"onprem\"/);
 
         });
 
@@ -393,7 +393,7 @@ describe('Knockout Test: On Premises', () => {
 
         it('No Environment === onprem', () => {
 
-            assert.fileContent(yorcFile, /\"environment\": \"onprem\",/);
+            assert.fileContent(yorcFile, /\"environment\": \"onprem\"/);
 
         });
 
