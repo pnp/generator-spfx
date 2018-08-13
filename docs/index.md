@@ -90,4 +90,4 @@ Options:
 
 ## Further informations
 
-* [General project setup and folders](project-setup.md)
+* [General project setup and folders](./compose/custom-generator.md)

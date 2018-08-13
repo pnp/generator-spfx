@@ -2,6 +2,10 @@
 const Generator = require('yeoman-generator');
 // prompt configuration
 const prompts = require('./promptConfig');
+// import nodejs fs
+const fs = require('fs');
+// import nodejs fs
+const util = require('../../lib/util');
 
 module.exports = class extends Generator {
 
