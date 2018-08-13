@@ -67,5 +67,5 @@ test/tmp
 trash
 
 # Test Result
-testresults/
+./testresults/
 .DS_Store
