@@ -35,10 +35,15 @@ module.exports = class extends Generator {
     }
 
     install() {
+        // deployes additional files to the project directory
         this._deployFiles();
+        // add external to the configuration
         this._addExternals();
+        // add all package depenedencies configured in addonConfig.json.
         this._addPackageDependencies();
+        // inject custom tasks to gulpfile
         this._injectToGulpFile();
+        // finally run install
         util.runInstall(this);
     }
 
@@ -104,16 +109,12 @@ module.exports = class extends Generator {
             );
 
         }
+
     }
 
     _injectToGulpFile() {
 
         if (fs.existsSync(this.destinationPath('gulpfile.js'))) {
-
-            let templateFile = fs.readFileSync(
-                this.templatePath('./gulpfile.js'),
-                'utf-8'
-            );
 
             let coreGulpTemplate = this.templatePath('../../../app/templates/gulpfile.js');
             let customGulpTemplate = this.templatePath('./gulpfile.js')

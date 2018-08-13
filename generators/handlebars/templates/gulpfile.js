@@ -28,7 +28,6 @@ let hbsWatch = build.subTask('hbsWatch', (gulp, buildOptions, done) => {
 
 });
 
-
 build.rig.addPreBuildTask(hbsWatch);
 
 build.initialize(gulp);
