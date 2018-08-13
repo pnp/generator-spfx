@@ -7,7 +7,7 @@ The following chapters explain the over setup and considerations.
 ## Project Setup
 The following directory listing give you an overview of the main directories in the generator.
 
-```sh
+```txt
 ├── app                <-- Main Generator
 ├── docs               <-- Documentation
 ├── generators         <-- custom generators
