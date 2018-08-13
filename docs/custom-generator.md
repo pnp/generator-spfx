@@ -15,7 +15,8 @@ The following directory listing give you an overview of the main directories in 
 │   ├── handlebars     <-- PnP Handlebars generator
 ├── lib                <-- General purpose libraries
 ├── test               <-- Mocha Unit Test
-├── generator-template <-- Template yeoman generator
+├── tools
+│   ├── generator-template  <-- Template yeoman generator
 ```
 
 ## Get started to write a new generator
