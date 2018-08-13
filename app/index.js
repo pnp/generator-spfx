@@ -6,7 +6,7 @@ const subGenerator = require('./subGenerators');
 // Prompt core configuration
 const prompting = require('./promptConfig');
 // Import PnP Says
-const pnpSays = require('../generators/lib/pnpsays');
+const pnpSays = require('../lib/pnpsays');
 
 module.exports = class extends Generator {
 
@@ -14,7 +14,7 @@ module.exports = class extends Generator {
 
         super(args, opts);
 
-        this.name = "PnP Community SPFx Generator"
+        this.name = 'PnP Community SPFx Generator'
 
         this._setupOptions();
         this._generateSPFxOptions();

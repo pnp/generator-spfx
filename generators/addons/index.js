@@ -6,7 +6,7 @@ const Generator = require('yeoman-generator');
 // filesystem
 const fs = require('fs');
 
-const util = require('../lib/util.js');
+const util = require('../../lib/util.js');
 
 module.exports = class extends Generator {
 
