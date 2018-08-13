@@ -157,4 +157,4 @@ install() {
 }
 ```
 
-This is required because all additional task has to be performed on top of the SharePoint Framework assets.
+This is required because all additional task has to be performed on top of the assets deployed by the SPFx default assets.
