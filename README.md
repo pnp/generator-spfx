@@ -8,11 +8,11 @@ This is an open-source extension for native out of the box SPFx generator to int
 
 Work is in progress and we'll accept absolutely contributions after the initial version is available.
 
-### Current Supported Frameworks and Addons
+### Current Supported Frameworks and Add-ons
 
-#### Addons
+#### Add-on
 
-The following addons are supported:
+The following add-on are supported:
 
 | Library | Version | Documentation |
 |:--|:--|:--|

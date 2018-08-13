@@ -28,9 +28,7 @@ module.exports = class extends Generator {
     writing() {
     }
 
-    install() {}
-
-    end() {
+    install() {
 
         if (fs.existsSync(this.destinationPath('package.json'))) {
 
@@ -62,8 +60,11 @@ module.exports = class extends Generator {
                 this.destinationPath('package.json'),
                 JSON.stringify(newPkgConfig, null, 2)
             );
-
         }
+
+    }
+
+    end() {
         
     }
 

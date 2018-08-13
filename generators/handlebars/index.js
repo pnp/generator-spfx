@@ -32,24 +32,19 @@ module.exports = class extends Generator {
 
 
     writing() {
-
     }
 
     install() {
-
-    }
-
-    // Run installer normally time to say goodbye
-    // If yarn is installed yarn will be used
-    end() {
-
         this._deployFiles();
         this._addExternals();
         this._addPackageDependencies();
         this._injectToGulpFile();
         util.runInstall(this);
-
     }
+
+    // Run installer normally time to say goodbye
+    // If yarn is installed yarn will be used
+    end() {}
 
     _deployFiles() {
 
