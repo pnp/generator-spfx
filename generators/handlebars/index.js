@@ -35,6 +35,7 @@ module.exports = class extends Generator {
     }
 
     install() {
+
         // deployes additional files to the project directory
         this._deployFiles();
         // add external to the configuration
@@ -45,6 +46,7 @@ module.exports = class extends Generator {
         this._injectToGulpFile();
         // finally run install
         util.runInstall(this);
+
     }
 
     // Run installer normally time to say goodbye
