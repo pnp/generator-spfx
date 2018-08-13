@@ -19,3 +19,6 @@ The following directory listing give you an overview of the main directories in 
 ```
 
 ## Get started to write a new generator
+
+To get started implementing and adding a new generator copy the template folder in the generators folder and rename it to a meaningful name matching your framework.
+
