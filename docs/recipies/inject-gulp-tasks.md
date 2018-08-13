@@ -39,7 +39,7 @@ build.rig.addPreBuildTask(hbsWatch);
 
 This file should only contain the required code that needs added to the SPFx owned `gulpfile.js`.
 
-Add the following code `index.js` below the `end()` method.
+Add the following code `index.js` after the `end()` method.
 
 ```js
 _injectToGulpFile() {
@@ -57,3 +57,15 @@ _injectToGulpFile() {
 
 }
 ```
+
+To execute this the injection your custom task in the `gulpfil.js` call this method from install method.
+
+```js
+install() {
+
+    this._injectToGulpFile();
+
+}
+```
+
+To verify execute the yeoman generator and look up the changes the changes in the `gulpfile.js` in the project directory.
