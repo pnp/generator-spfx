@@ -1,0 +1,69 @@
+# Run install npm packages from generator
+After all required modification have been applied to a new project by the Yeoman generator the npm packages needs installed. To provide a consistent method for all generators a utility class was implemented that over a single method to run the installer.
+
+## Default behaviour of installer
+Like the SPFx Default Yeoman generator installer it supports the following three  package manager:
+
+* [npm](https://www.npmjs.com)
+* [pnpm](https://pnpm.js.org)
+* [yarn](https://yarnpkg.com/en/)
+
+Be default the npm package manager will be used. If yarn package manager is installed on the client this package manager will be used by default.
+
+The pnpm package manager is available via a command line switch when the yeoman generator get launched.
+
+To install dependencies with with a specific package manager the following options exist:
+
+**To use explicit npm:**
+```sh
+yo @pnp/spfx --pm npm
+```
+
+or
+
+```sh
+yo @pnp/spfx --package-manager npm
+```
+
+**To use explicit pnpm:**
+```sh
+yo @pnp/spfx --pm pnpm
+```
+
+or
+
+```sh
+yo @pnp/spfx --package-manager pnpm
+```
+
+**To use explicit pnpm:**
+```sh
+yo @pnp/spfx --pm yarn
+```
+
+or
+
+```sh
+yo @pnp/spfx --package-manager yarn
+```
+
+## Make sure the util class is referenced
+Your generators `index.js`should include the following line of code somewhere at the start.
+
+```js
+// importing utilities
+const util = require('../../lib/util.js');
+```
+
+## Call npm package installation
+
+Add the following line of code in the install method of your generator.
+
+```js
+install(){
+
+    /* Custom configuration code should be placed before the installer */
+    util.runInstall(this);
+
+}
+```
