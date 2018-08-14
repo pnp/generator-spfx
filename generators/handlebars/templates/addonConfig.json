@@ -1,0 +1,11 @@
+{
+    "handlebars": {
+        "dependencies": {
+            "handlebars": "^4.0.6"
+        },
+        "devDependencies": {
+            "handlebars-template-loader": "^1.0.0",
+            "@types/handlebars": "^4.0.39"
+        }
+    }
+}

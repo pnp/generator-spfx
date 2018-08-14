@@ -1,0 +1,29 @@
+{
+    "jquery@2": {
+        "dependencies": {
+            "jquery": "^2.2.4",
+            "@types/jquery": "^2.0.49"
+        },
+        "devDependencies": {
+            "jquery": "^2.2.4",
+            "@types/jquery": "^2.0.49"
+        }
+    },
+    "jquery@3": {
+        "dependencies": {
+            "jquery": "^3.0.0",
+            "@types/jquery": "^3.0.0"
+        }
+    },
+    "pnpjs": {
+        "dependencies": {
+            "@pnp/pnpjs": "^1.1.1"
+        }
+    },
+    "@pnp/spfxreact": {
+        "dependencies": {
+            "@pnp/spfx-controls-react": "1.6.0"
+        }
+    }
+
+}
