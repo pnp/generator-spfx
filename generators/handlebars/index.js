@@ -31,8 +31,7 @@ module.exports = class extends Generator {
     }
 
 
-    writing() {
-    }
+    writing() {}
 
     install() {
 
@@ -82,9 +81,19 @@ module.exports = class extends Generator {
 
         if (fs.existsSync(this.destinationPath('package.json'))) {
 
-            let config = JSON.parse(fs.readFileSync(
-                this.destinationPath('package.json')
-            ));
+            // request the default package file
+            let config;
+
+            try {
+                config = JSON.parse(fs.readFileSync(
+                    this.destinationPath('package.json')
+                ));
+
+            } catch (error) {
+
+                throw error;
+
+            }
 
             // request current addon configuration
             let addonConfig;
@@ -101,14 +110,35 @@ module.exports = class extends Generator {
 
             }
 
+            // select the requested libraried
             let requestedLibraries = ['handlebars'];
 
-            let newPkgConfig = util.mergeAddons(addonConfig, requestedLibraries, config);
+            // declare new package config file
+            let newPkgConfig;
+            
+            try {
 
-            fs.writeFileSync(
-                this.destinationPath('package.json'),
-                JSON.stringify(newPkgConfig, null, 2)
-            );
+                newPkgConfig = util.mergeAddons(addonConfig, requestedLibraries, config);
+
+            } catch (error) {
+
+                throw error
+
+            }
+
+            // if content could be added to the new package.json write it
+            if (newPkgConfig !== undefined && newPkgConfig !== null) {
+
+                fs.writeFileSync(
+                    this.destinationPath('package.json'),
+                    JSON.stringify(newPkgConfig, null, 2)
+                );
+
+            } else {
+
+                throw 'Updated package.json file is invalid.';
+
+            }
 
         }
 
@@ -121,9 +151,15 @@ module.exports = class extends Generator {
             let coreGulpTemplate = this.templatePath('../../../app/templates/gulpfile.js');
             let customGulpTemplate = this.templatePath('./gulpfile.js')
 
-            let mergedGulpFile = util.composeGulpFile(coreGulpTemplate, customGulpTemplate);
+            try {
 
-            fs.writeFileSync(this.destinationPath('./gulpfile.js'), mergedGulpFile, 'utf-8');
+                util.composeGulpFile(coreGulpTemplate, customGulpTemplate);
+
+            } catch (error) {
+
+                this.log(error);
+
+            }
 
         }
 

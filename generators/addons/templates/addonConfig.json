@@ -3,10 +3,6 @@
         "dependencies": {
             "jquery": "^2.2.4",
             "@types/jquery": "^2.0.49"
-        },
-        "devDependencies": {
-            "jquery": "^2.2.4",
-            "@types/jquery": "^2.0.49"
         }
     },
     "jquery@3": {

@@ -47,7 +47,7 @@ or
 yo @pnp/spfx --package-manager yarn
 ```
 
-## Make sure the util class is referenced
+## Reference to the Util
 Your generators `index.js`should include the following line of code somewhere at the start.
 
 ```js
