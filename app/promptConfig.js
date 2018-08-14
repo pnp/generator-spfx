@@ -3,6 +3,7 @@ const chalk = require('chalk');
 
 const fgYellow = chalk.whiteBright.bold;
 
+// Currently supported framework
 const supportedFrameworks = [{
         name: 'Handlebars',
         value: 'handlebars'
@@ -34,7 +35,7 @@ let configOptions = [
     }
 ]
 
-// addon generator
+// Add configuration of Addon generator
 const addon = require('../generators/addons/promptConfig');
 configOptions = configOptions.concat(addon);
 

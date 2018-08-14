@@ -1,8 +1,11 @@
 // Base Yeoman generator
 const Generator = require('yeoman-generator');
-
+// prompt configuration
 const prompts = require('./promptConfig');
-
+// import nodejs fs
+const fs = require('fs');
+// import nodejs fs
+const util = require('../../lib/util');
 
 module.exports = class extends Generator {
 
@@ -15,7 +18,7 @@ module.exports = class extends Generator {
 
     // Initialisation geenerator
     initializing() {
-        // integrate addon generator
+
     }
 
     // Prompt for user input for Custom Generator
@@ -25,23 +28,27 @@ module.exports = class extends Generator {
 
     // adds additonal editor support in this case CSS Comb
     configuring() {
-
+        // Currently not supported don't use this
     }
 
     // adds additonal editor support in this case CSS Comb
     writing() {
-
+        // Currently not supported don't use this
     }
 
     // adds additonal editor support in this case CSS Comb
     install() {
+
+        /**
+         * Place your custom deployment code in here
+         */
 
     }
 
     // Run installer normally time to say goodbye
     // If yarn is installed yarn will be used
     end() {
-
+        // Currently not supported don't use this
     }
 
 }

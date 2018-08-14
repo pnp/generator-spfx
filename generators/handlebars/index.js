@@ -7,7 +7,7 @@ const Generator = require('yeoman-generator');
 const fs = require('fs');
 
 // importing utilities
-const util = require('../lib/util.js');
+const util = require('../../lib/util.js');
 
 module.exports = class extends Generator {
 
@@ -31,15 +31,21 @@ module.exports = class extends Generator {
     }
 
 
-    writing() {
-    }
+    writing() {}
 
     install() {
+
+        // deployes additional files to the project directory
         this._deployFiles();
+        // add external to the configuration
         this._addExternals();
+        // add all package depenedencies configured in addonConfig.json.
         this._addPackageDependencies();
+        // inject custom tasks to gulpfile
         this._injectToGulpFile();
+        // finally run install
         util.runInstall(this);
+
     }
 
     // Run installer normally time to say goodbye
@@ -75,9 +81,19 @@ module.exports = class extends Generator {
 
         if (fs.existsSync(this.destinationPath('package.json'))) {
 
-            let config = JSON.parse(fs.readFileSync(
-                this.destinationPath('package.json')
-            ));
+            // request the default package file
+            let config;
+
+            try {
+                config = JSON.parse(fs.readFileSync(
+                    this.destinationPath('package.json')
+                ));
+
+            } catch (error) {
+
+                throw error;
+
+            }
 
             // request current addon configuration
             let addonConfig;
@@ -94,33 +110,56 @@ module.exports = class extends Generator {
 
             }
 
+            // select the requested libraried
             let requestedLibraries = ['handlebars'];
 
-            let newPkgConfig = util.mergeAddons(addonConfig, requestedLibraries, config);
+            // declare new package config file
+            let newPkgConfig;
+            
+            try {
 
-            fs.writeFileSync(
-                this.destinationPath('package.json'),
-                JSON.stringify(newPkgConfig, null, 2)
-            );
+                newPkgConfig = util.mergeAddons(addonConfig, requestedLibraries, config);
+
+            } catch (error) {
+
+                throw error
+
+            }
+
+            // if content could be added to the new package.json write it
+            if (newPkgConfig !== undefined && newPkgConfig !== null) {
+
+                fs.writeFileSync(
+                    this.destinationPath('package.json'),
+                    JSON.stringify(newPkgConfig, null, 2)
+                );
+
+            } else {
+
+                throw 'Updated package.json file is invalid.';
+
+            }
 
         }
+
     }
 
     _injectToGulpFile() {
 
         if (fs.existsSync(this.destinationPath('gulpfile.js'))) {
 
-            let templateFile = fs.readFileSync(
-                this.templatePath('./gulpfile.js'),
-                'utf-8'
-            );
-
             let coreGulpTemplate = this.templatePath('../../../app/templates/gulpfile.js');
             let customGulpTemplate = this.templatePath('./gulpfile.js')
 
-            let mergedGulpFile = util.composeGulpFile(coreGulpTemplate, customGulpTemplate);
+            try {
 
-            fs.writeFileSync(this.destinationPath('./gulpfile.js'), mergedGulpFile, 'utf-8');
+                util.composeGulpFile(coreGulpTemplate, customGulpTemplate);
+
+            } catch (error) {
+
+                this.log(error);
+
+            }
 
         }
 
