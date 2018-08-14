@@ -1,0 +1,29 @@
+site_name: Office 365 CLI
+pages:
+  - Home: 'index.md'
+theme:
+  name: 'material'
+  palette:
+    primary: 'red'
+  logo: 'images/office.png'
+  feature:
+    tabs: true
+google_analytics:
+  - 'UA-110480857-1'
+  - 'auto'
+markdown_extensions:
+  - admonition
+  - codehilite:
+      guess_lang: false
+  - toc:
+      permalink: true
+extra:
+  social:
+    - type: 'twitter'
+      link: 'https://twitter.com/officedevpnp'
+    - type: 'youtube'
+      link: 'http://aka.ms/sppnp-videos'
+    - type: 'link'
+      link: 'https://aka.ms/sppnp'
+repo_url: http://github.com/pnp/office365-cli
+edit_uri: blob/master/docs/manual/docs
