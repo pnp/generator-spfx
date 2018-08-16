@@ -57,8 +57,8 @@ module.exports = class extends Generator {
     _deployFiles() {
 
         this.fs.copy(
-            this.templatePath('config/copy-static-assets.js'),
-            this.destinationPath('config/copy-static-assets.js')
+            this.templatePath('config/copy-static-assets.json'),
+            this.destinationPath('config/copy-static-assets.json')
         )
 
     }
