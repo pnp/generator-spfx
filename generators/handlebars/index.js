@@ -45,12 +45,14 @@ module.exports = class extends Generator {
         this._injectToGulpFile();
         // finally run install
         util.runInstall(this);
+        util.writeTemplates(this);
 
     }
 
     // Run installer normally time to say goodbye
     // If yarn is installed yarn will be used
-    end() {}
+    end() {
+    }
 
     _deployFiles() {
 
@@ -115,7 +117,7 @@ module.exports = class extends Generator {
 
             // declare new package config file
             let newPkgConfig;
-            
+
             try {
 
                 newPkgConfig = util.mergeAddons(addonConfig, requestedLibraries, config);
@@ -146,14 +148,17 @@ module.exports = class extends Generator {
 
     _injectToGulpFile() {
 
-        if (fs.existsSync(this.destinationPath('gulpfile.js'))) {
+        let targetGulpFile = this.destinationPath('gulpfile.js');
+
+        if (fs.existsSync(targetGulpFile)) {
 
             let coreGulpTemplate = this.templatePath('../../../app/templates/gulpfile.js');
-            let customGulpTemplate = this.templatePath('./gulpfile.js')
+            let customGulpTemplate = this.templatePath('./gulpfile.js');
+
 
             try {
 
-                util.composeGulpFile(coreGulpTemplate, customGulpTemplate);
+                util.composeGulpFile(coreGulpTemplate, customGulpTemplate, targetGulpFile);
 
             } catch (error) {
 
