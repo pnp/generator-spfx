@@ -1,40 +1,47 @@
 {
-    "name": "@pnp/generator-spfx",
-    "version": "0.0.1",
-    "description": "",
-    "author": {
-        "name": "Office 365 / SharePoint PnP Core Team",
-        "url": "https://github.com/pnp"
-    },
-    "license": "MIT",
-    "files": [
-        "addons"
-    ],
-    "keywords": [
-        "yeoman-generator",
-        "SPFx",
-        "SharePointFramework"
-    ],
-    "maintainers": [
-        {
-            "name": "Stefan Bauer",
-            "email": "stefan.bauer@n8d.at",
-            "url": "https://www.n8d.at/"
-        }
-    ],
-    "dependencies": {
-        "chalk": "^2.4.1",
-        "command-exists": "^1.2.7",
-        "escodegen": "^1.11.0",
-        "esprima": "^4.0.1",
-        "update-notifier": "^2.5.0",
-        "yeoman-generator": "~3.1.1"
-    },
-    "devDependencies": {
-        "@microsoft/generator-sharepoint": "^1.5.1",
-        "mocha": "~5.2.0",
-        "rimraf": "^2.6.2",
-        "yeoman-assert": "~3.1.1",
-        "yeoman-test": "~1.9.1"
+  "name": "@pnp/generator-spfx",
+  "version": "0.0.1",
+  "description": "",
+  "author": {
+    "name": "Office 365 / SharePoint PnP Core Team",
+    "url": "https://github.com/pnp"
+  },
+  "license": "MIT",
+  "files": [
+    "addons"
+  ],
+  "keywords": [
+    "yeoman-generator",
+    "SPFx",
+    "SharePointFramework"
+  ],
+  "maintainers": [
+    {
+      "name": "Stefan Bauer",
+      "email": "stefan.bauer@n8d.at",
+      "url": "https://www.n8d.at/"
     }
+  ],
+  "dependencies": {
+    "chalk": "^2.4.1",
+    "command-exists": "^1.2.7",
+    "escodegen": "^1.11.0",
+    "esprima": "^4.0.1",
+    "update-notifier": "^2.5.0",
+    "yeoman-generator": "~3.1.1"
+  },
+  "devDependencies": {
+    "@microsoft/generator-sharepoint": "^1.5.1",
+    "mocha": "~5.2.0",
+    "rimraf": "^2.6.2",
+    "yeoman-assert": "~3.1.1",
+    "yeoman-test": "~1.9.1"
+  },
+  "scripts": {
+    "test-onprem": "mocha ./test/onprem.handlebars.test.js && mocha ./test/onprem.knockout.test.js && mocha ./test/onprem.react.test.js",
+    "test-spo": "mocha ./test/spo.handlebars.test.js && mocha ./test/spo.knockout.test.js && mocha ./test/spo.react.test.js",
+    "test-handlebars": "mocha ./test/onprem.handlebars.test.js && mocha ./test/spo.handlebars.test.js",
+    "test-react": "mocha ./test/onprem.react.test.js && mocha ./test/spo.react.test.js",
+    "test-knockout": "mocha ./test/onprem.knockout.test.js && mocha ./test/spo.knockout.test.js"
+  }
 }
