@@ -1,0 +1,162 @@
+# Compose custom SPFx generators
+
+# PnP SPFx Generator - Development
+
+Before you start the development of custom yeoman generators please make sure you read the [how to author Yeoman generators](http://yeoman.io/authoring/).
+
+The following chapters explain the over setup and considerations.
+
+## Project Setup
+The following directory listing give you an overview of the main directories in the generator.
+
+```txt
+├── app                <-- Main Generator
+├── docs               <-- Documentation
+├── generators         <-- custom generators
+│   ├── addons         <-- Addon Generator reserved for client libraries only
+│   ├── handlebars     <-- PnP Handlebars generator
+├── lib                <-- General purpose libraries
+├── test               <-- Mocha Unit Test
+├── tools
+│   ├── generator-template  <-- Template yeoman generator
+```
+
+## Get started to write a new generator
+
+To get started implementing and adding a new generator copy the template folder in the generators folder and rename it to a meaningful name matching your framework.
+
+In the folder you will find the following files:
+
+* **index.js** - main sub generator file
+* **promptconfig.js** - special prompt config related to sub generator
+* **template/addonConfig.json** - This file contains all NPM Packages that need to be installe
+
+### User prompt for sub generator
+
+I case the generator need some additional information from the user this questions can be configured in the file `promptconfig.js`. The content of this file follow the default Yeoman generator user prompting described in the article on [how to interact with the user](http://yeoman.io/authoring/user-interactions.html).
+
+The library Yeoman uses is [inquer.js](https://github.com/SBoudrias/Inquirer.js/).
+
+```js
+"use strict"
+
+// These are just sample selection of options
+const options = [{
+        name: 'Option A',
+        value: 'option-a'
+    },
+    {
+        name: 'Option B',
+        value: 'option-b'
+    }
+];
+
+const configOptions = [
+    // Sample content of questions
+    {
+        type: 'list',
+        message: 'Please add your options in here',
+        name: 'youroptions',
+        choices: options
+    }
+    // , addon
+]
+
+const promptConfig = {
+    config: configOptions
+}
+
+module.exports = promptConfig;
+```
+
+This sample exports the configuration as a module and can be integrated in the main Yeoman generator to consolidate the user prompts in the main generator.
+
+### Generator implementation - index.js
+
+All actions required for a new custom generator need to be implemented in the ```index.js``` file.
+
+The default template currently list all possible methods in the right call order provided by the default Yeoman generator.
+
+```js
+// Base Yeoman generator
+const Generator = require('yeoman-generator');
+// prompt configuration
+const prompts = require('./promptConfig');
+
+module.exports = class extends Generator {
+
+    constructor(args, opts) {
+
+        super(args, opts);
+        // configuration of user prompt
+
+    }
+
+    // Initialisation geenerator
+    initializing() {
+
+    }
+
+    // Prompt for user input for Custom Generator
+    prompting() {
+    
+    }
+
+    // adds additonal editor support in this case CSS Comb
+    configuring() {
+        // Currently not supported - Don't use this
+    }
+
+    // adds additonal editor support in this case CSS Comb
+    writing() {
+        // Currently not supported - Don't use this
+    }
+
+    // adds additonal editor support in this case CSS Comb
+    install() {
+
+        /**
+         * Place your custom deployment code in here
+         */
+
+    }
+
+    // Run installer normally time to say goodbye
+    // If yarn is installed yarn will be used
+    end() {
+    }
+
+}
+```
+
+The call order of a Yeoman generator is defined in the following steps:
+
+1. constructor()
+2. initializing()
+3. prompting()
+4. configuring()
+5. writing()
+6. install()
+7. end()
+
+Through the dependency on the Microsoft Yeoman Generator the actions need to be delayed to the next step. After the SPFx generator wrote the files to the file system through his `writing()` method, the custom generator is able to update the configuration with additional information.
+Instead of add the code of the custom generator to the `writing()` method the code has to be added to the `install()` method.
+
+In case of the Handlebars generator the following functions get called in the install method.
+
+```js
+install() {
+    // deploy additional files to the project directory
+    this._deployFiles();
+    // add external to the configuration
+    this._addExternals();
+    // add all package depenedencies configured in addonConfig.json.
+    this._addPackageDependencies();
+    // inject custom tasks to gulpfile
+    this._injectToGulpFile();
+    // finally run install
+    util.runInstall(this);
+}
+```
+
+This is required because all additional task has to be performed on top of the assets deployed by the SPFx default assets.
