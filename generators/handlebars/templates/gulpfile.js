@@ -1,6 +1,6 @@
 const loaderConfig = {
   test: /\.hbs/,
-  loader: "handlebars-template-loader"
+  loader: 'handlebars-template-loader'
 };
 
 // Merge custom loader to web pack configuration
