@@ -1,16 +1,21 @@
-site_name: Office 365 CLI
+site_name: PnP/generator-SPFx
 pages:
   - Home: 'index.md'
+  - Compose: 'compose/index.md'
+  - Recipies: 'recipies/index.md'
+  - How-Tos: 'how-tos/index.md'
 theme:
   name: 'material'
   palette:
-    primary: 'red'
-  logo: 'images/office.png'
+    primary: 'pink'
+  logo: 'assets/logo.svg'
   feature:
     tabs: true
-google_analytics:
-  - 'UA-110480857-1'
-  - 'auto'
+extra_css:
+  - 'css/extra.css'
+# google_analytics:
+#   # - 'UA-110480857-1'
+#   - 'auto'
 markdown_extensions:
   - admonition
   - codehilite:
@@ -25,5 +30,5 @@ extra:
       link: 'http://aka.ms/sppnp-videos'
     - type: 'link'
       link: 'https://aka.ms/sppnp'
-repo_url: http://github.com/pnp/office365-cli
+repo_url: http://github.com/pnp/generator-spfx
 edit_uri: blob/master/docs/manual/docs

@@ -56,15 +56,15 @@ https://asciinema.org/a/196170
 
 The following option provides a complete list of available switches.
 
-```sh
+```bash
 Usage:
   yo @pnp/spfx [options]
 
 Options:
   -h,    --help                     # Print the generator's options and usage
-         --skip-cache               # Do not remember prompt answers                                                                                                                                                                                                                               Default: false
-         --skip-install             # Do not automatically install dependencies                                                                                                                                                                                                                    Default: false
-         --force-install            # Fail on install dependencies error                                                                                                                                                                                                                           Default: false
+         --skip-cache               # Do not remember prompt answers - Default: false
+         --skip-install             # Do not automatically install dependencies - Default: false
+         --force-install            # Fail on install dependencies error - Default: false
          --component-description    # Web part description
          --component-name           # Web part name
          --component-type           # The type of component:
@@ -90,4 +90,4 @@ Options:
 
 ## Further informations
 
-* [General project setup and folders](./compose/custom-generator.md)
+* [General project setup and folders](./compose/add-generator.md)
