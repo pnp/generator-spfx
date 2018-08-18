@@ -1,0 +1,58 @@
+# Javascript Node CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-javascript/ for more details
+#
+defaults: &defaults
+  working_directory: ~/generator-spfx
+  docker:
+    - image: circleci/node:8.11.2
+
+version: 2
+jobs:
+  build:
+    <<: *defaults    
+
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/generator-spfx
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "package.json" }}
+          # fallback to using the latest cache if no exact match is found
+          - v1-dependencies-
+
+      - run: npm install
+
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+        
+      # run tests!
+      - run: npm test
+  test:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/generator-spfx
+      - run:
+          name: Testing SPO
+          command: npm run test-spo
+      - run:
+          name: Testing On Prem
+          command: npm run test-onprem
+      - run:
+          name: Testing On Handlebars
+          command: npm run test-handlebars
+      - run:
+          name: Testing On React
+          command: npm run test-react
+      - run:
+          name: Testing On Knockout
+          command: npm run test-kockout
+
+
+
+
