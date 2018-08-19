@@ -129,6 +129,12 @@ module.exports = class extends Generator {
     // Configure and launch all required generators
     _configGenerators(options) {
 
+        // Launch Default SPFx generator
+        this.composeWith(
+            subGenerator.spfx,
+            this.options.SpfxOptions
+        );
+
         // If required launch library generator
         if (options.libraries.length !== undefined &&
             options.libraries.length !== 0) {
@@ -149,12 +155,6 @@ module.exports = class extends Generator {
             )
 
         }
-
-        // Launch Default SPFx generator
-        this.composeWith(
-            subGenerator.spfx,
-            this.options.SpfxOptions
-        );
 
     }
 

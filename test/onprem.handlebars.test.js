@@ -21,7 +21,7 @@ const userWebPartConfig = {
 let yorcFile = path.join(localTempDir, '.yo-rc.json'),
     packageFile = path.join(localTempDir, 'package.json');
 
-describe('Handlebars: On Premises', () => {
+describe('Handlebar Test: On Premises', () => {
 
     const baseSettings = {
         framework: 'handlebars',
@@ -104,13 +104,13 @@ describe('Handlebars: On Premises', () => {
 
         })
 
-        it('No ReactJS', () => {
+        it('no ReactJS', () => {
 
             assert.noFileContent(packageFile, /react/);
 
         })
 
-        it('No ReactJS Dom', () => {
+        it('no ReactJS Dom', () => {
 
             assert.noFileContent(packageFile, /react-dom/);
 
@@ -122,7 +122,7 @@ describe('Handlebars: On Premises', () => {
 
         })
 
-        it('Handlebars', () => {
+        it('handlebars', () => {
 
             assert.fileContent(packageFile, /handlebars/);
 
@@ -193,13 +193,13 @@ describe('Handlebars: On Premises', () => {
 
         })
 
-        it('ReactJS', () => {
+        it('no ReactJS', () => {
 
             assert.noFileContent(packageFile, /react/);
 
         })
 
-        it('ReactJS Dom', () => {
+        it('no ReactJS Dom', () => {
 
             assert.noFileContent(packageFile, /react-dom/);
 
@@ -211,7 +211,7 @@ describe('Handlebars: On Premises', () => {
 
         })
 
-        it('Handlebars', () => {
+        it('handlebars', () => {
 
             assert.fileContent(packageFile, /handlebars/);
 
@@ -297,7 +297,7 @@ describe('Handlebars: On Premises', () => {
 
         })
 
-        it('Handlebars', () => {
+        it('handlebars', () => {
 
             assert.fileContent(packageFile, /handlebars/);
 
@@ -388,11 +388,11 @@ describe('Handlebars: On Premises', () => {
 
         })
 
-        it('Handlebars', () => {
+        it('handlebars', () => {
 
             assert.fileContent(packageFile, /handlebars/);
 
-        })
+        })      
 
         it('pnpjs', () => {
 
@@ -476,11 +476,12 @@ describe('Handlebars: On Premises', () => {
 
         })
 
-        it('Handlebars', () => {
+        it('handlebars', () => {
 
             assert.fileContent(packageFile, /handlebars/);
 
         })
+
 
         it('pnpjs', () => {
 
