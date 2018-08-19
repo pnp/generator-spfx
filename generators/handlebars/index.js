@@ -34,7 +34,6 @@ module.exports = class extends Generator {
     writing() {}
 
     install() {
-
         // deployes additional files to the project directory
         this._deployFiles();
         // add external to the configuration
@@ -45,13 +44,14 @@ module.exports = class extends Generator {
         this._injectToGulpFile();
         // finally run install
         util.runInstall(this);
-        util.writeTemplates(this);
-
+        // # BUG currently only appears just in test
+        // util.writeTemplates(this);
     }
 
     // Run installer normally time to say goodbye
     // If yarn is installed yarn will be used
     end() {
+
     }
 
     _deployFiles() {
@@ -66,16 +66,24 @@ module.exports = class extends Generator {
     _addExternals() {
 
         // reading JSON
-        let config = this.fs.readJSON(this.destinationPath('config/config.json'));
-
-        // Add Handlebars entry
-        config.externals.handlebars = "./node_modules/handlebars/dist/handlebars.amd.min.js";
-
-        // writing json
-        fs.writeFileSync(
-            this.destinationPath('config/config.json'),
-            JSON.stringify(config, null, 2)
+        let config = JSON.parse(
+            fs.readFileSync(this.destinationPath('config/config.json'))
         );
+
+        if (config.externals !== undefined) {
+            // Add Handlebars entry
+            config.externals.handlebars = "./node_modules/handlebars/dist/handlebars.amd.min.js";
+
+            // writing json
+            try {
+                fs.writeFileSync(
+                    this.destinationPath('config/config.json'),
+                    JSON.stringify(config, null, 2)
+                );
+            } catch (error) {
+                console.log(error);
+            }
+        }
 
     }
 

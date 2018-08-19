@@ -21,7 +21,7 @@ const userWebPartConfig = {
 let yorcFile = path.join(localTempDir, '.yo-rc.json'),
     packageFile = path.join(localTempDir, 'package.json');
 
-describe('HandleBarsJS: Test SPO', () => {
+describe('Handlebar Test: On Premises', () => {
 
     const baseSettings = {
         framework: 'handlebars',
@@ -53,7 +53,7 @@ describe('HandleBarsJS: Test SPO', () => {
 
     };
 
-    describe('Handlenars + JQuery 2.x', () => {
+    describe('Handlebars + JQuery 2.x', () => {
 
         const userTestConfig = Object.assign({}, baseSettings, {
             jsLibrary: ['jquery'],
@@ -86,9 +86,9 @@ describe('HandleBarsJS: Test SPO', () => {
 
         })
 
-        it('No Environment === SPO', () => {
+        it('No Environment === onprem', () => {
 
-            assert.fileContent(yorcFile, /\"environment\": \"spo\",/);
+            assert.fileContent(yorcFile, /\"environment\": \"spo\"/);
 
         });
 
@@ -104,13 +104,13 @@ describe('HandleBarsJS: Test SPO', () => {
 
         })
 
-        it('No ReactJS', () => {
+        it('no ReactJS', () => {
 
             assert.noFileContent(packageFile, /react/);
 
         })
 
-        it('No ReactJS Dom', () => {
+        it('no ReactJS Dom', () => {
 
             assert.noFileContent(packageFile, /react-dom/);
 
@@ -119,6 +119,12 @@ describe('HandleBarsJS: Test SPO', () => {
         it('no knockout', () => {
 
             assert.noFileContent(packageFile, /knockout/);
+
+        })
+
+        it('handlebars', () => {
+
+            assert.fileContent(packageFile, /handlebars/);
 
         })
 
@@ -169,9 +175,9 @@ describe('HandleBarsJS: Test SPO', () => {
 
         })
 
-        it('No Environment === SPO', () => {
+        it('No Environment === onprem', () => {
 
-            assert.fileContent(yorcFile, /\"environment\": \"spo\",/);
+            assert.fileContent(yorcFile, /\"environment\": \"spo\"/);
 
         });
 
@@ -187,13 +193,13 @@ describe('HandleBarsJS: Test SPO', () => {
 
         })
 
-        it('No ReactJS', () => {
+        it('no ReactJS', () => {
 
             assert.noFileContent(packageFile, /react/);
 
         })
 
-        it('No ReactJS Dom', () => {
+        it('no ReactJS Dom', () => {
 
             assert.noFileContent(packageFile, /react-dom/);
 
@@ -202,6 +208,12 @@ describe('HandleBarsJS: Test SPO', () => {
         it('no knockout', () => {
 
             assert.noFileContent(packageFile, /knockout/);
+
+        })
+
+        it('handlebars', () => {
+
+            assert.fileContent(packageFile, /handlebars/);
 
         })
 
@@ -249,9 +261,9 @@ describe('HandleBarsJS: Test SPO', () => {
 
         })
 
-        it('No Environment === SPO', () => {
+        it('No Environment === onprem', () => {
 
-            assert.fileContent(yorcFile, /\"environment\": \"spo\",/);
+            assert.fileContent(yorcFile, /\"environment\": \"spo\"/);
 
         });
 
@@ -267,13 +279,13 @@ describe('HandleBarsJS: Test SPO', () => {
 
         })
 
-        it('No ReactJS', () => {
+        it('ReactJS', () => {
 
             assert.noFileContent(packageFile, /react/);
 
         })
 
-        it('No ReactJS Dom', () => {
+        it('ReactJS Dom', () => {
 
             assert.noFileContent(packageFile, /react-dom/);
 
@@ -282,6 +294,12 @@ describe('HandleBarsJS: Test SPO', () => {
         it('no knockout', () => {
 
             assert.noFileContent(packageFile, /knockout/);
+
+        })
+
+        it('handlebars', () => {
+
+            assert.fileContent(packageFile, /handlebars/);
 
         })
 
@@ -334,9 +352,9 @@ describe('HandleBarsJS: Test SPO', () => {
             rimraf.sync(localTempDirDelete);
         });
 
-        it('No Environment === SPO', () => {
+        it('No Environment === onprem', () => {
 
-            assert.fileContent(yorcFile, /\"environment\": \"spo\",/);
+            assert.fileContent(yorcFile, /\"environment\": \"spo\"/);
 
         });
 
@@ -352,13 +370,13 @@ describe('HandleBarsJS: Test SPO', () => {
 
         })
 
-        it('No ReactJS', () => {
+        it('ReactJS', () => {
 
             assert.noFileContent(packageFile, /react/);
 
         })
 
-        it('No ReactJS Dom', () => {
+        it('ReactJS Dom', () => {
 
             assert.noFileContent(packageFile, /react-dom/);
 
@@ -369,6 +387,12 @@ describe('HandleBarsJS: Test SPO', () => {
             assert.noFileContent(packageFile, /knockout/);
 
         })
+
+        it('handlebars', () => {
+
+            assert.fileContent(packageFile, /handlebars/);
+
+        })      
 
         it('pnpjs', () => {
 
@@ -416,9 +440,9 @@ describe('HandleBarsJS: Test SPO', () => {
 
         })
 
-        it('No Environment === SPO', () => {
+        it('No Environment === onprem', () => {
 
-            assert.fileContent(yorcFile, /\"environment\": \"spo\",/);
+            assert.fileContent(yorcFile, /\"environment\": \"spo\"/);
 
         });
 
@@ -434,13 +458,13 @@ describe('HandleBarsJS: Test SPO', () => {
 
         })
 
-        it('No ReactJS', () => {
+        it('ReactJS', () => {
 
             assert.noFileContent(packageFile, /react/);
 
         })
 
-        it('No ReactJS Dom', () => {
+        it('ReactJS Dom', () => {
 
             assert.noFileContent(packageFile, /react-dom/);
 
@@ -451,6 +475,13 @@ describe('HandleBarsJS: Test SPO', () => {
             assert.noFileContent(packageFile, /knockout/);
 
         })
+
+        it('handlebars', () => {
+
+            assert.fileContent(packageFile, /handlebars/);
+
+        })
+
 
         it('pnpjs', () => {
 
