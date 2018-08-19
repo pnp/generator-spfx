@@ -88,7 +88,7 @@ describe('Handlebar Test: On Premises', () => {
 
         it('No Environment === onprem', () => {
 
-            assert.fileContent(yorcFile, /\"environment\": \"onprem\",/);
+            assert.fileContent(yorcFile, /\"environment\": \"onprem\"/);
 
         });
 
@@ -177,7 +177,7 @@ describe('Handlebar Test: On Premises', () => {
 
         it('No Environment === onprem', () => {
 
-            assert.fileContent(yorcFile, /\"environment\": \"onprem\",/);
+            assert.fileContent(yorcFile, /\"environment\": \"onprem\"/);
 
         });
 
@@ -263,7 +263,7 @@ describe('Handlebar Test: On Premises', () => {
 
         it('No Environment === onprem', () => {
 
-            assert.fileContent(yorcFile, /\"environment\": \"onprem\",/);
+            assert.fileContent(yorcFile, /\"environment\": \"onprem\"/);
 
         });
 
@@ -354,7 +354,7 @@ describe('Handlebar Test: On Premises', () => {
 
         it('No Environment === onprem', () => {
 
-            assert.fileContent(yorcFile, /\"environment\": \"onprem\",/);
+            assert.fileContent(yorcFile, /\"environment\": \"onprem\"/);
 
         });
 
@@ -442,7 +442,7 @@ describe('Handlebar Test: On Premises', () => {
 
         it('No Environment === onprem', () => {
 
-            assert.fileContent(yorcFile, /\"environment\": \"onprem\",/);
+            assert.fileContent(yorcFile, /\"environment\": \"onprem\"/);
 
         });
 
