@@ -52,25 +52,25 @@ jobs:
       - run:
           name: Testing On Knockout
           command: npm run test-kockout
-deploy_docs:
-    working_directory: ~/generator-spfx/
-    docker:
-      - image: circleci/python:2.7-jessie-node
-    steps:
-      - attach_workspace:
-          at: ~/office365-cli
-      - add_ssh_keys:
-          fingerprints:
-            - "0f:36:32:2c:bd:e1:24:1a:5d:f6:2e:64:71:a4:b2:d9"
-      - run:
-          name: Install MkDocs
-          command: sudo pip install mkdocs
-      - run:
-          name: Install MkDocs theme
-          command: sudo pip install mkdocs-material
-      - run:
-          name: Avoid hosts unknown for github
-          command: echo -e "Host github.com\n\tStrictHostKeyChecking no\n" > ~/.ssh/config
-      - run:
-          name: Build docs
-          command: mkdocs gh-deploy
+    deploy_docs:
+        working_directory: ~/generator-spfx/
+        docker:
+        - image: circleci/python:2.7-jessie-node
+        steps:
+        - attach_workspace:
+            at: ~/office365-cli
+        - add_ssh_keys:
+            fingerprints:
+                - "7c:a4:22:e4:6f:43:12:5a:f6:3a:8f:74:4f:62:79:f3"
+        - run:
+            name: Install MkDocs
+            command: sudo pip install mkdocs
+        - run:
+            name: Install MkDocs theme
+            command: sudo pip install mkdocs-material
+        - run:
+            name: Avoid hosts unknown for github
+            command: echo -e "Host github.com\n\tStrictHostKeyChecking no\n" > ~/.ssh/config
+        - run:
+            name: Build docs
+            command: mkdocs gh-deploy
