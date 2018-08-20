@@ -1,6 +1,9 @@
 # Pnp SPFx Yeoman generator
 The composeability model of Yeoman generator is on of its core features allow you to build your own or consume and reuse already built generator. The Microsofts SharePoint Framework Yeoman generator supports this model too.
 The PnP SPFx Yeoman generator uses 100% of the SPFx Yeoman generator and adds functionalities on top of this framework.
+
+![PnP SPFx Generator][logo]
+
 The extension support ranges from client-side libraries such as pnpjs and jQuery to extend the capabilities to more complex extension such as the integration of HandlebarsJS, VueJS and many more.
 
 > **Limitation:** Right now the PnP SPFx yeoman generator supports only the initial setup of new projects. To add additional web parts and extensions please use the Microsoft SPFx generator. In future this generator can be used to add elements to existing projects.
@@ -50,7 +53,7 @@ yo @pnp/spfx
 
 This will start you the Yeoman generator for a new project that give yo all options to choose from.
 
-https://asciinema.org/a/196170
+[![asciicast](https://asciinema.org/a/196170)](https://asciinema.org/a/196170)
 
 ## Command Line Options
 
@@ -91,3 +94,6 @@ Options:
 ## Further informations
 
 * [General project setup and folders](./compose/add-generator.md)
+
+
+[logo]: ./docs/assets/pnpspfx-title.png
