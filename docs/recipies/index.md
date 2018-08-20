@@ -1,9 +1,9 @@
 # Recipies for Development
 
-In this section you will find useful code snippet and explainations.
+In this section you will find useful code snippets and explanations.
 
 ## Yeoman
 * [Run install](run-install.md)
 
 ## SPFx
-* [Inject cutom gulp configuration and tasks](inject-gulp-tasks.md)
+* [Inject custom gulp configuration and tasks](inject-gulp-tasks.md)
