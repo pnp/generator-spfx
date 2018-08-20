@@ -2,7 +2,7 @@ site_name: PnP/generator-SPFx
 pages:
   - Home: 'index.md'
   - Compose: 'compose/index.md'
-  - Recipes: 'recipies/index.md'
+  - Recipes: 'recipes/index.md'
   - How-Tos: 'how-tos/index.md'
 theme:
   name: 'material'
