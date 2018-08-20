@@ -4,25 +4,28 @@ The util module can be found in the './lib/' directory and contains the followin
 
 ## mergeAddons(addonConfig, requestedLibraries, config)
 
-Merge add-ons to the `package.json`.
+This method merges add-ons in `package.json`.
 
 **addonConfig**   
-Configuration of add-ons available in generator.
+Configuration of add-ons available in the generator.
+
 **requestedLibraries**  
-Array of requested library identifier.
+Array of requested library identifiers.
+
 **config**  
-Given configuration to merge add-ons in the currently used `package.json` for example.
+Given configuration to merge add-ons in the currently used `package.json`, for example.
 
 ## composeGulpFile(coreTemplate, customTemplate)
 
-This method allows to inject custom gulp tasks to the gulp file.
+This method allows you to inject custom gulp tasks in the gulp file.
 
 **coreTemplate**  
-Define path to any gulp file you like to use as a template
-**customTemplate**  
-Contains all your custom gulp tasks you like to inject.
+Path to any gulp file you would like to use as a template.
 
-The core template in the generator provided by SPFx is located in the folder `/app/templates/gulpfile.js` and contains the following [EJS](http://ejs.co) code.
+**customTemplate**  
+Contains all your custom gulp tasks you would like to inject.
+
+The core template in the generator provided by SPFx is located in the folder `/app/templates/gulpfile.js` and contains the following [EJS](http://ejs.co) code:
 
 ```js
 'use strict';
@@ -37,13 +40,13 @@ build.addSuppression(`Warning - [sass] The local CSS class 'ms-Grid' is not came
 build.initialize(gulp);
 ```
 
-The custom generator can point to this file using the following code.
+The custom generator can point to this file using the following code:
 
 ```js
 let coreGulpTemplate = this.templatePath('../../../app/templates/gulpfile.js');
 ```
 
-The following example shows a simple custom code snippet that should be included in the gulp file.
+The following example shows a simple custom code snippet that should be included in the gulp file:
 
 ```js
 // code to inject in gulp file
