@@ -2,12 +2,12 @@
 
 # PnP SPFx Generator - Development
 
-Before you start the development of custom yeoman generators please make sure you read the [how to author Yeoman generators](http://yeoman.io/authoring/).
+Before you start development of custom yeoman generators please be sure to read [Writing your own Yeoman Generator](http://yeoman.io/authoring/).
 
-The following chapters explain the over setup and considerations.
+The following chapters explain the overall setup and considerations.
 
 ## Project Setup
-The following directory listing give you an overview of the main directories in the generator.
+The following directory listing gives you an overview of the main directories in the generator.
 
 ```txt
 ├── app                <-- Main Generator
@@ -21,19 +21,19 @@ The following directory listing give you an overview of the main directories in 
 │   ├── generator-template  <-- Template yeoman generator
 ```
 
-## Get started to write a new generator
+## Get started writing a new generator
 
-To get started implementing and adding a new generator copy the template folder in the generators folder and rename it to a meaningful name matching your framework.
+To get started implementing and adding a new generator, copy the template folder in the generators folder and rename it to a meaningful name matching your framework.
 
 In the folder you will find the following files:
 
 * **index.js** - main sub generator file
 * **promptconfig.js** - special prompt config related to sub generator
-* **template/addonConfig.json** - This file contains all NPM Packages that need to be installe
+* **template/addonConfig.json** - This file contains all NPM Packages that need to be installed
 
 ### User prompt for sub generator
 
-I case the generator need some additional information from the user this questions can be configured in the file `promptconfig.js`. The content of this file follow the default Yeoman generator user prompting described in the article on [how to interact with the user](http://yeoman.io/authoring/user-interactions.html).
+In case the generator need some additional information from the user, questions can be configured in the file `promptconfig.js`. The content of this file follows the default Yeoman generator user prompting described in the article [Interacting with the User](http://yeoman.io/authoring/user-interactions.html).
 
 The library Yeoman uses is [inquer.js](https://github.com/SBoudrias/Inquirer.js/).
 
@@ -75,7 +75,7 @@ This sample exports the configuration as a module and can be integrated in the m
 
 All actions required for a new custom generator need to be implemented in the ```index.js``` file.
 
-The default template currently list all possible methods in the right call order provided by the default Yeoman generator.
+The default template currently lists all possible methods in the right call order provided by the default Yeoman generator.
 
 ```js
 // Base Yeoman generator
@@ -139,10 +139,11 @@ The call order of a Yeoman generator is defined in the following steps:
 6. install()
 7. end()
 
-Through the dependency on the Microsoft Yeoman Generator the actions need to be delayed to the next step. After the SPFx generator wrote the files to the file system through his `writing()` method, the custom generator is able to update the configuration with additional information.
-Instead of add the code of the custom generator to the `writing()` method the code has to be added to the `install()` method.
+Because of the dependency on the Microsoft Yeoman Generator, the actions need to be delayed to the next step. After the SPFx generator has written the files to the file system through its `writing()` method, the custom generator is able to update the configuration with additional information.
 
-In case of the Handlebars generator the following functions get called in the install method.
+Instead of adding the code of the custom generator to the `writing()` method, the code has to be added to the `install()` method.
+
+In the case of the Handlebars generator, the following functions get called in the `install()` method:
 
 ```js
 install() {
@@ -159,4 +160,4 @@ install() {
 }
 ```
 
-This is required because all additional task has to be performed on top of the assets deployed by the SPFx default assets.
+This is required because all additional tasks have to be performed on top of the assets deployed by the SPFx default assets.

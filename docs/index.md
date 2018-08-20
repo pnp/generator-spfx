@@ -1,9 +1,9 @@
-# Pnp SPFx Yeoman generator
-The composeability model of Yeoman generator is on of its core features allow you to build your own or consume and reuse already built generator. The Microsofts SharePoint Framework Yeoman generator supports this model too.
-The PnP SPFx Yeoman generator uses 100% of the SPFx Yeoman generator and adds functionalities on top of this framework.
-The extension support ranges from client-side libraries such as pnpjs and jQuery to extend the capabilities to more complex extension such as the integration of HandlebarsJS, VueJS and many more.
+# PnP SPFx Yeoman generator
+The composability model of the Yeoman generator is one of its core features and allows you to build your own or consume and reuse an already built generator. Microsoft's SharePoint Framework Yeoman generator supports this model too.
 
-> **Limitation:** Right now the PnP SPFx yeoman generator supports only the initial setup of new projects. To add additional web parts and extensions please use the Microsoft SPFx generator. In future this generator can be used to add elements to existing projects.
+The PnP SPFx Yeoman generator uses 100% of the Microsoft SPFx Yeoman generator but then adds functionalities on top of this framework. This extension supports additional client-side libraries such as PnPjs or jQuery to extend SPFx capabilities as well as even more complex extensions such as the integration of HandlebarsJS, VueJS, and many more.
+
+> **Limitation:** Right now the PnP SPFx yeoman generator supports only the initial setup of new projects. To add additional web parts and extensions, please continue to use the Microsoft SPFx generator. In the future, this generator will be used to add elements to existing projects.
 
 ### Client-side extensions and Add-ons
 
@@ -22,7 +22,7 @@ The extension support ranges from client-side libraries such as pnpjs and jQuery
 
 ## Installation
 
-The generator need to be installed globally depending on the package manager you use.
+The generator needs to be installed globally depending on the package manager you use.
 
 **Using NPM:**
 ```sh
@@ -42,19 +42,19 @@ pnpm install global-pnpmfile @pnp/generator-spfx
 
 ## Start a new project
 
-To start a new project execute the following command.
+To start a new project execute the following command:
 
 ```sh
 yo @pnp/spfx
 ```
 
-This will start you the Yeoman generator for a new project that give yo all options to choose from.
+This will start the PnP SPFx Yeoman generator for a new project that gives you all the options to choose from.
 
-https://asciinema.org/a/196170
+[![asciicast](https://asciinema.org/a/196170.png)](https://asciinema.org/a/196170)
 
-## Command Line Options
+## Command line options
 
-The following option provides a complete list of available switches.
+The following options provide a complete list of available switches.
 
 ```bash
 Usage:
@@ -88,6 +88,6 @@ Options:
 ```
 
 
-## Further informations
+## Further information
 
 * [General project setup and folders](./compose/add-generator.md)
