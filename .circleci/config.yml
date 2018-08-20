@@ -61,7 +61,7 @@ jobs:
             at: ~/office365-cli
         - add_ssh_keys:
             fingerprints:
-                - "7c:a4:22:e4:6f:43:12:5a:f6:3a:8f:74:4f:62:79:f3"
+                - "bc:b2:e7:2f:ce:45:b9:c3:9f:1d:15:4c:a3:6c:14:71"
         - run:
             name: Install MkDocs
             command: sudo pip install mkdocs
