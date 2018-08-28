@@ -27,7 +27,7 @@ jobs:
           root: .
           paths: ["."]
   test:
-    # <<: *defaults
+    <<: *defaults
     steps:
       - attach_workspace:
           at: ~/generator-spfx
