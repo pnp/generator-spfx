@@ -46,7 +46,7 @@ module.exports = class extends Generator {
         util.runInstall(this);
         console.log('2. SCOPE', path.dirname(require.main.filename));
         // # BUG currently only appears just in test
-        // util.writeTemplates(this);
+        util.writeTemplates(this);
     }
 
     // Run installer normally time to say goodbye
