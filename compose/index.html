@@ -32,7 +32,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.0.1, mkdocs-material-3.0.3">
+      <meta name="generator" content="mkdocs-1.0.2, mkdocs-material-3.0.3">
     
     
       
@@ -225,8 +225,8 @@
         
   <li class="md-tabs__item">
     
-      <a href="../recipies/" title="Recipies" class="md-tabs__link md-tabs__link--active">
-        Recipies
+      <a href="../recipes/" title="Recipes" class="md-tabs__link md-tabs__link--active">
+        Recipes
       </a>
     
   </li>
@@ -326,8 +326,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../recipies/" title="Recipies" class="md-nav__link">
-      Recipies
+    <a href="../recipes/" title="Recipes" class="md-nav__link">
+      Recipes
     </a>
   </li>
 
@@ -376,10 +376,10 @@
                 
                 <h1 id="compose-custom-spfx-generators">Compose custom SPFx generators<a class="headerlink" href="#compose-custom-spfx-generators" title="Permanent link">&para;</a></h1>
 <h1 id="pnp-spfx-generator-development">PnP SPFx Generator - Development<a class="headerlink" href="#pnp-spfx-generator-development" title="Permanent link">&para;</a></h1>
-<p>Before you start the development of custom yeoman generators please make sure you read the <a href="http://yeoman.io/authoring/">how to author Yeoman generators</a>.</p>
-<p>The following chapters explain the over setup and considerations.</p>
+<p>Before you start development of custom yeoman generators please be sure to read <a href="http://yeoman.io/authoring/">Writing your own Yeoman Generator</a>.</p>
+<p>The following chapters explain the overall setup and considerations.</p>
 <h2 id="project-setup">Project Setup<a class="headerlink" href="#project-setup" title="Permanent link">&para;</a></h2>
-<p>The following directory listing give you an overview of the main directories in the generator.</p>
+<p>The following directory listing gives you an overview of the main directories in the generator.</p>
 <div class="codehilite"><pre><span></span>├── app                &lt;-- Main Generator
 ├── docs               &lt;-- Documentation
 ├── generators         &lt;-- custom generators
@@ -392,16 +392,16 @@
 </pre></div>
 
 
-<h2 id="get-started-to-write-a-new-generator">Get started to write a new generator<a class="headerlink" href="#get-started-to-write-a-new-generator" title="Permanent link">&para;</a></h2>
-<p>To get started implementing and adding a new generator copy the template folder in the generators folder and rename it to a meaningful name matching your framework.</p>
+<h2 id="get-started-writing-a-new-generator">Get started writing a new generator<a class="headerlink" href="#get-started-writing-a-new-generator" title="Permanent link">&para;</a></h2>
+<p>To get started implementing and adding a new generator, copy the template folder in the generators folder and rename it to a meaningful name matching your framework.</p>
 <p>In the folder you will find the following files:</p>
 <ul>
 <li><strong>index.js</strong> - main sub generator file</li>
 <li><strong>promptconfig.js</strong> - special prompt config related to sub generator</li>
-<li><strong>template/addonConfig.json</strong> - This file contains all NPM Packages that need to be installe</li>
+<li><strong>template/addonConfig.json</strong> - This file contains all NPM Packages that need to be installed</li>
 </ul>
 <h3 id="user-prompt-for-sub-generator">User prompt for sub generator<a class="headerlink" href="#user-prompt-for-sub-generator" title="Permanent link">&para;</a></h3>
-<p>I case the generator need some additional information from the user this questions can be configured in the file <code>promptconfig.js</code>. The content of this file follow the default Yeoman generator user prompting described in the article on <a href="http://yeoman.io/authoring/user-interactions.html">how to interact with the user</a>.</p>
+<p>In case the generator need some additional information from the user, questions can be configured in the file <code>promptconfig.js</code>. The content of this file follows the default Yeoman generator user prompting described in the article <a href="http://yeoman.io/authoring/user-interactions.html">Interacting with the User</a>.</p>
 <p>The library Yeoman uses is <a href="https://github.com/SBoudrias/Inquirer.js/">inquer.js</a>.</p>
 <div class="codehilite"><pre><span></span><span class="s2">&quot;use strict&quot;</span>
 
@@ -438,7 +438,7 @@
 <p>This sample exports the configuration as a module and can be integrated in the main Yeoman generator to consolidate the user prompts in the main generator.</p>
 <h3 id="generator-implementation-indexjs">Generator implementation - index.js<a class="headerlink" href="#generator-implementation-indexjs" title="Permanent link">&para;</a></h3>
 <p>All actions required for a new custom generator need to be implemented in the <code>index.js</code> file.</p>
-<p>The default template currently list all possible methods in the right call order provided by the default Yeoman generator.</p>
+<p>The default template currently lists all possible methods in the right call order provided by the default Yeoman generator.</p>
 <div class="codehilite"><pre><span></span><span class="c1">// Base Yeoman generator</span>
 <span class="kr">const</span> <span class="nx">Generator</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;yeoman-generator&#39;</span><span class="p">);</span>
 <span class="c1">// prompt configuration</span>
@@ -501,9 +501,9 @@
 <li>install()</li>
 <li>end()</li>
 </ol>
-<p>Through the dependency on the Microsoft Yeoman Generator the actions need to be delayed to the next step. After the SPFx generator wrote the files to the file system through his <code>writing()</code> method, the custom generator is able to update the configuration with additional information.
-Instead of add the code of the custom generator to the <code>writing()</code> method the code has to be added to the <code>install()</code> method.</p>
-<p>In case of the Handlebars generator the following functions get called in the install method.</p>
+<p>Because of the dependency on the Microsoft Yeoman Generator, the actions need to be delayed to the next step. After the SPFx generator has written the files to the file system through its <code>writing()</code> method, the custom generator is able to update the configuration with additional information.</p>
+<p>Instead of adding the code of the custom generator to the <code>writing()</code> method, the code has to be added to the <code>install()</code> method.</p>
+<p>In the case of the Handlebars generator, the following functions get called in the <code>install()</code> method:</p>
 <div class="codehilite"><pre><span></span><span class="nx">install</span><span class="p">()</span> <span class="p">{</span>
     <span class="c1">// deploy additional files to the project directory</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">_deployFiles</span><span class="p">();</span>
@@ -519,7 +519,7 @@ Instead of add the code of the custom generator to the <code>writing()</code> me
 </pre></div>
 
 
-<p>This is required because all additional task has to be performed on top of the assets deployed by the SPFx default assets.</p>
+<p>This is required because all additional tasks have to be performed on top of the assets deployed by the SPFx default assets.</p>
                 
                   
                 
@@ -555,13 +555,13 @@ Instead of add the code of the custom generator to the <code>writing()</code> me
           </a>
         
         
-          <a href="../recipies/" title="Recipies" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../recipes/" title="Recipes" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Recipies
+                Recipes
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
@@ -604,7 +604,7 @@ Instead of add the code of the custom generator to the <code>writing()</code> me
     
       <script src="../assets/javascripts/application.583bbe55.js"></script>
       
-      <script>app.initialize({version:"1.0.1",url:{base:".."}})</script>
+      <script>app.initialize({version:"1.0.2",url:{base:".."}})</script>
       
     
     

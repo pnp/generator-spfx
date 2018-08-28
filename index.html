@@ -32,7 +32,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.0.1, mkdocs-material-3.0.3">
+      <meta name="generator" content="mkdocs-1.0.2, mkdocs-material-3.0.3">
     
     
       
@@ -225,8 +225,8 @@
         
   <li class="md-tabs__item">
     
-      <a href="recipies/" title="Recipies" class="md-tabs__link md-tabs__link--active">
-        Recipies
+      <a href="recipes/" title="Recipes" class="md-tabs__link md-tabs__link--active">
+        Recipes
       </a>
     
   </li>
@@ -348,15 +348,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#command-line-options" title="Command Line Options" class="md-nav__link">
-    Command Line Options
+  <a href="#command-line-options" title="Command line options" class="md-nav__link">
+    Command line options
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#further-informations" title="Further informations" class="md-nav__link">
-    Further informations
+  <a href="#further-information" title="Further information" class="md-nav__link">
+    Further information
   </a>
   
 </li>
@@ -390,8 +390,8 @@
 
 
   <li class="md-nav__item">
-    <a href="recipies/" title="Recipies" class="md-nav__link">
-      Recipies
+    <a href="recipes/" title="Recipes" class="md-nav__link">
+      Recipes
     </a>
   </li>
 
@@ -457,15 +457,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#command-line-options" title="Command Line Options" class="md-nav__link">
-    Command Line Options
+  <a href="#command-line-options" title="Command line options" class="md-nav__link">
+    Command line options
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#further-informations" title="Further informations" class="md-nav__link">
-    Further informations
+  <a href="#further-information" title="Further information" class="md-nav__link">
+    Further information
   </a>
   
 </li>
@@ -491,10 +491,12 @@
                 
                 <h1 id="pnp-spfx-yeoman-generator">Pnp SPFx Yeoman generator<a class="headerlink" href="#pnp-spfx-yeoman-generator" title="Permanent link">&para;</a></h1>
 <p>The composeability model of Yeoman generator is on of its core features allow you to build your own or consume and reuse already built generator. The Microsofts SharePoint Framework Yeoman generator supports this model too.
-The PnP SPFx Yeoman generator uses 100% of the SPFx Yeoman generator and adds functionalities on top of this framework.
-The extension support ranges from client-side libraries such as pnpjs and jQuery to extend the capabilities to more complex extension such as the integration of HandlebarsJS, VueJS and many more.</p>
+The PnP SPFx Yeoman generator uses 100% of the SPFx Yeoman generator and adds functionalities on top of this framework.</p>
+<p><img alt="PnP SPFx Generator" src="./docs/assets/pnpspfx-title.png" /></p>
+<p>The extension support ranges from client-side libraries such as pnpjs and jQuery to extend the capabilities to more complex extension such as the integration of HandlebarsJS, VueJS and many more.</p>
+<p>The PnP SPFx Yeoman generator uses 100% of the Microsoft SPFx Yeoman generator but then adds functionalities on top of this framework. This extension supports additional client-side libraries such as PnPjs or jQuery to extend SPFx capabilities as well as even more complex extensions such as the integration of HandlebarsJS, VueJS, and many more.</p>
 <blockquote>
-<p><strong>Limitation:</strong> Right now the PnP SPFx yeoman generator supports only the initial setup of new projects. To add additional web parts and extensions please use the Microsoft SPFx generator. In future this generator can be used to add elements to existing projects.</p>
+<p><strong>Limitation:</strong> Right now the PnP SPFx yeoman generator supports only the initial setup of new projects. To add additional web parts and extensions, please continue to use the Microsoft SPFx generator. In the future, this generator will be used to add elements to existing projects.</p>
 </blockquote>
 <h3 id="client-side-extensions-and-add-ons">Client-side extensions and Add-ons<a class="headerlink" href="#client-side-extensions-and-add-ons" title="Permanent link">&para;</a></h3>
 <table>
@@ -546,7 +548,7 @@ The extension support ranges from client-side libraries such as pnpjs and jQuery
 </tbody>
 </table>
 <h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
-<p>The generator need to be installed globally depending on the package manager you use.</p>
+<p>The generator needs to be installed globally depending on the package manager you use.</p>
 <p><strong>Using NPM:</strong></p>
 <div class="codehilite"><pre><span></span>npm install -g @pnp/generator-spfx
 </pre></div>
@@ -563,15 +565,15 @@ The extension support ranges from client-side libraries such as pnpjs and jQuery
 
 
 <h2 id="start-a-new-project">Start a new project<a class="headerlink" href="#start-a-new-project" title="Permanent link">&para;</a></h2>
-<p>To start a new project execute the following command.</p>
+<p>To start a new project execute the following command:</p>
 <div class="codehilite"><pre><span></span>yo @pnp/spfx
 </pre></div>
 
 
-<p>This will start you the Yeoman generator for a new project that give yo all options to choose from.</p>
-<p>https://asciinema.org/a/196170</p>
-<h2 id="command-line-options">Command Line Options<a class="headerlink" href="#command-line-options" title="Permanent link">&para;</a></h2>
-<p>The following option provides a complete list of available switches.</p>
+<p>This will start the PnP SPFx Yeoman generator for a new project that gives you all the options to choose from.</p>
+<p><a href="https://asciinema.org/a/196170"><img alt="asciicast" src="https://asciinema.org/a/196170.png" /></a></p>
+<h2 id="command-line-options">Command line options<a class="headerlink" href="#command-line-options" title="Permanent link">&para;</a></h2>
+<p>The following options provide a complete list of available switches.</p>
 <div class="codehilite"><pre><span></span>Usage:
   yo @pnp/spfx <span class="o">[</span>options<span class="o">]</span>
 
@@ -603,7 +605,7 @@ Options:
 </pre></div>
 
 
-<h2 id="further-informations">Further informations<a class="headerlink" href="#further-informations" title="Permanent link">&para;</a></h2>
+<h2 id="further-information">Further information<a class="headerlink" href="#further-information" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="compose/add-generator/">General project setup and folders</a></li>
 </ul>
@@ -677,7 +679,7 @@ Options:
     
       <script src="assets/javascripts/application.583bbe55.js"></script>
       
-      <script>app.initialize({version:"1.0.1",url:{base:"."}})</script>
+      <script>app.initialize({version:"1.0.2",url:{base:"."}})</script>
       
     
     

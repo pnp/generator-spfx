@@ -32,7 +32,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.0.1, mkdocs-material-3.0.3">
+      <meta name="generator" content="mkdocs-1.0.2, mkdocs-material-3.0.3">
     
     
       
@@ -225,8 +225,8 @@
         
   <li class="md-tabs__item">
     
-      <a href="../" title="Recipies" class="md-tabs__link md-tabs__link--active">
-        Recipies
+      <a href="../" title="Recipes" class="md-tabs__link md-tabs__link--active">
+        Recipes
       </a>
     
   </li>
@@ -317,8 +317,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../" title="Recipies" class="md-nav__link">
-      Recipies
+    <a href="../" title="Recipes" class="md-nav__link">
+      Recipes
     </a>
   </li>
 
@@ -362,12 +362,12 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="http://github.com/pnp/generator-spfx/blob/master/docs/manual/docs/recipies/inject-gulp-tasks.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="http://github.com/pnp/generator-spfx/blob/master/docs/manual/docs/recipes/inject-gulp-tasks.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
                 <h1 id="inject-custom-gulp-task">Inject custom gulp task<a class="headerlink" href="#inject-custom-gulp-task" title="Permanent link">&para;</a></h1>
-<p>To inject a custom gulp task into a SharePoint Framework generated <code>gulpfile.js</code> use the following method.
-Add a file named <code>gulpfile.js</code> in the templates folder of the custom generator. The following code sample shows the content take from the Handlebars generator and register the web pack loader along with a custom gulp watch.</p>
+<p>To inject a custom gulp task into a SharePoint Framework generated <code>gulpfile.js</code>, use the following method.</p>
+<p>Add a file named <code>gulpfile.js</code> in the templates folder of the custom generator. The following code sample shows the content taken from the Handlebars generator and registers the web pack loader along with a custom gulp watch:</p>
 <div class="codehilite"><pre><span></span><span class="kr">const</span> <span class="nx">loaderConfig</span> <span class="o">=</span> <span class="p">{</span>
   <span class="nx">test</span><span class="o">:</span> <span class="sr">/\.hbs/</span><span class="p">,</span>
   <span class="nx">loader</span><span class="o">:</span> <span class="s2">&quot;handlebars-template-loader&quot;</span>
@@ -403,7 +403,7 @@ Add a file named <code>gulpfile.js</code> in the templates folder of the custom 
 
 
 <p>This file should only contain the required code that needs added to the SPFx owned <code>gulpfile.js</code>.</p>
-<p>Add the following code <code>index.js</code> after the <code>end()</code> method.</p>
+<p>Add the following code <code>index.js</code> after the <code>end()</code> method:</p>
 <div class="codehilite"><pre><span></span><span class="nx">_injectToGulpFile</span><span class="p">()</span> <span class="p">{</span>
 
     <span class="k">if</span> <span class="p">(</span><span class="nx">fs</span><span class="p">.</span><span class="nx">existsSync</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">destinationPath</span><span class="p">(</span><span class="s1">&#39;gulpfile.js&#39;</span><span class="p">)))</span> <span class="p">{</span>
@@ -421,7 +421,7 @@ Add a file named <code>gulpfile.js</code> in the templates folder of the custom 
 </pre></div>
 
 
-<p>To execute this the injection your custom task in the <code>gulpfil.js</code> call this method from install method.</p>
+<p>To execute the injection of your custom task in <code>gulpfile.js</code>, call this method from the <code>install()</code> method:</p>
 <div class="codehilite"><pre><span></span><span class="nx">install</span><span class="p">()</span> <span class="p">{</span>
 
     <span class="k">this</span><span class="p">.</span><span class="nx">_injectToGulpFile</span><span class="p">();</span>
@@ -430,7 +430,7 @@ Add a file named <code>gulpfile.js</code> in the templates folder of the custom 
 </pre></div>
 
 
-<p>To verify execute the yeoman generator and look up the changes the changes in the <code>gulpfile.js</code> in the project directory.</p>
+<p>To verify, execute the yeoman generator and look up the changes within <code>gulpfile.js</code> in the project directory.</p>
                 
                   
                 
@@ -480,7 +480,7 @@ Add a file named <code>gulpfile.js</code> in the templates folder of the custom 
     
       <script src="../../assets/javascripts/application.583bbe55.js"></script>
       
-      <script>app.initialize({version:"1.0.1",url:{base:"../.."}})</script>
+      <script>app.initialize({version:"1.0.2",url:{base:"../.."}})</script>
       
     
     

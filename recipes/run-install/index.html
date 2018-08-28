@@ -32,11 +32,11 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.0.1, mkdocs-material-3.0.3">
+      <meta name="generator" content="mkdocs-1.0.2, mkdocs-material-3.0.3">
     
     
       
-        <title>Handlenbars - PnP/generator-SPFx</title>
+        <title>Run install npm packages from generator - PnP/generator-SPFx</title>
       
     
     
@@ -100,6 +100,10 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
+      <a href="../../#run-install-npm-packages-from-generator" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
@@ -122,7 +126,7 @@
                 PnP/generator-SPFx
               </span>
               <span class="md-header-nav__topic">
-                Handlenbars
+                Run install npm packages from generator
               </span>
             
           
@@ -221,8 +225,8 @@
         
   <li class="md-tabs__item">
     
-      <a href="../../recipies/" title="Recipies" class="md-tabs__link md-tabs__link--active">
-        Recipies
+      <a href="../" title="Recipes" class="md-tabs__link md-tabs__link--active">
+        Recipes
       </a>
     
   </li>
@@ -231,7 +235,7 @@
         
   <li class="md-tabs__item">
     
-      <a href="../" title="How-Tos" class="md-tabs__link md-tabs__link--active">
+      <a href="../../how-tos/" title="How-Tos" class="md-tabs__link md-tabs__link--active">
         How-Tos
       </a>
     
@@ -313,8 +317,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../recipies/" title="Recipies" class="md-nav__link">
-      Recipies
+    <a href="../" title="Recipes" class="md-nav__link">
+      Recipes
     </a>
   </li>
 
@@ -325,7 +329,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../" title="How-Tos" class="md-nav__link">
+    <a href="../../how-tos/" title="How-Tos" class="md-nav__link">
       How-Tos
     </a>
   </li>
@@ -338,17 +342,117 @@
               </div>
             
             
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#default-behaviour-of-the-installer" title="Default behaviour of the installer" class="md-nav__link">
+    Default behaviour of the installer
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reference-to-the-util" title="Reference to the Util" class="md-nav__link">
+    Reference to the Util
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#call-npm-package-installation" title="Call npm package installation" class="md-nav__link">
+    Call npm package installation
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="http://github.com/pnp/generator-spfx/blob/master/docs/manual/docs/how-tos/handlenbars.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="http://github.com/pnp/generator-spfx/blob/master/docs/manual/docs/recipes/run-install.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                  <h1>Handlenbars</h1>
-                
-                
+                <h1 id="run-install-npm-packages-from-generator">Run install npm packages from generator<a class="headerlink" href="#run-install-npm-packages-from-generator" title="Permanent link">&para;</a></h1>
+<p>After all required modifications have been applied to a new project by the Yeoman generator, the npm packages need to be installed. To provide a consistent method for all generators, a utility class was implemented that provides a single method to run the installer.</p>
+<h2 id="default-behaviour-of-the-installer">Default behaviour of the installer<a class="headerlink" href="#default-behaviour-of-the-installer" title="Permanent link">&para;</a></h2>
+<p>Like the SPFx Default Yeoman generator installer, it supports the following three package managers:</p>
+<ul>
+<li><a href="https://www.npmjs.com">npm</a></li>
+<li><a href="https://pnpm.js.org">pnpm</a></li>
+<li><a href="https://yarnpkg.com/en/">yarn</a></li>
+</ul>
+<p>Be default, the npm package manager will be used. If the yarn package manager is installed on the client, this package manager will instead be used by default.</p>
+<p>The pnpm package manager is available via a command line switch when the yeoman generator gets launched.</p>
+<p>To install dependencies with a specific package manager, the following options exist:</p>
+<p><strong>To explicitly use npm:</strong></p>
+<div class="codehilite"><pre><span></span>yo @pnp/spfx --pm npm
+</pre></div>
+
+
+<p>or</p>
+<div class="codehilite"><pre><span></span>yo @pnp/spfx --package-manager npm
+</pre></div>
+
+
+<p><strong>To explicitly use pnpm:</strong></p>
+<div class="codehilite"><pre><span></span>yo @pnp/spfx --pm pnpm
+</pre></div>
+
+
+<p>or</p>
+<div class="codehilite"><pre><span></span>yo @pnp/spfx --package-manager pnpm
+</pre></div>
+
+
+<p><strong>To explicitly use pnpm:</strong></p>
+<div class="codehilite"><pre><span></span>yo @pnp/spfx --pm yarn
+</pre></div>
+
+
+<p>or</p>
+<div class="codehilite"><pre><span></span>yo @pnp/spfx --package-manager yarn
+</pre></div>
+
+
+<h2 id="reference-to-the-util">Reference to the Util<a class="headerlink" href="#reference-to-the-util" title="Permanent link">&para;</a></h2>
+<p>Your generators <code>index.js</code> should include the following line of code somewhere at the start:</p>
+<div class="codehilite"><pre><span></span><span class="c1">// importing utilities</span>
+<span class="kr">const</span> <span class="nx">util</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;../../lib/util.js&#39;</span><span class="p">);</span>
+</pre></div>
+
+
+<h2 id="call-npm-package-installation">Call npm package installation<a class="headerlink" href="#call-npm-package-installation" title="Permanent link">&para;</a></h2>
+<p>Add the following line of code in the install method of your generator:</p>
+<div class="codehilite"><pre><span></span><span class="nx">install</span><span class="p">(){</span>
+
+    <span class="cm">/* Custom configuration code should be placed before the installer */</span>
+    <span class="nx">util</span><span class="p">.</span><span class="nx">runInstall</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+
+<span class="p">}</span>
+</pre></div>
                 
                   
                 
@@ -398,7 +502,7 @@
     
       <script src="../../assets/javascripts/application.583bbe55.js"></script>
       
-      <script>app.initialize({version:"1.0.1",url:{base:"../.."}})</script>
+      <script>app.initialize({version:"1.0.2",url:{base:"../.."}})</script>
       
     
     
