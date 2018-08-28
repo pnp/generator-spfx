@@ -57,12 +57,6 @@ jobs:
           name: Install MkDocs
           command: sudo pip install mkdocs
       - run:
-          name: listall
-          command: pwd && ls -al docs
-      - run:
-          name: pwd
-          command: pwd
-      - run:
           name: Install MkDocs theme
           command: sudo pip install mkdocs-material
       - run:
@@ -87,6 +81,3 @@ workflows:
             branches:
               ignore: /^(dev|master)/
       - deploy_docs
-          filters:
-            branches:
-              ignore: /gh-pages/
