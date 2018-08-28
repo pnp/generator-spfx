@@ -21,8 +21,8 @@ jobs:
           paths:
             - ./node_modules
       - run:
-          name: Build
-          command: ls -al && npm install
+          name: Run install
+          command: npm install
       - persist_to_workspace:
           root: .
           paths: ["."]
@@ -69,7 +69,6 @@ workflows:
   version: 2
   testing:
     jobs:
-        - build
         - test:
             requires:
                 - build
