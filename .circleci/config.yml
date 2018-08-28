@@ -69,7 +69,7 @@ jobs:
 #           name: Publish
 #           command: npm publish --access public
   deploy_docs:
-    working_directory: ~/generator-spfx/docs/manual
+    working_directory: ~/generator-spfx/docs
     docker:
       - image: circleci/python:2.7-jessie-node
     steps:
@@ -106,10 +106,10 @@ workflows:
               ignore: /^(dev|master)/
   check_master:
     jobs:
-      - build:
-          filters:
-            branches:
-              only: master
+    #   - build:
+    #       filters:
+    #         branches:
+    #           only: master
       - test:
         #   requires:
         #     - build
@@ -118,10 +118,10 @@ workflows:
               only: master
   release_next:
     jobs:
-      - build:
-          filters:
-            branches:
-              only: dev
+    #   - build:
+    #       filters:
+    #         branches:
+    #           only: dev
       - test:
         #   requires:
         #     - build
