@@ -33,13 +33,13 @@ jobs:
           at: ~/generator-spfx
       - run:
           name: Test Handlebars
-          command: npm test-handlebars
+          command: npm run test-handlebars
       - run:
           name: Test Knockout
-          command: npm test-knockout
+          command: npm run test-knockout
       - run:
           name: Test React
-          command: npm test-react
+          command: npm run test-react
       - store_artifacts:
           path: testresult
           prefix: testresult
