@@ -20,9 +20,6 @@ jobs:
           key: dependency-cache-{{ checksum "package.json" }}
           paths:
             - ./node_modules
-      - run: 
-          name: LS
-          command: ls -al
       - run:
           name: Build
           command: ls -al && npm install
@@ -100,10 +97,10 @@ workflows:
   version: 2
   check_pr:
     jobs:
-    #   - build:
-    #       filters:
-    #         branches:
-    #           ignore: /^(dev|master)/
+      - build:
+          filters:
+            branches:
+              ignore: /^(dev|master)/
       - test:
         #   requires:
         #     - build
