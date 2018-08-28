@@ -76,10 +76,8 @@ workflows:
   version: 2
   testing:
     jobs:
-        # - build
-        - test
-            requires:
-                - build
+      - build
+      - test
   generate-docs:
     jobs:
-        - deploy_docs       
+      - deploy_docs       
