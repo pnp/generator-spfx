@@ -71,16 +71,17 @@ workflows:
   testing:
     jobs:
       - build:
-          filters:
-            branches:
-              ignore: /^(dev|master)/
+        #   filters:
+        #     branches:
+        #       ignore: /^(dev|master)/
       - test:
           requires:
             - build
-          filters:
-            branches:
-              ignore: /^(dev|master)/
+        #   filters:
+        #     branches:
+        #       ignore: /^(dev|master)/
       - deploy_docs:
           filters:
             branches:
-              ignore: /^(dev|master)/
+            #   ignore: /^(dev|master)/
+              only: master
