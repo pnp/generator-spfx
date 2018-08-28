@@ -78,8 +78,8 @@ workflows:
     jobs:
         # - build
         - test
-            # requires:
-            #     - build
+            requires:
+                - build
   generate-docs:
     jobs:
         - deploy_docs       
