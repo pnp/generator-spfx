@@ -74,10 +74,15 @@ jobs:
 
 workflows:
   version: 2
-  jobs:
+  testing:
+    jobs:
+      - build:
+          filters:
+            branches:
+              ignore: /^(dev|master)/
       - test:
           requires:
             - build
           filters:
             branches:
-              only: master
+              ignore: /^(dev|master)/      
