@@ -5,32 +5,35 @@ defaults: &defaults
 
 version: 2
 jobs:
-#   build:
-#     <<: *defaults
-#     steps:
-#       - checkout
-#       - attach_workspace:
-#           at: ~/generator-spfx
-#       - restore_cache:
-#           key: dependency-cache-{{ checksum "package.json" }}
-#       - run:
-#           name: Restore dependencies
-#           command: npm i
-#       - save_cache:
-#           key: dependency-cache-{{ checksum "package.json" }}
-#           paths:
-#             - ./node_modules
+  build:
+    <<: *defaults
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/generator-spfx
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: Restore dependencies
+          command: npm i
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
 #       - run:
 #           name: Build
 #           command: npm run build
-#       - persist_to_workspace:
-#           root: .
-#           paths: ["."]
+      - persist_to_workspace:
+          root: .
+          paths: ["."]
   test:
     <<: *defaults
     steps:
       - attach_workspace:
           at: ~/generator-spfx
+      - run:
+            name: NpmInstall
+            command: npm install
       - run:
           name: Test
           command: npm test
