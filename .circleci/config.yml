@@ -73,7 +73,7 @@ jobs:
           command: pwd
       - run:
           name: Build docs
-          command: mkdocs gh-deploy --config-file mkdocs.yml --remote-branch gh-pages
+          command: mkdocs gh-deploy --config-file ./mkdocs.yml --remote-branch gh-pages
 
 workflows:
   version: 2
