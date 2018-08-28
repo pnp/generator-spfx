@@ -69,11 +69,8 @@ jobs:
           name: Avoid hosts unknown for github
           command: echo -e "Host github.com\n\tStrictHostKeyChecking no\n" > ~/.ssh/config
       - run:
-          name: pwd
-          command: pwd
-      - run:
           name: Build docs
-          command: mkdocs gh-deploy --config-file ./mkdocs.yml --remote-branch gh-pages
+          command: pwd && mkdocs gh-deploy --config-file ./docs/mkdocs.yml --remote-branch gh-pages
 
 workflows:
   version: 2
