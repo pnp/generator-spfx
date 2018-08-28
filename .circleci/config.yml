@@ -70,11 +70,14 @@ jobs:
     #       name: Avoid hosts unknown for github
     #       command: echo -e "Host github.com\n\tStrictHostKeyChecking no\n" > ~/.ssh/config
       - run:
-          name: Build docs
-          command: mkdocs gh-deploy
-      - run:
           name: pwd
           command: pwd
+      - run:
+          name: more...
+          command: more /home/circleci/generator-spfx/docs/mkdocs.yml
+      - run:
+          name: Build docs
+          command: mkdocs gh-deploy
 
 workflows:
   version: 2
