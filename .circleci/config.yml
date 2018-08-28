@@ -68,7 +68,8 @@ workflows:
   version: 2
   testing:
     jobs:
-        - build
-        - test:
-            requires:
-                - build
+        # - build
+        # - test:
+        #     requires:
+        #         - build
+        - deploy_docs
