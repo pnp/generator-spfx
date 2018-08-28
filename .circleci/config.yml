@@ -31,9 +31,9 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/generator-spfx
-      - run:
-            name: NpmInstall
-            command: npm install
+    #   - run:
+    #         name: NpmInstall
+    #         command: npm install
       - run:
           name: Test
           command: npm test
@@ -97,10 +97,6 @@ workflows:
   version: 2
   testing:
     jobs:
-        - build:
-           filters:
-               branches:
-                 only: dev
         - test:
             requires:
                 - build
