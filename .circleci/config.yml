@@ -100,12 +100,13 @@ workflows:
         - build:
            filters:
                branches:
-                 ignore: /^(dev|master)/
+                 only: dev
         - test:
             requires:
                 - build
             filters:
-                branches: dev
+                branches: 
+                    only: dev
                     
 #   check_pr:
 #     jobs:
