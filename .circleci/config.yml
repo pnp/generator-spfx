@@ -87,3 +87,6 @@ workflows:
             branches:
               ignore: /^(dev|master)/
       - deploy_docs
+          filters:
+            branches:
+              ignore: /gh-pages/
