@@ -59,7 +59,7 @@ jobs:
           command: sudo pip install mkdocs
       - run:
           name: listall
-          command: ls -al
+          command: ls -al docs
       - run:
           name: pwd
           command: pwd
