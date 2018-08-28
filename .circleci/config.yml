@@ -70,4 +70,7 @@ workflows:
   testing:
     jobs:
         - build
-        - test
+        - test:
+            requires:
+                - build
+        - deploy_docs
