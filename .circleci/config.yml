@@ -25,7 +25,7 @@ jobs:
           command: ls -al
       - run:
           name: Build
-          command: npm install
+          command: ls -al && npm install
       - persist_to_workspace:
           root: .
           paths: ["."]
