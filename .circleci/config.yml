@@ -43,13 +43,14 @@ jobs:
       - store_artifacts:
           path: testresult
   deploy_docs:
+    <<: *defaults
     working_directory: ~/generator-spfx
     docker:
       - image: circleci/python:2.7-jessie-node
     steps:
       - checkout
       - attach_workspace:
-          at: ~/generator-spfx/
+          at: ~/generator-spfx/docs
       - add_ssh_keys:
           fingerprints:
             - "a7:2c:5e:5e:a0:93:90:39:3f:53:5e:97:a1:14:30:ce"
