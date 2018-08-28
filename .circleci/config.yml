@@ -70,6 +70,4 @@ workflows:
   testing:
     jobs:
         - build
-        - test:
-            requires:
-                - build
+        - test
