@@ -76,10 +76,16 @@ workflows:
   version: 2
   testing:
     jobs:
-      - build
+      - build:
+          filters:
+            branches:
+              ignore: /^(dev|master)/
       - test:
           requires:
             - build
+          filters:
+            branches:
+              ignore: /^(dev|master)/
   deploy_docs:
     jobs:
       - deploy_docs
