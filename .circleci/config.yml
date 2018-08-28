@@ -74,12 +74,10 @@ jobs:
 
 workflows:
   version: 2
-  testing:
-    jobs:
-      - build
-      - test
-        require:
-        - build
-  generate-docs:
-    jobs:
-      - deploy_docs    
+  jobs:
+      - test:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
