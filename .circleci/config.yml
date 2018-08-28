@@ -95,30 +95,36 @@ jobs:
           command: mkdocs gh-deploy
 workflows:
   version: 2
-  check_pr:
+  sampletest:
     jobs:
-      - build:
-          filters:
-            branches:
-              ignore: /^(dev|master)/
-      - test:
-          requires:
-            - build
-          filters:
-            branches:
-              ignore: /^(dev|master)/
-  check_master:
-    jobs:
-      - build:
-          filters:
-            branches:
-              only: master
-      - test:
-          requires:
-            - build
-          filters:
-            branches:
-              only: master
+        - build:
+           filters:
+               branches:
+                 ignore: /^(dev|master)/
+#   check_pr:
+#     jobs:
+#       - build:
+#           filters:
+#             branches:
+#               ignore: /^(dev|master)/
+#       - test:
+#           requires:
+#             - build
+#           filters:
+#             branches:
+#               ignore: /^(dev|master)/
+#   check_master:
+#     jobs:
+#       - build:
+#           filters:
+#             branches:
+#               only: master
+#       - test:
+#           requires:
+#             - build
+#           filters:
+#             branches:
+#               only: master
 #   release_next:
 #     jobs:
 #       - build:
