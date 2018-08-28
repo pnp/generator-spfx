@@ -96,4 +96,4 @@ Options:
 * [General project setup and folders](./compose/add-generator.md)
 
 
-[logo]: ./docs/assets/pnpspfx-title.png
+[logo]: ./assets/pnpspfx-title.png
