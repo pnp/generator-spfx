@@ -20,9 +20,12 @@ jobs:
           key: dependency-cache-{{ checksum "package.json" }}
           paths:
             - ./node_modules
-#       - run:
-#           name: Build
-#           command: npm run build
+      - run: 
+          name: LS
+          command: ls -al
+      - run:
+          name: Build
+          command: npm install
       - persist_to_workspace:
           root: .
           paths: ["."]
