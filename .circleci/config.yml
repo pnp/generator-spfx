@@ -1,7 +1,3 @@
-# Javascript Node CircleCI 2.0 configuration file
-#
-# Check https://circleci.com/docs/2.0/language-javascript/ for more details
-#
 defaults: &defaults
   working_directory: ~/generator-spfx
   docker:
@@ -10,55 +6,75 @@ defaults: &defaults
 version: 2
 jobs:
   build:
-    <<: *defaults    
-
+    <<: *defaults
     steps:
       - checkout
       - attach_workspace:
           at: ~/generator-spfx
-      # Download and cache dependencies
       - restore_cache:
-          keys:
-          - v1-dependencies-{{ checksum "package.json" }}
-          # fallback to using the latest cache if no exact match is found
-          - v1-dependencies-
-
-      - run: npm install
-
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: Restore dependencies
+          command: npm i
       - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
           paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
-        
-      # run tests!
-      - run: npm test
+            - ./node_modules
+      - run:
+          name: Build
+          command: npm run build
+      - persist_to_workspace:
+          root: .
+          paths: ["."]
   test:
     <<: *defaults
     steps:
       - attach_workspace:
           at: ~/generator-spfx
       - run:
-          name: Testing SPO
-          command: npm run test-spo
+          name: Test
+          command: npm test
       - run:
-          name: Testing On Prem
-          command: npm run test-onprem
-      - run:
-          name: Testing On Handlebars
-          command: npm run test-handlebars
-      - run:
-          name: Testing On React
-          command: npm run test-react
-      - run:
-          name: Testing On Knockout
-          command: npm run test-kockout
-deploy_docs:
-    working_directory: ~/generator-spfx/
+          name: Run coveralls
+          command: './node_modules/.bin/nyc report --reporter=text-lcov | ./node_modules/.bin/coveralls'
+          environment:
+            - COVERALLS_REPO_TOKEN: "VsEM7x54Sb8kg1sjzpA6aafoyvlcTtM30"
+            - COVERALLS_SERVICE_NAME: "circle-ci"
+      - store_artifacts:
+          path: coverage
+          prefix: coverage
+#   publish_next:
+#     <<: *defaults
+#     steps:
+#       - attach_workspace:
+#           at: ~/generator-spfx
+#       - run:
+#           name: Write .npmrc
+#           command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
+#       - run:
+#           name: Stamp beta to package version
+#           command: node scripts/update-package-version.js $CIRCLE_SHA1
+#       - run:
+#           name: Publish @next
+#           command: npm publish --tag next --access public
+#   publish:
+#     <<: *defaults
+#     steps:
+#       - attach_workspace:
+#           at: ~/generator-spfx
+#       - run:
+#           name: Write .npmrc
+#           command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
+#       - run:
+#           name: Publish
+#           command: npm publish --access public
+  deploy_docs:
+    working_directory: ~/generator-spfx/docs/manual
     docker:
       - image: circleci/python:2.7-jessie-node
     steps:
       - attach_workspace:
-          at: ~/office365-cli
+          at: ~/generator-spfx
       - add_ssh_keys:
           fingerprints:
             - "7c:a4:22:e4:6f:43:12:5a:f6:3a:8f:74:4f:62:79:f3"
@@ -74,3 +90,156 @@ deploy_docs:
       - run:
           name: Build docs
           command: mkdocs gh-deploy
+workflows:
+  version: 2
+  check_pr:
+    jobs:
+      - build:
+          filters:
+            branches:
+              ignore: /^(dev|master)/
+      - test:
+          requires:
+            - build
+          filters:
+            branches:
+              ignore: /^(dev|master)/
+  check_master:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only: master
+      - test:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
+  release_next:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only: dev
+      - test:
+          requires:
+            - build
+          filters:
+            branches:
+              only: dev
+      - publish_next:
+          requires:
+            - test
+          filters:
+            branches:
+              only: dev
+  release:
+    jobs:
+      - build:
+          filters:
+            tags:
+              only: /^v[0-9]+\.[0-9]+\.[0-9]+/
+            branches:
+              ignore: /.*/
+      - test:
+          requires:
+            - build
+          filters:
+            tags:
+              only: /^v[0-9]+\.[0-9]+\.[0-9]+/
+            branches:
+              ignore: /.*/
+    #   - publish:
+    #       requires:
+    #         - test
+    #       filters:
+    #         tags:
+    #           only: /^v[0-9]+\.[0-9]+\.[0-9]+/
+    #         branches:
+    #           ignore: /.*/
+      - deploy_docs:
+          requires:
+            - publish
+          filters:
+            tags:
+              only: /^v[0-9]+\.[0-9]+\.[0-9]+/
+            branches:
+              ignore: /.*/
+
+# # Javascript Node CircleCI 2.0 configuration file
+# #
+# # Check https://circleci.com/docs/2.0/language-javascript/ for more details
+# #
+# defaults: &defaults
+#   working_directory: ~/generator-spfx
+#   docker:
+#     - image: circleci/node:8.11.2
+
+# version: 2
+# jobs:
+#   build:
+#     <<: *defaults    
+
+#     steps:
+#       - checkout
+#       - attach_workspace:
+#           at: ~/generator-spfx
+#       # Download and cache dependencies
+#       - restore_cache:
+#           keys:
+#           - v1-dependencies-{{ checksum "package.json" }}
+#           # fallback to using the latest cache if no exact match is found
+#           - v1-dependencies-
+
+#       - run: npm install
+
+#       - save_cache:
+#           paths:
+#             - node_modules
+#           key: v1-dependencies-{{ checksum "package.json" }}
+        
+#       # run tests!
+#       - run: npm test
+#   test:
+#     <<: *defaults
+#     steps:
+#       - attach_workspace:
+#           at: ~/generator-spfx
+#       - run:
+#           name: Testing SPO
+#           command: npm run test-spo
+#       - run:
+#           name: Testing On Prem
+#           command: npm run test-onprem
+#       - run:
+#           name: Testing On Handlebars
+#           command: npm run test-handlebars
+#       - run:
+#           name: Testing On React
+#           command: npm run test-react
+#       - run:
+#           name: Testing On Knockout
+#           command: npm run test-kockout
+# deploy_docs:
+#     working_directory: ~/generator-spfx/
+#     docker:
+#       - image: circleci/python:2.7-jessie-node
+#     steps:
+#       - attach_workspace:
+#           at: ~/generator-spfx
+#       - add_ssh_keys:
+#           fingerprints:
+#             - "7c:a4:22:e4:6f:43:12:5a:f6:3a:8f:74:4f:62:79:f3"
+#       - run:
+#           name: Install MkDocs
+#           command: sudo pip install mkdocs
+#       - run:
+#           name: Install MkDocs theme
+#           command: sudo pip install mkdocs-material
+#       - run:
+#           name: Avoid hosts unknown for github
+#           command: echo -e "Host github.com\n\tStrictHostKeyChecking no\n" > ~/.ssh/config
+#       - run:
+#           name: Build docs
+#           command: mkdocs gh-deploy
