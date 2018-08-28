@@ -31,18 +31,15 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/generator-spfx
-    #   - run:
-    #         name: NpmInstall
-    #         command: npm install
       - run:
-          name: Test
-          command: npm test
+          name: Test Handlebars
+          command: npm test-handlebars
       - run:
-          name: Run coveralls
-          command: 'npm test'
-          environment:
-            - COVERALLS_REPO_TOKEN: "VsEM7x54Sb8kg1sjzpA6aafoyvlcTtM30"
-            - COVERALLS_SERVICE_NAME: "circle-ci"
+          name: Test Knockout
+          command: npm test-knockout
+      - run:
+          name: Test React
+          command: npm test-react
       - store_artifacts:
           path: testresult
           prefix: testresult
