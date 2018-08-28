@@ -61,7 +61,7 @@ deploy_docs:
           at: ~/office365-cli
       - add_ssh_keys:
           fingerprints:
-            - "0f:36:32:2c:bd:e1:24:1a:5d:f6:2e:64:71:a4:b2:d9"
+            - "7c:a4:22:e4:6f:43:12:5a:f6:3a:8f:74:4f:62:79:f3"
       - run:
           name: Install MkDocs
           command: sudo pip install mkdocs

@@ -1,4 +1,6 @@
+
 const requiredGenerators = require('./settings/spfxgenerators.js');
+
 const fs = require('fs');
 const assert = require('yeoman-assert');
 const rimraf = require('rimraf');

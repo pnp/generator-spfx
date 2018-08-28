@@ -2,7 +2,7 @@
 
 // Base Yeoman generator
 const Generator = require('yeoman-generator');
-
+const path = require('path');
 // filesystem
 const fs = require('fs');
 
@@ -44,6 +44,7 @@ module.exports = class extends Generator {
         this._injectToGulpFile();
         // finally run install
         util.runInstall(this);
+        console.log('2. SCOPE', path.dirname(require.main.filename));
         // # BUG currently only appears just in test
         // util.writeTemplates(this);
     }
@@ -65,6 +66,7 @@ module.exports = class extends Generator {
 
     _addExternals() {
 
+        console.log('1. SCOPE', path.dirname(require.main.filename));
         // reading JSON
         let config = JSON.parse(
             fs.readFileSync(this.destinationPath('config/config.json'))

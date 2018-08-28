@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = [
     require.resolve('@microsoft/generator-sharepoint/lib/generators/app'),
     require.resolve('@microsoft/generator-sharepoint/lib/generators/applicationCustomizer'),
