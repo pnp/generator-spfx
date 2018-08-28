@@ -99,7 +99,7 @@ workflows:
                 - build
             filters:
                 branches: 
-                    only: dev
+                    only: /^(dev|master)/
                     
 #   check_pr:
 #     jobs:
