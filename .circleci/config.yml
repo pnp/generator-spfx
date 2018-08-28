@@ -95,7 +95,7 @@ jobs:
           command: mkdocs gh-deploy
 workflows:
   version: 2
-  sampletest:
+  testing:
     jobs:
         - build:
            filters:
