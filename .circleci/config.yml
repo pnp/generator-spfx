@@ -43,7 +43,6 @@ jobs:
       - store_artifacts:
           path: testresult
   deploy_docs:
-    <<: *defaults
     working_directory: ~/generator-spfx/docs
     docker:
       - image: circleci/python:2.7-jessie-node
