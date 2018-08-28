@@ -77,6 +77,4 @@ workflows:
         # - test:
         #     requires:
         #         - build
-        - deploy_docs
-
-        
+        - deploy_docs       
