@@ -72,9 +72,6 @@ jobs:
           name: pwd
           command: pwd
       - run:
-          name: more...
-          command: more /home/circleci/generator-spfx/docs/mkdocs.yml
-      - run:
           name: Build docs
           command: mkdocs gh-deploy
 
