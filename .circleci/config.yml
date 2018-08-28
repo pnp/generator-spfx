@@ -80,4 +80,6 @@ workflows:
         - test
             # requires:
             #     - build
+  generate-docs:
+    jobs:
         - deploy_docs       
