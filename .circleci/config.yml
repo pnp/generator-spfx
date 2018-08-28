@@ -102,20 +102,20 @@ workflows:
             branches:
               ignore: /^(dev|master)/
       - test:
-        #   requires:
-        #     - build
+          requires:
+            - build
           filters:
             branches:
               ignore: /^(dev|master)/
   check_master:
     jobs:
-    #   - build:
-    #       filters:
-    #         branches:
-    #           only: master
+      - build:
+          filters:
+            branches:
+              only: master
       - test:
-        #   requires:
-        #     - build
+          requires:
+            - build
           filters:
             branches:
               only: master
