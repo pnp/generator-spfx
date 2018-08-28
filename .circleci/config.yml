@@ -1,7 +1,3 @@
-# Javascript Node CircleCI 2.0 configuration file
-#
-# Check https://circleci.com/docs/2.0/language-javascript/ for more details
-#
 defaults: &defaults
   working_directory: ~/generator-spfx
   docker:
@@ -10,67 +6,81 @@ defaults: &defaults
 version: 2
 jobs:
   build:
-    <<: *defaults    
-
+    <<: *defaults
     steps:
       - checkout
       - attach_workspace:
           at: ~/generator-spfx
-      # Download and cache dependencies
       - restore_cache:
-          keys:
-          - v1-dependencies-{{ checksum "package.json" }}
-          # fallback to using the latest cache if no exact match is found
-          - v1-dependencies-
-
-      - run: npm install
-
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: Restore dependencies
+          command: npm i
       - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
           paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
-        
-      # run tests!
-      - run: npm test
+            - ./node_modules
+      - run:
+          name: Run install
+          command: npm install
+      - persist_to_workspace:
+          root: .
+          paths: ["."]
   test:
     <<: *defaults
     steps:
       - attach_workspace:
           at: ~/generator-spfx
       - run:
-          name: Testing SPO
-          command: npm run test-spo
+          name: Test Knockout
+          command: npm run test-knockout
       - run:
-          name: Testing On Prem
-          command: npm run test-onprem
-      - run:
-          name: Testing On Handlebars
-          command: npm run test-handlebars
-      - run:
-          name: Testing On React
+          name: Test React
           command: npm run test-react
       - run:
-          name: Testing On Knockout
-          command: npm run test-kockout
-    deploy_docs:
-        working_directory: ~/generator-spfx/
-        docker:
-        - image: circleci/python:2.7-jessie-node
-        steps:
-        - attach_workspace:
-            at: ~/office365-cli
-        - add_ssh_keys:
-            fingerprints:
-                - "01:12:96:33:52:ca:c2:c7:c6:29:7a:1a:43:85:cf:e9"
-        - run:
-            name: Install MkDocs
-            command: sudo pip install mkdocs
-        - run:
-            name: Install MkDocs theme
-            command: sudo pip install mkdocs-material
-        - run:
-            name: Avoid hosts unknown for github
-            command: echo -e "Host github.com\n\tStrictHostKeyChecking no\n" > ~/.ssh/config
-        - run:
-            name: Build docs
-            command: mkdocs gh-deploy
+          name: Test Handlebars
+          command: npm run test-handlebars
+      - store_artifacts:
+          path: testresult
+  deploy_docs:
+    docker:
+      - image: circleci/python:2.7-jessie-node
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/generator-spfx/docs
+      - add_ssh_keys:
+          fingerprints:
+            - "01:12:96:33:52:ca:c2:c7:c6:29:7a:1a:43:85:cf:e9"
+      - run:
+          name: Install MkDocs
+          command: sudo pip install mkdocs
+      - run:
+          name: Install MkDocs theme
+          command: sudo pip install mkdocs-material
+      - run:
+          name: Avoid hosts unknown for github
+          command: echo -e "Host github.com\n\tStrictHostKeyChecking no\n" > ~/.ssh/config
+      - run:
+          name: Build docs
+          command: mkdocs gh-deploy --remote-branch gh-pages
+
+workflows:
+  version: 2
+  testing:
+    jobs:
+      - build
+        #   filters:
+        #     branches:
+        #       ignore: /^(dev|master)/
+      - test:
+          requires:
+            - build
+        #   filters:
+        #     branches:
+        #       ignore: /^(dev|master)/
+      - deploy_docs:
+          filters:
+            branches:
+            #   ignore: /^(dev|master)/
+              only: master

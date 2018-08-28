@@ -2,7 +2,7 @@ site_name: PnP/generator-SPFx
 pages:
   - Home: 'index.md'
   - Compose: 'compose/index.md'
-  - Recipies: 'recipies/index.md'
+  - Recipes: 'recipes/index.md'
   - How-Tos: 'how-tos/index.md'
 theme:
   name: 'material'
@@ -32,4 +32,3 @@ extra:
       link: 'https://aka.ms/sppnp'
 repo_url: http://github.com/pnp/generator-spfx
 edit_uri: blob/master/docs/manual/docs
-
