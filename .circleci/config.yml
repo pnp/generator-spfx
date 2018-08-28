@@ -42,7 +42,6 @@ jobs:
           command: npm run test-handlebars
       - store_artifacts:
           path: testresult
-          prefix: testresult
   deploy_docs:
     working_directory: ~/generator-spfx/docs
     docker:
