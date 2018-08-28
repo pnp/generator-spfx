@@ -1,0 +1,688 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.1, mkdocs-material-3.0.3">
+    
+    
+      
+        <title>PnP/generator-SPFx</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/application.451f80e5.css">
+      
+        <link rel="stylesheet" href="assets/stylesheets/application-palette.22915126.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#e91e63">
+      
+    
+    
+      <script src="assets/javascripts/modernizr.1aa3b519.js"></script>
+    
+    
+      <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+      
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="assets/fonts/material-icons.css">
+    
+      <link rel="stylesheet" href="css/extra.css">
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="pink" data-md-color-accent="">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#pnp-spfx-yeoman-generator" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="." title="PnP/generator-SPFx" class="md-header-nav__button md-logo">
+          
+            <img src="assets/logo.svg" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                PnP/generator-SPFx
+              </span>
+              <span class="md-header-nav__topic">
+                Home
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="http://github.com/pnp/generator-spfx/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      GitHub
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+<nav class="md-tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="." title="Home" class="md-tabs__link md-tabs__link--active">
+        Home
+      </a>
+    
+  </li>
+
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="compose/" title="Compose" class="md-tabs__link md-tabs__link--active">
+        Compose
+      </a>
+    
+  </li>
+
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="recipies/" title="Recipies" class="md-tabs__link md-tabs__link--active">
+        Recipies
+      </a>
+    
+  </li>
+
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="how-tos/" title="How-Tos" class="md-tabs__link md-tabs__link--active">
+        How-Tos
+      </a>
+    
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="." title="PnP/generator-SPFx" class="md-nav__button md-logo">
+      
+        <img src="assets/logo.svg" width="48" height="48">
+      
+    </a>
+    PnP/generator-SPFx
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="http://github.com/pnp/generator-spfx/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      GitHub
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Home
+      </label>
+    
+    <a href="." title="Home" class="md-nav__link md-nav__link--active">
+      Home
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#client-side-extensions-and-add-ons" title="Client-side extensions and Add-ons" class="md-nav__link">
+    Client-side extensions and Add-ons
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#framework-extensions" title="Framework Extensions" class="md-nav__link">
+    Framework Extensions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation" title="Installation" class="md-nav__link">
+    Installation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#start-a-new-project" title="Start a new project" class="md-nav__link">
+    Start a new project
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-line-options" title="Command Line Options" class="md-nav__link">
+    Command Line Options
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#further-informations" title="Further informations" class="md-nav__link">
+    Further informations
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="compose/" title="Compose" class="md-nav__link">
+      Compose
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="recipies/" title="Recipies" class="md-nav__link">
+      Recipies
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="how-tos/" title="How-Tos" class="md-nav__link">
+      How-Tos
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#client-side-extensions-and-add-ons" title="Client-side extensions and Add-ons" class="md-nav__link">
+    Client-side extensions and Add-ons
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#framework-extensions" title="Framework Extensions" class="md-nav__link">
+    Framework Extensions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation" title="Installation" class="md-nav__link">
+    Installation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#start-a-new-project" title="Start a new project" class="md-nav__link">
+    Start a new project
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-line-options" title="Command Line Options" class="md-nav__link">
+    Command Line Options
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#further-informations" title="Further informations" class="md-nav__link">
+    Further informations
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="http://github.com/pnp/generator-spfx/blob/master/docs/manual/docs/index.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="pnp-spfx-yeoman-generator">Pnp SPFx Yeoman generator<a class="headerlink" href="#pnp-spfx-yeoman-generator" title="Permanent link">&para;</a></h1>
+<p>The composeability model of Yeoman generator is on of its core features allow you to build your own or consume and reuse already built generator. The Microsofts SharePoint Framework Yeoman generator supports this model too.
+The PnP SPFx Yeoman generator uses 100% of the SPFx Yeoman generator and adds functionalities on top of this framework.</p>
+<p><img alt="PnP SPFx Generator" src="./docs/assets/pnpspfx-title.png" /></p>
+<p>The extension support ranges from client-side libraries such as pnpjs and jQuery to extend the capabilities to more complex extension such as the integration of HandlebarsJS, VueJS and many more.</p>
+<blockquote>
+<p><strong>Limitation:</strong> Right now the PnP SPFx yeoman generator supports only the initial setup of new projects. To add additional web parts and extensions please use the Microsoft SPFx generator. In future this generator can be used to add elements to existing projects.</p>
+</blockquote>
+<h3 id="client-side-extensions-and-add-ons">Client-side extensions and Add-ons<a class="headerlink" href="#client-side-extensions-and-add-ons" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th align="left">Library</th>
+<th align="left">Version</th>
+<th align="left">Documentation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><a href="http://jquery.com">jQuery</a></td>
+<td align="left">2.x, 3.x</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/pnp/pnpjs">@pnp/pnpjs</a></td>
+<td align="left">&gt; 1.4.</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+<h3 id="framework-extensions">Framework Extensions<a class="headerlink" href="#framework-extensions" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th align="left">Framework</th>
+<th align="left">Version</th>
+<th align="left">Documentation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><a href="http://handlebarsjs.com">Handlebars</a></td>
+<td align="left">&gt; 4.0.0</td>
+<td align="left">Get started</td>
+</tr>
+<tr>
+<td align="left"><a href="https://vuejs.org">VueJS</a></td>
+<td align="left">planned</td>
+<td align="left">Get started</td>
+</tr>
+<tr>
+<td align="left"><a href="https://angular.io/guide/elements">Angular Elements</a></td>
+<td align="left">tbd</td>
+<td align="left">Get started</td>
+</tr>
+</tbody>
+</table>
+<h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
+<p>The generator need to be installed globally depending on the package manager you use.</p>
+<p><strong>Using NPM:</strong></p>
+<div class="codehilite"><pre><span></span>npm install -g @pnp/generator-spfx
+</pre></div>
+
+
+<p><strong>Using Yarn:</strong></p>
+<div class="codehilite"><pre><span></span>yarn install global @pnp/generator-spfx
+</pre></div>
+
+
+<p><strong>Using pnpm:</strong></p>
+<div class="codehilite"><pre><span></span>pnpm install global-pnpmfile @pnp/generator-spfx
+</pre></div>
+
+
+<h2 id="start-a-new-project">Start a new project<a class="headerlink" href="#start-a-new-project" title="Permanent link">&para;</a></h2>
+<p>To start a new project execute the following command.</p>
+<div class="codehilite"><pre><span></span>yo @pnp/spfx
+</pre></div>
+
+
+<p>This will start you the Yeoman generator for a new project that give yo all options to choose from.</p>
+<p><a href="https://asciinema.org/a/196170"><img alt="asciicast" src="https://asciinema.org/a/196170" /></a></p>
+<h2 id="command-line-options">Command Line Options<a class="headerlink" href="#command-line-options" title="Permanent link">&para;</a></h2>
+<p>The following option provides a complete list of available switches.</p>
+<div class="codehilite"><pre><span></span>Usage:
+  yo @pnp/spfx <span class="o">[</span>options<span class="o">]</span>
+
+Options:
+  -h,    --help                     <span class="c1"># Print the generator&#39;s options and usage</span>
+         --skip-cache               <span class="c1"># Do not remember prompt answers - Default: false</span>
+         --skip-install             <span class="c1"># Do not automatically install dependencies - Default: false</span>
+         --force-install            <span class="c1"># Fail on install dependencies error - Default: false</span>
+         --component-description    <span class="c1"># Web part description</span>
+         --component-name           <span class="c1"># Web part name</span>
+         --component-type           <span class="c1"># The type of component:</span>
+                                        - <span class="s2">&quot;webpart&quot;</span>
+                                        - <span class="s2">&quot;extension&quot;</span>
+         --enviroment               <span class="c1"># The target environment for the solution:</span>
+                                        - <span class="s2">&quot;onprem&quot;</span> or <span class="s2">&quot;spo&quot;</span>.
+         --extension-type           <span class="c1"># The type of extension:</span>
+                                        - <span class="s2">&quot;ApplicationCustomizer&quot;</span>,
+                                        - <span class="s2">&quot;FieldCustomizer&quot;</span>
+                                        - <span class="s2">&quot;ListViewCommandSet&quot;</span>
+  -pm,   --package-manager          <span class="c1"># Let you choose the package manager:</span>
+                                        - <span class="s2">&quot;npm&quot;</span>
+                                        - <span class="s2">&quot;yarn&quot;</span>
+                                        - <span class="s2">&quot;pnpm&quot;</span>
+         --plusbeta                 <span class="c1"># Use the beta packages</span>
+         --skip-feature-deployment  <span class="c1"># If specified, allow the tenant admin the choice of being able</span>
+                                      to deploy the components to all sites immediately without running any
+                                      feature deployment or adding apps in sites
+         --solution-name            <span class="c1"># Solution name, as well as folder name</span>
+</pre></div>
+
+
+<h2 id="further-informations">Further informations<a class="headerlink" href="#further-informations" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="compose/add-generator/">General project setup and folders</a></li>
+</ul>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+        
+          <a href="compose/" title="Compose" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Compose
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="./assets/fonts/font-awesome.css">
+    
+      <a href="https://twitter.com/officedevpnp" class="md-footer-social__link fa fa-twitter"></a>
+    
+      <a href="http://aka.ms/sppnp-videos" class="md-footer-social__link fa fa-youtube"></a>
+    
+      <a href="https://aka.ms/sppnp" class="md-footer-social__link fa fa-link"></a>
+    
+  </div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="assets/javascripts/application.583bbe55.js"></script>
+      
+      <script>app.initialize({version:"1.0.1",url:{base:"."}})</script>
+      
+    
+    
+      
+    
+  </body>
+</html>
