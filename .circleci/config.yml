@@ -61,6 +61,9 @@ jobs:
           name: listall
           command: ls -al
       - run:
+          name: pwd
+          command: pwd
+      - run:
           name: Install MkDocs theme
           command: sudo pip install mkdocs-material
     #   - run:
@@ -69,6 +72,10 @@ jobs:
       - run:
           name: Build docs
           command: mkdocs gh-deploy
+      - run:
+          name: pwd
+          command: pwd
+
 workflows:
   version: 2
   testing:
