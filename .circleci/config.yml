@@ -69,13 +69,7 @@ workflows:
   version: 2
   testing:
     jobs:
-        - build:
-            filters:
-                branches:
-                    ignore: /^(dev|master)/
+        - build
         - test:
             requires:
                 - build
-            filters:
-                branches: 
-                    ignore: /^(dev|master)/
