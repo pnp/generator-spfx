@@ -98,6 +98,7 @@ Options:
 ## Further information
 
 * [General project setup and folders](./compose/add-generator.md)
+* [Known Issues](./known-issues.md)
 
 
 [logo]: ./assets/pnpspfx-title.png

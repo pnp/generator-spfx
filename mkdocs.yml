@@ -1,5 +1,5 @@
 site_name: PnP/generator-SPFx
-pages:
+nav:
   - Home: 'index.md'
   - Compose: 'compose/index.md'
   - Recipes: 'recipes/index.md'
@@ -7,15 +7,15 @@ pages:
 theme:
   name: 'material'
   palette:
-    primary: 'pink'
+    primary: 'blue grey'
   logo: 'assets/logo.svg'
   feature:
     tabs: true
 extra_css:
   - 'css/extra.css'
-# google_analytics:
-#   # - 'UA-110480857-1'
-#   - 'auto'
+google_analytics:
+  - 'UA-124825047-1'
+  - 'auto'
 markdown_extensions:
   - admonition
   - codehilite:
