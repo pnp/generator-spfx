@@ -69,18 +69,18 @@ workflows:
   version: 2
   testing:
     jobs:
-      - build
-        #   filters:
-        #     branches:
-        #       ignore: /^(dev|master)/
+      - build:
+          filters:
+            branches:
+              ignore: gh-pages
       - test:
           requires:
             - build
-        #   filters:
-        #     branches:
-        #       ignore: /^(dev|master)/
+          filters:
+            branches:
+              ignore: gh-pages
       - deploy_docs:
           filters:
             branches:
-            #   ignore: /^(dev|master)/
+              ignore: gh-pages
               only: master
