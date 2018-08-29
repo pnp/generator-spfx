@@ -23,3 +23,9 @@
 .md-footer{
     margin-top: 5em;
 }
+
+@media only screen and (max-width: 76.1875em) {
+ .md-nav--primary .md-nav__title--site .md-nav__button {
+     width: unset;
+ }
+}
