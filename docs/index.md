@@ -23,7 +23,7 @@ The PnP SPFx Yeoman generator uses 100% of the Microsoft SPFx Yeoman generator b
 | Framework | Version | Documentation |
 |:--|:--|:--|
 | [Handlebars](http://handlebarsjs.com) | > 4.0.0 | Get started |
-| [VueJS](https://vuejs.org) | planned | Get started |
+| [VueJS](https://vuejs.org) | TBD | Get started |
 | [Angular Elements](https://angular.io/guide/elements) | planned |  Get started |
 
 ## Installation
