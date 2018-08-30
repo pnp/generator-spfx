@@ -45,7 +45,7 @@ module.exports = class extends Generator {
         // finally run install
         util.runInstall(this);
         // # BUG currently only appears just in test
-        // util.writeTemplates(this);
+        util.writeTemplates(this);
     }
 
     // Run installer normally time to say goodbye
