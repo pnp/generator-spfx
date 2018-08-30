@@ -64,23 +64,58 @@ jobs:
       - run:
           name: Build docs
           command: mkdocs gh-deploy --remote-branch gh-pages
-
+  publish:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/generator-spfx
+      - run:
+          name: Write .npmrc
+          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
+      - run:
+          name: Publish
+          command: npm publish --access public
 workflows:
   version: 2
   testing:
     jobs:
       - build
-        #   filters:
-        #     branches:
-        #       ignore: /^(dev|master)/
       - test:
           requires:
             - build
-        #   filters:
-        #     branches:
-        #       ignore: /^(dev|master)/
       - deploy_docs:
           filters:
             branches:
-            #   ignore: /^(dev|master)/
               only: master
+  release:
+    jobs:
+      - build:
+          filters:
+            tags:
+              only: /^v[0-9]+\.[0-9]+\.[0-9]+/
+            branches:
+              ignore: /.*/
+      - test:
+          requires:
+            - build
+          filters:
+            tags:
+              only: /^v[0-9]+\.[0-9]+\.[0-9]+/
+            branches:
+              ignore: /.*/
+      - publish:
+          requires:
+            - test
+          filters:
+            tags:
+              only: /^v[0-9]+\.[0-9]+\.[0-9]+/
+            branches:
+              ignore: /.*/
+      - deploy_docs:
+          requires:
+            - publish
+          filters:
+            tags:
+              only: /^v[0-9]+\.[0-9]+\.[0-9]+/
+            branches:
+              ignore: /.*/
