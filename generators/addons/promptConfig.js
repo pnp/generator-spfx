@@ -1,5 +1,6 @@
 const chalk = require('chalk');
 
+// jQuery version options
 const jqueryOptions = [{
         'name': '3.x.x (recommended)',
         'value': 3
@@ -10,6 +11,7 @@ const jqueryOptions = [{
     }
 ]
 
+// generat configuration options
 const configOptions = [
     // Library selection
     {
@@ -22,7 +24,9 @@ const configOptions = [
         }, {
             name: 'pnpjs',
             value: '@pnp/pnpjs'
-        }]
+        },
+        // Add a new configuration object in here
+        ]
     },
     // jQuery version selection
     {
@@ -30,8 +34,10 @@ const configOptions = [
         message: `${chalk.bold.yellow('jQuery: ')} Please choose a version:`,
         name: 'jQueryVersion',
         choices: jqueryOptions,
+        // Show only when jQuery was included
         when: answers => answers.jsLibrary.indexOf('jquery') !== -1
     }
 ]
 
+// export options as module
 module.exports = configOptions;

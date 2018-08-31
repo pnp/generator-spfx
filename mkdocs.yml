@@ -5,6 +5,7 @@ nav:
     - General: compose/index.md
     - Prompting: compose/prompting.md
     - Addon generator: compose/add-addons.md
+  - About: 'about.md'  
   # - Recipes: 'recipes/index.md'
   # - How-Tos: 'how-tos/index.md'
   # - Contribution Guideline: 'contribution-guidelines.md'

@@ -72,7 +72,7 @@ module.exports = promptConfig;
 
 This code imports the module of the addon configuraton and adds the settings to the default generator prompting. This config file will again be exported as a module and gets used in the main generator code.
 
-```
+```js
 prompting() {
 
     /* DO NOT ENTER CODE HERE */
@@ -100,3 +100,4 @@ So this makes sure that all prompt configurations can be managed centralised eve
 
 !!! info
     In case you custom generator has a special promting configuration please add a remark in your PR
+

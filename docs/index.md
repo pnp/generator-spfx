@@ -11,9 +11,11 @@ The PnP SPFx Yeoman generator uses 100% of the Microsoft SPFx Yeoman generator b
 
 > **Limitation:** Right now the PnP SPFx yeoman generator supports only the initial setup of new projects. To add additional web parts and extensions, please continue to use the Microsoft SPFx generator. In the future, this generator will be used to add elements to existing projects.
 
+### Based on Generator
+
+| Base Generator | |
 |:--|:--|
 | @microsoft/generator-sharepoint | 1.5.1 |
-
 
 
 ### Client-side extensions and Add-ons
