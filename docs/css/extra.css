@@ -4,18 +4,15 @@
     padding: 0 0.25 0.5 !important;
 }
 
-/* .md-flex{
-    height: 300px;
-} */
-.md-header {
+.md-header{
     height: 75px;
 }
 
-.md-container {
+.md-container{
     padding-top: 70px;
 }
 
-.md-sidebar[data-md-state="lock"] {
+.md-sidebar[data-md-state="lock"]{
     padding-top: 75px;
 }
 
@@ -30,7 +27,7 @@
 }
 
 @media only screen and (max-width: 76.1875em) {
-    .md-nav--primary .md-nav__title--site .md-nav__button {
-        width: unset;
-    }
+ .md-nav--primary .md-nav__title--site .md-nav__button {
+     width: 150px;
+ }
 }
