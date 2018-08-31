@@ -4,7 +4,8 @@ nav:
   - Compose: 
     - General: compose/index.md
     - Prompting: compose/prompting.md
-    - Addon generator: compose/add-addons.md
+    - Dependencies for addons: compose/add-addons.md
+    - Inject dependecies: compose/custgen-dependencies.md
   - About: 'about.md'  
   # - Recipes: 'recipes/index.md'
   # - How-Tos: 'how-tos/index.md'
