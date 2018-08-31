@@ -1,5 +1,5 @@
-.md-logo{
-    height:32px;
+.md-logo {
+    height: 32px;
     width: 150px;
     padding: 0 0.25 0.5 !important;
 }
@@ -15,12 +15,14 @@
 .md-sidebar[data-md-state="lock"]{
     padding-top: 75px;
 }
+
 .md-logo img {
     width: 100% !important;
     height: auto !important;
     margin-top: -0.25em;
 }
-.md-footer{
+
+.md-footer {
     margin-top: 5em;
 }
 
