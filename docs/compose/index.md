@@ -167,3 +167,7 @@ install() {
 ```
 
 This is required because all additional tasks have to be performed on top of the assets deployed by the SPFx default assets.
+
+Further reading:
+
+* [How to implement prompting](./prompting.md)
