@@ -36,7 +36,7 @@
     
     
       
-        <title>Util - Overview - PnP/generator-SPFx</title>
+        <title>Update provisioned artifacts for web parts, extensions and customizer with generator - PnP/generator-SPFx</title>
       
     
     
@@ -100,7 +100,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="../../#util-overview" tabindex="1" class="md-skip">
+      <a href="../../#update-provisioned-artifacts-for-web-parts-extensions-and-customizer-with-generator" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -126,7 +126,7 @@
                 PnP/generator-SPFx
               </span>
               <span class="md-header-nav__topic">
-                Util - Overview
+                Update provisioned artifacts for web parts, extensions and customizer with generator
               </span>
             
           
@@ -377,15 +377,15 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#mergeaddonsaddonconfig-requestedlibraries-config" title="mergeAddons(addonConfig, requestedLibraries, config)" class="md-nav__link">
-    mergeAddons(addonConfig, requestedLibraries, config)
+  <a href="#copy-these-template-files-to-your-generator" title="Copy these template files to your generator" class="md-nav__link">
+    Copy these template files to your generator
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#composegulpfilecoretemplate-customtemplate" title="composeGulpFile(coreTemplate, customTemplate)" class="md-nav__link">
-    composeGulpFile(coreTemplate, customTemplate)
+  <a href="#deploy-custom-code-in-generator" title="Deploy custom code in generator" class="md-nav__link">
+    Deploy custom code in generator
   </a>
   
 </li>
@@ -406,63 +406,96 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="http://github.com/pnp/generator-spfx/blob/master/docs/manual/docs/tools/util.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="http://github.com/pnp/generator-spfx/blob/master/docs/manual/docs/recipes/deploy-custom-code.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="util-overview">Util - Overview<a class="headerlink" href="#util-overview" title="Permanent link">&para;</a></h1>
-<p>The util module can be found in the './lib/' directory and contains the following methods.</p>
-<h2 id="mergeaddonsaddonconfig-requestedlibraries-config">mergeAddons(addonConfig, requestedLibraries, config)<a class="headerlink" href="#mergeaddonsaddonconfig-requestedlibraries-config" title="Permanent link">&para;</a></h2>
-<p>This method merges add-ons in <code>package.json</code>.</p>
-<p><strong>addonConfig</strong> <br />
-Configuration of add-ons available in the generator.</p>
-<p><strong>requestedLibraries</strong><br />
-Array of requested library identifiers.</p>
-<p><strong>config</strong><br />
-Given configuration to merge add-ons in the currently used <code>package.json</code>, for example.</p>
-<h2 id="composegulpfilecoretemplate-customtemplate">composeGulpFile(coreTemplate, customTemplate)<a class="headerlink" href="#composegulpfilecoretemplate-customtemplate" title="Permanent link">&para;</a></h2>
-<p>This method allows you to inject custom gulp tasks in the gulp file.</p>
-<p><strong>coreTemplate</strong><br />
-Path to any gulp file you would like to use as a template.</p>
-<p><strong>customTemplate</strong><br />
-Contains all your custom gulp tasks you would like to inject.</p>
-<p>The core template in the generator provided by SPFx is located in the folder <code>/app/templates/gulpfile.js</code> and contains the following <a href="http://ejs.co">EJS</a> code:</p>
-<div class="codehilite"><pre><span></span><span class="s1">&#39;use strict&#39;</span><span class="p">;</span>
-
-<span class="kr">const</span> <span class="nx">gulp</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;gulp&#39;</span><span class="p">);</span>
-<span class="kr">const</span> <span class="nx">build</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@microsoft/sp-build-web&#39;</span><span class="p">);</span>
-
-<span class="nx">build</span><span class="p">.</span><span class="nx">addSuppression</span><span class="p">(</span><span class="sb">`Warning - [sass] The local CSS class &#39;ms-Grid&#39; is not camelCase and will not be type-safe.`</span><span class="p">);</span>
-
-<span class="o">&lt;%=</span> <span class="nx">customTasks</span> <span class="o">%&gt;</span>
-
-<span class="nx">build</span><span class="p">.</span><span class="nx">initialize</span><span class="p">(</span><span class="nx">gulp</span><span class="p">);</span>
+                <h1 id="update-provisioned-artifacts-for-web-parts-extensions-and-customizer-with-generator">Update provisioned artifacts for web parts, extensions and customizer with generator<a class="headerlink" href="#update-provisioned-artifacts-for-web-parts-extensions-and-customizer-with-generator" title="Permanent link">&para;</a></h1>
+<p>It is possible to inject code such as references directly web parts and extensions. Right now this is only supported for SharePoint Online projects and not for on-premises focused.</p>
+<p>The tools folder provide you templates to inject code directly in the web part, application customizer, command set, field customizer.</p>
+<div class="codehilite"><pre><span></span>tools/spfx
+├── applicationcustomizer-spo
+│   └── <span class="o">{</span>componentClassName<span class="o">}</span>.ts
+├── commandset-spo
+│   └── <span class="o">{</span>componentClassName<span class="o">}</span>.ts
+├── fieldcustomizer-spo
+│   ├── <span class="o">{</span>componentClassName<span class="o">}</span>.module.scss
+│   └── <span class="o">{</span>componentClassName<span class="o">}</span>.ts
+└── webparts-spo
+    ├── <span class="o">{</span>componentClassName<span class="o">}</span>.module.scss
+    └── <span class="o">{</span>componentClassName<span class="o">}</span>.ts
 </pre></div>
 
 
-<p>The custom generator can point to this file using the following code:</p>
-<div class="codehilite"><pre><span></span><span class="kd">let</span> <span class="nx">coreGulpTemplate</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">templatePath</span><span class="p">(</span><span class="s1">&#39;../../../app/templates/gulpfile.js&#39;</span><span class="p">);</span>
+<p>These files will be maintained and updated with every new mayor release of the SharePoint Framework main generator.</p>
+<h2 id="copy-these-template-files-to-your-generator">Copy these template files to your generator<a class="headerlink" href="#copy-these-template-files-to-your-generator" title="Permanent link">&para;</a></h2>
+<p>Copy the files located in the template folder to your custom generator in the template path. The overall setup of the generator should match the following pattern.</p>
+<div class="codehilite"><pre><span></span>generators/your-generator/
+├── index.js
+└── templates
+    ├── addonConfig.json
+    ├── config
+    │   └── copy-static-assets.json
+    ├── gulpfile.js
+    └── spfx
+        ├── applicationcustomizer-spo
+        │   └── <span class="o">{</span>componentClassName<span class="o">}</span>.ts
+        ├── fieldcustomizer-spo
+        │   ├── <span class="o">{</span>componentClassName<span class="o">}</span>.module.scss
+        │   └── <span class="o">{</span>componentClassName<span class="o">}</span>.ts
+        ├── listviewcommandset-spo
+        │   └── <span class="o">{</span>componentClassName<span class="o">}</span>.ts
+        └── webpart-spo
+            ├── <span class="o">{</span>componentClassName<span class="o">}</span>.module.scss
+            └── <span class="o">{</span>componentClassName<span class="o">}</span>.ts
 </pre></div>
 
 
-<p>The following example shows a simple custom code snippet that should be included in the gulp file:</p>
-<div class="codehilite"><pre><span></span><span class="c1">// code to inject in gulp file</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Hello PnP SPFx generator&#39;</span><span class="p">);</span>
+<p>Now modify the files to match your requirements. In case of the HandlebarsJS generator the following line of code were added at the import statements of for example an web part.</p>
+<div class="codehilite"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">Version</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@microsoft/sp-core-library&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span>
+  <span class="nx">BaseClientSideWebPart</span><span class="p">,</span>
+  <span class="nx">IPropertyPaneConfiguration</span><span class="p">,</span>
+  <span class="nx">PropertyPaneTextField</span>
+<span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@microsoft/sp-webpart-base&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">escape</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@microsoft/sp-lodash-subset&#39;</span><span class="p">;</span>
+
+<span class="kr">import</span> <span class="nx">styles</span> <span class="nx">from</span> <span class="s1">&#39;./&lt;%= componentClassName %&gt;.module.scss&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="o">*</span> <span class="nx">as</span> <span class="nx">strings</span> <span class="nx">from</span> <span class="s1">&#39;&lt;%= componentStrings %&gt;&#39;</span><span class="p">;</span>
+
+<span class="kr">import</span> <span class="o">*</span> <span class="nx">as</span> <span class="nx">Handlebars</span> <span class="nx">from</span> <span class="s1">&#39;handlebars&#39;</span><span class="p">;</span>
+
+<span class="kr">export</span> <span class="kr">interface</span> <span class="nx">I</span><span class="o">&lt;%=</span> <span class="nx">componentClassName</span> <span class="o">%&gt;</span><span class="nx">Props</span> <span class="p">{</span>
+  <span class="nx">description</span><span class="o">:</span> <span class="nx">string</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="kr">class</span> <span class="o">&lt;%=</span> <span class="nx">componentClassName</span> <span class="o">%&gt;</span> <span class="kr">extends</span> <span class="nx">BaseClientSideWebPart</span><span class="o">&lt;</span><span class="nx">I</span><span class="o">&lt;%=</span> <span class="nx">componentClassName</span> <span class="o">%&gt;</span><span class="nx">Props</span><span class="o">&gt;</span> <span class="p">{</span>
+<span class="p">...</span>
 </pre></div>
 
 
-<p>The resulting <code>gulpfile.js</code> after the merge in this case will be:</p>
-<div class="codehilite"><pre><span></span><span class="s1">&#39;use strict&#39;</span><span class="p">;</span>
-
-<span class="kr">const</span> <span class="nx">gulp</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;gulp&#39;</span><span class="p">);</span>
-<span class="kr">const</span> <span class="nx">build</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@microsoft/sp-build-web&#39;</span><span class="p">);</span>
-
-<span class="nx">build</span><span class="p">.</span><span class="nx">addSuppression</span><span class="p">(</span><span class="sb">`Warning - [sass] The local CSS class &#39;ms-Grid&#39; is not camelCase and will not be type-safe.`</span><span class="p">);</span>
-
-<span class="c1">// code to inject in gulp file</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Hello PnP SPFx generator&#39;</span><span class="p">);</span>
-
-<span class="nx">build</span><span class="p">.</span><span class="nx">initialize</span><span class="p">(</span><span class="nx">gulp</span><span class="p">);</span>
+<p>The only line of code in this example that were added is the following line:</p>
+<div class="codehilite"><pre><span></span><span class="kr">import</span> <span class="o">*</span> <span class="nx">as</span> <span class="nx">Handlebars</span> <span class="nx">from</span> <span class="s1">&#39;handlebars&#39;</span><span class="p">;</span>
 </pre></div>
+
+
+<p>This make sure that after the provisioning of a web part coding can start immediatly.</p>
+<h2 id="deploy-custom-code-in-generator">Deploy custom code in generator<a class="headerlink" href="#deploy-custom-code-in-generator" title="Permanent link">&para;</a></h2>
+<p>The files located in the SPFx folder serve as templats for all customisable assets. The names are not allowed to be changed because otherwise the whole deployment breaks. To make sure the template gets deployed a small utility need to called directly in the installation method of the Yeoman generator.</p>
+<p>Make sure you reference the utility class in your Yeoman generator code.</p>
+<div class="codehilite"><pre><span></span><span class="c1">// importing utilities</span>
+<span class="kr">const</span> <span class="nx">util</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;../../lib/util.js&#39;</span><span class="p">);</span>
+</pre></div>
+
+
+<p>In the install method call the following utility method.</p>
+<div class="codehilite"><pre><span></span><span class="nx">install</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// # BUG currently only appears just in test</span>
+    <span class="nx">util</span><span class="p">.</span><span class="nx">writeTemplates</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>This utility will detect which component got added during the regular SPFx runtime and adds the code directly to the file.</p>
                 
                   
                 

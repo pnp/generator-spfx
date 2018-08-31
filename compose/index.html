@@ -32,11 +32,11 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.0.2, mkdocs-material-3.0.3">
+      <meta name="generator" content="mkdocs-1.0.3, mkdocs-material-3.0.3">
     
     
       
-        <title>PnP/generator-SPFx</title>
+        <title>General - PnP/generator-SPFx</title>
       
     
     
@@ -126,7 +126,7 @@
                 PnP/generator-SPFx
               </span>
               <span class="md-header-nav__topic">
-                Compose
+                General
               </span>
             
           
@@ -198,14 +198,16 @@
       
         
 
-<nav class="md-tabs" data-md-component="tabs">
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
   <div class="md-tabs__inner md-grid">
     <ul class="md-tabs__list">
       
         
   <li class="md-tabs__item">
     
-      <a href=".." title="Home" class="md-tabs__link md-tabs__link--active">
+      <a href=".." title="Home" class="md-tabs__link">
         Home
       </a>
     
@@ -213,34 +215,19 @@
 
       
         
-  <li class="md-tabs__item">
-    
-      <a href="./" title="Compose" class="md-tabs__link md-tabs__link--active">
-        Compose
-      </a>
-    
-  </li>
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="./" title="Compose" class="md-tabs__link md-tabs__link--active">
+          Compose
+        </a>
+      
+    </li>
+  
 
       
         
-  <li class="md-tabs__item">
-    
-      <a href="../recipes/" title="Recipes" class="md-tabs__link md-tabs__link--active">
-        Recipes
-      </a>
-    
-  </li>
-
-      
-        
-  <li class="md-tabs__item">
-    
-      <a href="../how-tos/" title="How-Tos" class="md-tabs__link md-tabs__link--active">
-        How-Tos
-      </a>
-    
-  </li>
-
       
     </ul>
   </div>
@@ -306,6 +293,27 @@
   
 
 
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      Compose
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Compose
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
   <li class="md-nav__item md-nav__item--active">
     
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
@@ -313,10 +321,39 @@
       
     
     
-    <a href="./" title="Compose" class="md-nav__link md-nav__link--active">
-      Compose
+    <a href="./" title="General" class="md-nav__link md-nav__link--active">
+      General
     </a>
     
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="prompting/" title="Prompting" class="md-nav__link">
+      Prompting
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="add-addons/" title="Addon generator" class="md-nav__link">
+      Addon generator
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
     
@@ -326,20 +363,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../recipes/" title="Recipes" class="md-nav__link">
-      Recipes
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../how-tos/" title="How-Tos" class="md-nav__link">
-      How-Tos
+    <a href="../about/" title="About" class="md-nav__link">
+      About
     </a>
   </li>
 
@@ -507,19 +532,28 @@
 <div class="codehilite"><pre><span></span><span class="nx">install</span><span class="p">()</span> <span class="p">{</span>
     <span class="c1">// deploy additional files to the project directory</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">_deployFiles</span><span class="p">();</span>
+
     <span class="c1">// add external to the configuration</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">_addExternals</span><span class="p">();</span>
+
     <span class="c1">// add all package depenedencies configured in addonConfig.json.</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">_addPackageDependencies</span><span class="p">();</span>
+
     <span class="c1">// inject custom tasks to gulpfile</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">_injectToGulpFile</span><span class="p">();</span>
+
     <span class="c1">// finally run install</span>
     <span class="nx">util</span><span class="p">.</span><span class="nx">runInstall</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+
 <span class="p">}</span>
 </pre></div>
 
 
 <p>This is required because all additional tasks have to be performed on top of the assets deployed by the SPFx default assets.</p>
+<p>Further reading:</p>
+<ul>
+<li><a href="prompting/">How to implement prompting</a></li>
+</ul>
                 
                   
                 
@@ -555,13 +589,13 @@
           </a>
         
         
-          <a href="../recipes/" title="Recipes" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="prompting/" title="Prompting" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Recipes
+                Prompting
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
@@ -604,7 +638,7 @@
     
       <script src="../assets/javascripts/application.583bbe55.js"></script>
       
-      <script>app.initialize({version:"1.0.2",url:{base:".."}})</script>
+      <script>app.initialize({version:"1.0.3",url:{base:".."}})</script>
       
     
     

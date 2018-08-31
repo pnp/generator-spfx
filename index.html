@@ -32,7 +32,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.0.2, mkdocs-material-3.0.3">
+      <meta name="generator" content="mkdocs-1.0.3, mkdocs-material-3.0.3">
     
     
       
@@ -213,34 +213,19 @@
 
       
         
-  <li class="md-tabs__item">
-    
-      <a href="compose/" title="Compose" class="md-tabs__link md-tabs__link--active">
-        Compose
-      </a>
-    
-  </li>
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="compose/" title="Compose" class="md-tabs__link">
+          Compose
+        </a>
+      
+    </li>
+  
 
       
         
-  <li class="md-tabs__item">
-    
-      <a href="recipes/" title="Recipes" class="md-tabs__link md-tabs__link--active">
-        Recipes
-      </a>
-    
-  </li>
-
-      
-        
-  <li class="md-tabs__item">
-    
-      <a href="how-tos/" title="How-Tos" class="md-tabs__link md-tabs__link--active">
-        How-Tos
-      </a>
-    
-  </li>
-
       
     </ul>
   </div>
@@ -320,6 +305,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#based-on-generator" title="Based on Generator" class="md-nav__link">
+    Based on Generator
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#client-side-extensions-and-add-ons" title="Client-side extensions and Add-ons" class="md-nav__link">
     Client-side extensions and Add-ons
   </a>
@@ -377,10 +369,58 @@
       
 
 
-  <li class="md-nav__item">
-    <a href="compose/" title="Compose" class="md-nav__link">
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
       Compose
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Compose
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="compose/" title="General" class="md-nav__link">
+      General
     </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="compose/prompting/" title="Prompting" class="md-nav__link">
+      Prompting
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="compose/add-addons/" title="Addon generator" class="md-nav__link">
+      Addon generator
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
     
@@ -390,20 +430,8 @@
 
 
   <li class="md-nav__item">
-    <a href="recipes/" title="Recipes" class="md-nav__link">
-      Recipes
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="how-tos/" title="How-Tos" class="md-nav__link">
-      How-Tos
+    <a href="about/" title="About" class="md-nav__link">
+      About
     </a>
   </li>
 
@@ -427,6 +455,13 @@
   
     <label class="md-nav__title" for="__toc">Table of contents</label>
     <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#based-on-generator" title="Based on Generator" class="md-nav__link">
+    Based on Generator
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#client-side-extensions-and-add-ons" title="Client-side extensions and Add-ons" class="md-nav__link">
@@ -498,6 +533,21 @@ The PnP SPFx Yeoman generator uses 100% of the SPFx Yeoman generator and adds fu
 <blockquote>
 <p><strong>Limitation:</strong> Right now the PnP SPFx yeoman generator supports only the initial setup of new projects. To add additional web parts and extensions, please continue to use the Microsoft SPFx generator. In the future, this generator will be used to add elements to existing projects.</p>
 </blockquote>
+<h3 id="based-on-generator">Based on Generator<a class="headerlink" href="#based-on-generator" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th align="left">Base Generator</th>
+<th align="left"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">@microsoft/generator-sharepoint</td>
+<td align="left">1.5.1</td>
+</tr>
+</tbody>
+</table>
 <h3 id="client-side-extensions-and-add-ons">Client-side extensions and Add-ons<a class="headerlink" href="#client-side-extensions-and-add-ons" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
@@ -631,13 +681,13 @@ Options:
       <nav class="md-footer-nav__inner md-grid">
         
         
-          <a href="compose/" title="Compose" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="compose/" title="General" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Compose
+                General
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
@@ -680,7 +730,7 @@ Options:
     
       <script src="assets/javascripts/application.583bbe55.js"></script>
       
-      <script>app.initialize({version:"1.0.2",url:{base:"."}})</script>
+      <script>app.initialize({version:"1.0.3",url:{base:"."}})</script>
       
     
     
