@@ -64,7 +64,17 @@ jobs:
       - run:
           name: Build docs
           command: mkdocs gh-deploy --remote-branch gh-pages
-
+  publish:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/generator-spfx
+      - run:
+          name: Write .npmrc
+          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
+      - run:
+          name: Publish
+          command: npm publish --access public
 workflows:
   version: 2
   testing:

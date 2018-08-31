@@ -146,18 +146,28 @@ Instead of adding the code of the custom generator to the `writing()` method, th
 In the case of the Handlebars generator, the following functions get called in the `install()` method:
 
 ```js
+
 install() {
     // deploy additional files to the project directory
     this._deployFiles();
+
     // add external to the configuration
     this._addExternals();
+    
     // add all package depenedencies configured in addonConfig.json.
     this._addPackageDependencies();
+    
     // inject custom tasks to gulpfile
     this._injectToGulpFile();
+    
     // finally run install
     util.runInstall(this);
+
 }
 ```
 
 This is required because all additional tasks have to be performed on top of the assets deployed by the SPFx default assets.
+
+Further reading:
+
+* [How to implement prompting](./prompting.md)
