@@ -39,10 +39,11 @@
   },
   "scripts": {
     "test-onprem": "mocha ./test/onprem.handlebars.test.js && mocha ./test/onprem.knockout.test.js && mocha ./test/onprem.react.test.js",
-    "test-spo": "mocha ./test/spo.handlebars.test.js && mocha ./test/spo.knockout.test.js && mocha ./test/spo.react.test.js",
+    "test-spo": "mocha ./test/spo.handlebars.test.js && mocha ./test/spo.knockout.test.js && mocha ./test/spo.react.test.js && mocha ./test/spo.vuejs.test.js",
     "test-handlebars": "mocha ./test/onprem.handlebars.test.js && mocha ./test/spo.handlebars.test.js",
     "test-react": "mocha ./test/onprem.react.test.js && mocha ./test/spo.react.test.js",
     "test-knockout": "mocha ./test/onprem.knockout.test.js && mocha ./test/spo.knockout.test.js",
-    "test": "mocha ./test/onprem.handlebars.test.js && mocha ./test/onprem.knockout.test.js && mocha ./test/onprem.react.test.js && mocha ./test/spo.handlebars.test.js && mocha ./test/spo.knockout.test.js && mocha ./test/spo.react.test.js"
+    "test": "mocha ./test/onprem.handlebars.test.js && mocha ./test/onprem.knockout.test.js && mocha ./test/onprem.react.test.js && mocha ./test/spo.handlebars.test.js && mocha ./test/spo.knockout.test.js && mocha ./test/spo.react.test.js && mocha ./test/spo.vuejs.test.js",
+    "test-vuejs": "mocha ./test/spo.vuejs.test.js"
   }
 }

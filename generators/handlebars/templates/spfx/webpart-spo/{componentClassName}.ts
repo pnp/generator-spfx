@@ -7,7 +7,7 @@ import {
 import { escape } from '@microsoft/sp-lodash-subset';
 
 import styles from './<%= componentClassName %>.module.scss';
-import * as strings from '<%= componentStrings %>';
+import * as strings from '<%= componentStrings %>Strings';
 
 import * as Handlebars from 'handlebars';
 

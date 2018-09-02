@@ -23,7 +23,7 @@ const configOptions = [
             value: 'jquery'
         }, {
             name: 'pnpjs',
-            value: '@pnp/pnpjs'
+            value: 'pnpjs'
         },
         // Add a new configuration object in here
         ]

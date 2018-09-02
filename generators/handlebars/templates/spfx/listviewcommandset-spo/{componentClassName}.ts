@@ -8,7 +8,7 @@ import {
 } from '@microsoft/sp-listview-extensibility';
 import { Dialog } from '@microsoft/sp-dialog';
 
-import * as strings from '<%= componentStrings %>';
+import * as strings from '<%= componentStrings %>Strings';
 
 import * as Handlebars from 'handlebars';
 

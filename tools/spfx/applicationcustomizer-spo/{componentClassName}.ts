@@ -5,7 +5,7 @@ import {
 } from '@microsoft/sp-application-base';
 import { Dialog } from '@microsoft/sp-dialog';
 
-import * as strings from '<%= componentStrings %>';
+import * as strings from '<%= componentStrings %>Strings';
 
 const LOG_SOURCE: string = '<%= componentClassName %>';
 

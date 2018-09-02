@@ -88,8 +88,8 @@ module.exports = class extends Generator {
     }
 
     _addPackageDependencies() {
-
-        if (fs.existsSync(this.destinationPath('package.json'))) {
+        util.addPackageDependencies(this, ['handlebars']);
+        /* if (fs.existsSync(this.destinationPath('package.json'))) {
 
             // request the default package file
             let config;
@@ -150,13 +150,13 @@ module.exports = class extends Generator {
 
             }
 
-        }
+        } */
 
     }
 
     _injectToGulpFile() {
-
-        let targetGulpFile = this.destinationPath('gulpfile.js');
+        util.injectToGulpFile(this);
+        /* let targetGulpFile = this.destinationPath('gulpfile.js');
 
         if (fs.existsSync(targetGulpFile)) {
 
@@ -174,7 +174,7 @@ module.exports = class extends Generator {
 
             }
 
-        }
+        } */
 
     }
 
