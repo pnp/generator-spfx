@@ -95,7 +95,7 @@ In the install method call the following utility method.
 ```js
 install() {
     // # BUG currently only appears just in test
-    util.writeTemplates(this);
+    util.deployTemplates(this);
 }
 ```
 
