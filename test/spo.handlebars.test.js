@@ -21,7 +21,7 @@ const userWebPartConfig = {
 let yorcFile = path.join(localTempDir, '.yo-rc.json'),
     packageFile = path.join(localTempDir, 'package.json');
 
-describe('Handlebar Test: On Premises', () => {
+describe('Handlebar Test: SPO', () => {
 
     const baseSettings = {
         framework: 'handlebars',
@@ -86,7 +86,7 @@ describe('Handlebar Test: On Premises', () => {
 
         })
 
-        it('No Environment === onprem', () => {
+        it('No Environment === SPO', () => {
 
             assert.fileContent(yorcFile, /\"environment\": \"spo\"/);
 
@@ -175,7 +175,7 @@ describe('Handlebar Test: On Premises', () => {
 
         })
 
-        it('No Environment === onprem', () => {
+        it('No Environment === SPO', () => {
 
             assert.fileContent(yorcFile, /\"environment\": \"spo\"/);
 
@@ -261,7 +261,7 @@ describe('Handlebar Test: On Premises', () => {
 
         })
 
-        it('No Environment === onprem', () => {
+        it('No Environment === SPO', () => {
 
             assert.fileContent(yorcFile, /\"environment\": \"spo\"/);
 
@@ -352,7 +352,7 @@ describe('Handlebar Test: On Premises', () => {
             rimraf.sync(localTempDirDelete);
         });
 
-        it('No Environment === onprem', () => {
+        it('No Environment === SPO', () => {
 
             assert.fileContent(yorcFile, /\"environment\": \"spo\"/);
 
@@ -440,7 +440,7 @@ describe('Handlebar Test: On Premises', () => {
 
         })
 
-        it('No Environment === onprem', () => {
+        it('No Environment === SPO', () => {
 
             assert.fileContent(yorcFile, /\"environment\": \"spo\"/);
 
