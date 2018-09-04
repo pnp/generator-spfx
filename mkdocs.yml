@@ -6,10 +6,17 @@ nav:
     - Prompting: compose/prompting.md
     - Dependencies for addons: compose/add-addons.md
     - Inject dependecies: compose/custgen-dependencies.md
-  - About: 'about.md'  
+  - Recipes:
+    - Inject gulp tasks: 'recipes/inject-gulp-tasks.md'
+    - Run Install: 'recipes/run-install.md'
+    - Deploy Custom Code: 'recipes/deploy-custom-code.md'
+  - FAQ : 'faq.md'
+  - Known Issued: 'known-issues.md'
+  - Contribution Guideline: 'contribution-guidelines.md'
+  - About: 'about.md'
   # - Recipes: 'recipes/index.md'
   # - How-Tos: 'how-tos/index.md'
-  # - Contribution Guideline: 'contribution-guidelines.md'
+  
   # - Contribution Guideline: 'recipes/deploy-custom-code.md'
 theme:
   name: 'material'
