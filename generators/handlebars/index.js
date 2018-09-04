@@ -44,8 +44,9 @@ module.exports = class extends Generator {
         this._injectToGulpFile();
         // finally run install
         util.runInstall(this);
-        // # BUG currently only appears just in test
-        util.writeTemplates(this);
+        // Update add templates
+        util.deployTemplates(this);
+
     }
 
     // Run installer normally time to say goodbye

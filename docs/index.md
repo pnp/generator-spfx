@@ -104,7 +104,7 @@ Options:
 
 ## Further information
 
-* [General project setup and folders](./compose/add-generator.md)
+* [General project setup and folders](./compose/index.md)
 * [Known Issues](./known-issues.md)
 
 
