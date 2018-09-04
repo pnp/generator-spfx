@@ -45,4 +45,4 @@ extra:
     - type: 'link'
       link: 'https://aka.ms/sppnp'
 repo_url: http://github.com/pnp/generator-spfx
-edit_uri: blob/master/docs/manual/docs
+edit_uri: blob/master/docs/
