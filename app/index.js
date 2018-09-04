@@ -56,8 +56,6 @@ module.exports = class extends Generator {
                         answers
                     );
 
-                    console.log(this.options.libraries);
-
                     this.options.SPFxFramework = answers.framework;
 
                     // save configuration of first selection
