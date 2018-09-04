@@ -32,11 +32,11 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.0.3, mkdocs-material-3.0.3">
+      <meta name="generator" content="mkdocs-1.0.3, mkdocs-material-3.0.4">
     
     
       
-        <title>Contribution Guidelines - PnP/generator-SPFx</title>
+        <title>Contribution Guideline - PnP/generator-SPFx</title>
       
     
     
@@ -54,8 +54,8 @@
       <script src="../assets/javascripts/modernizr.1aa3b519.js"></script>
     
     
-      <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
       
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
         <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
       
@@ -126,7 +126,7 @@
                 PnP/generator-SPFx
               </span>
               <span class="md-header-nav__topic">
-                Contribution Guidelines
+                Contribution Guideline
               </span>
             
           
@@ -224,6 +224,25 @@
     </li>
   
 
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../recipes/inject-gulp-tasks/" title="Recipes" class="md-tabs__link">
+          Recipes
+        </a>
+      
+    </li>
+  
+
+      
+        
+      
+        
+      
+        
       
         
       
@@ -333,14 +352,167 @@
 
 
   <li class="md-nav__item">
-    <a href="../compose/add-addons/" title="Addon generator" class="md-nav__link">
-      Addon generator
+    <a href="../compose/add-addons/" title="Dependencies for addons" class="md-nav__link">
+      Dependencies for addons
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../compose/custgen-dependencies/" title="Inject dependecies" class="md-nav__link">
+      Inject dependecies
     </a>
   </li>
 
         
       </ul>
     </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Recipes
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Recipes
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../recipes/inject-gulp-tasks/" title="Inject gulp tasks" class="md-nav__link">
+      Inject gulp tasks
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../recipes/run-install/" title="Run Install" class="md-nav__link">
+      Run Install
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../recipes/deploy-custom-code/" title="Deploy Custom Code" class="md-nav__link">
+      Deploy Custom Code
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../faq/" title="FAQ" class="md-nav__link">
+      FAQ
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../known-issues/" title="Known Issued" class="md-nav__link">
+      Known Issued
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Contribution Guideline
+      </label>
+    
+    <a href="./" title="Contribution Guideline" class="md-nav__link md-nav__link--active">
+      Contribution Guideline
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#basic-technologies-to-know" title="Basic technologies to know" class="md-nav__link">
+    Basic technologies to know
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#places-to-look-for-help" title="Places to look for help" class="md-nav__link">
+    Places to look for help
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
     
@@ -390,40 +562,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#frequently-asked-questions" title="Frequently asked questions" class="md-nav__link">
-    Frequently asked questions
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#why-cant-i-use-typescript" title="Why can't I use TypeScript?" class="md-nav__link">
-    Why can't I use TypeScript?
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#do-i-need-to-install-microsoftgenerator-sharepoint" title="Do I need to install @microsoft/generator-sharepoint?" class="md-nav__link">
-    Do I need to install @microsoft/generator-sharepoint?
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#can-i-have-a-different-versions-of-microsoftgenerator-sharepoint-installed" title="Can I have a different versions of @microsoft/generator-sharepoint installed?" class="md-nav__link">
-    Can I have a different versions of @microsoft/generator-sharepoint installed?
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
       
       
       
@@ -469,13 +607,6 @@ Beside the getting started guide there is an official documentation availabe tha
 In general a Yeoman generator is written is JavaScript but it is based on NodeJS the developmeent patterns are slightly different. In some cases it might be handy to consult the NodeJS documentation.</p>
 </li>
 </ul>
-<h2 id="frequently-asked-questions">Frequently asked questions<a class="headerlink" href="#frequently-asked-questions" title="Permanent link">&para;</a></h2>
-<h3 id="why-cant-i-use-typescript">Why can't I use TypeScript?<a class="headerlink" href="#why-cant-i-use-typescript" title="Permanent link">&para;</a></h3>
-<p>TypeScript requires compilation to JavaScript. The result is in more complexity and less support from the Yeoman community. To keep it plain and simple only NodeJS JavaScript will be used. Most concepts such as classes can be used in NodeJS anyway.</p>
-<h3 id="do-i-need-to-install-microsoftgenerator-sharepoint">Do I need to install @microsoft/generator-sharepoint?<a class="headerlink" href="#do-i-need-to-install-microsoftgenerator-sharepoint" title="Permanent link">&para;</a></h3>
-<p>No - The PnP SPFx generator has a dependency on a specific version on @microsoft/generator-sharepoint. This version will be automatically installed in the generator source.</p>
-<h3 id="can-i-have-a-different-versions-of-microsoftgenerator-sharepoint-installed">Can I have a different versions of @microsoft/generator-sharepoint installed?<a class="headerlink" href="#can-i-have-a-different-versions-of-microsoftgenerator-sharepoint-installed" title="Permanent link">&para;</a></h3>
-<p>Yes you can for example have version 1.4.1 installed manually on your machine. When you run <code>yo @microsoft/sharepoint</code> this version will be used. However in case you like to run <code>yo @pnp/spfx</code> the version the community generator was built on will be used. For example version 1.6 instead.</p>
                 
                   
                 
@@ -492,6 +623,41 @@ In general a Yeoman generator is written is JavaScript but it is based on NodeJS
       
         
 <footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../known-issues/" title="Known Issued" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Known Issued
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../about/" title="About" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                About
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">

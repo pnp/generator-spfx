@@ -32,11 +32,11 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.0.3, mkdocs-material-3.0.3">
+      <meta name="generator" content="mkdocs-1.0.3, mkdocs-material-3.0.4">
     
     
       
-        <title>Update provisioned artifacts for web parts, extensions and customizer with generator - PnP/generator-SPFx</title>
+        <title>Deploy Custom Code - PnP/generator-SPFx</title>
       
     
     
@@ -54,8 +54,8 @@
       <script src="../../assets/javascripts/modernizr.1aa3b519.js"></script>
     
     
-      <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
       
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
         <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
       
@@ -126,7 +126,7 @@
                 PnP/generator-SPFx
               </span>
               <span class="md-header-nav__topic">
-                Update provisioned artifacts for web parts, extensions and customizer with generator
+                Deploy Custom Code
               </span>
             
           
@@ -198,14 +198,16 @@
       
         
 
-<nav class="md-tabs" data-md-component="tabs">
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
   <div class="md-tabs__inner md-grid">
     <ul class="md-tabs__list">
       
         
   <li class="md-tabs__item">
     
-      <a href="../.." title="Home" class="md-tabs__link md-tabs__link--active">
+      <a href="../.." title="Home" class="md-tabs__link">
         Home
       </a>
     
@@ -224,6 +226,25 @@
     </li>
   
 
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../inject-gulp-tasks/" title="Recipes" class="md-tabs__link md-tabs__link--active">
+          Recipes
+        </a>
+      
+    </li>
+  
+
+      
+        
+      
+        
+      
+        
       
         
       
@@ -333,14 +354,169 @@
 
 
   <li class="md-nav__item">
-    <a href="../../compose/add-addons/" title="Addon generator" class="md-nav__link">
-      Addon generator
+    <a href="../../compose/add-addons/" title="Dependencies for addons" class="md-nav__link">
+      Dependencies for addons
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../compose/custgen-dependencies/" title="Inject dependecies" class="md-nav__link">
+      Inject dependecies
     </a>
   </li>
 
         
       </ul>
     </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      Recipes
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Recipes
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../inject-gulp-tasks/" title="Inject gulp tasks" class="md-nav__link">
+      Inject gulp tasks
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../run-install/" title="Run Install" class="md-nav__link">
+      Run Install
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Deploy Custom Code
+      </label>
+    
+    <a href="./" title="Deploy Custom Code" class="md-nav__link md-nav__link--active">
+      Deploy Custom Code
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#copy-these-template-files-to-your-generator" title="Copy these template files to your generator" class="md-nav__link">
+    Copy these template files to your generator
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deploy-custom-code-in-generator" title="Deploy custom code in generator" class="md-nav__link">
+    Deploy custom code in generator
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../faq/" title="FAQ" class="md-nav__link">
+      FAQ
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../known-issues/" title="Known Issued" class="md-nav__link">
+      Known Issued
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../contribution-guidelines/" title="Contribution Guideline" class="md-nav__link">
+      Contribution Guideline
+    </a>
   </li>
 
     
@@ -490,7 +666,7 @@
 <p>In the install method call the following utility method.</p>
 <div class="codehilite"><pre><span></span><span class="nx">install</span><span class="p">()</span> <span class="p">{</span>
     <span class="c1">// # BUG currently only appears just in test</span>
-    <span class="nx">util</span><span class="p">.</span><span class="nx">writeTemplates</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+    <span class="nx">util</span><span class="p">.</span><span class="nx">deployTemplates</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -512,6 +688,41 @@
       
         
 <footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../run-install/" title="Run Install" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Run Install
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../../faq/" title="FAQ" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                FAQ
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
