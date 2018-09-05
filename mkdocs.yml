@@ -5,14 +5,14 @@ nav:
     - General: compose/index.md
     - Prompting: compose/prompting.md
     - Dependencies for addons: compose/add-addons.md
-    - Inject dependecies: compose/custgen-dependencies.md
+    - Inject dependencies: compose/custgen-dependencies.md
   - Recipes:
     - Inject gulp tasks: 'recipes/inject-gulp-tasks.md'
     - Run Install: 'recipes/run-install.md'
     - Deploy Custom Code: 'recipes/deploy-custom-code.md'
   - FAQ : 'faq.md'
-  - Known Issued: 'known-issues.md'
-  - Contribution Guideline: 'contribution-guidelines.md'
+  - Known Issues: 'known-issues.md'
+  - Contribution Guidelines: 'contribution-guidelines.md'
   - About: 'about.md'
   # - Recipes: 'recipes/index.md'
   # - How-Tos: 'how-tos/index.md'
