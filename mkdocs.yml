@@ -20,6 +20,7 @@ nav:
   # - Contribution Guideline: 'recipes/deploy-custom-code.md'
 theme:
   name: 'material'
+  custom_dir: 'docs/theme'
   palette:
     primary: 'blue grey'
   logo: 'assets/logo.svg'
