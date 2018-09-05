@@ -42,10 +42,10 @@ module.exports = class extends Generator {
         this._addPackageDependencies();
         // inject custom tasks to gulpfile
         this._injectToGulpFile();
-        // finally run install
-        util.runInstall(this);
         // Update add templates
         util.deployTemplates(this);
+        // finally run install
+        util.runInstall(this);
 
     }
 

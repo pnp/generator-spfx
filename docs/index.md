@@ -15,7 +15,7 @@ The PnP SPFx Yeoman generator uses 100% of the Microsoft SPFx Yeoman generator b
 
 | Base Generator | |
 |:--|:--|
-| @microsoft/generator-sharepoint | 1.5.1 |
+| @microsoft/generator-sharepoint | 1.6.0 |
 
 
 ### Client-side extensions and Add-ons

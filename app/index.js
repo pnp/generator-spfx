@@ -174,7 +174,8 @@ module.exports = class extends Generator {
             subGenerator[this.options.pnpFramework] !== undefined) {
 
             this.composeWith(
-                subGenerator[this.options.pnpFramework]
+                subGenerator[this.options.pnpFramework],
+                this.options
             )
 
         }
@@ -279,6 +280,11 @@ module.exports = class extends Generator {
 
         // alweays skip install
         this.options.SpfxOptions['skip-install'] = true;
+
+        if(this.options['p'] === true && this.options['m'] !== undefined){
+            this.options.SpfxOptions['package-manager'] = this.options['m'];
+            this.options['package-manager'] = this.options['m'];
+        }
 
         if (this.options['package-manager'] !== undefined) {
             this.options.SpfxOptions['package-manager'] = this.options['package-manager'];
