@@ -15,7 +15,7 @@ nav:
   - Contribution Guideline: 'contribution-guidelines.md'
   - License: 'license.md'
   - About: 'about.md'
-theme:
+git stheme:
   name: 'material'
   custom_dir: 'docs/theme'
   palette:
