@@ -11,13 +11,10 @@ nav:
     - Run Install: 'recipes/run-install.md'
     - Deploy Custom Code: 'recipes/deploy-custom-code.md'
   - FAQ : 'faq.md'
-  - Known Issues: 'known-issues.md'
-  - Contribution Guidelines: 'contribution-guidelines.md'
+  - Known Issued: 'known-issues.md'
+  - Contribution Guideline: 'contribution-guidelines.md'
+  - License: 'license.md'
   - About: 'about.md'
-  # - Recipes: 'recipes/index.md'
-  # - How-Tos: 'how-tos/index.md'
-  
-  # - Contribution Guideline: 'recipes/deploy-custom-code.md'
 theme:
   name: 'material'
   custom_dir: 'docs/theme'
@@ -45,5 +42,6 @@ extra:
       link: 'http://aka.ms/sppnp-videos'
     - type: 'link'
       link: 'https://aka.ms/sppnp'
+site_url: https://pnp.github.io/generator-spfx/
 repo_url: http://github.com/pnp/generator-spfx
 edit_uri: blob/master/docs/
