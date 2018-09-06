@@ -4,14 +4,13 @@
 |:-- | 
 | [generators/addons](https://github.com/pnp/generator-spfx/tree/master/generators/addons) |
 
-
-In case to integrate custom client side development dependencies there is no requirement to write an own generator this can be included directly in the addon generator.
+If you would just like to integrate custom client-side dependencies, there is no need to write your own generator. This can just be included directly in the addon generator.
 
 ## Add npm dependencies
 
 The dependency configuration of additional addons is located in [generators/addons/templates](https://github.com/pnp/generator-spfx/tree/master/generators/addons/templates) and is named addonConfig.json.
 
-In this JSON file you can include additional configuration for various NPM packages. This also the 
+In this JSON file you can include additional configurations for various NPM packages.
 
 ```json
 {
@@ -78,11 +77,11 @@ The updated `addonConfiguration.json` file then might look like this:
 ```
 
 
-!!! warning "DO NOT use comments in JSON files - The files become invalid"
+!!! warning "DO NOT use comments in JSON files - This causes the files to be invalid"
 
-## Integrate new library in prompting
+## Integrate the new library in prompting
 
-To ask the user to include this new library open the ```promptConfig.js``` file in the addon generator. In the config optiosn add a reference to the new library.
+To ask the user to include this new library open the ```promptConfig.js``` file in the addon generator. In the config options add a reference to the new library:
 
 
 ```js hl_lines="16 17 18 19 20"
@@ -122,8 +121,8 @@ const configOptions = [
 module.exports = configOptions;
 ```
 
-The name of the new reference can set to any descriptive test and the value must match the property name used in the ```addonConfig.json```.
+The name of the new reference can be set to any descriptive text but the value must match the property name used in the `addonConfig.json`.
 
-The selection of this dialog gets picked up automatically during the provisioning process and will be added to the ```package.json``` option.
+The selection of this dialog gets picked up automatically during the provisioning process and will be added to the `package.json` option.
 
-The same method change be used to [inject dependencies on custom generators](./custgen-dependencies) too.
+The same method can be used to [inject dependencies on custom generators](./custgen-dependencies) too.
