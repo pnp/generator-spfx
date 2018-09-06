@@ -1,6 +1,6 @@
 # Contribution Guidelines
 
-There are not many contribution guidelines but here are some helpers and how we build the Yeoman generator.
+There are not many contribution guidelines yet. If you currently not familiar with Yeoman generator development you find currently some helping links.
 
 ## Basic technologies to know
 

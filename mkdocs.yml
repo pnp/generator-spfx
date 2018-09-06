@@ -13,6 +13,7 @@ nav:
   - FAQ : 'faq.md'
   - Known Issued: 'known-issues.md'
   - Contribution Guideline: 'contribution-guidelines.md'
+  - License: 'license.md'
   - About: 'about.md'
   # - Recipes: 'recipes/index.md'
   # - How-Tos: 'how-tos/index.md'
@@ -45,5 +46,6 @@ extra:
       link: 'http://aka.ms/sppnp-videos'
     - type: 'link'
       link: 'https://aka.ms/sppnp'
+site_url: https://pnp.github.io/generator-spfx/
 repo_url: http://github.com/pnp/generator-spfx
 edit_uri: blob/master/docs/
