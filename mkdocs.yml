@@ -5,7 +5,7 @@ nav:
     - General: compose/index.md
     - Prompting: compose/prompting.md
     - Dependencies for addons: compose/add-addons.md
-    - Inject dependecies: compose/custgen-dependencies.md
+    - Inject dependencies: compose/custgen-dependencies.md
   - Recipes:
     - Inject gulp tasks: 'recipes/inject-gulp-tasks.md'
     - Run Install: 'recipes/run-install.md'
@@ -15,10 +15,6 @@ nav:
   - Contribution Guideline: 'contribution-guidelines.md'
   - License: 'license.md'
   - About: 'about.md'
-  # - Recipes: 'recipes/index.md'
-  # - How-Tos: 'how-tos/index.md'
-  
-  # - Contribution Guideline: 'recipes/deploy-custom-code.md'
 theme:
   name: 'material'
   custom_dir: 'docs/theme'
