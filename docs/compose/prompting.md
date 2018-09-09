@@ -1,13 +1,13 @@
 # How to implement prompting
 
-Yeoman generator uses a library named [inquirejs](https://github.com/SBoudrias/Inquirer.js/) for the prompt configuration. To read more on the general prompting behaviour checkout [interacting with user](http://yeoman.io/authoring/user-interactions.html) in the yeomman documentation.
+Yeoman generator use a library named [Inquirer.js](https://github.com/SBoudrias/Inquirer.js/) for the prompt configuration. To read more on the general prompting behaviour checkout [Interacting with the User](http://yeoman.io/authoring/user-interactions.html) in the Yeoman documentation.
 
-To support multiple Yeoman generators with different prompting configurations a special method was implemented in the core generators such as the addon generator.
+To support multiple Yeoman generators with different prompting configurations, a special method was implemented in the core generators such as the addon generator.
 
 ```bash
 generators/addons
 ├── index.js
-├── promptConfig.js    # <- this the configuration file for the prompts
+├── promptConfig.js    # <- this is the configuration file for the prompts
 └── templates
     └── addonConfig.json
 ```
@@ -54,9 +54,9 @@ const configOptions = [
 module.exports = configOptions;
 ```
 
-This example defineds the questionary for jQuery and PnP and will be exported as a module in node. This is required because all configuration options will be then collected together in the main generator and is located at the ```/app``` folder.
+This example defines the questions for jQuery when used in the PnP SPFx generator and will be exported as a module in node. This is required because all configuration options will then be collected together in the main generator and is located in the `/app` folder.
 
-Inside this folder is another promptConfig located and the particular configuration of the addon generator prompting gets imported.
+Inside this folder is another promptConfig and the particular configuration of the addon generator prompting gets imported.
 
 ```js
 // Add configuration of Addon generator
@@ -96,8 +96,8 @@ prompting() {
 }
 ```
 
-So this makes sure that all prompt configurations can be managed centralised even the ones specific to additional generators.
+So this makes sure that all prompt configurations can be centrally managed - even the ones specific to additional generators.
 
 !!! info
-    In case you custom generator has a special promting configuration please add a remark in your PR
+    If your custom generator has a special promting configuration, please add a comment in your Pull Request saying so
 
