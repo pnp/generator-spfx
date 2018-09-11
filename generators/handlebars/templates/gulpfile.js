@@ -23,25 +23,23 @@ let customWatchRegistered = false;
 // Register watches sub task to move hbs files over to libs directory
 let hbsWatch = build.subTask('hbsWatch', (gulp, buildOptions, done) => {
 
-  // register watch only on first launch
+  // register watch only on first run
   if (!customWatchRegistered) {
 
-    // on change of +.hbs files
+    // on change of *.hbs files
     gulp.watch('./src/**/*.hbs', event => {
-
 
       // copy hbs from src to lib
       gulp.src('./src/**/*.hbs')
         .pipe(gulp.dest('./lib/'));
 
-      // copy empty index.ts to itself to launch build procees
+      // copy empty index.ts onto itself to launch build procees
       gulp.src('./src/index.ts')
         .pipe(gulp.dest('./src/'));
 
     });
 
     // after watch is registered don't register again
-    // to avoid event bubbling
     customWatchRegistered = true;
 
   } else {
@@ -52,8 +50,10 @@ let hbsWatch = build.subTask('hbsWatch', (gulp, buildOptions, done) => {
 
   }
 
+  // tell build.rig the work is done.
   done();
 
 });
 
+// register task to prebuild
 build.rig.addPreBuildTask(hbsWatch);
