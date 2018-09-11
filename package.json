@@ -32,7 +32,6 @@
     "@microsoft/generator-sharepoint": "1.6.0"
   },
   "devDependencies": {
-
     "mocha": "~5.2.0",
     "rimraf": "^2.6.2",
     "yeoman-assert": "~3.1.1",
