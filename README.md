@@ -1,4 +1,4 @@
-# generator-spfx
+# @pnp/generator-spfx
 
 ### Summary ###
 
@@ -14,20 +14,20 @@ Work is in progress and we'll accept absolutely contributions after the initial 
 
 The following add-on are supported:
 
-| Library | Version | Documentation |
+| Library | Version |
 |:--|:--|:--|
-| [jQuery](http://jquery.com) | 2.x, 3.x | |
-| [@pnp/pnpjs](https://github.com/pnp/pnpjs) | > 1.4. | |
+| [jQuery](http://jquery.com) | 2.x, 3.x |
+| [@pnp/pnpjs](https://github.com/pnp/pnpjs) | > 1.4. |
 
 #### Frameworks
 
 The following frameworks are supported:
 
-| Framework | Version | Documentation |
+| Framework | Version |
 |:--|:--|:--|
-| [Handlebars](http://handlebarsjs.com) | > 4.0.0 | Get started |
-| [VueJS](https://vuejs.org) | planned | Get started |
-| [Angular Elements](https://angular.io/guide/elements) | tbd |  Get started |
+| [Handlebars](http://handlebarsjs.com) | > 4.0.0 |
+| [VueJS](https://vuejs.org) | planned |
+| [Angular Elements](https://angular.io/guide/elements) | tbd |
 
 
 
@@ -54,4 +54,4 @@ Start coding ...
 **Sharing is caring!**
 
 
-[logo]: ./docs/assets/pnpspfx-title.png
+[logo]: https://pnp.github.io/generator-spfx/assets/pnpspfx-title.png
