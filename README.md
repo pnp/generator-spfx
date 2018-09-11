@@ -1,7 +1,5 @@
 # @pnp/generator-spfx
 
-### Summary ###
-
 This is an open-source extension for native out of the box SPFx generator to introduce additional scaffolding support for Angular Elements, VueJS, Handlebars  and many more in future. This generator has a dependency on native SPFx generator from Microsoft.
 
 ![PnP SPFx Generator][logo]
