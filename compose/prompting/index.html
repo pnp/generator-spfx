@@ -34,7 +34,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.0.3, mkdocs-material-3.0.4">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.0.4">
     
     
       
@@ -543,11 +543,11 @@
                 
                 
                 <h1 id="how-to-implement-prompting">How to implement prompting<a class="headerlink" href="#how-to-implement-prompting" title="Permanent link">&para;</a></h1>
-<p>Yeoman generator uses a library named <a href="https://github.com/SBoudrias/Inquirer.js/">inquirejs</a> for the prompt configuration. To read more on the general prompting behaviour checkout <a href="http://yeoman.io/authoring/user-interactions.html">interacting with user</a> in the yeomman documentation.</p>
-<p>To support multiple Yeoman generators with different prompting configurations a special method was implemented in the core generators such as the addon generator.</p>
+<p>Yeoman generator use a library named <a href="https://github.com/SBoudrias/Inquirer.js/">Inquirer.js</a> for the prompt configuration. To read more on the general prompting behaviour checkout <a href="http://yeoman.io/authoring/user-interactions.html">Interacting with the User</a> in the Yeoman documentation.</p>
+<p>To support multiple Yeoman generators with different prompting configurations, a special method was implemented in the core generators such as the addon generator.</p>
 <div class="codehilite"><pre><span></span>generators/addons
 ├── index.js
-├── promptConfig.js    <span class="c1"># &lt;- this the configuration file for the prompts</span>
+├── promptConfig.js    <span class="c1"># &lt;- this is the configuration file for the prompts</span>
 └── templates
     └── addonConfig.json
 </pre></div>
@@ -594,8 +594,8 @@
 </pre></div>
 
 
-<p>This example defineds the questionary for jQuery and PnP and will be exported as a module in node. This is required because all configuration options will be then collected together in the main generator and is located at the <code>/app</code> folder.</p>
-<p>Inside this folder is another promptConfig located and the particular configuration of the addon generator prompting gets imported.</p>
+<p>This example defines the questions for jQuery when used in the PnP SPFx generator and will be exported as a module in node. This is required because all configuration options will then be collected together in the main generator and is located in the <code>/app</code> folder.</p>
+<p>Inside this folder is another promptConfig and the particular configuration of the addon generator prompting gets imported.</p>
 <div class="codehilite"><pre><span></span><span class="c1">// Add configuration of Addon generator</span>
 <span class="kr">const</span> <span class="nx">addon</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;../generators/addons/promptConfig&#39;</span><span class="p">);</span>
 <span class="nx">configOptions</span> <span class="o">=</span> <span class="nx">configOptions</span><span class="p">.</span><span class="nx">concat</span><span class="p">(</span><span class="nx">addon</span><span class="p">);</span>
@@ -633,10 +633,10 @@
 </pre></div>
 
 
-<p>So this makes sure that all prompt configurations can be managed centralised even the ones specific to additional generators.</p>
+<p>So this makes sure that all prompt configurations can be centrally managed - even the ones specific to additional generators.</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>In case you custom generator has a special promting configuration please add a remark in your PR</p>
+<p>If your custom generator has a special promting configuration, please add a comment in your Pull Request saying so</p>
 </div>
                 
                   
@@ -722,7 +722,7 @@
     
       <script src="../../assets/javascripts/application.583bbe55.js"></script>
       
-      <script>app.initialize({version:"1.0.3",url:{base:"../.."}})</script>
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
       
     
     
