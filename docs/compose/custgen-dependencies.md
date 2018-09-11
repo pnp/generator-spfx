@@ -1,6 +1,6 @@
-# Inject dependencies in custom generator
+# Inject dependencies using your custom generator
 
-It is possible to use the same mechanism in custom generators too. The sub generator for Handlebars for example make use of the same mechanism. A config file for all required npm packages to include can be found in this generator too.
+It is possible to inject dependencies into the generated project using your custom generator. The sub generator for Handlebars, for example, does this. A config file for all required npm packages to include can be found in this generator:
 
 ```js
 {
@@ -16,9 +16,9 @@ It is possible to use the same mechanism in custom generators too. The sub gener
 }
 ```
 
-This [addonConfig.json](https://github.com/pnp/generator-spfx/tree/master/generators/handlebars/templates) in the handlebar generator contains all required dependencies. Those npm packages that are required during runtime and those required during development.
+The [addonConfig.json](https://github.com/pnp/generator-spfx/tree/master/generators/handlebars/templates) in the handlebar generator contains all required dependencies. Those npm packages that are required during runtime and those required during development.
 
-To inject those dependecies to the ```package.json``` call the following method in your generator code.
+To inject those dependecies to the generated `package.json`, call the following method in your generator code.
 
 ```js
     _addPackageDependencies() {
@@ -54,7 +54,7 @@ To inject those dependecies to the ```package.json``` call the following method 
 
             }
 
-            // select the requested libraried
+            // select the requested libraries
             let requestedLibraries = ['handlebars'];
 
             // declare new package config file
@@ -92,7 +92,7 @@ To inject those dependecies to the ```package.json``` call the following method 
     }
 ```
 
-On the requested library pass in an array of identifier stored in your addon configuration. In case of the handlebar generator this is just 'handlebars'.
+For the requested libraries parameter, pass in an array of identifiers stored in your addon configuration. In the case of the handlebar generator this is just 'handlebars':
 
 ```js 
 let requestedLibraries = ['handlebars'];
@@ -102,7 +102,7 @@ You can have multiple identifiers in this array.
 
 ## Remark
 
-It is possible to inject additional dependencies by calling npm install from the generator directly. In case of multiple runs there maybe delayes and conflicts for the injection and is even a slower than adding it directly in the `package.json` files.
+It is possible to inject additional dependencies by calling npm install from the generator directly. In case of multiple runs there may be delays and conflicts for the injection and is even slower than adding it directly in the `package.json` files.
 
 !!! tip "How to include version numbers?"
     Make sure you don't have a fixed number included in your package versions.

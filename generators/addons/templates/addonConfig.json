@@ -13,7 +13,7 @@
     },
     "@pnp/pnpjs": {
         "dependencies": {
-            "@pnp/pnpjs": "^1.1.1"
+            "@pnp/pnpjs": "^1.2.0"
         }
     }
 }
