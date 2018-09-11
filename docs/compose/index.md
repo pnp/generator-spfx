@@ -1,27 +1,27 @@
-# Compose custom SPFx generators
+# Composing custom SPFx generators
 
 # PnP SPFx Generator - Development
 
-Before you start development of custom yeoman generators please be sure to read [Writing your own Yeoman Generator](http://yeoman.io/authoring/).
+Before you start development of a custom yeoman generator, please be sure to read [Writing your own Yeoman Generator](http://yeoman.io/authoring/).
 
-The following chapters explain the overall setup and considerations.
+The following sections explain the overall setup and considerations.
 
 ## Project Setup
-The following directory listing gives you an overview of the main directories in the generator.
+The following directory listing gives you an overview of the main directories in the generator:
 
 ```txt
 ├── app                <-- Main Generator
 ├── docs               <-- Documentation
-├── generators         <-- custom generators
+├── generators         <-- Custom Generators
 │   ├── addons         <-- Addon Generator reserved for client libraries only
 │   ├── handlebars     <-- PnP Handlebars generator
 ├── lib                <-- General purpose libraries
-├── test               <-- Mocha Unit Test
+├── test               <-- Mocha Unit Tests
 ├── tools
 │   ├── generator-template  <-- Template yeoman generator
 ```
 
-## Get started writing a new generator
+## Getting started writing a new generator
 
 To get started implementing and adding a new generator, copy the template folder in the generators folder and rename it to a meaningful name matching your framework.
 
@@ -33,9 +33,9 @@ In the folder you will find the following files:
 
 ### User prompt for sub generator
 
-In case the generator need some additional information from the user, questions can be configured in the file `promptconfig.js`. The content of this file follows the default Yeoman generator user prompting described in the article [Interacting with the User](http://yeoman.io/authoring/user-interactions.html).
+If your generator needs some additional information from the user, questions can be configured in the file `promptconfig.js`. The content of this file follows the default Yeoman generator user prompting described in the article [Interacting with the User](http://yeoman.io/authoring/user-interactions.html).
 
-The library Yeoman uses is [inquer.js](https://github.com/SBoudrias/Inquirer.js/).
+The library Yeoman uses is [Inqiurer.js](https://github.com/SBoudrias/Inquirer.js/).
 
 ```js
 "use strict"
@@ -69,13 +69,13 @@ const promptConfig = {
 module.exports = promptConfig;
 ```
 
-This sample exports the configuration as a module and can be integrated in the main Yeoman generator to consolidate the user prompts in the main generator.
+This example exports the configuration as a module and can be integrated in the main Yeoman generator to consolidate the user prompts in the main generator.
 
 ### Generator implementation - index.js
 
-All actions required for a new custom generator need to be implemented in the ```index.js``` file.
+All actions required for a new custom generator need to be implemented in the `index.js` file.
 
-The default template currently lists all possible methods in the right call order provided by the default Yeoman generator.
+The default template currently lists all possible methods in the correct call order provided by the default Yeoman generator:
 
 ```js
 // Base Yeoman generator
@@ -151,7 +151,7 @@ install() {
     // deploy additional files to the project directory
     this._deployFiles();
 
-    // add external to the configuration
+    // add externals to the configuration
     this._addExternals();
     
     // add all package depenedencies configured in addonConfig.json.
