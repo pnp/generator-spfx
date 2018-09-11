@@ -47,7 +47,7 @@ npm install
 
 Start coding ...
 
-*More details coming soon...*
+*More details on our [documentation](https://pnp.github.io/generator-spfx/)*
 
 ![SharePoint Patterns and Practices](https://devoffice.blob.core.windows.net/media/Default/PnP/pnplogoblue.png)
 
