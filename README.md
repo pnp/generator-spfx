@@ -13,7 +13,7 @@ Work is in progress and we'll accept absolutely contributions after the initial 
 The following add-on are supported:
 
 | Library | Version |
-|:--|:--|:--|
+|:--|:--|
 | [jQuery](http://jquery.com) | 2.x, 3.x |
 | [@pnp/pnpjs](https://github.com/pnp/pnpjs) | > 1.4. |
 
@@ -22,7 +22,7 @@ The following add-on are supported:
 The following frameworks are supported:
 
 | Framework | Version |
-|:--|:--|:--|
+|:--|:--|
 | [Handlebars](http://handlebarsjs.com) | > 4.0.0 |
 | [VueJS](https://vuejs.org) | planned |
 | [Angular Elements](https://angular.io/guide/elements) | tbd |
