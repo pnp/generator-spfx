@@ -2,7 +2,7 @@
 
 This is an open-source extension for native out of the box SPFx generator to introduce additional scaffolding support for Angular Elements, VueJS, Handlebars  and many more in future. This generator has a dependency on native SPFx generator from Microsoft.
 
-![PnP SPFx Generator][logo]
+![PnP SPFx Generator](https://pnp.github.io/generator-spfx/assets/pnpspfx-title.png)
 
 Work is in progress and we'll accept absolutely contributions after the initial version is available.
 
@@ -43,7 +43,7 @@ yo @pnp/spfx
 
 We will guide you through the your project creation.
 
-![Follow the  on screen][yo-running]
+![Follow the  on screen](https://pnp.github.io/generator-spfx/assets/yo-running.png)
 
 ### Installation for Development
 
@@ -63,10 +63,7 @@ Start coding ...
 
 *More details on our [documentation](https://pnp.github.io/generator-spfx/)*
 
+
 ![SharePoint Patterns and Practices](https://devoffice.blob.core.windows.net/media/Default/PnP/pnplogoblue.png)
 
 **Sharing is caring!**
-
-
-[logo]: https://pnp.github.io/generator-spfx/assets/pnpspfx-title.png
-[yo-running]: https://pnp.github.io/generator-spfx/assets/yo-running.png
