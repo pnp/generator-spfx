@@ -27,7 +27,23 @@ The following frameworks are supported:
 | [VueJS](https://vuejs.org) | planned |
 | [Angular Elements](https://angular.io/guide/elements) | tbd |
 
+### Usage
 
+Install the generator:
+
+```js
+npm install -g @pnp/generator-spfx
+```
+
+To start your first project using this generator:
+
+```
+yo @pnp/spfx
+```
+
+We will guide you through the your project creation.
+
+![Follow the  on screen][yo-running]
 
 ### Installation for Development
 
@@ -53,3 +69,4 @@ Start coding ...
 
 
 [logo]: https://pnp.github.io/generator-spfx/assets/pnpspfx-title.png
+[yo-running]: https://pnp.github.io/generator-spfx/assets/yo-running.png

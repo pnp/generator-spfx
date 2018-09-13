@@ -41,6 +41,16 @@ const pnpJsOptions = [{
     }
 ]
 
+const defaultLibs = [{
+        name: 'jQuery',
+        value: 'jquery'
+    }, {
+        name: 'pnpjs',
+        value: '@pnp/pnpjs'
+    }
+    // Add a new configuration object in here
+]
+
 // generat configuration options
 const configOptions = [
     // Library selection
@@ -48,15 +58,7 @@ const configOptions = [
         type: 'checkbox',
         message: 'Which libraries to include',
         name: 'jsLibrary',
-        choices: [{
-                name: 'jQuery',
-                value: 'jquery'
-            }, {
-                name: 'pnpjs',
-                value: '@pnp/pnpjs'
-            }
-            // Add a new configuration object in here
-        ]
+        choices: defaultLibs
     },
     // jQuery version selection
     {
@@ -68,6 +70,7 @@ const configOptions = [
         when: answers => answers.jsLibrary.indexOf('jquery') !== -1
     }
 ]
+
 
 // export options as module
 module.exports = configOptions;
