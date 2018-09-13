@@ -213,7 +213,7 @@ describe('Knockout Test: On Premises', () => {
     describe('Knockout + pnpjs', () => {
 
         const userTestConfig = Object.assign({}, baseSettings, {
-            jsLibrary: ['pnpjs'],
+            jsLibrary: ['@pnp/pnpjs'],
             force: true
         });
 
@@ -286,7 +286,7 @@ describe('Knockout Test: On Premises', () => {
     describe('Knockout + jquery 2.x + pnpjs', () => {
 
         const userTestConfig = Object.assign({}, baseSettings, {
-            jsLibrary: ['jquery', 'pnpjs'],
+            jsLibrary: ['jquery', '@pnp/pnpjs'],
             jQueryVersion: 2,
             force: true
         });
@@ -362,7 +362,7 @@ describe('Knockout Test: On Premises', () => {
     describe('Knockout + jquery 3.x + pnpjs', () => {
 
         const userTestConfig = Object.assign({}, baseSettings, {
-            jsLibrary: ['jquery', 'pnpjs'],
+            jsLibrary: ['jquery', '@pnp/pnpjs'],
             jQueryVersion: 3,
             force: true
         });

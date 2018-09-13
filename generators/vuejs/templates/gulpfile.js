@@ -25,7 +25,31 @@ build.configureWebpack.mergeConfig({
 });
 
 let copyVueFiles = build.subTask('copy-vue-files', function (gulp, buildOptions, done) {
-    return gulp.src(['src/**/*.vue'])
-        .pipe(gulp.dest(buildOptions.libFolder))
+    gulp.src(['src/**/*.vue'])
+        .pipe(gulp.dest(buildOptions.libFolder));
+    done();
 });
+
+// marker to check if custom watch is already registered
+// used to prevent watch bubbling
+let customWatchRegistered = false;
+
+let watchVueFiles = build.subTask('watch-vue-files', function (gulp, buildOptions, done) {
+    // register watch only on first run
+    if (!customWatchRegistered) {
+
+        // on change of *.hbs files
+        gulp.watch('./src/**/*.hbs', event => {
+            // copy empty index.ts onto itself to launch build procees
+            gulp.src('./src/index.ts')
+                .pipe(gulp.dest('./src/'));
+        });
+
+        // after watch is registered don't register again
+        customWatchRegistered = true;
+
+    }
+});
+
 build.rig.addPostTypescriptTask(copyVueFiles);
+build.rig.addPreBuildTask(watchVueFiles);

@@ -1,10 +1,10 @@
 import { Vue, Component, Prop, Provide } from 'vue-property-decorator';
-import styles from './<%= componentName %>.module.scss';
+import styles from './<%= componentClassName %>.module.scss';
 
 /**
  * Component's properties
  */
-export interface I<%= componentName %>Props {
+export interface I<%= componentClassName %>Props {
     description: string;
 }
 
@@ -12,7 +12,7 @@ export interface I<%= componentName %>Props {
  * Class-component
  */
 @Component
-export default class <%= componentName %> extends Vue implements I<%= componentName %>Props {
+export default class <%= componentClassName %> extends Vue implements I<%= componentClassName %>Props {
 
     /**
      * implementing ISimpleWebPartProps interface

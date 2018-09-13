@@ -1,12 +1,16 @@
 {
   "name": "@pnp/generator-spfx",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "",
   "author": {
     "name": "Office 365 / SharePoint PnP Core Team",
     "url": "https://github.com/pnp"
   },
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pnp/generator-spfx.git"
+  },
   "files": [
     "addons"
   ],
@@ -28,10 +32,10 @@
     "escodegen": "^1.11.0",
     "esprima": "^4.0.1",
     "update-notifier": "^2.5.0",
-    "yeoman-generator": "~3.1.1"
+    "yeoman-generator": "~3.1.1",
+    "@microsoft/generator-sharepoint": "^1.6.0"
   },
   "devDependencies": {
-    "@microsoft/generator-sharepoint": "^1.5.1",
     "mocha": "~5.2.0",
     "rimraf": "^2.6.2",
     "yeoman-assert": "~3.1.1",

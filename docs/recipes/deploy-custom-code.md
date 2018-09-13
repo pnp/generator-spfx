@@ -1,8 +1,8 @@
 # Update provisioned artifacts for web parts, extensions and customizer with generator
 
-It is possible to inject code such as references directly web parts and extensions. Right now this is only supported for SharePoint Online projects and not for on-premises focused.
+It is possible to inject code that directly references web parts and extensions. Right now this is only supported for SharePoint Online projects and not for on-premises.
 
-The tools folder provide you templates to inject code directly in the web part, application customizer, command set, field customizer.
+The tools folder provides templates to inject code directly in the web part, application customizer, command set, and/or field customizer.
 
 ```bash
 tools/spfx
@@ -18,7 +18,7 @@ tools/spfx
     └── {componentClassName}.ts
 ```
 
-These files will be maintained and updated with every new mayor release of the SharePoint Framework main generator.
+These files will be maintained and updated with every new major release of the Microsoft SharePoint Framework generator.
 
 ## Copy these template files to your generator
 
@@ -45,7 +45,7 @@ generators/your-generator/
             └── {componentClassName}.ts
 ```
 
-Now modify the files to match your requirements. In case of the HandlebarsJS generator the following line of code were added at the import statements of for example an web part.
+Now modify the files to match your requirements. For example, the HandlebarsJS generator has the following lines of code added to the import statements when generating a web part:
 
 
 ```js
@@ -71,31 +71,31 @@ export default class <%= componentClassName %> extends BaseClientSideWebPart<I<%
 
 ```
 
-The only line of code in this example that were added is the following line:
+The only code in this example that was added is the following line:
 
 ```js
 import * as Handlebars from 'handlebars';
 ```
 
-This make sure that after the provisioning of a web part coding can start immediatly.
+This make sure that after the provisioning of a web part, coding can start immediately.
 
 ## Deploy custom code in generator
 
-The files located in the SPFx folder serve as templats for all customisable assets. The names are not allowed to be changed because otherwise the whole deployment breaks. To make sure the template gets deployed a small utility need to called directly in the installation method of the Yeoman generator.
+The files located in the SPFx folder serve as templates for all customizable assets. The names should not be changed because this will cause the whole deployment to break. To make sure the template gets deployed, a small utility needs to be called directly in the installation method of the Yeoman generator.
 
-Make sure you reference the utility class in your Yeoman generator code.
+Make sure you reference the utility class in your Yeoman generator code:
 
 ```js
 // importing utilities
 const util = require('../../lib/util.js');
 ```
 
-In the install method call the following utility method.
+In the install method call the following utility method:
 
 ```js
 install() {
     // # BUG currently only appears just in test
-    util.writeTemplates(this);
+    util.deployTemplates(this);
 }
 ```
 

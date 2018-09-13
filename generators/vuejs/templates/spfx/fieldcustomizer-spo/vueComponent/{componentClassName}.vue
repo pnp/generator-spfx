@@ -1,11 +1,11 @@
 <template>
-    <div :class="styles.<%= componentName %>">
+    <div :class="styles.<%= componentClassName %>">
         <div :class="styles.cell">
             {{text}}
         </div>
     </div>
 </template>
 <script>
-    module.exports = require('./<%= componentName %>');
+    module.exports = require('./<%= componentClassName %>');
 </script>
 

@@ -1,36 +1,34 @@
-# Pnp SPFx Yeoman generator
-The composeability model of Yeoman generator is on of its core features allow you to build your own or consume and reuse already built generator. The Microsofts SharePoint Framework Yeoman generator supports this model too.
-The PnP SPFx Yeoman generator uses 100% of the SPFx Yeoman generator and adds functionalities on top of this framework.
+# PnP SPFx Yeoman generator
+The composeability model of Yeoman generators is one of their core features and allow you to build your own or consume and reuse an already built generator. Microsoft's SharePoint Framework Yeoman generator supports this model too.
+
+The PnP SPFx Yeoman generator uses 100% of the Microsoft SPFx Yeoman generator but then adds functionalities on top of this framework.
 
 ![PnP SPFx Generator][logo]
 
-The extension support ranges from client-side libraries such as pnpjs and jQuery to extend the capabilities to more complex extension such as the integration of HandlebarsJS, VueJS and many more.
-
-
-The PnP SPFx Yeoman generator uses 100% of the Microsoft SPFx Yeoman generator but then adds functionalities on top of this framework. This extension supports additional client-side libraries such as PnPjs or jQuery to extend SPFx capabilities as well as even more complex extensions such as the integration of HandlebarsJS, VueJS, and many more.
+This extension supports additional client-side libraries such as PnPjs or jQuery to extend SPFx capabilities as well as even more complex extensions such as the integration of HandlebarsJS, VueJS, and many more.
 
 > **Limitation:** Right now the PnP SPFx yeoman generator supports only the initial setup of new projects. To add additional web parts and extensions, please continue to use the Microsoft SPFx generator. In the future, this generator will be used to add elements to existing projects.
 
-### Based on Generator
+### SPFx Generator Version
 
 | Base Generator | |
 |:--|:--|
-| @microsoft/generator-sharepoint | 1.5.1 |
+| @microsoft/generator-sharepoint | 1.6.0 |
 
 
-### Client-side extensions and Add-ons
+### Available Client-side extensions and Add-ons
 
 | Library | Version | Documentation |
 |:--|:--|:--|
 | [jQuery](http://jquery.com) | 2.x, 3.x | |
 | [@pnp/pnpjs](https://github.com/pnp/pnpjs) | > 1.4. | |
 
-### Framework Extensions
+### Available Framework Extensions
 
 | Framework | Version | Documentation |
 |:--|:--|:--|
 | [Handlebars](http://handlebarsjs.com) | > 4.0.0 | Get started |
-| [VueJS](https://vuejs.org) | TBD | Get started |
+| [VueJS](https://vuejs.org) | >2.5.16 | Get started |
 | [Angular Elements](https://angular.io/guide/elements) | planned |  Get started |
 
 ## Installation
@@ -104,7 +102,7 @@ Options:
 
 ## Further information
 
-* [General project setup and folders](./compose/add-generator.md)
+* [General project setup and folders](./compose/index.md)
 * [Known Issues](./known-issues.md)
 
 

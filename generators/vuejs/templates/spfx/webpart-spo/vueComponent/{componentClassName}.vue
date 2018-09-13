@@ -1,5 +1,5 @@
 <template>
-    <div :class="styles.<%= componentName %>">
+    <div :class="styles.<%= componentClassName %>">
         <div :class="styles.container">
             <div :class="styles.row">
                 <div :class="styles.column">
@@ -15,6 +15,6 @@
     </div>
 </template>
 <script>
-    module.exports = require('./<%= componentName %>');
+    module.exports = require('./<%= componentClassName %>');
 </script>
 

@@ -27,14 +27,23 @@ export default class <%= componentClassName %>
 
   @override
   public onInit(): Promise<void> {
+    
     Log.info(LOG_SOURCE, `Initialized ${strings.Title}`);
 
+    let <%= componentClassName %>Template =  <HandlebarsTemplateDelegate>require('./hbsComponent/<%= componentClassName %>Template.hbs');
+
     let message: string = this.properties.testMessage;
+
     if (!message) {
       message = '(No properties were provided.)';
     }
 
-    Dialog.alert(`Hello from ${strings.Title}:\n\n${message}`);
+    let content = {
+      title: strings.Title,
+      message: message
+    };
+
+    Dialog.alert(<%= componentClassName %>Template(content));
 
     return Promise.resolve();
   }

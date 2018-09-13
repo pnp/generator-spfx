@@ -11,6 +11,36 @@ const jqueryOptions = [{
     }
 ]
 
+const pnpJsOptions = [{
+        'name': '@pnp/common',
+        'value': '@pnp/common'
+    },
+    {
+        'name': '@pnp/config-store',
+        'value': '@pnp/config-store'
+    },
+    {
+        'name': '@pnp/graph',
+        'value': '@pnp/graph'
+    },
+    {
+        'name': '@pnp/logging',
+        'value': '@pnp/logging'
+    },
+    {
+        'name': '@pnp/odata',
+        'value': '@pnp/odata'
+    },
+    {
+        'name': '@pnp/sp',
+        'value': '@pnp/sp'
+    },
+    {
+        'name': '@pnp/sp-taxonomy',
+        'value': '@pnp/sp-taxonomy'
+    }
+]
+
 // generat configuration options
 const configOptions = [
     // Library selection
@@ -19,13 +49,13 @@ const configOptions = [
         message: 'Which libraries to include',
         name: 'jsLibrary',
         choices: [{
-            name: 'jQuery',
-            value: 'jquery'
-        }, {
-            name: 'pnpjs',
-            value: 'pnpjs'
-        },
-        // Add a new configuration object in here
+                name: 'jQuery',
+                value: 'jquery'
+            }, {
+                name: 'pnpjs',
+                value: '@pnp/pnpjs'
+            }
+            // Add a new configuration object in here
         ]
     },
     // jQuery version selection

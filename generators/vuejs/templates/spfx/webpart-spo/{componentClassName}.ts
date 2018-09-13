@@ -11,7 +11,7 @@ import * as strings from '<%= componentStrings %>Strings';
 // Importing Vue.js
 import Vue from 'vue';
 // Improting Vue.js SFC
-import <%= componentName %>Component from './components/<%= componentName %>.vue';
+import <%= componentClassName %>Component from './vueComponent/<%= componentClassName %>.vue';
 
 export interface I<%= componentClassName %>Props {
   description: string;
@@ -25,7 +25,7 @@ export default class <%= componentClassName %> extends BaseClientSideWebPart<I<%
 
     let el = new Vue({
       el: `#${id}`,
-      render: h => h(<%= componentName %>Component, {
+      render: h => h(<%= componentClassName %>Component, {
         props: {
           description: this.properties.description
         }

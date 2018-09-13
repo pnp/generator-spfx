@@ -21,7 +21,7 @@ const userWebPartConfig = {
 let yorcFile = path.join(localTempDir, '.yo-rc.json'),
     packageFile = path.join(localTempDir, 'package.json');
 
-describe('Handlebar Test: On Premises', () => {
+describe('Handlebar Test: SPO', () => {
 
     const baseSettings = {
         framework: 'handlebars',
@@ -86,7 +86,7 @@ describe('Handlebar Test: On Premises', () => {
 
         })
 
-        it('No Environment === onprem', () => {
+        it('No Environment === SPO', () => {
 
             assert.fileContent(yorcFile, /\"environment\": \"spo\"/);
 
@@ -175,7 +175,7 @@ describe('Handlebar Test: On Premises', () => {
 
         })
 
-        it('No Environment === onprem', () => {
+        it('No Environment === SPO', () => {
 
             assert.fileContent(yorcFile, /\"environment\": \"spo\"/);
 
@@ -234,7 +234,7 @@ describe('Handlebar Test: On Premises', () => {
     describe('Handlebars + pnpjs', () => {
 
         const userTestConfig = Object.assign({}, baseSettings, {
-            jsLibrary: ['pnpjs'],
+            jsLibrary: ['@pnp/pnpjs'],
             force: true
         });
 
@@ -261,7 +261,7 @@ describe('Handlebar Test: On Premises', () => {
 
         })
 
-        it('No Environment === onprem', () => {
+        it('No Environment === SPO', () => {
 
             assert.fileContent(yorcFile, /\"environment\": \"spo\"/);
 
@@ -320,7 +320,7 @@ describe('Handlebar Test: On Premises', () => {
     describe('Handlebars + jquery 2.x + pnpjs', () => {
 
         const userTestConfig = Object.assign({}, baseSettings, {
-            jsLibrary: ['jquery', 'pnpjs'],
+            jsLibrary: ['jquery', '@pnp/pnpjs'],
             jQueryVersion: 2,
             force: true
         });
@@ -352,7 +352,7 @@ describe('Handlebar Test: On Premises', () => {
             rimraf.sync(localTempDirDelete);
         });
 
-        it('No Environment === onprem', () => {
+        it('No Environment === SPO', () => {
 
             assert.fileContent(yorcFile, /\"environment\": \"spo\"/);
 
@@ -411,7 +411,7 @@ describe('Handlebar Test: On Premises', () => {
     describe('Handlebars + jquery 3.x + pnpjs', () => {
 
         const userTestConfig = Object.assign({}, baseSettings, {
-            jsLibrary: ['jquery', 'pnpjs'],
+            jsLibrary: ['jquery', '@pnp/pnpjs'],
             jQueryVersion: 3,
             force: true
         });
@@ -440,7 +440,7 @@ describe('Handlebar Test: On Premises', () => {
 
         })
 
-        it('No Environment === onprem', () => {
+        it('No Environment === SPO', () => {
 
             assert.fileContent(yorcFile, /\"environment\": \"spo\"/);
 
