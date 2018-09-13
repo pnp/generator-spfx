@@ -1,6 +1,6 @@
 {
   "name": "@pnp/generator-spfx",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "author": {
     "name": "Office 365 / SharePoint PnP Core Team",
@@ -16,14 +16,25 @@
   ],
   "keywords": [
     "yeoman-generator",
+    "Pattern and Practices",
+    "PnP",
     "SPFx",
-    "SharePointFramework"
+    "SharePointFramework",
+    "SharePoint Framework",
+    "SharePoint",
+    "Office 365",
+    "Office 365 Development"
   ],
   "maintainers": [
     {
       "name": "Stefan Bauer",
-      "email": "stefan.bauer@n8d.at",
+      "email": "sl@n8d.at",
       "url": "https://www.n8d.at/"
+    },
+    {
+      "name": "Chris Kent",
+      "email": "ihatetimemachines@gmail.com",
+      "url": "https://thechriskent.com/"
     }
   ],
   "dependencies": {

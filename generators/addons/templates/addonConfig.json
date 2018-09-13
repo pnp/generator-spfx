@@ -15,5 +15,10 @@
         "dependencies": {
             "@pnp/pnpjs": "^1.2.0"
         }
+    },
+    "@pnp/spfx-controls-react": {
+        "dependencies": {
+            "@pnp/spfx-controls-react": "1.7.0"
+        }
     }
 }
