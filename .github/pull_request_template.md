@@ -1,6 +1,7 @@
 #### Category
 - [ ] New Feature
 - [ ] New Framework
+- [ ] Bugfix
 - [ ] Documentation fixed
 - Related issues: fixes #X, partially #Y, mentioned in #Z
 
