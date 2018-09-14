@@ -6,7 +6,7 @@ import {
 } from '@microsoft/sp-webpart-base';
 import { escape } from '@microsoft/sp-lodash-subset';
 
-import * as strings from '<%= componentStrings %>Strings';
+import * as strings from '<%= componentStrings %>';
 
 // Importing Vue.js
 import Vue from 'vue';

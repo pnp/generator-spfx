@@ -38,8 +38,8 @@ let watchVueFiles = build.subTask('watch-vue-files', function (gulp, buildOption
     // register watch only on first run
     if (!customWatchRegistered) {
 
-        // on change of *.hbs files
-        gulp.watch('./src/**/*.hbs', event => {
+        // on change of *.vue files
+        gulp.watch('./src/**/*.vue', event => {
             // copy empty index.ts onto itself to launch build procees
             gulp.src('./src/index.ts')
                 .pipe(gulp.dest('./src/'));
@@ -49,6 +49,8 @@ let watchVueFiles = build.subTask('watch-vue-files', function (gulp, buildOption
         customWatchRegistered = true;
 
     }
+
+    done();
 });
 
 build.rig.addPostTypescriptTask(copyVueFiles);

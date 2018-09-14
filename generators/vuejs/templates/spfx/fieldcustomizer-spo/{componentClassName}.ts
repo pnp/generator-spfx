@@ -5,7 +5,7 @@ import {
   IFieldCustomizerCellEventParameters
 } from '@microsoft/sp-listview-extensibility';
 
-import * as strings from '<%= componentStrings %>Strings';
+import * as strings from '<%= componentStrings %>';
 
 // Importing Vue.js
 import Vue from 'vue';
@@ -46,7 +46,7 @@ export default class <%= componentClassName %>
     event.domElement.innerHTML = `<div id="${id}"></div>`;
 
     let el = new Vue({
-      el: `#\${id}`,
+      el: `#${id}`,
       render: h => h(<%= componentClassName %>Component, {
         props: {
           text: text

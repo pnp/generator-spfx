@@ -15,13 +15,13 @@ const userWebPartConfig = {
     componentDescription: 'HelloWorld',
     componentName: 'helloworld',
     solutionName: 'HelloWorld2',
-    environment: 'spo',
+    environment: 'onprem',
 };
 
 let yorcFile = path.join(localTempDir, '.yo-rc.json'),
     packageFile = path.join(localTempDir, 'package.json');
 
-describe('Vuejs Test: SPO', () => {
+describe('Vuejs Test: On Premises', () => {
 
     const baseSettings = {
         framework: 'vuejs',
@@ -86,9 +86,9 @@ describe('Vuejs Test: SPO', () => {
 
         })
 
-        it('No Environment === SPO', () => {
+        it('No Environment === onprem', () => {
 
-            assert.fileContent(yorcFile, /\"environment\": \"spo\"/);
+            assert.fileContent(yorcFile, /\"environment\": \"onprem\"/);
 
         });
 
@@ -175,9 +175,9 @@ describe('Vuejs Test: SPO', () => {
 
         })
 
-        it('No Environment === SPO', () => {
+        it('No Environment === onprem', () => {
 
-            assert.fileContent(yorcFile, /\"environment\": \"spo\"/);
+            assert.fileContent(yorcFile, /\"environment\": \"onprem\"/);
 
         });
 
@@ -261,9 +261,9 @@ describe('Vuejs Test: SPO', () => {
 
         })
 
-        it('No Environment === SPO', () => {
+        it('No Environment === onprem', () => {
 
-            assert.fileContent(yorcFile, /\"environment\": \"spo\"/);
+            assert.fileContent(yorcFile, /\"environment\": \"onprem\"/);
 
         });
 
@@ -352,9 +352,9 @@ describe('Vuejs Test: SPO', () => {
             rimraf.sync(localTempDirDelete);
         });
 
-        it('No Environment === SPO', () => {
+        it('No Environment === onprem', () => {
 
-            assert.fileContent(yorcFile, /\"environment\": \"spo\"/);
+            assert.fileContent(yorcFile, /\"environment\": \"onprem\"/);
 
         });
 
@@ -440,9 +440,9 @@ describe('Vuejs Test: SPO', () => {
 
         })
 
-        it('No Environment === SPO', () => {
+        it('No Environment === onprem', () => {
 
-            assert.fileContent(yorcFile, /\"environment\": \"spo\"/);
+            assert.fileContent(yorcFile, /\"environment\": \"onprem\"/);
 
         });
 
