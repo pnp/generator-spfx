@@ -5,7 +5,7 @@ import {
   IFieldCustomizerCellEventParameters
 } from '@microsoft/sp-listview-extensibility';
 
-import * as strings from '<%= componentStrings %>Strings';
+import * as strings from '<%= componentStrings %>';
 import styles from './<%= componentClassName %>.module.scss';
 
 /**
