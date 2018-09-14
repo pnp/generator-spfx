@@ -7,6 +7,8 @@ const subGenerator = require('./subGenerators');
 const prompting = require('./promptConfig');
 // Import PnP Says
 const pnpSays = require('../lib/pnpsays');
+// Import utilities
+const util = require('../lib/util');
 
 module.exports = class extends Generator {
 
@@ -88,9 +90,7 @@ module.exports = class extends Generator {
 
     // Run installer normally time to say goodbye
     // If yarn is installed yarn will be used
-    end() {
-
-    }
+    end() {}
 
     // Custom evalutation of Addon options
     _evalAddons(selections) {
@@ -161,6 +161,13 @@ module.exports = class extends Generator {
                 )
 
             }
+
+        }
+
+        if (this.options.SpfxOptions.framework === "react" ||
+            this.options.SpfxOptions.framework === "knockout") {
+
+                this.options.SpfxOptions['skip-install'] = false;
 
         }
 
@@ -281,7 +288,7 @@ module.exports = class extends Generator {
         // always skip install
         this.options.SpfxOptions['skip-install'] = true;
 
-        if(this.options['p'] === true && this.options['m'] !== undefined){
+        if (this.options['p'] === true && this.options['m'] !== undefined) {
             this.options.SpfxOptions['package-manager'] = this.options['m'];
             this.options['package-manager'] = this.options['m'];
         }
