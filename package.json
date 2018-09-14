@@ -12,7 +12,9 @@
     "url": "git+https://github.com/pnp/generator-spfx.git"
   },
   "files": [
-    "addons"
+    "app",
+    "generators",
+    "lib"
   ],
   "keywords": [
     "yeoman-generator",
