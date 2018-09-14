@@ -58,7 +58,26 @@ const configOptions = [
         type: 'checkbox',
         message: 'Which libraries to include',
         name: 'jsLibrary',
-        choices: defaultLibs
+        choices: answers => {
+
+            let framework = answers.framework,
+                supportedLibraries = defaultLibs
+
+            switch (framework) {
+                case 'react':
+                    supportedLibraries.push({
+                        name: 'PnP Reusable Controls',
+                        value: '@pnp/spfx-controls-react'
+                    })
+                    break;
+
+                default:
+                    break;
+            }
+
+            return supportedLibraries;
+
+        }
     },
     // jQuery version selection
     {
