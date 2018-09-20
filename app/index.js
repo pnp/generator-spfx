@@ -60,6 +60,11 @@ module.exports = class extends Generator {
 
                     this.options.SPFxFramework = answers.framework;
 
+                    if (answers.solutionName) {
+                        this.options['solutionName'] = answers.solutionName;
+                        this.options.SpfxOptions['solutionName'] = `${answers.solutionName}-spfx`;
+                    }
+
                     // save configuration of first selection
                     this.config.set('framework', this.options.SpfxOptions['framework']);
                     this.config.set('pnpFramework', this.options.pnpFramework);
@@ -220,7 +225,7 @@ module.exports = class extends Generator {
 
         this.option('extension-type', {
             description: `The type of extension:
-                                        - "ApplicationCustomizer", 
+                                        - "ApplicationCustomizer",
                                         - "FieldCustomizer"
                                         - "ListViewCommandSet"`,
             type: String
@@ -242,7 +247,7 @@ module.exports = class extends Generator {
 
         this.option('skip-feature-deployment', {
             description: `If specified, allow the tenant admin the choice of being able
-                                      to deploy the components to all sites immediately without running any 
+                                      to deploy the components to all sites immediately without running any
                                       feature deployment or adding apps in sites`,
             type: String
         });
