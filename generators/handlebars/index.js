@@ -46,13 +46,11 @@ module.exports = class extends Generator {
         util.deployTemplates(this);
         // finally run install
         util.runInstall(this);
-
     }
 
     // Run installer normally time to say goodbye
     // If yarn is installed yarn will be used
     end() {
-
     }
 
     _deployFiles() {
