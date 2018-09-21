@@ -22,7 +22,7 @@ This extension supports additional client-side libraries such as PnPjs or jQuery
 |:--|:--|:--|
 | [jQuery](http://jquery.com) | 2.x, 3.x | All |
 | [@pnp/pnpjs](https://github.com/pnp/pnpjs) | > 1.4. | All |
-| [@pnp/spfx-property-controls](https://github.com/SharePoint/sp-dev-fx-property-controls) | > 1.10.0 | All |
+| [@pnp/spfx-property-controls](https://github.com/SharePoint/sp-dev-fx-property-controls) | 1.10.0 | All |
 | [@pnp/spfx-controls-react](https://github.com/SharePoint/sp-dev-fx-controls-react/) | 1.8.0 | ReactJS |
 
 ### Available Framework Extensions
