@@ -9,6 +9,8 @@ const prompting = require('./promptConfig');
 const pnpSays = require('../lib/pnpsays');
 // Import utilities
 const util = require('../lib/util');
+// Telemetry import
+const telemetry = require('../lib/telemetry');
 
 module.exports = class extends Generator {
 
@@ -27,7 +29,6 @@ module.exports = class extends Generator {
     initializing() {
 
         this.pkg = require('../package.json');
-
         pnpSays(this);
 
     }
@@ -43,12 +44,19 @@ module.exports = class extends Generator {
             // add proper opptions in here
             this.options.SpfxOptions['framework'] = this.config.get('framework');
             this.options.pnpFramework = this.config.get('pnpFramework');
+            
+            // writes previous framework and pnpFramework names to telemetry
+            telemetry.trackReRun(this.config.get('pnpFramework'));
+            
             this._configGenerators(this.options);
 
         } else {
 
             this.prompt(prompting.config)
                 .then(answers => {
+
+                    // track yeaman configuration options
+                    telemetry.trackEvent(answers);
 
                     // Choose appro
                     this.options.SpfxOptions['framework'] = this._evalSPFxGenerator(answers.framework);
@@ -65,8 +73,9 @@ module.exports = class extends Generator {
                     this.config.set('pnpFramework', this.options.pnpFramework);
                     this.config.save();
 
-
                     this._configGenerators(this.options);
+
+
 
                 });
 
@@ -90,7 +99,8 @@ module.exports = class extends Generator {
 
     // Run installer normally time to say goodbye
     // If yarn is installed yarn will be used
-    end() {}
+    end() {
+    }
 
     // Custom evalutation of Addon options
     _evalAddons(selections) {
@@ -102,12 +112,9 @@ module.exports = class extends Generator {
                     if (selections.jQueryVersion !== undefined) {
                         item = `${item}@${selections.jQueryVersion}`
                     }
-
                     break;
-
-
                 default:
-                    break
+                    break;
             }
 
             return item;
@@ -167,7 +174,7 @@ module.exports = class extends Generator {
         if (this.options.SpfxOptions.framework === "react" ||
             this.options.SpfxOptions.framework === "knockout") {
 
-                this.options.SpfxOptions['skip-install'] = false;
+            this.options.SpfxOptions['skip-install'] = false;
 
         }
 
@@ -175,8 +182,6 @@ module.exports = class extends Generator {
             subGenerator.spfx,
             this.options.SpfxOptions
         );
-
-        console.log(subGenerator.spfx);
 
         // Launch custom framework generators
         if (this.options.pnpFramework !== undefined &&

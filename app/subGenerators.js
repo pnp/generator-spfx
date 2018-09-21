@@ -4,7 +4,5 @@ module.exports = {
     // Handlebars
     'handlebars': require.resolve('../generators/handlebars'),
     // SPFx
-    'spfx': require.resolve('../node_modules/@microsoft/generator-sharepoint/lib/generators/app/index.js'),
-    
-
+    'spfx': require.resolve('../node_modules/@microsoft/generator-sharepoint/lib/generators/app/index.js')
 }
