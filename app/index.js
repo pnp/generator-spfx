@@ -44,10 +44,10 @@ module.exports = class extends Generator {
             // add proper opptions in here
             this.options.SpfxOptions['framework'] = this.config.get('framework');
             this.options.pnpFramework = this.config.get('pnpFramework');
-            
+
             // writes previous framework and pnpFramework names to telemetry
             telemetry.trackReRun(this.config.get('pnpFramework'));
-            
+
             this._configGenerators(this.options);
 
         } else {
@@ -99,8 +99,7 @@ module.exports = class extends Generator {
 
     // Run installer normally time to say goodbye
     // If yarn is installed yarn will be used
-    end() {
-    }
+    end() {}
 
     // Custom evalutation of Addon options
     _evalAddons(selections) {
