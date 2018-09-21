@@ -60,6 +60,7 @@
     "test-handlebars": "mocha ./test/onprem.handlebars.test.js && mocha ./test/spo.handlebars.test.js",
     "test-react": "mocha ./test/onprem.react.test.js && mocha ./test/spo.react.test.js",
     "test-knockout": "mocha ./test/onprem.knockout.test.js && mocha ./test/spo.knockout.test.js",
-    "test": "mocha ./test/onprem.handlebars.test.js && mocha ./test/onprem.knockout.test.js && mocha ./test/onprem.react.test.js && mocha ./test/spo.handlebars.test.js && mocha ./test/spo.knockout.test.js && mocha ./test/spo.react.test.js"
+    "test": "mocha ./test/onprem.handlebars.test.js && mocha ./test/onprem.knockout.test.js && mocha ./test/onprem.react.test.js && mocha ./test/spo.handlebars.test.js && mocha ./test/spo.knockout.test.js && mocha ./test/spo.react.test.js",
+    "postinstall": "node lib/patch.js"
   }
 }
