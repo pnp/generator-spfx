@@ -54,7 +54,7 @@ const defaultLibs = [{
         value: '@pnp/pnpjs'
     }, {
         name: 'PnP Property Controls',
-        value: '@pnp/spfx-controls-react',
+        value: '@pnp/spfx-property-controls',
         checked: true
     }
     // Add a new configuration object in here
