@@ -40,13 +40,14 @@
     }
   ],
   "dependencies": {
+    "@microsoft/generator-sharepoint": "1.6.0",
+    "applicationinsights": "^1.0.4",
     "chalk": "^2.4.1",
     "command-exists": "^1.2.7",
     "escodegen": "^1.11.0",
     "esprima": "^4.0.1",
     "update-notifier": "^2.5.0",
-    "yeoman-generator": "~3.1.1",
-    "@microsoft/generator-sharepoint": "^1.6.0"
+    "yeoman-generator": "~3.1.1"
   },
   "devDependencies": {
     "mocha": "~5.2.0",
@@ -60,6 +61,7 @@
     "test-handlebars": "mocha ./test/onprem.handlebars.test.js && mocha ./test/spo.handlebars.test.js",
     "test-react": "mocha ./test/onprem.react.test.js && mocha ./test/spo.react.test.js",
     "test-knockout": "mocha ./test/onprem.knockout.test.js && mocha ./test/spo.knockout.test.js",
-    "test": "mocha ./test/onprem.handlebars.test.js && mocha ./test/onprem.knockout.test.js && mocha ./test/onprem.react.test.js && mocha ./test/spo.handlebars.test.js && mocha ./test/spo.knockout.test.js && mocha ./test/spo.react.test.js"
+    "test": "mocha ./test/onprem.handlebars.test.js && mocha ./test/onprem.knockout.test.js && mocha ./test/onprem.react.test.js && mocha ./test/spo.handlebars.test.js && mocha ./test/spo.knockout.test.js && mocha ./test/spo.react.test.js",
+    "postinstall": "node lib/patch.js"
   }
 }

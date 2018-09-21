@@ -41,12 +41,21 @@ const pnpJsOptions = [{
     }
 ]
 
+const reactLibs = [{
+    name: 'PnP Reusable Controls',
+    value: '@pnp/spfx-controls-react'
+}];
+
 const defaultLibs = [{
         name: 'jQuery',
         value: 'jquery'
     }, {
         name: 'pnpjs',
         value: '@pnp/pnpjs'
+    }, {
+        name: 'PnP Property Controls',
+        value: '@pnp/spfx-controls-react',
+        checked: true
     }
     // Add a new configuration object in here
 ]
@@ -58,7 +67,16 @@ const configOptions = [
         type: 'checkbox',
         message: 'Which libraries to include',
         name: 'jsLibrary',
-        choices: defaultLibs
+        choices: answers => {
+
+            switch (answers.framework) {
+                case "react":
+                    return defaultLibs.concat(reactLibs);
+                default:
+                    return defaultLibs;
+            }
+
+        }
     },
     // jQuery version selection
     {
