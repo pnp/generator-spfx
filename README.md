@@ -4,7 +4,7 @@ This is an open-source extension for native out of the box SPFx generator to int
 
 ![PnP SPFx Generator](https://pnp.github.io/generator-spfx/assets/pnpspfx-title.png)
 
-Work is in progress and we'll accept absolutely contributions after the initial version is available.
+Work is in progress and we'll absolutely accept contributions after the initial version is available.
 
 ### Current Supported Frameworks and Add-ons
 
