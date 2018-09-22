@@ -18,10 +18,10 @@
 > Execute the following scripts to get these informations
 > 
 > To get NodeJS version: 
->     ```node --versioon```
+>     ```node --version```
 > 
 > To get NPM version: 
->     ```npm --versioon```
+>     ```npm --version```
 >
 > To get NPM version: 
 >     ```npm list -g @pnp/generator-spfx --depth=0```
