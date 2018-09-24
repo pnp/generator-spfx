@@ -60,6 +60,7 @@ module.exports = class extends Generator {
                 this.destinationPath('package.json'),
                 JSON.stringify(newPkgConfig, null, 2)
             );
+
         }
 
     }

@@ -1,7 +1,7 @@
 site_name: PnP/generator-SPFx
 nav:
   - Home: 'index.md'
-  - Compose: 
+  - Compose:
     - General: compose/index.md
     - Prompting: compose/prompting.md
     - Dependencies for addons: compose/add-addons.md
@@ -11,8 +11,8 @@ nav:
     - Run Install: 'recipes/run-install.md'
     - Deploy Custom Code: 'recipes/deploy-custom-code.md'
   - FAQ : 'faq.md'
-  - Known Issued: 'known-issues.md'
-  - Contribution Guideline: 'contribution-guidelines.md'
+  - Known Issues: 'known-issues.md'
+  - Contribution Guidelines: 'contribution-guidelines.md'
   - License: 'license.md'
   - About: 'about.md'
 theme:

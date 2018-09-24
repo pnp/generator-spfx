@@ -35,7 +35,7 @@ In the folder you will find the following files:
 
 If your generator needs some additional information from the user, questions can be configured in the file `promptconfig.js`. The content of this file follows the default Yeoman generator user prompting described in the article [Interacting with the User](http://yeoman.io/authoring/user-interactions.html).
 
-The library Yeoman uses is [Inqiurer.js](https://github.com/SBoudrias/Inquirer.js/).
+The library Yeoman uses is [Inquirer.js](https://github.com/SBoudrias/Inquirer.js/).
 
 ```js
 "use strict"
