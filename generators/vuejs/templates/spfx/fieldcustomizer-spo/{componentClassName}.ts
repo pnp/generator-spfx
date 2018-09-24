@@ -10,7 +10,7 @@ import * as strings from '<%= componentStrings %>';
 // Importing Vue.js
 import Vue from 'vue';
 // Improting Vue.js SFC
-import <%= componentClassName %>Component from './vueComponent/<%= componentClassName %>.vue';
+import <%= componentName %>Component from './vueComponent/<%= componentName %>.vue';
 
 /**
  * If your field customizer uses the ClientSideComponentProperties JSON input,
@@ -47,7 +47,7 @@ export default class <%= componentClassName %>
 
     let el = new Vue({
       el: `#${id}`,
-      render: h => h(<%= componentClassName %>Component, {
+      render: h => h(<%= componentName %>Component, {
         props: {
           text: text
         }

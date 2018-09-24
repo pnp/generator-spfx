@@ -1,6 +1,48 @@
-@import '~@microsoft/sp-office-ui-fabric-core/dist/sass/SPFabricCore.scss';
+<template>
+    <div :class="$style.<%= componentName %>">
+        <div :class="$style.container">
+            <div :class="$style.row">
+                <div :class="$style.column">
+                    <span :class="$style.title">Welcome to SharePoint!</span>
+                    <p :class="$style.subTitle">Customize SharePoint experiences using Web Parts.</p>
+                    <p :class="$style.description">{{description}}</p>
+                    <a href="https://aka.ms/spfx" :class="$style.button">
+                        <span :class="$style.label">Learn more</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
 
-.<%= componentClassName %> {
+<script lang="ts">
+import { Vue, Component, Prop } from 'vue-property-decorator';
+
+/**
+ * Component's properties
+ */
+export interface I<%= componentName %>Props {
+    description: string;
+}
+
+/**
+ * Class-component
+ */
+@Component
+export default class <%= componentName %> extends Vue implements I<%= componentName %>Props {
+
+    /**
+     * implementing ISimpleWebPartProps interface
+     */
+    @Prop()
+    public description: string;
+}
+</script>
+
+<style lang="scss" module>
+@import '~@microsoft/sp-office-ui-fabric-core/dist/sass/_SPFabricCore.scss';
+
+.<%= componentName %> {
   .container {
     max-width: 700px;
     margin: 0px auto;
@@ -72,3 +114,6 @@
     }
   }
 }
+</style>
+
+

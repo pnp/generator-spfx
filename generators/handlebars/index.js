@@ -89,11 +89,91 @@ module.exports = class extends Generator {
     }
 
     _addPackageDependencies() {
-        util.addPackageDependencies(this, ['handlebars']);
+        if (fs.existsSync(this.destinationPath('package.json'))) {
+
+            // request the default package file
+            let config;
+
+            try {
+                config = JSON.parse(fs.readFileSync(
+                    this.destinationPath('package.json')
+                ));
+
+            } catch (error) {
+
+                throw error;
+
+            }
+
+            // request current addon configuration
+            let addonConfig;
+
+            try {
+                addonConfig = JSON.parse(
+                    fs.readFileSync(
+                        this.templatePath('addonConfig.json')
+                    )
+                )
+            } catch (err) {
+
+                throw err;
+
+            }
+
+            // select the requested libraried
+            let requestedLibraries = ['handlebars'];
+
+            // declare new package config file
+            let newPkgConfig;
+
+            try {
+
+                newPkgConfig = util.mergeAddons(addonConfig, requestedLibraries, config);
+
+            } catch (error) {
+
+                throw error
+
+            }
+
+            // if content could be added to the new package.json write it
+            if (newPkgConfig !== undefined && newPkgConfig !== null) {
+
+                fs.writeFileSync(
+                    this.destinationPath('package.json'),
+                    JSON.stringify(newPkgConfig, null, 2)
+                );
+
+            } else {
+
+                throw 'Updated package.json file is invalid.';
+
+            }
+
+        }
     }
 
     _injectToGulpFile() {
-        util.injectToGulpFile(this);
+        
+        let targetGulpFile = this.destinationPath('gulpfile.js');
+
+        if (fs.existsSync(targetGulpFile)) {
+
+            let coreGulpTemplate = this.templatePath('../../../app/templates/gulpfile.js');
+            let customGulpTemplate = this.templatePath('./gulpfile.js');
+
+
+            try {
+
+                util.composeGulpFile(coreGulpTemplate, customGulpTemplate, targetGulpFile);
+
+            } catch (error) {
+
+                this.log(error);
+
+            }
+
+        }
     }
 
 }

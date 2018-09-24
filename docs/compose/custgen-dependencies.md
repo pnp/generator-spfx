@@ -21,7 +21,75 @@ The [addonConfig.json](https://github.com/pnp/generator-spfx/tree/master/generat
 To inject those dependecies to the generated `package.json`, call the following method in your generator code.
 
 ```js
-    util.addPackageDependencies(this, requestedLibraries);
+    _addPackageDependencies() {
+
+        if (fs.existsSync(this.destinationPath('package.json'))) {
+
+            // request the default package file
+            let config;
+
+            try {
+                config = JSON.parse(fs.readFileSync(
+                    this.destinationPath('package.json')
+                ));
+
+            } catch (error) {
+
+                throw error;
+
+            }
+
+            // request current addon configuration
+            let addonConfig;
+
+            try {
+                addonConfig = JSON.parse(
+                    fs.readFileSync(
+                        this.templatePath('addonConfig.json')
+                    )
+                )
+            } catch (err) {
+
+                throw err;
+
+            }
+
+            // select the requested libraries
+            let requestedLibraries = ['handlebars'];
+
+            // declare new package config file
+            let newPkgConfig;
+
+            try {
+
+                newPkgConfig = util.mergeAddons(
+                                        addonConfig, 
+                                        requestedLibraries, 
+                                        config);
+
+            } catch (error) {
+
+                throw error
+
+            }
+
+            // if content could be added to the new package.json write it
+            if (newPkgConfig !== undefined && newPkgConfig !== null) {
+
+                fs.writeFileSync(
+                    this.destinationPath('package.json'),
+                    JSON.stringify(newPkgConfig, null, 2)
+                );
+
+            } else {
+
+                throw 'Updated package.json file is invalid.';
+
+            }
+
+        }
+
+    }
 ```
 
 For the requested libraries parameter, pass in an array of identifiers stored in your addon configuration. In the case of the handlebar generator this is just 'handlebars':

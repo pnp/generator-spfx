@@ -1,23 +1,60 @@
-const { VueLoaderPlugin } = require('vue-loader');
-
-const plugin = new VueLoaderPlugin();
-const loaderConfig = {
-    test: /\.vue$/,
-    use: [{
-        loader: 'vue-loader',
-        options: {
-            esModule: true,
-        }
-    }]
-};
-
 // Merge custom loader to web pack configuration
 build.configureWebpack.mergeConfig({
+
     additionalConfiguration: (generatedConfiguration) => {
 
+        const VueLoaderPlugin = require('vue-loader/lib/plugin');
+
+        const plugin = new VueLoaderPlugin();
+        const loadersConfigs = [{
+            test: /\.vue$/, // vue
+            use: [{
+                loader: 'vue-loader'
+            }]
+        }, {
+            resourceQuery: /vue&type=script&lang=ts/, // typescript
+            loader: 'ts-loader',
+            options: {
+                appendTsSuffixTo: [/\.vue$/]
+            }
+        }, {
+            resourceQuery: /vue&type=style.*&lang=scss/, // scss
+            use: [
+                {
+                    loader: require.resolve('@microsoft/loader-load-themed-styles'),
+                    options: {
+                        async: true
+                    }
+                },
+                {
+                    loader: 'css-loader',
+                    options: {
+                        modules: true,
+                        localIdentName: '[local]_[sha1:hash:hex:8]'
+                    }
+                },
+                'sass-loader']
+        }, {
+            resourceQuery: /vue&type=style.*&lang=sass/, // sass
+            use: [
+                {
+                    loader: require.resolve('@microsoft/loader-load-themed-styles'),
+                    options: {
+                        async: true
+                    }
+                },
+                {
+                    loader: 'css-loader',
+                    options: {
+                        modules: true,
+                        localIdentName: '[local]_[sha1:hash:hex:8]'
+                    }
+                },
+            'sass-loader?indentedSyntax']  
+        }];
+
         generatedConfiguration.plugins.push(plugin);
-        generatedConfiguration.resolve.alias['vue$$'] = 'vue/dist/vue.esm.js';
-        generatedConfiguration.module.rules.push(loaderConfig);
+        generatedConfiguration.module.rules.push(...loadersConfigs);
 
         return generatedConfiguration;
 
