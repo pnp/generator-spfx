@@ -4,8 +4,16 @@ build.configureWebpack.mergeConfig({
     additionalConfiguration: (generatedConfiguration) => {
 
         const VueLoaderPlugin = require('vue-loader/lib/plugin');
+        const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
-        const plugin = new VueLoaderPlugin();
+        const vuePlugin = new VueLoaderPlugin();
+        const forkTsPlugin = new ForkTsCheckerWebpackPlugin({
+            vue: true,
+            tslint: true,
+            formatter: 'codeframe',
+            checkSyntacticErrors: false
+          });
+
         const loadersConfigs = [{
             test: /\.vue$/, // vue
             use: [{
@@ -15,7 +23,8 @@ build.configureWebpack.mergeConfig({
             resourceQuery: /vue&type=script&lang=ts/, // typescript
             loader: 'ts-loader',
             options: {
-                appendTsSuffixTo: [/\.vue$/]
+                appendTsSuffixTo: [/\.vue$/],
+                transpileOnly: true
             }
         }, {
             resourceQuery: /vue&type=style.*&lang=scss/, // scss
@@ -53,7 +62,7 @@ build.configureWebpack.mergeConfig({
             'sass-loader?indentedSyntax']  
         }];
 
-        generatedConfiguration.plugins.push(plugin);
+        generatedConfiguration.plugins.push(vuePlugin, forkTsPlugin);
         generatedConfiguration.module.rules.push(...loadersConfigs);
 
         return generatedConfiguration;
