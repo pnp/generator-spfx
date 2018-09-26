@@ -16,6 +16,7 @@ const userWebPartConfig = {
     componentName: 'helloworld',
     solutionName: 'HelloWorld2',
     environment: 'onprem',
+    testRun: true
 };
 
 let yorcFile = path.join(localTempDir, '.yo-rc.json'),
@@ -392,7 +393,7 @@ describe('Handlebar Test: On Premises', () => {
 
             assert.fileContent(packageFile, /handlebars/);
 
-        })      
+        })
 
         it('pnpjs', () => {
 
