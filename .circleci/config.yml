@@ -79,43 +79,18 @@ workflows:
   version: 2
   testing:
     jobs:
-      - build
-      - test:
-          requires:
-            - build
-      - deploy_docs:
-          filters:
-            branches:
-              only: master
-  release:
-    jobs:
       - build:
           filters:
-            tags:
-              only: /^v[0-9]+\.[0-9]+\.[0-9]+/
             branches:
-              ignore: /.*/
+              ignore: gh-pages
       - test:
           requires:
             - build
           filters:
-            tags:
-              only: /^v[0-9]+\.[0-9]+\.[0-9]+/
             branches:
-              ignore: /.*/
-      - publish:
-          requires:
-            - test
-          filters:
-            tags:
-              only: /^v[0-9]+\.[0-9]+\.[0-9]+/
-            branches:
-              ignore: /.*/
+              ignore: gh-pages
       - deploy_docs:
-          requires:
-            - publish
           filters:
-            tags:
-              only: /^v[0-9]+\.[0-9]+\.[0-9]+/
             branches:
-              ignore: /.*/
+              ignore: gh-pages
+              only: master

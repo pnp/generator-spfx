@@ -11,6 +11,7 @@ import * as strings from '<%= componentStrings %>';
 
 import * as Handlebars from 'handlebars';
 
+
 export interface I<%= componentClassName %>Props {
   description: string;
 }
@@ -18,21 +19,17 @@ export interface I<%= componentClassName %>Props {
 export default class <%= componentClassName %> extends BaseClientSideWebPart<I<%= componentClassName %>Props> {
 
   public render(): void {
-    this.domElement.innerHTML = `
-      <div class="${ styles.<%= componentNameCamelCase %> }">
-        <div class="${ styles.container }">
-          <div class="${ styles.row }">
-            <div class="${ styles.column }">
-              <span class="${ styles.title }">Welcome to SharePoint!</span>
-              <p class="${ styles.subTitle }">Customize SharePoint experiences using Web Parts.</p>
-              <p class="${ styles.description }">${escape(this.properties.description)}</p>
-              <a href="https://aka.ms/spfx" class="${ styles.button }">
-                <span class="${ styles.label }">Learn more</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>`;
+
+    // load and precompile template
+    var <%= componentClassName %>Template =  <HandlebarsTemplateDelegate>require('./hbsComponent/<%= componentClassName %>.hbs');
+
+    var data = {
+      styles: styles,
+      description: this.properties.description
+    };
+
+    this.domElement.innerHTML = <%= componentClassName %>Template(data);
+
   }
 
   protected get dataVersion(): Version {

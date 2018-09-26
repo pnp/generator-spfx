@@ -42,16 +42,15 @@ module.exports = class extends Generator {
         this._addPackageDependencies();
         // inject custom tasks to gulpfile
         this._injectToGulpFile();
+        // Update add templates
+        util.deployTemplates(this);
         // finally run install
         util.runInstall(this);
-        // # BUG currently only appears just in test
-        util.writeTemplates(this);
     }
 
     // Run installer normally time to say goodbye
     // If yarn is installed yarn will be used
     end() {
-
     }
 
     _deployFiles() {

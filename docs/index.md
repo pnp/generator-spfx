@@ -1,30 +1,37 @@
-# Pnp SPFx Yeoman generator
-The composeability model of Yeoman generator is on of its core features allow you to build your own or consume and reuse already built generator. The Microsofts SharePoint Framework Yeoman generator supports this model too.
-The PnP SPFx Yeoman generator uses 100% of the SPFx Yeoman generator and adds functionalities on top of this framework.
+# PnP SPFx Yeoman generator
+The composeability model of Yeoman generators is one of their core features and allow you to build your own or consume and reuse an already built generator. Microsoft's SharePoint Framework Yeoman generator supports this model too.
+
+The PnP SPFx Yeoman generator uses 100% of the Microsoft SPFx Yeoman generator but then adds features on top of this framework. 
 
 ![PnP SPFx Generator][logo]
 
-The extension support ranges from client-side libraries such as pnpjs and jQuery to extend the capabilities to more complex extension such as the integration of HandlebarsJS, VueJS and many more.
-
-
-The PnP SPFx Yeoman generator uses 100% of the Microsoft SPFx Yeoman generator but then adds functionalities on top of this framework. This extension supports additional client-side libraries such as PnPjs or jQuery to extend SPFx capabilities as well as even more complex extensions such as the integration of HandlebarsJS, VueJS, and many more.
+This extension supports additional client-side libraries such as PnPjs or jQuery to extend SPFx capabilities as well as even more complex extensions such as the integration of HandlebarsJS, VueJS, and many more.
 
 > **Limitation:** Right now the PnP SPFx yeoman generator supports only the initial setup of new projects. To add additional web parts and extensions, please continue to use the Microsoft SPFx generator. In the future, this generator will be used to add elements to existing projects.
 
-### Client-side extensions and Add-ons
+### SPFx Generator Version
 
-| Library | Version | Documentation |
+| Base Generator | |
+|:--|:--|
+| @microsoft/generator-sharepoint | 1.6.0 |
+
+
+### Available Client-side extensions and Add-ons
+
+| Library | Version | Generators |
 |:--|:--|:--|
-| [jQuery](http://jquery.com) | 2.x, 3.x | |
-| [@pnp/pnpjs](https://github.com/pnp/pnpjs) | > 1.4. | |
+| [jQuery](http://jquery.com) | 2.x, 3.x | All |
+| [@pnp/pnpjs](https://github.com/pnp/pnpjs) | > 1.4. | All |
+| [@pnp/spfx-property-controls](https://github.com/SharePoint/sp-dev-fx-property-controls) | 1.10.0 | All |
+| [@pnp/spfx-controls-react](https://github.com/SharePoint/sp-dev-fx-controls-react/) | 1.8.0 | ReactJS |
 
-### Framework Extensions
+### Available Framework Extensions
 
 | Framework | Version | Documentation |
 |:--|:--|:--|
 | [Handlebars](http://handlebarsjs.com) | > 4.0.0 | Get started |
-| [VueJS](https://vuejs.org) | planned | Get started |
-| [Angular Elements](https://angular.io/guide/elements) | tbd |  Get started |
+| [VueJS](https://vuejs.org) | TBD | Get started |
+| [Angular Elements](https://angular.io/guide/elements) | planned |  Get started |
 
 ## Installation
 
@@ -97,7 +104,7 @@ Options:
 
 ## Further information
 
-* [General project setup and folders](./compose/add-generator.md)
+* [General project setup and folders](./compose/index.md)
 * [Known Issues](./known-issues.md)
 
 

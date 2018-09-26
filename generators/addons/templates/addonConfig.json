@@ -11,15 +11,19 @@
             "@types/jquery": "^3.0.0"
         }
     },
-    "pnpjs": {
+    "@pnp/pnpjs": {
         "dependencies": {
-            "@pnp/pnpjs": "^1.1.1"
+            "@pnp/pnpjs": "^1.2.0"
         }
     },
-    "@pnp/spfxreact": {
+    "@pnp/spfx-property-controls": {
         "dependencies": {
-            "@pnp/spfx-controls-react": "1.6.0"
+            "@pnp/spfx-property-controls": "1.10.0"
+        }
+    },
+    "@pnp/spfx-controls-react": {
+        "dependencies": {
+            "@pnp/spfx-controls-react": "1.8.0"
         }
     }
-
 }

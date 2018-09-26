@@ -7,6 +7,10 @@ const subGenerator = require('./subGenerators');
 const prompting = require('./promptConfig');
 // Import PnP Says
 const pnpSays = require('../lib/pnpsays');
+// Import utilities
+const util = require('../lib/util');
+// Telemetry import
+const telemetry = require('../lib/telemetry');
 
 module.exports = class extends Generator {
 
@@ -25,7 +29,6 @@ module.exports = class extends Generator {
     initializing() {
 
         this.pkg = require('../package.json');
-
         pnpSays(this);
 
     }
@@ -34,28 +37,59 @@ module.exports = class extends Generator {
     prompting() {
 
         /* DO NOT ENTER CODE HERE */
-        this.prompt(prompting.config)
-            .then(answers => {
 
-                // Choose appro
-                this.options.SpfxOptions['framework'] = this._evalSPFxGenerator(answers.framework);
-                this.options.pnpFramework = answers.framework;
+        // if config existed fallback to default generator
+        if (this.config.existed) {
 
-                this.options.libraries = this._evalAddons(
-                    answers
-                );
+            // add proper opptions in here
+            this.options.SpfxOptions['framework'] = this.config.get('framework');
+            this.options.pnpFramework = this.config.get('pnpFramework');
 
-                this.options.SPFxFramework = answers.framework;
+            // writes previous framework and pnpFramework names to telemetry
+            telemetry.trackReRun(this.config.get('pnpFramework'));
 
-                this._configGenerators(this.options);
+            this._configGenerators(this.options);
 
-            });
+        } else {
 
+            if(this.fs.exists(this.destinationPath('package.json'))){
+                this.log('Currently it is not supported to run the generator @pnp/spfx on project originally created with @microsoft/sharepoint project');
+                process.exit(1);
+            }
+
+
+            this.prompt(prompting.config)
+                .then(answers => {
+
+                    // track yeaman configuration options
+                    telemetry.trackEvent(answers);
+
+                    // Choose appro
+                    this.options.SpfxOptions['framework'] = this._evalSPFxGenerator(answers.framework);
+                    this.options.pnpFramework = answers.framework;
+
+                    this.options.libraries = this._evalAddons(
+                        answers
+                    );
+
+                    this.options.SPFxFramework = answers.framework;
+
+                    // save configuration of first selection
+                    this.config.set('framework', this.options.SpfxOptions['framework']);
+                    this.config.set('pnpFramework', this.options.pnpFramework);
+                    this.config.save();
+
+                    this._configGenerators(this.options);
+
+
+
+                });
+
+        }
     }
 
     // adds additonal editor support in this case CSS Comb
     configuring() {
-        // console.log('APP --- Config');
 
     }
 
@@ -83,12 +117,9 @@ module.exports = class extends Generator {
                     if (selections.jQueryVersion !== undefined) {
                         item = `${item}@${selections.jQueryVersion}`
                     }
-
                     break;
-
-
                 default:
-                    break
+                    break;
             }
 
             return item;
@@ -130,28 +161,40 @@ module.exports = class extends Generator {
     _configGenerators(options) {
 
         // Launch Default SPFx generator
+        if (this.config.existed === false) {
+
+            // If required launch library generator
+            if (options.libraries.length !== undefined &&
+                options.libraries.length !== 0) {
+
+                this.composeWith(
+                    subGenerator.addons,
+                    options
+                )
+
+            }
+
+        }
+
+        if (this.options.SpfxOptions.framework === "react" ||
+            this.options.SpfxOptions.framework === "knockout") {
+
+            this.options.SpfxOptions['skip-install'] = false;
+
+        }
+
         this.composeWith(
             subGenerator.spfx,
             this.options.SpfxOptions
         );
-
-        // If required launch library generator
-        if (options.libraries.length !== undefined &&
-            options.libraries.length !== 0) {
-
-            this.composeWith(
-                subGenerator.addons,
-                options
-            )
-
-        }
 
         // Launch custom framework generators
         if (this.options.pnpFramework !== undefined &&
             subGenerator[this.options.pnpFramework] !== undefined) {
 
             this.composeWith(
-                subGenerator[this.options.pnpFramework]
+                subGenerator[this.options.pnpFramework],
+                this.options
             )
 
         }
@@ -256,6 +299,11 @@ module.exports = class extends Generator {
 
         // alweays skip install
         this.options.SpfxOptions['skip-install'] = true;
+
+        if (this.options['p'] === true && this.options['m'] !== undefined) {
+            this.options.SpfxOptions['package-manager'] = this.options['m'];
+            this.options['package-manager'] = this.options['m'];
+        }
 
         if (this.options['package-manager'] !== undefined) {
             this.options.SpfxOptions['package-manager'] = this.options['package-manager'];

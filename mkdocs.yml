@@ -1,11 +1,23 @@
 site_name: PnP/generator-SPFx
 nav:
   - Home: 'index.md'
-  - Compose: 'compose/index.md'
-  - Recipes: 'recipes/index.md'
-  - How-Tos: 'how-tos/index.md'
+  - Compose:
+    - General: compose/index.md
+    - Prompting: compose/prompting.md
+    - Dependencies for addons: compose/add-addons.md
+    - Inject dependencies: compose/custgen-dependencies.md
+  - Recipes:
+    - Inject gulp tasks: 'recipes/inject-gulp-tasks.md'
+    - Run Install: 'recipes/run-install.md'
+    - Deploy Custom Code: 'recipes/deploy-custom-code.md'
+  - FAQ : 'faq.md'
+  - Known Issues: 'known-issues.md'
+  - Contribution Guidelines: 'contribution-guidelines.md'
+  - License: 'license.md'
+  - About: 'about.md'
 theme:
   name: 'material'
+  custom_dir: 'docs/theme'
   palette:
     primary: 'blue grey'
   logo: 'assets/logo.svg'
@@ -30,5 +42,6 @@ extra:
       link: 'http://aka.ms/sppnp-videos'
     - type: 'link'
       link: 'https://aka.ms/sppnp'
+site_url: https://pnp.github.io/generator-spfx/
 repo_url: http://github.com/pnp/generator-spfx
-edit_uri: blob/master/docs/manual/docs
+edit_uri: blob/master/docs/

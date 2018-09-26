@@ -1,37 +1,56 @@
 {
   "name": "@pnp/generator-spfx",
-  "version": "0.0.1",
+  "version": "1.1.0",
   "description": "",
   "author": {
     "name": "Office 365 / SharePoint PnP Core Team",
     "url": "https://github.com/pnp"
   },
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pnp/generator-spfx.git"
+  },
   "files": [
-    "addons"
+    "app",
+    "generators",
+    "lib"
   ],
   "keywords": [
     "yeoman-generator",
+    "Pattern and Practices",
+    "PnP",
     "SPFx",
-    "SharePointFramework"
+    "SharePointFramework",
+    "SharePoint Framework",
+    "SharePoint",
+    "Office 365",
+    "Office 365 Development"
   ],
   "maintainers": [
     {
       "name": "Stefan Bauer",
-      "email": "stefan.bauer@n8d.at",
+      "email": "sl@n8d.at",
       "url": "https://www.n8d.at/"
+    },
+    {
+      "name": "Chris Kent",
+      "email": "ihatetimemachines@gmail.com",
+      "url": "https://thechriskent.com/"
     }
   ],
   "dependencies": {
+    "@microsoft/generator-sharepoint": "1.6.0",
+    "applicationinsights": "^1.0.4",
     "chalk": "^2.4.1",
     "command-exists": "^1.2.7",
     "escodegen": "^1.11.0",
     "esprima": "^4.0.1",
+    "lodash": "^4.17.11",
     "update-notifier": "^2.5.0",
     "yeoman-generator": "~3.1.1"
   },
   "devDependencies": {
-    "@microsoft/generator-sharepoint": "^1.5.1",
     "mocha": "~5.2.0",
     "rimraf": "^2.6.2",
     "yeoman-assert": "~3.1.1",
@@ -43,6 +62,7 @@
     "test-handlebars": "mocha ./test/onprem.handlebars.test.js && mocha ./test/spo.handlebars.test.js",
     "test-react": "mocha ./test/onprem.react.test.js && mocha ./test/spo.react.test.js",
     "test-knockout": "mocha ./test/onprem.knockout.test.js && mocha ./test/spo.knockout.test.js",
-    "test": "mocha ./test/onprem.handlebars.test.js && mocha ./test/onprem.knockout.test.js && mocha ./test/onprem.react.test.js && mocha ./test/spo.handlebars.test.js && mocha ./test/spo.knockout.test.js && mocha ./test/spo.react.test.js"
+    "test": "mocha ./test/onprem.handlebars.test.js && mocha ./test/onprem.knockout.test.js && mocha ./test/onprem.react.test.js && mocha ./test/spo.handlebars.test.js && mocha ./test/spo.knockout.test.js && mocha ./test/spo.react.test.js",
+    "postinstall": "node lib/patch.js"
   }
 }
