@@ -1,18 +1,19 @@
-"use strict";
-
 // Base Yeoman generator
 const Generator = require('yeoman-generator');
-
-// filesystem
+// import nodejs fs
 const fs = require('fs');
-
-// importing utilities
-const util = require('../../lib/util.js');
+// path
+const path = require('path');
+// import nodejs fs
+const util = require('../../lib/util');
 
 module.exports = class extends Generator {
 
     constructor(args, opts) {
+
         super(args, opts);
+        // configuration of user prompt
+
     }
 
     // Initialisation geenerator
@@ -25,41 +26,54 @@ module.exports = class extends Generator {
 
     }
 
-    // adds additonal editor support in this case CSS Comb
+    
     configuring() {
-
+        // Currently not supported don't use this
     }
 
+    
+    writing() {
+        // Currently not supported don't use this
+    }
 
-    writing() {}
-
+    
     install() {
-        // deployes additional files to the project directory
-        this._deployFiles();
+
+        // deploy vue-shims
+        this._copyShims();
         // add external to the configuration
         this._addExternals();
         // add all package depenedencies configured in addonConfig.json.
         this._addPackageDependencies();
         // inject custom tasks to gulpfile
         this._injectToGulpFile();
-        // Update add templates
+        // remove default scss
+        this._removeWebPartScss();
+        // Update/add templates
         util.deployTemplates(this);
         // finally run install
         util.runInstall(this);
+        
+
     }
 
     // Run installer normally time to say goodbye
     // If yarn is installed yarn will be used
     end() {
+        // Currently not supported don't use this
     }
 
-    _deployFiles() {
+    _removeWebPartScss() {
+        // this file is created by OOTB SPFx generator.
+        // we don't need it in Vue web part.
+        const manifest = util.getComponentManifest(this);
+        let targetFile = this.destinationPath(
+            path.join(manifest.componentPath, `${manifest.componentClassName}.module.scss`)
+        );
 
-        this.fs.copy(
-            this.templatePath('config/copy-static-assets.json'),
-            this.destinationPath('config/copy-static-assets.json')
-        )
-
+        if (fs.existsSync(targetFile)) {
+            fs.unlinkSync(targetFile);
+        }
     }
 
     _addExternals() {
@@ -70,8 +84,8 @@ module.exports = class extends Generator {
         );
 
         if (config.externals !== undefined) {
-            // Add Handlebars entry
-            config.externals.handlebars = "./node_modules/handlebars/dist/handlebars.amd.min.js";
+            // Add Vuejs entry
+            config.externals.vue = "./node_modules/vue/dist/vue.min.js";
 
             // writing json
             try {
@@ -87,14 +101,32 @@ module.exports = class extends Generator {
     }
 
     _addPackageDependencies() {
-        if (fs.existsSync(this.destinationPath('package.json'))) {
+        this._utilAddPackageDependencies(this, ['vuejs']);
+    }
+
+    _copyShims() {
+        if (this.fs.exists(this.destinationPath('src/vue-shims.d.ts'))) {
+            return;
+        }
+
+        this.fs.copy(this.templatePath('src/vue-shims.d.ts'),
+            this.destinationPath('src/vue-shims.d.ts'));
+    }
+
+    _injectToGulpFile() {
+        this._utilInjectToGulpFile(this);
+    }
+
+    // adds dependencies and devDependencies to the package.json
+    _utilAddPackageDependencies(yeoman, requestedLibraries) {
+        if (fs.existsSync(yeoman.destinationPath('package.json'))) {
 
             // request the default package file
             let config;
 
             try {
                 config = JSON.parse(fs.readFileSync(
-                    this.destinationPath('package.json')
+                    yeoman.destinationPath('package.json')
                 ));
 
             } catch (error) {
@@ -109,7 +141,7 @@ module.exports = class extends Generator {
             try {
                 addonConfig = JSON.parse(
                     fs.readFileSync(
-                        this.templatePath('addonConfig.json')
+                        yeoman.templatePath('addonConfig.json')
                     )
                 )
             } catch (err) {
@@ -118,14 +150,10 @@ module.exports = class extends Generator {
 
             }
 
-            // select the requested libraried
-            let requestedLibraries = ['handlebars'];
-
             // declare new package config file
             let newPkgConfig;
 
             try {
-
                 newPkgConfig = util.mergeAddons(addonConfig, requestedLibraries, config);
 
             } catch (error) {
@@ -138,7 +166,7 @@ module.exports = class extends Generator {
             if (newPkgConfig !== undefined && newPkgConfig !== null) {
 
                 fs.writeFileSync(
-                    this.destinationPath('package.json'),
+                    yeoman.destinationPath('package.json'),
                     JSON.stringify(newPkgConfig, null, 2)
                 );
 
@@ -151,14 +179,13 @@ module.exports = class extends Generator {
         }
     }
 
-    _injectToGulpFile() {
-        
-        let targetGulpFile = this.destinationPath('gulpfile.js');
+    _utilInjectToGulpFile(yeoman) {
+        let targetGulpFile = yeoman.destinationPath('gulpfile.js');
 
         if (fs.existsSync(targetGulpFile)) {
 
-            let coreGulpTemplate = this.templatePath('../../../app/templates/gulpfile.js');
-            let customGulpTemplate = this.templatePath('./gulpfile.js');
+            let coreGulpTemplate = yeoman.templatePath('../../../app/templates/gulpfile.js');
+            let customGulpTemplate = yeoman.templatePath('./gulpfile.js');
 
 
             try {
@@ -167,7 +194,7 @@ module.exports = class extends Generator {
 
             } catch (error) {
 
-                this.log(error);
+                yeoman.log(error);
 
             }
 
