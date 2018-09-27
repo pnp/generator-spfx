@@ -297,7 +297,7 @@ module.exports = class extends Generator {
             this.options.SpfxOptions['extension-type'] = this.options['extension-type'];
         }
 
-        // alweays skip install
+        // always skip install
         this.options.SpfxOptions['skip-install'] = true;
 
         if (this.options['p'] === true && this.options['m'] !== undefined) {
