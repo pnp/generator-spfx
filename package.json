@@ -37,6 +37,18 @@
       "name": "Chris Kent",
       "email": "ihatetimemachines@gmail.com",
       "url": "https://thechriskent.com/"
+    },
+    {
+      "name": "Alex Terentiev",
+      "url": "https://github.com/AJIXuMuK"
+    },
+    {
+      "name": "Sergei Sergeev",
+      "url": "https://github.com/s-KaiNet"
+    },
+    {
+      "name": "Paweł Hawrylak",
+      "url": "https://github.com/phawrylak"
     }
   ],
   "dependencies": {
