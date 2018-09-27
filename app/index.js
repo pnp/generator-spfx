@@ -65,10 +65,15 @@ module.exports = class extends Generator {
                     this.options.SpfxOptions['framework'] = this._evalSPFxGenerator(answers.framework);
                     this.options.pnpFramework = answers.framework;
 
+                    // check if test lint was selected in any of the generators
+                    this.options.tsLint = answers.tsLint ? answers.tsLint : false;
+
+                    // generate addon configuration
                     this.options.libraries = this._evalAddons(
                         answers
                     );
 
+                    // set choosen spfx frameworke
                     this.options.SPFxFramework = answers.framework;
 
                     // save configuration of first selection

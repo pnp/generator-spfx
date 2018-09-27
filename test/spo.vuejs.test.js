@@ -122,9 +122,21 @@ describe('Vuejs Test: SPO', () => {
 
         })
 
-        it('vuejs', () => {
+        it('Vue.js Base', () => {
 
             assert.fileContent(packageFile, /vue/);
+
+        })
+
+        it('Vue.js class component', () => {
+
+            assert.fileContent(packageFile, /vue-class-component/);
+
+        })
+
+        it('Vue.js property decorator', () => {
+
+            assert.fileContent(packageFile, /vue-class-component/);
 
         })
 
@@ -211,9 +223,21 @@ describe('Vuejs Test: SPO', () => {
 
         })
 
-        it('vuejs', () => {
+        it('Vue.js Base', () => {
 
             assert.fileContent(packageFile, /vue/);
+
+        })
+
+        it('Vue.js class component', () => {
+
+            assert.fileContent(packageFile, /vue-class-component/);
+
+        })
+
+        it('Vue.js property decorator', () => {
+
+            assert.fileContent(packageFile, /vue-class-component/);
 
         })
 
@@ -297,9 +321,21 @@ describe('Vuejs Test: SPO', () => {
 
         })
 
-        it('vuejs', () => {
+        it('Vue.js Base', () => {
 
             assert.fileContent(packageFile, /vue/);
+
+        })
+
+        it('Vue.js class component', () => {
+
+            assert.fileContent(packageFile, /vue-class-component/);
+
+        })
+
+        it('Vue.js property decorator', () => {
+
+            assert.fileContent(packageFile, /vue-class-component/);
 
         })
 
@@ -388,11 +424,23 @@ describe('Vuejs Test: SPO', () => {
 
         })
 
-        it('vuejs', () => {
+        it('Vue.js Base', () => {
 
             assert.fileContent(packageFile, /vue/);
 
-        })      
+        })
+
+        it('Vue.js class component', () => {
+
+            assert.fileContent(packageFile, /vue-class-component/);
+
+        })
+
+        it('Vue.js property decorator', () => {
+
+            assert.fileContent(packageFile, /vue-class-component/);
+
+        })
 
         it('pnpjs', () => {
 
@@ -476,12 +524,23 @@ describe('Vuejs Test: SPO', () => {
 
         })
 
-        it('vuejs', () => {
+        it('Vue.js Base', () => {
 
             assert.fileContent(packageFile, /vue/);
 
         })
 
+        it('Vue.js class component', () => {
+
+            assert.fileContent(packageFile, /vue-class-component/);
+
+        })
+
+        it('Vue.js property decorator', () => {
+
+            assert.fileContent(packageFile, /vue-class-component/);
+
+        })
 
         it('pnpjs', () => {
 

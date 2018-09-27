@@ -10,7 +10,7 @@ import * as strings from '<%= componentStrings %>';
 // Importing Vue.js
 import Vue from 'vue';
 // Improting Vue.js SFC
-import <%= componentName %>Component from './vueComponent/<%= componentName %>.vue';
+import <%= componentName %>Component from './components/<%= componentName %>.vue';
 
 /**
  * If your field customizer uses the ClientSideComponentProperties JSON input,
@@ -41,7 +41,7 @@ export default class <%= componentClassName %>
   public onRenderCell(event: IFieldCustomizerCellEventParameters): void {
     // Use this method to perform your custom cell rendering.
     const text: string = `${this.properties.sampleText}: ${event.fieldValue}`;
-    
+
     const id: string = `fc-${this.instanceId}`;
     event.domElement.innerHTML = `<div id="${id}"></div>`;
 

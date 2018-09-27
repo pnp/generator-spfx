@@ -36,6 +36,7 @@ export default class <%= componentName %> extends Vue implements I<%= componentN
      */
     @Prop()
     public description: string;
+
 }
 </script>
 

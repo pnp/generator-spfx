@@ -21,7 +21,7 @@ export default class <%= componentClassName %> extends BaseClientSideWebPart<I<%
   public render(): void {
 
     // load and precompile template
-    var <%= componentClassName %>Template =  <HandlebarsTemplateDelegate>require('./hbsComponent/<%= componentClassName %>.hbs');
+    var <%= componentClassName %>Template =  <HandlebarsTemplateDelegate>require('./components/<%= componentClassName %>.hbs');
 
     var data = {
       styles: styles,

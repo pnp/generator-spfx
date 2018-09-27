@@ -2,13 +2,10 @@
 const fs = require('fs');
 const path = require('path');
 
+const packagePath = path.resolve(__dirname, '../../package.json');
+const testPath = path.resolve(__dirname, '../../test/')
 
-let files = fs.readdirSync(
-    path.join(
-        __dirname,
-        '../test/'
-    )
-)
+let files = fs.readdirSync(testPath);
 
 let testFiles = files.map(file => {
 
@@ -52,7 +49,7 @@ var knockoutTests = testFiles.filter(item => item.framework === 'knockout')
     .join(' && ');
 
 var vuejsTests = testFiles.filter(item => item.framework = 'vuejs')
-    .map (item => 'mocha ' + item.filepath)
+    .map(item => 'mocha ' + item.filepath)
     .join(' && ');
 
 console.log('On Prem Tests:  ', onPremTests);
@@ -62,21 +59,19 @@ console.log('React:          ', reactTests);
 console.log('Knockout:       ', knockoutTests);
 console.log('VueJs:          ', vuejsTests);
 
-
 var scripts = {
     "test-onprem": onPremTests,
     "test-spo": spoTests,
     "test-handlebars": hbsTests,
     "test-react": reactTests,
     "test-knockout": knockoutTests,
-    "test-vuejs": vuejsTests
+    "test-vuejs": vuejsTests,
+    "test": onPremTests + " && " + spoTests,
+    "postinstall": "node lib/patch.js"
 }
 
 let packageJson = JSON.parse(
-    fs.readFileSync(
-        path.join(__dirname,
-            '../package.json')
-    )
+    fs.readFileSync(packagePath, 'utf-8')
 )
 
 if (packageJson['script'] === undefined) {
@@ -85,9 +80,9 @@ if (packageJson['script'] === undefined) {
 
 }
 
-console.log(path.join(__dirname, '../package.json'));
+console.log(packagePath);
 
 fs.writeFileSync(
-    path.join(__dirname, '../package.json'), 
+    packagePath,
     JSON.stringify(packageJson, null, 2)
 )

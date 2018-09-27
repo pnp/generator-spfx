@@ -34,6 +34,7 @@ module.exports = class extends Generator {
     writing() {}
 
     install() {
+
         // deployes additional files to the project directory
         this._deployFiles();
         // add external to the configuration
@@ -46,6 +47,7 @@ module.exports = class extends Generator {
         util.deployTemplates(this);
         // finally run install
         util.runInstall(this);
+
     }
 
     // Run installer normally time to say goodbye
@@ -87,6 +89,7 @@ module.exports = class extends Generator {
     }
 
     _addPackageDependencies() {
+
         if (fs.existsSync(this.destinationPath('package.json'))) {
 
             // request the default package file
@@ -152,7 +155,7 @@ module.exports = class extends Generator {
     }
 
     _injectToGulpFile() {
-        
+
         let targetGulpFile = this.destinationPath('gulpfile.js');
 
         if (fs.existsSync(targetGulpFile)) {

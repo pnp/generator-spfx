@@ -11,7 +11,7 @@ import * as strings from '<%= componentStrings %>';
 // Importing Vue.js
 import Vue from 'vue';
 // Improting Vue.js SFC
-import <%= componentName %>Component from './vueComponent/<%= componentName %>.vue';
+import <%= componentName %>Component from './components/<%= componentName %>.vue';
 
 export interface I<%= componentClassName %>Props {
   description: string;

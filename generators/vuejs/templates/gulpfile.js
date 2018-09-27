@@ -1,18 +1,21 @@
 // Merge custom loader to web pack configuration
+
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const vuePlugin = new VueLoaderPlugin();
+
+<% if (tslint) { %>
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+const forkTsPlugin = new ForkTsCheckerWebpackPlugin({
+    vue: true,
+    tslint: true,
+    formatter: 'codeframe',
+    checkSyntacticErrors: false
+});
+<% } %>
+
 build.configureWebpack.mergeConfig({
 
     additionalConfiguration: (generatedConfiguration) => {
-
-        const VueLoaderPlugin = require('vue-loader/lib/plugin');
-        const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
-
-        const vuePlugin = new VueLoaderPlugin();
-        const forkTsPlugin = new ForkTsCheckerWebpackPlugin({
-            vue: true,
-            tslint: true,
-            formatter: 'codeframe',
-            checkSyntacticErrors: false
-          });
 
         const loadersConfigs = [{
             test: /\.vue$/, // vue
@@ -28,8 +31,7 @@ build.configureWebpack.mergeConfig({
             }
         }, {
             resourceQuery: /vue&type=style.*&lang=scss/, // scss
-            use: [
-                {
+            use: [{
                     loader: require.resolve('@microsoft/loader-load-themed-styles'),
                     options: {
                         async: true
@@ -42,38 +44,20 @@ build.configureWebpack.mergeConfig({
                         localIdentName: '[local]_[sha1:hash:hex:8]'
                     }
                 },
-                'sass-loader']
-        }, {
-            resourceQuery: /vue&type=style.*&lang=sass/, // sass
-            use: [
-                {
-                    loader: require.resolve('@microsoft/loader-load-themed-styles'),
-                    options: {
-                        async: true
-                    }
-                },
-                {
-                    loader: 'css-loader',
-                    options: {
-                        modules: true,
-                        localIdentName: '[local]_[sha1:hash:hex:8]'
-                    }
-                },
-            'sass-loader?indentedSyntax']  
+                'sass-loader'
+            ]
         }];
 
-        generatedConfiguration.plugins.push(vuePlugin, forkTsPlugin);
+        generatedConfiguration.plugins.push(vuePlugin);
+        <% if (tslint) { %>
+        generatedConfiguration.plugins.push(forkTsPlugin);
+        <% } %>
         generatedConfiguration.module.rules.push(...loadersConfigs);
 
         return generatedConfiguration;
 
     }
-});
 
-let copyVueFiles = build.subTask('copy-vue-files', function (gulp, buildOptions, done) {
-    gulp.src(['src/**/*.vue'])
-        .pipe(gulp.dest(buildOptions.libFolder));
-    done();
 });
 
 // marker to check if custom watch is already registered
@@ -99,5 +83,4 @@ let watchVueFiles = build.subTask('watch-vue-files', function (gulp, buildOption
     done();
 });
 
-build.rig.addPostTypescriptTask(copyVueFiles);
 build.rig.addPreBuildTask(watchVueFiles);
