@@ -30,7 +30,7 @@ This extension supports additional client-side libraries such as PnPjs or jQuery
 | Framework | Version | Documentation |
 |:--|:--|:--|
 | [Handlebars](http://handlebarsjs.com) | > 4.0.0 | Get started |
-| [VueJS](https://vuejs.org) | TBD | Get started |
+| [VueJS](https://vuejs.org) | >2.5.16 | Get started |
 | [Angular Elements](https://angular.io/guide/elements) | planned |  Get started |
 
 ## Installation

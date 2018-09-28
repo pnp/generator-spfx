@@ -6,11 +6,12 @@ import {
 } from '@microsoft/sp-webpart-base';
 import { escape } from '@microsoft/sp-lodash-subset';
 
-import styles from './<%= componentClassName %>.module.scss';
 import * as strings from '<%= componentStrings %>';
 
-import * as Handlebars from 'handlebars';
-
+// Importing Vue.js
+import Vue from 'vue';
+// Improting Vue.js SFC
+import <%= componentName %>Component from './components/<%= componentName %>.vue';
 
 export interface I<%= componentClassName %>Props {
   description: string;
@@ -19,17 +20,17 @@ export interface I<%= componentClassName %>Props {
 export default class <%= componentClassName %> extends BaseClientSideWebPart<I<%= componentClassName %>Props> {
 
   public render(): void {
+    const id: string = `wp-${this.instanceId}`;
+    this.domElement.innerHTML = `<div id="${id}"></div>`;
 
-    // load and precompile template
-    var <%= componentClassName %>Template =  <HandlebarsTemplateDelegate>require('./components/<%= componentClassName %>.hbs');
-
-    var data = {
-      styles: styles,
-      description: this.properties.description
-    };
-
-    this.domElement.innerHTML = <%= componentClassName %>Template(data);
-
+    let el = new Vue({
+      el: `#${id}`,
+      render: h => h(<%= componentName %>Component, {
+        props: {
+          description: this.properties.description
+        }
+      })
+    });
   }
 
   protected get dataVersion(): Version {

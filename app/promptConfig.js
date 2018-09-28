@@ -8,6 +8,10 @@ const supportedFrameworks = [{
         name: 'Handlebars',
         value: 'handlebars'
     },
+    {
+        name: 'Vue.js',
+        value: 'vuejs'
+    },
     new inquirer.Separator(
         fgYellow('Default SPFx')
     ),
@@ -38,6 +42,10 @@ let configOptions = [
 // Add configuration of Addon generator
 const addon = require('../generators/addons/promptConfig');
 configOptions = configOptions.concat(addon);
+
+// Add configuration of Addon generator
+const vuejs = require('../generators/vuejs/promptConfig');
+configOptions = configOptions.concat(vuejs);
 
 const promptConfig = {
     config: configOptions

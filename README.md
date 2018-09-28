@@ -27,7 +27,7 @@ The following frameworks are supported:
 | Framework | Version |
 |:--|:--|
 | [Handlebars](http://handlebarsjs.com) | > 4.0.0 |
-| [VueJS](https://vuejs.org) | planned |
+| [VueJS](https://vuejs.org) | > 2.5.16 |
 | [Angular Elements](https://angular.io/guide/elements) | tbd |
 
 
