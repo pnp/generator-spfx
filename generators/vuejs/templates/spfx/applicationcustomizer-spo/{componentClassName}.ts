@@ -7,7 +7,8 @@ import { Dialog } from '@microsoft/sp-dialog';
 
 import * as strings from '<%= componentStrings %>';
 
-import * as Handlebars from 'handlebars';
+// Importing Vue.js
+import Vue from 'vue';
 
 const LOG_SOURCE: string = '<%= componentClassName %>';
 
@@ -27,23 +28,14 @@ export default class <%= componentClassName %>
 
   @override
   public onInit(): Promise<void> {
-
     Log.info(LOG_SOURCE, `Initialized ${strings.Title}`);
 
-    let <%= componentClassName %>Template =  <HandlebarsTemplateDelegate>require('./components/<%= componentClassName %>Template.hbs');
-
     let message: string = this.properties.testMessage;
-
     if (!message) {
       message = '(No properties were provided.)';
     }
 
-    let content = {
-      title: strings.Title,
-      message: message
-    };
-
-    Dialog.alert(<%= componentClassName %>Template(content));
+    Dialog.alert(`Hello from ${strings.Title}:\n\n${message}`);
 
     return Promise.resolve();
   }

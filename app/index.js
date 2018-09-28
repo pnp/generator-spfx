@@ -46,13 +46,13 @@ module.exports = class extends Generator {
             this.options.pnpFramework = this.config.get('pnpFramework');
 
             // writes previous framework and pnpFramework names to telemetry
-            telemetry.trackReRun(this.config.get('pnpFramework'));
+            telemetry.trackEvent('Component', this.config.get('pnpFramework'));
 
             this._configGenerators(this.options);
 
         } else {
 
-            if(this.fs.exists(this.destinationPath('package.json'))){
+            if (this.fs.exists(this.destinationPath('package.json'))) {
                 this.log('Currently it is not supported to run the generator @pnp/spfx on project originally created with @microsoft/sharepoint project');
                 process.exit(1);
             }
@@ -61,17 +61,19 @@ module.exports = class extends Generator {
             this.prompt(prompting.config)
                 .then(answers => {
 
-                    // track yeaman configuration options
-                    telemetry.trackEvent(answers);
-
                     // Choose appro
                     this.options.SpfxOptions['framework'] = this._evalSPFxGenerator(answers.framework);
                     this.options.pnpFramework = answers.framework;
 
+                    // check if test lint was selected in any of the generators
+                    this.options.tsLint = answers.tsLint ? answers.tsLint : false;
+
+                    // generate addon configuration
                     this.options.libraries = this._evalAddons(
                         answers
                     );
 
+                    // set choosen spfx frameworke
                     this.options.SPFxFramework = answers.framework;
 
                     // save configuration of first selection
@@ -79,9 +81,11 @@ module.exports = class extends Generator {
                     this.config.set('pnpFramework', this.options.pnpFramework);
                     this.config.save();
 
+                    // track yeaman configuration options
+                    telemetry.trackEvent('Scaffold', this.options.SpfxOptions);
+
+
                     this._configGenerators(this.options);
-
-
 
                 });
 
@@ -232,7 +236,7 @@ module.exports = class extends Generator {
 
         this.option('extension-type', {
             description: `The type of extension:
-                                        - "ApplicationCustomizer", 
+                                        - "ApplicationCustomizer",
                                         - "FieldCustomizer"
                                         - "ListViewCommandSet"`,
             type: String
@@ -254,7 +258,7 @@ module.exports = class extends Generator {
 
         this.option('skip-feature-deployment', {
             description: `If specified, allow the tenant admin the choice of being able
-                                      to deploy the components to all sites immediately without running any 
+                                      to deploy the components to all sites immediately without running any
                                       feature deployment or adding apps in sites`,
             type: String
         });
@@ -297,7 +301,7 @@ module.exports = class extends Generator {
             this.options.SpfxOptions['extension-type'] = this.options['extension-type'];
         }
 
-        // alweays skip install
+        // always skip install
         this.options.SpfxOptions['skip-install'] = true;
 
         if (this.options['p'] === true && this.options['m'] !== undefined) {
@@ -307,6 +311,12 @@ module.exports = class extends Generator {
 
         if (this.options['package-manager'] !== undefined) {
             this.options.SpfxOptions['package-manager'] = this.options['package-manager'];
+        }
+
+        if (this.options['test-run'] !== undefined) {
+            this.options.SpfxOptions['testrun'] = true;
+        } else {
+            this.options.SpfxOptions['testrun'] = false;
         }
 
     }
