@@ -15,17 +15,16 @@ const userWebPartConfig = {
     componentDescription: 'HelloWorld',
     componentName: 'helloworld',
     solutionName: 'HelloWorld2',
-    environment: 'spo',
-    testRun: true
+    environment: 'onprem',
 };
 
 let yorcFile = path.join(localTempDir, '.yo-rc.json'),
     packageFile = path.join(localTempDir, 'package.json');
 
-describe('React Test: SPO', () => {
+describe('Vuejs Test: On Premises', () => {
 
     const baseSettings = {
-        framework: 'react',
+        framework: 'vuejs',
     }
 
     const testGenerator = (testConfig, webPartConfig) => {
@@ -54,7 +53,7 @@ describe('React Test: SPO', () => {
 
     };
 
-    describe('React + JQuery 2.x', () => {
+    describe('Vuejs + JQuery 2.x', () => {
 
         const userTestConfig = Object.assign({}, baseSettings, {
             jsLibrary: ['jquery'],
@@ -87,9 +86,9 @@ describe('React Test: SPO', () => {
 
         })
 
-        it('No Environment === SPO', () => {
+        it('No Environment === onprem', () => {
 
-            assert.fileContent(yorcFile, /\"environment\": \"spo\",/);
+            assert.fileContent(yorcFile, /\"environment\": \"onprem\"/);
 
         });
 
@@ -105,21 +104,39 @@ describe('React Test: SPO', () => {
 
         })
 
-        it('ReactJS', () => {
+        it('no ReactJS', () => {
 
-            assert.fileContent(packageFile, /react/);
+            assert.noFileContent(packageFile, /react/);
 
         })
 
-        it('ReactJS Dom', () => {
+        it('no ReactJS Dom', () => {
 
-            assert.fileContent(packageFile, /react-dom/);
+            assert.noFileContent(packageFile, /react-dom/);
 
         })
 
         it('no knockout', () => {
 
             assert.noFileContent(packageFile, /knockout/);
+
+        })
+
+        it('Vue.js Base', () => {
+
+            assert.fileContent(packageFile, /vue/);
+
+        })
+
+        it('Vue.js class component', () => {
+
+            assert.fileContent(packageFile, /vue-class-component/);
+
+        })
+
+        it('Vue.js property decorator', () => {
+
+            assert.fileContent(packageFile, /vue-class-component/);
 
         })
 
@@ -137,7 +154,7 @@ describe('React Test: SPO', () => {
 
     });
 
-    describe('React + jquery 3.x', () => {
+    describe('Vuejs + jquery 3.x', () => {
 
         const userTestConfig = Object.assign({}, baseSettings, {
             jsLibrary: ['jquery'],
@@ -170,9 +187,9 @@ describe('React Test: SPO', () => {
 
         })
 
-        it('No Environment === SPO', () => {
+        it('No Environment === onprem', () => {
 
-            assert.fileContent(yorcFile, /\"environment\": \"spo\",/);
+            assert.fileContent(yorcFile, /\"environment\": \"onprem\"/);
 
         });
 
@@ -188,21 +205,39 @@ describe('React Test: SPO', () => {
 
         })
 
-        it('ReactJS', () => {
+        it('no ReactJS', () => {
 
-            assert.fileContent(packageFile, /react/);
+            assert.noFileContent(packageFile, /react/);
 
         })
 
-        it('ReactJS Dom', () => {
+        it('no ReactJS Dom', () => {
 
-            assert.fileContent(packageFile, /react-dom/);
+            assert.noFileContent(packageFile, /react-dom/);
 
         })
 
         it('no knockout', () => {
 
             assert.noFileContent(packageFile, /knockout/);
+
+        })
+
+        it('Vue.js Base', () => {
+
+            assert.fileContent(packageFile, /vue/);
+
+        })
+
+        it('Vue.js class component', () => {
+
+            assert.fileContent(packageFile, /vue-class-component/);
+
+        })
+
+        it('Vue.js property decorator', () => {
+
+            assert.fileContent(packageFile, /vue-class-component/);
 
         })
 
@@ -220,7 +255,7 @@ describe('React Test: SPO', () => {
 
     });
 
-    describe('React + pnpjs', () => {
+    describe('Vuejs + pnpjs', () => {
 
         const userTestConfig = Object.assign({}, baseSettings, {
             jsLibrary: ['@pnp/pnpjs'],
@@ -250,9 +285,9 @@ describe('React Test: SPO', () => {
 
         })
 
-        it('No Environment === SPO', () => {
+        it('No Environment === onprem', () => {
 
-            assert.fileContent(yorcFile, /\"environment\": \"spo\",/);
+            assert.fileContent(yorcFile, /\"environment\": \"onprem\"/);
 
         });
 
@@ -270,19 +305,37 @@ describe('React Test: SPO', () => {
 
         it('ReactJS', () => {
 
-            assert.fileContent(packageFile, /react/);
+            assert.noFileContent(packageFile, /react/);
 
         })
 
         it('ReactJS Dom', () => {
 
-            assert.fileContent(packageFile, /react-dom/);
+            assert.noFileContent(packageFile, /react-dom/);
 
         })
 
         it('no knockout', () => {
 
             assert.noFileContent(packageFile, /knockout/);
+
+        })
+
+        it('Vue.js Base', () => {
+
+            assert.fileContent(packageFile, /vue/);
+
+        })
+
+        it('Vue.js class component', () => {
+
+            assert.fileContent(packageFile, /vue-class-component/);
+
+        })
+
+        it('Vue.js property decorator', () => {
+
+            assert.fileContent(packageFile, /vue-class-component/);
 
         })
 
@@ -300,7 +353,7 @@ describe('React Test: SPO', () => {
 
     });
 
-    describe('React + jquery 2.x + pnpjs', () => {
+    describe('Vuejs + jquery 2.x + pnpjs', () => {
 
         const userTestConfig = Object.assign({}, baseSettings, {
             jsLibrary: ['jquery', '@pnp/pnpjs'],
@@ -335,9 +388,9 @@ describe('React Test: SPO', () => {
             rimraf.sync(localTempDirDelete);
         });
 
-        it('No Environment === SPO', () => {
+        it('No Environment === onprem', () => {
 
-            assert.fileContent(yorcFile, /\"environment\": \"spo\",/);
+            assert.fileContent(yorcFile, /\"environment\": \"onprem\"/);
 
         });
 
@@ -355,19 +408,37 @@ describe('React Test: SPO', () => {
 
         it('ReactJS', () => {
 
-            assert.fileContent(packageFile, /react/);
+            assert.noFileContent(packageFile, /react/);
 
         })
 
         it('ReactJS Dom', () => {
 
-            assert.fileContent(packageFile, /react-dom/);
+            assert.noFileContent(packageFile, /react-dom/);
 
         })
 
         it('no knockout', () => {
 
             assert.noFileContent(packageFile, /knockout/);
+
+        })
+
+        it('Vue.js Base', () => {
+
+            assert.fileContent(packageFile, /vue/);
+
+        })
+
+        it('Vue.js class component', () => {
+
+            assert.fileContent(packageFile, /vue-class-component/);
+
+        })
+
+        it('Vue.js property decorator', () => {
+
+            assert.fileContent(packageFile, /vue-class-component/);
 
         })
 
@@ -385,7 +456,7 @@ describe('React Test: SPO', () => {
 
     });
 
-    describe('React + jquery 3.x + pnpjs', () => {
+    describe('Vuejs + jquery 3.x + pnpjs', () => {
 
         const userTestConfig = Object.assign({}, baseSettings, {
             jsLibrary: ['jquery', '@pnp/pnpjs'],
@@ -417,9 +488,9 @@ describe('React Test: SPO', () => {
 
         })
 
-        it('No Environment === SPO', () => {
+        it('No Environment === onprem', () => {
 
-            assert.fileContent(yorcFile, /\"environment\": \"spo\",/);
+            assert.fileContent(yorcFile, /\"environment\": \"onprem\"/);
 
         });
 
@@ -437,19 +508,37 @@ describe('React Test: SPO', () => {
 
         it('ReactJS', () => {
 
-            assert.fileContent(packageFile, /react/);
+            assert.noFileContent(packageFile, /react/);
 
         })
 
         it('ReactJS Dom', () => {
 
-            assert.fileContent(packageFile, /react-dom/);
+            assert.noFileContent(packageFile, /react-dom/);
 
         })
 
         it('no knockout', () => {
 
             assert.noFileContent(packageFile, /knockout/);
+
+        })
+
+        it('Vue.js Base', () => {
+
+            assert.fileContent(packageFile, /vue/);
+
+        })
+
+        it('Vue.js class component', () => {
+
+            assert.fileContent(packageFile, /vue-class-component/);
+
+        })
+
+        it('Vue.js property decorator', () => {
+
+            assert.fileContent(packageFile, /vue-class-component/);
 
         })
 

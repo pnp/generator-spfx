@@ -16,6 +16,7 @@ const userWebPartConfig = {
     componentName: 'helloworld',
     solutionName: 'HelloWorld2',
     environment: 'onprem',
+    testRun: true
 };
 
 let yorcFile = path.join(localTempDir, '.yo-rc.json'),

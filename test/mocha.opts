@@ -2,4 +2,5 @@
 ### mocha.opts
 ###
 
---timeout 3000
+--ui bdd
+--timeout 5000
