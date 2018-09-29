@@ -3,19 +3,23 @@
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const vuePlugin = new VueLoaderPlugin();
 
-<% if (tslint) { %>
-const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
-const forkTsPlugin = new ForkTsCheckerWebpackPlugin({
-    vue: true,
-    tslint: true,
-    formatter: 'codeframe',
-    checkSyntacticErrors: false
-});
-<% } %>
-
 build.configureWebpack.mergeConfig({
 
     additionalConfiguration: (generatedConfiguration) => {
+
+        //
+        // check if we're currently building PROD version.
+        // in that case we need to add transpileOnly = true to ts-loader options
+        // and load forkTsPlugin
+        //
+        const isProd = build.getConfig().production;
+
+        const tsLoaderOptions = {
+            appendTsSuffixTo: [/\.vue$/]
+        };
+        if (isProd) {
+            tsLoaderOptions.transpileOnly = true;
+        }
 
         const loadersConfigs = [{
             test: /\.vue$/, // vue
@@ -25,33 +29,39 @@ build.configureWebpack.mergeConfig({
         }, {
             resourceQuery: /vue&type=script&lang=ts/, // typescript
             loader: 'ts-loader',
-            options: {
-                appendTsSuffixTo: [/\.vue$/],
-                transpileOnly: true
-            }
+            options: tsLoaderOptions
         }, {
             resourceQuery: /vue&type=style.*&lang=scss/, // scss
             use: [{
-                    loader: require.resolve('@microsoft/loader-load-themed-styles'),
-                    options: {
-                        async: true
-                    }
-                },
-                {
-                    loader: 'css-loader',
-                    options: {
-                        modules: true,
-                        localIdentName: '[local]_[sha1:hash:hex:8]'
-                    }
-                },
+                loader: require.resolve('@microsoft/loader-load-themed-styles'),
+                options: {
+                    async: true
+                }
+            },
+            {
+                loader: 'css-loader',
+                options: {
+                    modules: true,
+                    localIdentName: '[local]_[sha1:hash:hex:8]'
+                }
+            },
                 'sass-loader'
             ]
         }];
 
         generatedConfiguration.plugins.push(vuePlugin);
-        <% if (tslint) { %>
-        generatedConfiguration.plugins.push(forkTsPlugin);
-        <% } %>
+
+        if (isProd) {
+            const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+            const forkTsPlugin = new ForkTsCheckerWebpackPlugin({
+                vue: true,
+                tslint: true,
+                formatter: 'codeframe',
+                checkSyntacticErrors: false
+            });
+            generatedConfiguration.plugins.push(forkTsPlugin);
+        }
+        
         generatedConfiguration.module.rules.push(...loadersConfigs);
 
         return generatedConfiguration;
