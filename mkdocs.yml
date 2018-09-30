@@ -11,6 +11,7 @@ nav:
     - Run Install: 'recipes/run-install.md'
     - Deploy Custom Code: 'recipes/deploy-custom-code.md'
   - FAQ : 'faq.md'
+  - Release Notes: 'release-notes.md'
   - Known Issues: 'known-issues.md'
   - Contribution Guidelines: 'contribution-guidelines.md'
   - License: 'license.md'
