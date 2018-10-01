@@ -261,8 +261,11 @@ module.exports = class extends Generator {
 
 
             try {
+                let additionalOptions = {
+                    tslint: this.options.tsLint
+                }
 
-                util.composeGulpFile(coreGulpTemplate, customGulpTemplate, targetGulpFile);
+                util.composeGulpFile(coreGulpTemplate, customGulpTemplate, targetGulpFile, additionalOptions);
 
             } catch (error) {
 

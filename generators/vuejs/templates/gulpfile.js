@@ -3,23 +3,25 @@
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const vuePlugin = new VueLoaderPlugin();
 
+//
+// we need the plugin for semantic and syntactical (optional) check
+//
+<% if (tslint) { %> 
+const tslint = true; // if a user selected "Extended tslint" configuration for the project
+<% } else { %>
+const tslint = false;
+<% } %>
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+const forkTsPlugin = new ForkTsCheckerWebpackPlugin({
+    vue: true,
+    tslint: tslint,
+    formatter: 'codeframe',
+    checkSyntacticErrors: false
+});
+
 build.configureWebpack.mergeConfig({
 
     additionalConfiguration: (generatedConfiguration) => {
-
-        //
-        // check if we're currently building PROD version.
-        // in that case we need to add transpileOnly = true to ts-loader options
-        // and load forkTsPlugin
-        //
-        const isProd = build.getConfig().production;
-
-        const tsLoaderOptions = {
-            appendTsSuffixTo: [/\.vue$/]
-        };
-        if (isProd) {
-            tsLoaderOptions.transpileOnly = true;
-        }
 
         const loadersConfigs = [{
             test: /\.vue$/, // vue
@@ -29,7 +31,10 @@ build.configureWebpack.mergeConfig({
         }, {
             resourceQuery: /vue&type=script&lang=ts/, // typescript
             loader: 'ts-loader',
-            options: tsLoaderOptions
+            options: {
+                appendTsSuffixTo: [/\.vue$/],
+                transpileOnly: true
+            }
         }, {
             resourceQuery: /vue&type=style.*&lang=scss/, // scss
             use: [{
@@ -50,18 +55,8 @@ build.configureWebpack.mergeConfig({
         }];
 
         generatedConfiguration.plugins.push(vuePlugin);
+        generatedConfiguration.plugins.push(forkTsPlugin);
 
-        if (isProd) {
-            const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
-            const forkTsPlugin = new ForkTsCheckerWebpackPlugin({
-                vue: true,
-                tslint: true,
-                formatter: 'codeframe',
-                checkSyntacticErrors: false
-            });
-            generatedConfiguration.plugins.push(forkTsPlugin);
-        }
-        
         generatedConfiguration.module.rules.push(...loadersConfigs);
 
         return generatedConfiguration;

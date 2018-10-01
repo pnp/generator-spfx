@@ -43,6 +43,10 @@ let configOptions = [
 const addon = require('../generators/addons/promptConfig');
 configOptions = configOptions.concat(addon);
 
+// Add configuration of Addon generator
+const vuejs = require('../generators/vuejs/promptConfig');
+configOptions = configOptions.concat(vuejs);
+
 const promptConfig = {
     config: configOptions
 }
