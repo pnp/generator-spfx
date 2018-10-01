@@ -3,15 +3,21 @@
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const vuePlugin = new VueLoaderPlugin();
 
-<% if (tslint) { %>
+//
+// we need the plugin for semantic and syntactical (optional) check
+//
+<% if (tslint) { %> 
+const tslint = true; // if a user selected "Extended tslint" configuration for the project
+<% } else { %>
+const tslint = false;
+<% } %>
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const forkTsPlugin = new ForkTsCheckerWebpackPlugin({
     vue: true,
-    tslint: true,
+    tslint: tslint,
     formatter: 'codeframe',
     checkSyntacticErrors: false
 });
-<% } %>
 
 build.configureWebpack.mergeConfig({
 
@@ -32,26 +38,25 @@ build.configureWebpack.mergeConfig({
         }, {
             resourceQuery: /vue&type=style.*&lang=scss/, // scss
             use: [{
-                    loader: require.resolve('@microsoft/loader-load-themed-styles'),
-                    options: {
-                        async: true
-                    }
-                },
-                {
-                    loader: 'css-loader',
-                    options: {
-                        modules: true,
-                        localIdentName: '[local]_[sha1:hash:hex:8]'
-                    }
-                },
+                loader: require.resolve('@microsoft/loader-load-themed-styles'),
+                options: {
+                    async: true
+                }
+            },
+            {
+                loader: 'css-loader',
+                options: {
+                    modules: true,
+                    localIdentName: '[local]_[sha1:hash:hex:8]'
+                }
+            },
                 'sass-loader'
             ]
         }];
 
         generatedConfiguration.plugins.push(vuePlugin);
-        <% if (tslint) { %>
         generatedConfiguration.plugins.push(forkTsPlugin);
-        <% } %>
+
         generatedConfiguration.module.rules.push(...loadersConfigs);
 
         return generatedConfiguration;

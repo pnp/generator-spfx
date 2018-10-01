@@ -4,7 +4,7 @@
 const configOptions = [
     {
         type: 'confirm',
-        message: 'TSLint extended (slower):',
+        message: 'TSLint extended (slower, use TSLint syntactic check in Vue.js files):',
         name: 'tsLint',
         default: false,
         when: answers => answers.framework && answers.framework === 'vuejs'

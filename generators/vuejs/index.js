@@ -261,7 +261,6 @@ module.exports = class extends Generator {
 
 
             try {
-
                 let additionalOptions = {
                     tslint: this.options.tsLint
                 }
