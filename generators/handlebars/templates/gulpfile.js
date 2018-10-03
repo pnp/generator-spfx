@@ -29,10 +29,6 @@ let hbsWatch = build.subTask('hbsWatch', (gulp, buildOptions, done) => {
     // on change of *.hbs files
     gulp.watch('./src/**/*.hbs', event => {
 
-      // copy hbs from src to lib
-      gulp.src('./src/**/*.hbs')
-        .pipe(gulp.dest('./lib/'));
-
       // copy empty index.ts onto itself to launch build procees
       gulp.src('./src/index.ts')
         .pipe(gulp.dest('./src/'));

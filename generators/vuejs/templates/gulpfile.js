@@ -2,37 +2,39 @@
 
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const vuePlugin = new VueLoaderPlugin();
+const themedStyleLoader = require.resolve('@microsoft/loader-load-themed-styles');
 
 <% if (tslint) { %>
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
-const forkTsPlugin = new ForkTsCheckerWebpackPlugin({
-    vue: true,
-    tslint: true,
-    formatter: 'codeframe',
-    checkSyntacticErrors: false
-});
+    const forkTsPlugin = new ForkTsCheckerWebpackPlugin({
+        vue: true,
+        tslint: true,
+        formatter: 'codeframe',
+        checkSyntacticErrors: false,
+        watch: '/src/**/*.vue'
+    });
 <% } %>
 
-build.configureWebpack.mergeConfig({
+    build.configureWebpack.mergeConfig({
 
-    additionalConfiguration: (generatedConfiguration) => {
+        additionalConfiguration: (generatedConfiguration) => {
 
-        const loadersConfigs = [{
-            test: /\.vue$/, // vue
-            use: [{
-                loader: 'vue-loader'
-            }]
-        }, {
-            resourceQuery: /vue&type=script&lang=ts/, // typescript
-            loader: 'ts-loader',
-            options: {
-                appendTsSuffixTo: [/\.vue$/],
-                transpileOnly: true
-            }
-        }, {
-            resourceQuery: /vue&type=style.*&lang=scss/, // scss
-            use: [{
-                    loader: require.resolve('@microsoft/loader-load-themed-styles'),
+            const loadersConfigs = [{
+                test: /\.vue$/, // vue
+                use: [{
+                    loader: 'vue-loader'
+                }]
+            }, {
+                resourceQuery: /vue&type=script&lang=ts/, // typescript
+                loader: 'ts-loader',
+                options: {
+                    appendTsSuffixTo: [/\.vue$/],
+                    transpileOnly: true
+                }
+            }, {
+                resourceQuery: /vue&type=style.*&lang=scss/, // scss
+                use: [{
+                    loader: themedStyleLoader,
                     options: {
                         async: true
                     }
@@ -44,21 +46,21 @@ build.configureWebpack.mergeConfig({
                         localIdentName: '[local]_[sha1:hash:hex:8]'
                     }
                 },
-                'sass-loader'
-            ]
-        }];
+                    'sass-loader'
+                ]
+            }];
 
-        generatedConfiguration.plugins.push(vuePlugin);
+            generatedConfiguration.plugins.push(vuePlugin);
         <% if (tslint) { %>
-        generatedConfiguration.plugins.push(forkTsPlugin);
+                generatedConfiguration.plugins.push(forkTsPlugin);
         <% } %>
-        generatedConfiguration.module.rules.push(...loadersConfigs);
+                generatedConfiguration.module.rules.push(...loadersConfigs);
 
-        return generatedConfiguration;
+            return generatedConfiguration;
 
-    }
+        }
 
-});
+    });
 
 // marker to check if custom watch is already registered
 // used to prevent watch bubbling
