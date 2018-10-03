@@ -29,7 +29,7 @@ module.exports = class extends Generator {
     initializing() {
 
         this.pkg = require('../package.json');
-        pnpSays(this);
+        this.options.goodToGo = pnpSays(this);
 
     }
 
@@ -52,11 +52,9 @@ module.exports = class extends Generator {
 
         } else {
 
-            if (this.fs.exists(this.destinationPath('package.json'))) {
-                this.log('Currently it is not supported to run the generator @pnp/spfx on project originally created with @microsoft/sharepoint project');
+            if (!this.options.goodToGo) {
                 process.exit(1);
             }
-
 
             this.prompt(prompting.config)
                 .then(answers => {
