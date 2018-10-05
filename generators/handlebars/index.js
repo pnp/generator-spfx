@@ -34,6 +34,7 @@ module.exports = class extends Generator {
     writing() {}
 
     install() {
+
         // deployes additional files to the project directory
         this._deployFiles();
         // add external to the configuration
@@ -52,7 +53,6 @@ module.exports = class extends Generator {
     // Run installer normally time to say goodbye
     // If yarn is installed yarn will be used
     end() {
-
     }
 
     _deployFiles() {
@@ -152,7 +152,6 @@ module.exports = class extends Generator {
             }
 
         }
-
     }
 
     _injectToGulpFile() {
@@ -176,7 +175,6 @@ module.exports = class extends Generator {
             }
 
         }
-
     }
 
 }

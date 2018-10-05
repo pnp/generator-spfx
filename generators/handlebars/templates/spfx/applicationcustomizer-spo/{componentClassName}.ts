@@ -27,10 +27,10 @@ export default class <%= componentClassName %>
 
   @override
   public onInit(): Promise<void> {
-    
+
     Log.info(LOG_SOURCE, `Initialized ${strings.Title}`);
 
-    let <%= componentClassName %>Template =  <HandlebarsTemplateDelegate>require('./hbsComponent/<%= componentClassName %>Template.hbs');
+    let <%= componentClassName %>Template =  <HandlebarsTemplateDelegate>require('./components/<%= componentClassName %>Template.hbs');
 
     let message: string = this.properties.testMessage;
 

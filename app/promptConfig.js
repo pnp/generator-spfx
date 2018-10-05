@@ -13,6 +13,10 @@ const supportedFrameworks = [
         value: 'handlebars'
     },
     {
+        name: 'Vue.js',
+        value: 'vuejs'
+    },
+    {
         name: 'Angular Elements (experimental)',
         value: 'angularelements'
     },
@@ -54,6 +58,10 @@ configOptions = configOptions.concat(addon,
         default: _.kebabCase(path.basename(process.cwd()))
     }
 );
+
+// Add configuration of Addon generator
+const vuejs = require('../generators/vuejs/promptConfig');
+configOptions = configOptions.concat(vuejs);
 
 const promptConfig = {
     config: configOptions

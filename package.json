@@ -1,6 +1,6 @@
 {
   "name": "@pnp/generator-spfx",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "",
   "author": {
     "name": "Office 365 / SharePoint PnP Core Team",
@@ -37,10 +37,23 @@
       "name": "Chris Kent",
       "email": "ihatetimemachines@gmail.com",
       "url": "https://thechriskent.com/"
+    },
+    {
+      "name": "Alex Terentiev",
+      "url": "https://github.com/AJIXuMuK"
+    },
+    {
+      "name": "Sergei Sergeev",
+      "url": "https://github.com/s-KaiNet"
+    },
+    {
+      "name": "Paweł Hawrylak",
+      "url": "https://github.com/phawrylak"
     }
   ],
   "dependencies": {
-    "@microsoft/generator-sharepoint": "^1.6.0",
+    "@microsoft/generator-sharepoint": "1.6.0",
+    "applicationinsights": "^1.0.4",
     "chalk": "^2.4.1",
     "command-exists": "^1.2.7",
     "escodegen": "^1.11.0",
@@ -56,11 +69,13 @@
     "yeoman-test": "~1.9.1"
   },
   "scripts": {
-    "test-onprem": "mocha ./test/onprem.handlebars.test.js && mocha ./test/onprem.knockout.test.js && mocha ./test/onprem.react.test.js",
-    "test-spo": "mocha ./test/spo.handlebars.test.js && mocha ./test/spo.knockout.test.js && mocha ./test/spo.react.test.js",
+    "test-onprem": "mocha ./test/onprem.handlebars.test.js && mocha ./test/onprem.knockout.test.js && mocha ./test/onprem.react.test.js && mocha ./test/onprem.vuejs.test.js",
+    "test-spo": "mocha ./test/spo.handlebars.test.js && mocha ./test/spo.knockout.test.js && mocha ./test/spo.react.test.js && mocha ./test/spo.vuejs.test.js",
     "test-handlebars": "mocha ./test/onprem.handlebars.test.js && mocha ./test/spo.handlebars.test.js",
     "test-react": "mocha ./test/onprem.react.test.js && mocha ./test/spo.react.test.js",
     "test-knockout": "mocha ./test/onprem.knockout.test.js && mocha ./test/spo.knockout.test.js",
-    "test": "mocha ./test/onprem.handlebars.test.js && mocha ./test/onprem.knockout.test.js && mocha ./test/onprem.react.test.js && mocha ./test/spo.handlebars.test.js && mocha ./test/spo.knockout.test.js && mocha ./test/spo.react.test.js"
+    "test-vuejs": "mocha ./test/onprem.handlebars.test.js && mocha ./test/onprem.knockout.test.js && mocha ./test/onprem.react.test.js && mocha ./test/onprem.vuejs.test.js && mocha ./test/spo.handlebars.test.js && mocha ./test/spo.knockout.test.js && mocha ./test/spo.react.test.js && mocha ./test/spo.vuejs.test.js",
+    "test": "mocha ./test/onprem.handlebars.test.js && mocha ./test/onprem.knockout.test.js && mocha ./test/onprem.react.test.js && mocha ./test/onprem.vuejs.test.js && mocha ./test/spo.handlebars.test.js && mocha ./test/spo.knockout.test.js && mocha ./test/spo.react.test.js && mocha ./test/spo.vuejs.test.js",
+    "postinstall": "node lib/patch.js"
   }
 }

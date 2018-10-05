@@ -9,6 +9,8 @@ const prompting = require('./promptConfig');
 const pnpSays = require('../lib/pnpsays');
 // Import utilities
 const util = require('../lib/util');
+// Telemetry import
+const telemetry = require('../lib/telemetry');
 
 module.exports = class extends Generator {
 
@@ -27,7 +29,6 @@ module.exports = class extends Generator {
     initializing() {
 
         this.pkg = require('../package.json');
-
         pnpSays(this);
 
     }
@@ -43,9 +44,19 @@ module.exports = class extends Generator {
             // add proper opptions in here
             this.options.SpfxOptions['framework'] = this.config.get('framework');
             this.options.pnpFramework = this.config.get('pnpFramework');
+
+            // writes previous framework and pnpFramework names to telemetry
+            telemetry.trackEvent('Component', this.config.get('pnpFramework'));
+
             this._configGenerators(this.options);
 
         } else {
+
+            if (this.fs.exists(this.destinationPath('package.json'))) {
+                this.log('Currently it is not supported to run the generator @pnp/spfx on project originally created with @microsoft/sharepoint project');
+                process.exit(1);
+            }
+
 
             this.prompt(prompting.config)
                 .then(answers => {
@@ -54,10 +65,15 @@ module.exports = class extends Generator {
                     this.options.SpfxOptions['framework'] = this._evalSPFxGenerator(answers.framework);
                     this.options.pnpFramework = answers.framework;
 
+                    // check if test lint was selected in any of the generators
+                    this.options.tsLint = answers.tsLint ? answers.tsLint : false;
+
+                    // generate addon configuration
                     this.options.libraries = this._evalAddons(
                         answers
                     );
 
+                    // set choosen spfx frameworke
                     this.options.SPFxFramework = answers.framework;
 
                     if (answers.solutionName) {
@@ -69,6 +85,9 @@ module.exports = class extends Generator {
                     this.config.set('framework', this.options.SpfxOptions['framework']);
                     this.config.set('pnpFramework', this.options.pnpFramework);
                     this.config.save();
+
+                    // track yeaman configuration options
+                    telemetry.trackEvent('Scaffold', this.options.SpfxOptions);
 
 
                     this._configGenerators(this.options);
@@ -107,12 +126,9 @@ module.exports = class extends Generator {
                     if (selections.jQueryVersion !== undefined) {
                         item = `${item}@${selections.jQueryVersion}`
                     }
-
                     break;
-
-
                 default:
-                    break
+                    break;
             }
 
             return item;
@@ -172,7 +188,7 @@ module.exports = class extends Generator {
         if (this.options.SpfxOptions.framework === "react" ||
             this.options.SpfxOptions.framework === "knockout") {
 
-                this.options.SpfxOptions['skip-install'] = false;
+            this.options.SpfxOptions['skip-install'] = false;
 
         }
 
@@ -290,7 +306,7 @@ module.exports = class extends Generator {
             this.options.SpfxOptions['extension-type'] = this.options['extension-type'];
         }
 
-        // alweays skip install
+        // always skip install
         this.options.SpfxOptions['skip-install'] = true;
 
         if (this.options['p'] === true && this.options['m'] !== undefined) {
@@ -300,6 +316,12 @@ module.exports = class extends Generator {
 
         if (this.options['package-manager'] !== undefined) {
             this.options.SpfxOptions['package-manager'] = this.options['package-manager'];
+        }
+
+        if (this.options['test-run'] !== undefined) {
+            this.options.SpfxOptions['testrun'] = true;
+        } else {
+            this.options.SpfxOptions['testrun'] = false;
         }
 
     }
