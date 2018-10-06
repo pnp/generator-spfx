@@ -16,7 +16,7 @@ export interface I<%= componentClassName %>Props {
 export default class <%= componentClassName %> extends BaseClientSideWebPart<I<%= componentClassName %>Props> {
 
   public render(): void {
-    this.domElement.innerHTML = `<<%= componentClassNameKebabCase %> message="${ this.properties.description }"></<%= componentClassNameKebabCase %>>`;
+    this.domElement.innerHTML = `<app-<%= componentClassNameKebabCase %> description="${ this.properties.description }"></app-<%= componentClassNameKebabCase %>>`;
   }
 
   protected get dataVersion(): Version {

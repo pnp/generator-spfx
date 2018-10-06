@@ -1,8 +1,5 @@
 const inquirer = require('inquirer');
 const chalk = require('chalk');
-const path = require('path');
-const process = require('process');
-const _ = require('lodash');
 
 const fgYellow = chalk.whiteBright.bold;
 
@@ -49,17 +46,11 @@ let configOptions = [
 
 // Add configuration of Addon generator
 const addon = require('../generators/addons/promptConfig');
-configOptions = configOptions.concat(addon,
-    {
-        type: 'input',
-        message: 'What is your solution name?',
-        name: 'solutionName',
-        when: (answers) => answers.framework === 'angularelements',
-        default: _.kebabCase(path.basename(process.cwd()))
-    }
-);
+configOptions = configOptions.concat(addon);
 
-// Add configuration of Addon generator
+const angularElements = require('../generators/angularelements/promptConfig');
+configOptions = configOptions.concat(angularElements);
+
 const vuejs = require('../generators/vuejs/promptConfig');
 configOptions = configOptions.concat(vuejs);
 

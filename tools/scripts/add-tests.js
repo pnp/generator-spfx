@@ -48,16 +48,21 @@ var knockoutTests = testFiles.filter(item => item.framework === 'knockout')
     .map(item => 'mocha ' + item.filepath)
     .join(' && ');
 
-var vuejsTests = testFiles.filter(item => item.framework = 'vuejs')
+var vuejsTests = testFiles.filter(item => item.framework === 'vuejs')
     .map(item => 'mocha ' + item.filepath)
     .join(' && ');
 
-console.log('On Prem Tests:  ', onPremTests);
-console.log('On SPO:         ', spoTests);
-console.log('Handlebars:     ', hbsTests);
-console.log('React:          ', reactTests);
-console.log('Knockout:       ', knockoutTests);
-console.log('VueJs:          ', vuejsTests);
+var angularElementsTests = testFiles.filter(item => item.framework === 'angularelements')
+    .map(item => 'mocha ' + item.filepath)
+    .join(' && ');
+
+console.log('On Prem Tests:   ', onPremTests);
+console.log('On SPO:          ', spoTests);
+console.log('Handlebars:      ', hbsTests);
+console.log('React:           ', reactTests);
+console.log('Knockout:        ', knockoutTests);
+console.log('VueJs:           ', vuejsTests);
+console.log('Angular Elements:', angularElementsTests);
 
 var scripts = {
     "test-onprem": onPremTests,
@@ -66,6 +71,7 @@ var scripts = {
     "test-react": reactTests,
     "test-knockout": knockoutTests,
     "test-vuejs": vuejsTests,
+    "test-angularelements": angularElementsTests,
     "test": onPremTests + " && " + spoTests,
     "postinstall": "node lib/patch.js"
 }

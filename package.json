@@ -58,6 +58,7 @@
     "command-exists": "^1.2.7",
     "escodegen": "^1.11.0",
     "esprima": "^4.0.1",
+    "glob": "^7.1.3",
     "lodash": "^4.17.11",
     "update-notifier": "^2.5.0",
     "yeoman-generator": "~3.1.1"
@@ -69,13 +70,14 @@
     "yeoman-test": "~1.9.1"
   },
   "scripts": {
-    "test-onprem": "mocha ./test/onprem.handlebars.test.js && mocha ./test/onprem.knockout.test.js && mocha ./test/onprem.react.test.js && mocha ./test/onprem.vuejs.test.js",
-    "test-spo": "mocha ./test/spo.handlebars.test.js && mocha ./test/spo.knockout.test.js && mocha ./test/spo.react.test.js && mocha ./test/spo.vuejs.test.js",
+    "test-onprem": "mocha ./test/onprem.angularelements.test.js && mocha ./test/onprem.handlebars.test.js && mocha ./test/onprem.knockout.test.js && mocha ./test/onprem.react.test.js && mocha ./test/onprem.vuejs.test.js",
+    "test-spo": "mocha ./test/spo.angularelements.test.js && mocha ./test/spo.handlebars.test.js && mocha ./test/spo.knockout.test.js && mocha ./test/spo.react.test.js && mocha ./test/spo.vuejs.test.js",
     "test-handlebars": "mocha ./test/onprem.handlebars.test.js && mocha ./test/spo.handlebars.test.js",
     "test-react": "mocha ./test/onprem.react.test.js && mocha ./test/spo.react.test.js",
     "test-knockout": "mocha ./test/onprem.knockout.test.js && mocha ./test/spo.knockout.test.js",
-    "test-vuejs": "mocha ./test/onprem.handlebars.test.js && mocha ./test/onprem.knockout.test.js && mocha ./test/onprem.react.test.js && mocha ./test/onprem.vuejs.test.js && mocha ./test/spo.handlebars.test.js && mocha ./test/spo.knockout.test.js && mocha ./test/spo.react.test.js && mocha ./test/spo.vuejs.test.js",
-    "test": "mocha ./test/onprem.handlebars.test.js && mocha ./test/onprem.knockout.test.js && mocha ./test/onprem.react.test.js && mocha ./test/onprem.vuejs.test.js && mocha ./test/spo.handlebars.test.js && mocha ./test/spo.knockout.test.js && mocha ./test/spo.react.test.js && mocha ./test/spo.vuejs.test.js",
+    "test-vuejs": "mocha ./test/onprem.vuejs.test.js && mocha ./test/spo.vuejs.test.js",
+    "test-angularelements": "mocha ./test/onprem.angularelements.test.js && mocha ./test/spo.angularelements.test.js",
+    "test": "mocha ./test/onprem.angularelements.test.js && mocha ./test/onprem.handlebars.test.js && mocha ./test/onprem.knockout.test.js && mocha ./test/onprem.react.test.js && mocha ./test/onprem.vuejs.test.js && mocha ./test/spo.angularelements.test.js && mocha ./test/spo.handlebars.test.js && mocha ./test/spo.knockout.test.js && mocha ./test/spo.react.test.js && mocha ./test/spo.vuejs.test.js",
     "postinstall": "node lib/patch.js"
   }
 }
