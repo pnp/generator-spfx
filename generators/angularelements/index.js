@@ -39,6 +39,11 @@ module.exports = class extends Generator {
 
     install() {
         const manifest = util.getComponentManifest(this);
+
+        if (!manifest) {
+            return;
+        }
+
         const angularSolutionName = this.options['solutionName'];
         const angularCliOptions = this.options['angularCliOptions'];
         const angularSolutionPath = this.destinationPath(`../${angularSolutionName}`);
@@ -74,9 +79,11 @@ module.exports = class extends Generator {
         // Update add templates
         util.deployTemplates(this, ejsInject);
         // finally run install
+        if (!this.options.SpfxOptions['testrun']) {
+            this.spawnCommandSync('npm install', [], {cwd: angularSolutionPath});
+            this.spawnCommandSync('ng add', ['@angular/elements'], {cwd: angularSolutionPath});
+        }
         util.runInstall(this);
-        this.spawnCommandSync('npm install', [], {cwd: angularSolutionPath});
-        this.spawnCommandSync('ng add', ['@angular/elements'], {cwd: angularSolutionPath});
     }
 
     // Run installer normally time to say goodbye
