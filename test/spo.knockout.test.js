@@ -9,7 +9,7 @@ const requiredGenerators = require('./settings/spfxgenerators.js');
 
 const helpers = require('yeoman-test');
 
-const tempDir = path.join(__dirname, '../testresult/'),
+const tempDir = path.join(__dirname, '../testresult/knockout/'),
     localTempDir = path.join(tempDir, '.');
 
 const userWebPartConfig = {

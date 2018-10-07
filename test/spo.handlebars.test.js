@@ -6,7 +6,7 @@ const path = require('path');
 
 const helpers = require('yeoman-test');
 
-const tempDir = path.join(__dirname, '../testresult/'),
+const tempDir = path.join(__dirname, '../testresult/handlebars/'),
     localTempDir = path.join(tempDir, '.'),
     localTempDirDelete = path.join(tempDir, '{*,.*}');
 
