@@ -6,7 +6,11 @@ const path = require('path');
 
 const helpers = require('yeoman-test');
 
+<<<<<<< HEAD
 const tempDir = path.join(__dirname, '../testresult/vuejs/'),
+=======
+const tempDir = path.join(__dirname, '../testresult/'),
+>>>>>>> 80d768105294cf85026bb251080190b209ecb46c
     localTempDir = path.join(tempDir, '.'),
     localTempDirDelete = path.join(tempDir, '{*,.*}');
 

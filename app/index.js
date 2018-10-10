@@ -52,7 +52,12 @@ module.exports = class extends Generator {
 
         } else {
 
+<<<<<<< HEAD
             if (!this.options.goodToGo) {
+=======
+            if (this.fs.exists(this.destinationPath('package.json'))) {
+                this.log('Currently it is not supported to run the generator @pnp/spfx on project originally created with @microsoft/sharepoint project');
+>>>>>>> 80d768105294cf85026bb251080190b209ecb46c
                 process.exit(1);
             }
 
