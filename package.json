@@ -57,11 +57,6 @@
     "applicationinsights": "^1.0.5",
     "chalk": "^2.4.1",
     "command-exists": "^1.2.7",
-<<<<<<< HEAD
-=======
-    "escodegen": "^1.11.0",
-    "esprima": "^4.0.1",
->>>>>>> 80d768105294cf85026bb251080190b209ecb46c
     "lodash": "^4.17.11",
     "update-notifier": "^2.5.0",
     "yeoman-generator": "~3.1.1"
