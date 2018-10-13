@@ -85,7 +85,7 @@ const configOptions = [
         name: 'jQueryVersion',
         choices: jqueryOptions,
         // Show only when jQuery was included
-        when: answers => answers.jsLibrary.indexOf('jquery') !== -1
+        when: answers => answers.jsLibrary !== undefined && answers.jsLibrary.indexOf('jquery') !== -1
     }
 ]
 

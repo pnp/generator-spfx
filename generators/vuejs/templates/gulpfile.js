@@ -66,6 +66,7 @@ gulp.watch('./src/**/*.vue', event => {
     // copy empty index.ts onto itself to launch build procees
     gulp.src('./src/index.ts')
         .pipe(gulp.dest('./src/'));
+
 });
 
 build.rig.addPreBuildTask(watchVueFiles);

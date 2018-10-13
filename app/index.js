@@ -46,7 +46,9 @@ module.exports = class extends Generator {
             this.options.pnpFramework = this.config.get('pnpFramework');
 
             // writes previous framework and pnpFramework names to telemetry
-            telemetry.trackEvent('Component', this.config.get('pnpFramework'));
+            if (this.options['testRun'] === undefined) {
+                telemetry.trackEvent('Component', this.config.get('pnpFramework'));
+            }
 
             this._configGenerators(this.options);
 
@@ -79,8 +81,11 @@ module.exports = class extends Generator {
                     this.config.set('pnpFramework', this.options.pnpFramework);
                     this.config.save();
 
-                    // track yeaman configuration options
-                    telemetry.trackEvent('Scaffold', this.options.SpfxOptions);
+                    if (this.options['testRun'] === undefined) {
+                        // track yeaman configuration options
+                        telemetry.trackEvent('Scaffold', this.options.SpfxOptions);
+
+                    }
 
 
                     this._configGenerators(this.options);
@@ -111,6 +116,12 @@ module.exports = class extends Generator {
 
     // Custom evalutation of Addon options
     _evalAddons(selections) {
+
+        // console.log("------------ - - - - Helmuth", selections);
+
+        if (selections.jsLibrary === undefined) {
+            return [];
+        }
 
         return selections.jsLibrary.map(item => {
 
@@ -266,6 +277,11 @@ module.exports = class extends Generator {
             type: String
         });
 
+        this.option('skip-version-check', {
+            description: `Skip version check of current version`,
+            type: String
+        });
+
     }
 
     // Generatore SPFx specifc parameters
@@ -280,7 +296,9 @@ module.exports = class extends Generator {
         }
 
         if (this.options['component-type'] !== undefined) {
-            this.options.SpfxOptions['component-type'] = this.options['component-type'];
+            // this.options['componentType'] = this.options['component-type'];
+            this.options.SpfxOptions['componentType'] = this.options['component-type'];
+            // this.options.SpfxOptions['component-type'] = this.options['component-type'];
         }
 
         if (this.options['solution-name'] !== undefined) {
@@ -296,7 +314,9 @@ module.exports = class extends Generator {
         }
 
         if (this.options['extension-type'] !== undefined) {
-            this.options.SpfxOptions['extension-type'] = this.options['extension-type'];
+            // this.options['extensionType'] = this.options['extension-type'];
+            this.options.SpfxOptions['extensionType'] = this.options['extension-type'];
+            // this.options.SpfxOptions['extension-type'] = this.options['extension-type'];
         }
 
         // always skip install
@@ -315,6 +335,12 @@ module.exports = class extends Generator {
             this.options.SpfxOptions['testrun'] = true;
         } else {
             this.options.SpfxOptions['testrun'] = false;
+        }
+
+        if (this.options['skip-version-check'] === undefined) {
+            this.options.SpfxOptions['skipversioncheck'] = false
+        } else {
+            this.options.SpfxOptions['skipversioncheck'] = true
         }
 
     }
