@@ -27,7 +27,6 @@ This extension supports additional client-side libraries such as PnPjs or jQuery
 
 ### Available Framework Extensions
 
-
 | Framework | Version |
 |:--|:--|
 | [Handlebars](http://handlebarsjs.com) | > 4.0.0 |
