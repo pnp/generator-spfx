@@ -6,5 +6,5 @@ module.exports = {
     //VueJs
     'vuejs': require.resolve('../generators/vuejs'),
     // SPFx
-    'spfx': require.resolve('../node_modules/@microsoft/generator-sharepoint/lib/generators/app/index.js')
+    'spfx': require.resolve('@microsoft/generator-sharepoint/lib/generators/app/index.js')
 }
