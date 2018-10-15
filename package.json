@@ -1,6 +1,6 @@
 {
   "name": "@pnp/generator-spfx",
-  "version": "1.2.1-0",
+  "version": "1.2.1",
   "description": "",
   "author": {
     "name": "Office 365 / SharePoint PnP Core Team",
@@ -39,16 +39,16 @@
       "url": "https://thechriskent.com/"
     },
     {
+      "name": "Paweł Hawrylak",
+      "url": "https://github.com/phawrylak"
+    },
+    {
       "name": "Alex Terentiev",
       "url": "https://github.com/AJIXuMuK"
     },
     {
       "name": "Sergei Sergeev",
       "url": "https://github.com/s-KaiNet"
-    },
-    {
-      "name": "Paweł Hawrylak",
-      "url": "https://github.com/phawrylak"
     }
   ],
   "dependencies": {
