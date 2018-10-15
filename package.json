@@ -1,74 +1,74 @@
 {
-  "name": "@pnp/generator-spfx",
-  "version": "1.2.1",
-  "description": "",
-  "author": {
-    "name": "Office 365 / SharePoint PnP Core Team",
-    "url": "https://github.com/pnp"
-  },
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/pnp/generator-spfx.git"
-  },
-  "files": [
-    "app",
-    "generators",
-    "lib"
-  ],
-  "keywords": [
-    "yeoman-generator",
-    "Pattern and Practices",
-    "PnP",
-    "SPFx",
-    "SharePointFramework",
-    "SharePoint Framework",
-    "SharePoint",
-    "Office 365",
-    "Office 365 Development"
-  ],
-  "maintainers": [
-    {
-      "name": "Stefan Bauer",
-      "email": "sl@n8d.at",
-      "url": "https://www.n8d.at/"
+    "name": "@pnp/generator-spfx",
+    "version": "1.3.0",
+    "description": "",
+    "author": {
+        "name": "Office 365 / SharePoint PnP Core Team",
+        "url": "https://github.com/pnp"
     },
-    {
-      "name": "Chris Kent",
-      "email": "ihatetimemachines@gmail.com",
-      "url": "https://thechriskent.com/"
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/pnp/generator-spfx.git"
     },
-    {
-      "name": "Paweł Hawrylak",
-      "url": "https://github.com/phawrylak"
+    "files": [
+        "app",
+        "generators",
+        "lib"
+    ],
+    "keywords": [
+        "yeoman-generator",
+        "Pattern and Practices",
+        "PnP",
+        "SPFx",
+        "SharePointFramework",
+        "SharePoint Framework",
+        "SharePoint",
+        "Office 365",
+        "Office 365 Development"
+    ],
+    "maintainers": [
+        {
+            "name": "Stefan Bauer",
+            "email": "sl@n8d.at",
+            "url": "https://www.n8d.at/"
+        },
+        {
+            "name": "Chris Kent",
+            "email": "ihatetimemachines@gmail.com",
+            "url": "https://thechriskent.com/"
+        },
+        {
+            "name": "Paweł Hawrylak",
+            "url": "https://github.com/phawrylak"
+        },
+        {
+            "name": "Alex Terentiev",
+            "url": "https://github.com/AJIXuMuK"
+        },
+        {
+            "name": "Sergei Sergeev",
+            "url": "https://github.com/s-KaiNet"
+        }
+    ],
+    "dependencies": {
+        "@microsoft/generator-sharepoint": "1.6.0",
+        "@pnp/office365-cli": "^1.8.0-beta.ea0c96c",
+        "applicationinsights": "^1.0.5",
+        "chalk": "^2.4.1",
+        "command-exists": "^1.2.7",
+        "lodash": "^4.17.11",
+        "update-notifier": "^2.5.0",
+        "yeoman-generator": "~3.1.1"
     },
-    {
-      "name": "Alex Terentiev",
-      "url": "https://github.com/AJIXuMuK"
+    "devDependencies": {
+        "mocha": "~5.2.0",
+        "rimraf": "^2.6.2",
+        "yeoman-assert": "~3.1.1",
+        "yeoman-test": "~1.9.1"
     },
-    {
-      "name": "Sergei Sergeev",
-      "url": "https://github.com/s-KaiNet"
+    "scripts": {
+        "test": "mocha",
+        "postinstall": "node lib/patch.js"
     }
-  ],
-  "dependencies": {
-    "@microsoft/generator-sharepoint": "1.6.0",
-    "@pnp/office365-cli": "^1.8.0-beta.ea0c96c",
-    "applicationinsights": "^1.0.5",
-    "chalk": "^2.4.1",
-    "command-exists": "^1.2.7",
-    "lodash": "^4.17.11",
-    "update-notifier": "^2.5.0",
-    "yeoman-generator": "~3.1.1"
-  },
-  "devDependencies": {
-    "mocha": "~5.2.0",
-    "rimraf": "^2.6.2",
-    "yeoman-assert": "~3.1.1",
-    "yeoman-test": "~1.9.1"
-  },
-  "scripts": {
-    "test": "mocha",
-    "postinstall": "node lib/patch.js"
-  }
 }
