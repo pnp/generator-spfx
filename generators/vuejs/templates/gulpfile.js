@@ -70,5 +70,3 @@ gulp.watch('./src/**/*.vue', event => {
         .pipe(gulp.dest('./src/'));
 
 });
-
-build.rig.addPreBuildTask(watchVueFiles);
