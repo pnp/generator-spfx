@@ -33,7 +33,7 @@ jobs:
           at: ~/generator-spfx
       - run:
           name: Test Run All
-          command: mocha
+          command: node node_modules/.bin/mocha
     #   - run:
     #       name: Test React
     #       command: npm run test-react
