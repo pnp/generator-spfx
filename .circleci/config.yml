@@ -32,14 +32,14 @@ jobs:
       - attach_workspace:
           at: ~/generator-spfx
       - run:
-          name: Test Knockout
-          command: npm run test-knockout
-      - run:
-          name: Test React
-          command: npm run test-react
-      - run:
-          name: Test Handlebars
-          command: npm run test-handlebars
+          name: Test Run All
+          command: mocha
+    #   - run:
+    #       name: Test React
+    #       command: npm run test-react
+    #   - run:
+    #       name: Test Handlebars
+    #       command: npm run test-handlebars
       - store_artifacts:
           path: testresult
   deploy_docs:
