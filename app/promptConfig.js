@@ -4,7 +4,12 @@ const chalk = require('chalk');
 const fgYellow = chalk.whiteBright.bold;
 
 // Currently supported framework
-const supportedFrameworks = [{
+const supportedFrameworks = [
+    {
+        name: 'Angular Elements',
+        value: 'angularelements'
+    },
+    {
         name: 'Handlebars',
         value: 'handlebars'
     },
