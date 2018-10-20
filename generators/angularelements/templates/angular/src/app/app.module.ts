@@ -19,6 +19,6 @@ export class AppModule {
 
   ngDoBootstrap() {
     const el = createCustomElement(<%= componentClassName %>Component, { injector: this.injector });
-    customElements.define('<%= componentClassNameKebabCase %>', el);
+    customElements.define('app-<%= componentClassNameKebabCase %>', el);
   }
 }
