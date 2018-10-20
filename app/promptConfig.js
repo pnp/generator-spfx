@@ -4,13 +4,21 @@ const chalk = require('chalk');
 const fgYellow = chalk.whiteBright.bold;
 
 // Currently supported framework
-const supportedFrameworks = [{
+const supportedFrameworks = [
+    {
         name: 'Handlebars',
         value: 'handlebars'
     },
     {
         name: 'Vue.js',
         value: 'vuejs'
+    },
+    new inquirer.Separator(
+        fgYellow('Experimental')
+    ),
+    {
+        name: fgYellow('- Angular Elements'),
+        value: 'angularelements'
     },
     new inquirer.Separator(
         fgYellow('Default SPFx')
@@ -33,7 +41,7 @@ let configOptions = [
     // select your framework
     {
         type: 'list',
-        message: "Choose your framework",
+        message: 'Choose your framework',
         name: 'framework',
         choices: supportedFrameworks
     }
@@ -43,12 +51,14 @@ let configOptions = [
 const addon = require('../generators/addons/promptConfig');
 configOptions = configOptions.concat(addon);
 
-// Add configuration of Addon generator
+const angularElements = require('../generators/angularelements/promptConfig');
+configOptions = configOptions.concat(angularElements);
+
 const vuejs = require('../generators/vuejs/promptConfig');
 configOptions = configOptions.concat(vuejs);
 
 const promptConfig = {
     config: configOptions
-}
+};
 
 module.exports = promptConfig;

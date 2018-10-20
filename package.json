@@ -25,22 +25,25 @@
         "SharePoint Framework",
         "SharePoint",
         "Office 365",
-        "Office 365 Development"
+        "Office 365 Development",
+        "VueJS",
+        "Handlebars",
+        "Angular Elements",
+        "Angular"
     ],
-    "maintainers": [
-        {
+    "maintainers": [{
             "name": "Stefan Bauer",
             "email": "sl@n8d.at",
             "url": "https://www.n8d.at/"
         },
         {
-            "name": "Paweł Hawrylak",
-            "url": "https://github.com/phawrylak"
-        },
-        {
             "name": "Chris Kent",
             "email": "ihatetimemachines@gmail.com",
             "url": "https://thechriskent.com/"
+        },
+        {
+            "name": "Paweł Hawrylak",
+            "url": "https://github.com/phawrylak"
         },
         {
             "name": "Alex Terentiev",
