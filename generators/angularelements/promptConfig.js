@@ -11,7 +11,7 @@ const configOptions = [
         message: 'What is your solution name?',
         name: 'solutionName',
         when: (answers) => answers.framework === 'angularelements',
-        default: _.kebabCase(path.basename(process.cwd()))
+        default: path.basename(process.cwd())
     },
     {
         type: 'input',

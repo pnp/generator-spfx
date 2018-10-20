@@ -10,13 +10,15 @@ const supportedFrameworks = [
         value: 'handlebars'
     },
     {
-<<<<<<< HEAD
         name: 'Vue.js',
         value: 'vuejs'
-=======
-        name: 'Angular Elements (experimental)',
+    },
+    new inquirer.Separator(
+        fgYellow('Experimental')
+    ),
+    {
+        name: fgYellow('- Angular Elements'),
         value: 'angularelements'
->>>>>>> d5d4edf... Several changes and fixes for Angular Elements generator
     },
     new inquirer.Separator(
         fgYellow('Default SPFx')

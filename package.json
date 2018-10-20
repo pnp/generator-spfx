@@ -25,7 +25,11 @@
         "SharePoint Framework",
         "SharePoint",
         "Office 365",
-        "Office 365 Development"
+        "Office 365 Development",
+        "VueJS",
+        "Handlebars",
+        "Angular Elements",
+        "Angular"
     ],
     "maintainers": [{
             "name": "Stefan Bauer",
