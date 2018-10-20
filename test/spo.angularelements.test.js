@@ -20,7 +20,7 @@ const userWebPartConfig = {
 };
 
 let yorcFile = path.join(localTempDir, '.yo-rc.json'),
-    packageFile = path.join(localTempDir, 'package.json');
+    packageFile = path.join(localTempDir, `${path.basename(localTempDir)}-spfx`, 'package.json');
 
 describe('Angular Elements Test: SPO', () => {
 
