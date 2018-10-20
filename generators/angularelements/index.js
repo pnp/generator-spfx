@@ -5,6 +5,7 @@ const Generator = require('yeoman-generator');
 
 // filesystem
 const fs = require('fs');
+const path = require('path');
 
 const _ = require('lodash');
 
@@ -37,42 +38,44 @@ module.exports = class extends Generator {
 
     install() {
         const manifest = util.getComponentManifest(this);
+        const angularSolutionName = this.options['solutionName'];
+        const angularSolutionPath = this.destinationPath(`../${angularSolutionName}`);
 
-        this.spawnCommandSync('ng new angular --style=scss --skip-git');
-        this.spawnCommandSync('ng add', ['@angular/elements'], {cwd: this.destinationPath('./angular')});
-        this.spawnCommandSync(`ng generate component ${manifest.componentClassName} -v Native --entry-component`, [], {cwd: this.destinationPath('./angular')});
+        this.spawnCommandSync(`ng new ${angularSolutionName} --style=scss --skip-git --skip-install`, [], {cwd: path.dirname(angularSolutionPath)});
+        this.spawnCommandSync(`ng generate component ${manifest.componentClassName} -v Native --entry-component`, [], {cwd: angularSolutionPath});
 
-        const ejsInject = {
-            componentClassName: manifest.componentClassName,
-            componentClassNameKebabCase: _.kebabCase(manifest.componentClassName)
-        }
-
-        util._writeTemplateFile(this, this.templatePath('./angular/elements-build.js'), this.destinationPath('./angular/elements-build.js'), ejsInject);
-        util._writeTemplateFile(this, this.templatePath('./angular/index.html'), this.destinationPath('./angular/src/index.html'), ejsInject);
-        util._writeTemplateFile(this, this.templatePath('./angular/app.module.ts'), this.destinationPath('./angular/src/app/app.module.ts'), ejsInject);
-
-        const pkg = JSON.parse(fs.readFileSync(this.destinationPath('./angular/package.json')));
+        const pkg = JSON.parse(fs.readFileSync(path.join(angularSolutionPath, 'package.json')));
         pkg.scripts['bundle'] = 'ng build --prod --output-hashing none && node elements-build.js';
         pkg.dependencies['concat'] = '^1.0.3';
         pkg.dependencies['@webcomponents/custom-elements'] = '^1.2.0';
         pkg.dependencies['@webcomponents/webcomponentsjs'] = '^2.1.2';
-        fs.writeFileSync(this.destinationPath('./angular/package.json'), JSON.stringify(pkg, null, 2));
+        fs.writeFileSync(path.join(angularSolutionPath, 'package.json'), JSON.stringify(pkg, null, 2));
 
-        this.spawnCommandSync('npm install', [], {cwd: this.destinationPath('./angular')});
+        const ejsInject = {
+            angularSolutionName: angularSolutionName,
+            componentClassName: manifest.componentClassName,
+            componentClassNameKebabCase: _.kebabCase(manifest.componentClassName)
+        };
 
-        fs.appendFileSync(this.destinationPath('./angular/src/polyfills.ts'), `import '@webcomponents/custom-elements/src/native-shim';\r\n`);
-        fs.appendFileSync(this.destinationPath('./angular/src/polyfills.ts'), `import '@webcomponents/webcomponentsjs/bundles/webcomponents-sd-ce';\r\n`);
+        util._writeTemplateFile(this, this.templatePath('./angular/elements-build.js'), path.join(angularSolutionPath, 'elements-build.js'), ejsInject);
+        util._writeTemplateFile(this, this.templatePath('./angular/index.html'), path.join(angularSolutionPath, 'src/index.html'), ejsInject);
+        util._writeTemplateFile(this, this.templatePath('./angular/app.module.ts'), path.join(angularSolutionPath, 'src/app/app.module.ts'), ejsInject);
 
-        fs.unlinkSync(this.destinationPath('./angular/src/app/app.component.html'));
-        fs.unlinkSync(this.destinationPath('./angular/src/app/app.component.ts'));
-        fs.unlinkSync(this.destinationPath('./angular/src/app/app.component.scss'));
-        fs.unlinkSync(this.destinationPath('./angular/src/app/app.component.spec.ts'));
+        fs.appendFileSync(path.join(angularSolutionPath, 'src/polyfills.ts'), `import '@webcomponents/custom-elements/src/native-shim';\r\n`);
+        fs.appendFileSync(path.join(angularSolutionPath, 'src/polyfills.ts'), `import '@webcomponents/webcomponentsjs/bundles/webcomponents-sd-ce';\r\n`);
+
+        fs.unlinkSync(path.join(angularSolutionPath, 'src/app/app.component.html'));
+        fs.unlinkSync(path.join(angularSolutionPath, 'src/app/app.component.ts'));
+        fs.unlinkSync(path.join(angularSolutionPath, 'src/app/app.component.scss'));
+        fs.unlinkSync(path.join(angularSolutionPath, 'src/app/app.component.spec.ts'));
         fs.unlinkSync(manifest.componentMainFile.replace('.ts', '.module.scss'));
 
         // Update add templates
-        util.deployTemplates(this);
+        util.deployTemplates(this, ejsInject);
         // finally run install
         util.runInstall(this);
+        this.spawnCommandSync('npm install', [], {cwd: angularSolutionPath});
+        this.spawnCommandSync('ng add', ['@angular/elements'], {cwd: angularSolutionPath});
     }
 
     // Run installer normally time to say goodbye

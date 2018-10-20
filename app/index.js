@@ -76,6 +76,11 @@ module.exports = class extends Generator {
                     // set choosen spfx frameworke
                     this.options.SPFxFramework = answers.framework;
 
+                    if (answers.solutionName) {
+                        this.options['solutionName'] = answers.solutionName;
+                        this.options.SpfxOptions['solutionName'] = `${answers.solutionName}-spfx`;
+                    }
+
                     // save configuration of first selection
                     this.config.set('framework', this.options.SpfxOptions['framework']);
                     this.config.set('pnpFramework', this.options.pnpFramework);

@@ -7,7 +7,7 @@ import {
 
 import * as strings from '<%= componentStrings %>';
 
-import '../../../angular/dist/angular/angular.bundle.js';
+import '../../../../<%= angularSolutionName %>/dist/<%= angularSolutionName %>/bundle.js';
 
 export interface I<%= componentClassName %>Props {
   description: string;
