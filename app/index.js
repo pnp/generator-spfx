@@ -43,7 +43,7 @@ module.exports = class extends Generator {
 
             // add proper opptions in here
             this.options.SpfxOptions['framework'] = this.config.get('framework');
-            this.options.pnpFramework = this.config.get('pnpFramework');
+            this.options.pnpFramework = this.config.get('pnpFramework') !== 'angularelements' ? this.config.get('pnpFramework') : "none";
 
             // writes previous framework and pnpFramework names to telemetry
             if (this.options['testRun'] === undefined) {
@@ -73,15 +73,19 @@ module.exports = class extends Generator {
                         answers
                     );
 
-                    // set choosen spfx frameworke
-                    this.options.SPFxFramework = answers.framework;
+                    if (answers.framework === "angularelements") {
 
-                    if (answers.solutionName) {
-                        this.options.solutionName = answers.solutionName;
-                        this.options.SpfxOptions.solutionName = `${answers.solutionName}-spfx`;
+                        // set choosen spfx frameworke
+                        this.options.SPFxFramework = answers.framework;
+
+                        if (answers.solutionName) {
+                            this.options.solutionName = answers.solutionName;
+                            this.options.SpfxOptions.solutionName = `${answers.solutionName}-spfx`;
+                        }
+
+                        this.options.angularCliOptions = answers.angularCliOptions;
+
                     }
-
-                    this.options.angularCliOptions = answers.angularCliOptions;
 
                     // save configuration of first selection
                     this.config.set('framework', this.options.SpfxOptions['framework']);

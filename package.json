@@ -71,7 +71,7 @@
         "yeoman-test": "~1.9.1"
     },
     "scripts": {
-        "test": "mocha",
+        "test": "mocha ./test/full.coverage.test.js",
         "postinstall": "node lib/patch.js"
     }
 }

@@ -11,14 +11,15 @@ const configOptions = [
         message: 'What is your solution name?',
         name: 'solutionName',
         when: (answers) => answers.framework === 'angularelements',
-        default: path.basename(process.cwd())
+        default: path.basename(process.cwd()),
+        validate: (input) => input.indexOf('-') === -1 ? true : 'Dashes are not allowed in solution name'
     },
     {
         type: 'input',
         message: 'Angular CLI options',
         name: 'angularCliOptions',
         when: (answers) => answers.framework === 'angularelements',
-        default: '--style=scss --skip-git --skip-install'
+        default: '--style=scss --skip-git'
     }
 ]
 
