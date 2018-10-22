@@ -38,9 +38,11 @@ module.exports = class extends Generator {
     writing() {}
 
     install() {
+
         const manifest = util.getComponentManifest(this);
 
         if (!manifest) {
+            console.log("Return on everything");
             return;
         }
 
@@ -52,9 +54,7 @@ module.exports = class extends Generator {
         angularCliOptions.push('new');
         angularCliOptions.push(angularSolutionName);
         angularCliOptions.push(...angularCliOptionsRaw);
-        // angularCliOptions.push('--skip-install');
 
-        console.log(angularCliOptions);
         // ORIGINAL: this.spawnCommandSync(`ng new ${angularSolutionName} ${angularCliOptions}`, angularCliOptions, {cwd: path.dirname(angularSolutionPath)});
         this.spawnCommandSync('ng', angularCliOptions, {
             cwd: path.dirname(angularSolutionPath)
@@ -67,10 +67,6 @@ module.exports = class extends Generator {
         generateComponentOptions.push('-v');
         generateComponentOptions.push('Native');
         generateComponentOptions.push('--entry-component');
-        // generateComponentOptions.push('--skip-install');
-
-        console.log(generateComponentOptions);
-
 
         // ORIGINAME this.spawnCommandSync(`ng generate component ${manifest.componentClassName} -v Native --entry-component`, [], {cwd: angularSolutionPath});
         this.spawnCommandSync('ng', generateComponentOptions, {
@@ -129,7 +125,6 @@ module.exports = class extends Generator {
                 cwd: angularSolutionPath
             });
 
-            console.log('----- Install angular project ------');
             this.spawnCommandSync('npm', ['install'], {
                 cwd: angularSolutionPath
             });
@@ -138,7 +133,6 @@ module.exports = class extends Generator {
                 cwd: angularSolutionPath
             });
 
-            console.log('----- install angular solution as dependency ------')
             this.spawnCommand('npm', ['install', `../${angularSolutionName}`], {
                 cwd: angularSolutionPath + '-spfx'
             })
@@ -147,7 +141,6 @@ module.exports = class extends Generator {
 
         // run SPFx install
         util.runInstall(this);
-
 
     }
 
