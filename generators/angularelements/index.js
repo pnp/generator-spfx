@@ -64,9 +64,8 @@ module.exports = class extends Generator {
         generateComponentOptions.push('generate');
         generateComponentOptions.push('component');
         generateComponentOptions.push(manifest.componentClassName);
-        generateComponentOptions.push('-v');
-        generateComponentOptions.push('Native');
-        generateComponentOptions.push('--entry-component');
+        generateComponentOptions.push('--viewEncapsulation=ShadowDom');
+        generateComponentOptions.push('--entry-component=true');
 
         // ORIGINAME this.spawnCommandSync(`ng generate component ${manifest.componentClassName} -v Native --entry-component`, [], {cwd: angularSolutionPath});
         this.spawnCommandSync('ng', generateComponentOptions, {
@@ -88,8 +87,13 @@ module.exports = class extends Generator {
             path.join(angularSolutionPath, 'package.json'),
             JSON.stringify(pkg, null, 2));
 
+        // Compensate angular elements solution name
+        const angularSolutionNameKebabCase = angularSolutionName === angularSolutionName.toLowerCase() ?
+            angularSolutionName : _.kebabCase(angularSolutionName);
+
         const ejsInject = {
             angularSolutionName: angularSolutionName,
+            angularSolutionNameKebabCase: angularSolutionNameKebabCase,
             componentClassName: manifest.componentClassName,
             componentClassNameKebabCase: _.kebabCase(manifest.componentClassName)
         };
