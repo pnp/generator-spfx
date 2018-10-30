@@ -31,7 +31,8 @@
         "Angular Elements",
         "Angular"
     ],
-    "maintainers": [{
+    "maintainers": [
+        {
             "name": "Stefan Bauer",
             "email": "sl@n8d.at",
             "url": "https://www.n8d.at/"
@@ -61,6 +62,7 @@
         "chalk": "^2.4.1",
         "command-exists": "^1.2.7",
         "lodash": "^4.17.11",
+        "param-case": "^2.1.1",
         "update-notifier": "^2.5.0",
         "yeoman-generator": "~3.1.1"
     },
