@@ -19,7 +19,7 @@ const configOptions = [
         message: 'Angular CLI options',
         name: 'angularCliOptions',
         when: (answers) => answers.framework === 'angularelements',
-        default: '--style=scss --skip-git'
+        default: '--style=scss --routing=false --skip-git'
     }
 ]
 
