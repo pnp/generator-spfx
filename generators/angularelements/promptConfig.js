@@ -2,7 +2,6 @@
 
 const path = require('path');
 const process = require('process');
-const _ = require('lodash');
 
 // check if user want to have exntend linking capability
 const configOptions = [
