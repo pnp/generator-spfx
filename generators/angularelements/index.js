@@ -8,7 +8,7 @@ const fs = require('fs');
 const path = require('path');
 const glob = require('glob');
 
-const _ = require('lodash');
+const paramCase = require('param-case');
 
 // importing utilities
 const util = require('../../lib/util.js');
@@ -87,15 +87,11 @@ module.exports = class extends Generator {
             path.join(angularSolutionPath, 'package.json'),
             JSON.stringify(pkg, null, 2));
 
-        // Compensate angular elements solution name
-        const angularSolutionNameKebabCase = angularSolutionName === angularSolutionName.toLowerCase() ?
-            angularSolutionName : _.kebabCase(angularSolutionName);
-
         const ejsInject = {
             angularSolutionName: angularSolutionName,
-            angularSolutionNameKebabCase: angularSolutionNameKebabCase,
+            angularSolutionNameKebabCase: paramCase(angularSolutionName),
             componentClassName: manifest.componentClassName,
-            componentClassNameKebabCase: _.kebabCase(manifest.componentClassName)
+            componentClassNameKebabCase: paramCase(manifest.componentClassName)
         };
 
         util.deployTemplatesToPath(this, ejsInject, this.templatePath('./angular'), angularSolutionPath);
