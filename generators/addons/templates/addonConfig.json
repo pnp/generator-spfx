@@ -13,17 +13,17 @@
     },
     "@pnp/pnpjs": {
         "dependencies": {
-            "@pnp/pnpjs": "^1.2.2"
+            "@pnp/pnpjs": "^1.2.3"
         }
     },
     "@pnp/spfx-property-controls": {
         "dependencies": {
-            "@pnp/spfx-property-controls": "1.10.0"
+            "@pnp/spfx-property-controls": "1.11.0"
         }
     },
     "@pnp/spfx-controls-react": {
         "dependencies": {
-            "@pnp/spfx-controls-react": "1.8.0"
+            "@pnp/spfx-controls-react": "1.9.0"
         }
     }
 }

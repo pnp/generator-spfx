@@ -24,6 +24,7 @@ class TestRunner {
          * Clean up test definitions form require cache
          */
         const clearYeomanCache = () => {
+
             Object.keys(require.cache).forEach(function (key) {
                 if (key.indexOf("yeoman-test") !== -1 ||
                     key.indexOf("yeoman-assert") !== -1 ||
