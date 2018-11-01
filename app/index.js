@@ -43,11 +43,14 @@ module.exports = class extends Generator {
 
             // add proper opptions in here
             this.options.SpfxOptions['framework'] = this.config.get('framework');
+            this.options.SpfxOptions['pnp-framework'] = this.config.get('framework');
+            this.options.SpfxOptions['pnp-libraries'] = this.config.get('pnp-libraries');
+
             this.options.pnpFramework = this.config.get('pnpFramework') !== 'angularelements' ? this.config.get('pnpFramework') : "none";
 
             // writes previous framework and pnpFramework names to telemetry
             if (this.options['testRun'] === undefined) {
-                telemetry.trackEvent('Component', this.config.get('pnpFramework'));
+                telemetry.trackEvent('Component', this.options.SpfxOptions);
             }
 
             this._configGenerators(this.options);
@@ -63,6 +66,7 @@ module.exports = class extends Generator {
 
                     // Choose appro
                     this.options.SpfxOptions['framework'] = this._evalSPFxGenerator(answers.framework);
+                    this.options.SpfxOptions['pnp-framework'] = answers.framework;
                     this.options.pnpFramework = answers.framework;
 
                     // check if test lint was selected in any of the generators
@@ -72,6 +76,8 @@ module.exports = class extends Generator {
                     this.options.libraries = this._evalAddons(
                         answers
                     );
+
+                    this.options.SpfxOptions['pnp-libraries'] = this.options.libraries;
 
                     if (answers.framework === "angularelements") {
 
@@ -90,6 +96,7 @@ module.exports = class extends Generator {
                     // save configuration of first selection
                     this.config.set('framework', this.options.SpfxOptions['framework']);
                     this.config.set('pnpFramework', this.options.pnpFramework);
+                    this.config.set('pnp-libraries', this.options.libraries);
                     this.config.save();
 
                     if (this.options['testRun'] === undefined) {
@@ -127,8 +134,6 @@ module.exports = class extends Generator {
 
     // Custom evalutation of Addon options
     _evalAddons(selections) {
-
-        // console.log("------------ - - - - Helmuth", selections);
 
         if (selections.jsLibrary === undefined) {
             return [];
