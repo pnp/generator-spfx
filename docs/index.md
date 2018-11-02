@@ -27,11 +27,11 @@ This extension supports additional client-side libraries such as PnPjs or jQuery
 
 ### Available Framework Extensions
 
-| Framework | Version |
-|:--|:--|
+| Framework | Version | Documentation |
+|:--|:--|:--|
 | [Handlebars](http://handlebarsjs.com) | > 4.0.0 |
 | [VueJS](https://vuejs.org) | >2.5.16 |
-| [Angular Elements](https://angular.io/guide/elements) | tbd |
+| [Angular Elements](https://angular.io/guide/elements) | > 7.0.0 | [Documentation](./howtos/angular-elements.md) |
 
 ## Installation
 

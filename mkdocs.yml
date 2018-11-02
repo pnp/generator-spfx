@@ -1,8 +1,8 @@
 site_name: PnP/generator-SPFx
 nav:
   - Home: 'index.md'
-  - How-Tos: 'how-tos/index.md'
-    - Angular Elements: 'how-tos/angular-elements.md'
+  - How To: 'howtos/index.md'
+#     - Angular Elements: 'how-tos/angular-elements.md'
   - Compose:
     - General: compose/index.md
     - Prompting: compose/prompting.md
