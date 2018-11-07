@@ -4,7 +4,7 @@ import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
   selector: 'app-<%= componentClassNameKebabCase %>',
   templateUrl: './<%= componentClassNameKebabCase %>.component.html',
   styleUrls: ['./<%= componentClassNameKebabCase %>.component.scss'],
-  encapsulation: ViewEncapsulation.ShadowDom
+  encapsulation: ViewEncapsulation.Emulated
 })
 export class <%= componentClassName %>Component implements OnInit {
   @Input() description: string;
