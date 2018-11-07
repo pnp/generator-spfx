@@ -1,6 +1,7 @@
 site_name: PnP/generator-SPFx
 nav:
   - Home: 'index.md'
+  - How Tos: howtos/index.md
   - Compose:
     - General: compose/index.md
     - Prompting: compose/prompting.md
