@@ -64,7 +64,7 @@ module.exports = class extends Generator {
         generateComponentOptions.push('generate');
         generateComponentOptions.push('component');
         generateComponentOptions.push(manifest.componentClassName);
-        generateComponentOptions.push('--viewEncapsulation=ShadowDom');
+        generateComponentOptions.push('--viewEncapsulation=Emulated');
         generateComponentOptions.push('--entry-component=true');
 
         // ORIGINAME this.spawnCommandSync(`ng generate component ${manifest.componentClassName} -v Native --entry-component`, [], {cwd: angularSolutionPath});
