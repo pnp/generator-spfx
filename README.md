@@ -30,7 +30,7 @@ The following frameworks are supported:
 |:--|:--|
 | [Handlebars](http://handlebarsjs.com) | > 4.0.0 |
 | [VueJS](https://vuejs.org) | > 2.5.16 |
-| [Angular Elements](https://angular.io/guide/elements) | tbd |
+| [Angular Elements](https://angular.io/guide/elements) | > 7.0.2 |
 
 
 ### Usage
