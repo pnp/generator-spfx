@@ -96,15 +96,16 @@ module.exports = class extends Generator {
 
         util.deployTemplatesToPath(this, ejsInject, this.templatePath('./angular'), angularSolutionPath);
 
+
         fs.appendFileSync(
             path.join(angularSolutionPath, 'src/polyfills.ts'),
             `import '@webcomponents/custom-elements/src/native-shim';\r\n`
         );
 
-        fs.appendFileSync(
-            path.join(angularSolutionPath, 'src/polyfills.ts'),
-            `import '@webcomponents/webcomponentsjs/bundles/webcomponents-sd-ce';\r\n`
-        );
+        // fs.appendFileSync(
+        //     path.join(angularSolutionPath, 'src/polyfills.ts'),
+        //     `import '@webcomponents/webcomponentsjs/bundles/webcomponents-sd-ce';\r\n`
+        // );
 
         const files = glob.sync(path.join(angularSolutionPath, 'src/app/app.component.*'));
 
@@ -121,7 +122,25 @@ module.exports = class extends Generator {
         // finally run install
         if (!this.options.SpfxOptions['testrun']) {
 
-            this.spawnCommandSync('ng', ['add', '@angular/elements', '--skip-install'], {
+            const polyfills = this.fs.read(
+                this.templatePath('angular/src/polyfills.ts'),
+                'utf-8');
+
+            fs.writeFileSync(
+                path.join(angularSolutionPath, 'src/polyfills.ts'),
+                polyfills
+            )
+
+            const browserslist = this.fs.read(
+                this.templatePath('angular/src/browserslist'),
+                'utf-8');
+
+            fs.writeFileSync(
+                path.join(angularSolutionPath, 'src/browserslist'),
+                browserslist
+            )
+
+            this.spawnCommandSync('ng', ['add', '@angular/elements'], {
                 cwd: angularSolutionPath
             });
 
