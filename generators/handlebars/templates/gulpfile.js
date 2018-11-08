@@ -25,6 +25,3 @@ gulp.watch('./src/**/*.hbs', event => {
       .pipe(gulp.dest('./src/'));
 
 });
-
-// register task to prebuild
-build.rig.addPreBuildTask(hbsWatch);
