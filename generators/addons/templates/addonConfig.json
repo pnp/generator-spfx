@@ -7,13 +7,13 @@
     },
     "jquery@3": {
         "dependencies": {
-            "jquery": "^3.0.0",
-            "@types/jquery": "^3.0.0"
+            "jquery": "^3.3.1",
+            "@types/jquery": "^3.3.22"
         }
     },
     "@pnp/pnpjs": {
         "dependencies": {
-            "@pnp/pnpjs": "^1.2.3"
+            "@pnp/pnpjs": "^1.2.5"
         }
     },
     "@pnp/spfx-property-controls": {
