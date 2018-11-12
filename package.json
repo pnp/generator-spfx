@@ -31,7 +31,8 @@
         "Angular Elements",
         "Angular"
     ],
-    "maintainers": [{
+    "maintainers": [
+        {
             "name": "Stefan Bauer",
             "email": "office@n8d.at",
             "url": "https://www.n8d.at/"
