@@ -256,7 +256,9 @@ module.exports = class extends Generator {
 
         this.option('enviroment', {
             description: `The target environment for the solution:
-                                        - "onprem" or "spo".`
+                                        - "onprem"
+                                        - "onprem19"
+                                        - "spo".`
         });
 
         this.option('extension-type', {
@@ -264,6 +266,11 @@ module.exports = class extends Generator {
                                         - "ApplicationCustomizer",
                                         - "FieldCustomizer"
                                         - "ListViewCommandSet"`,
+            type: String
+        });
+
+        this.option('is-domain-isolated', {
+            description: `If 'y', web part will be rendered in isolated domain using IFrame. If set to "y", sets the component type as web part.`,
             type: String
         });
 
@@ -312,9 +319,9 @@ module.exports = class extends Generator {
         }
 
         if (this.options['component-type'] !== undefined) {
-            // this.options['componentType'] = this.options['component-type'];
+
             this.options.SpfxOptions['componentType'] = this.options['component-type'];
-            // this.options.SpfxOptions['component-type'] = this.options['component-type'];
+
         }
 
         if (this.options['solution-name'] !== undefined) {
@@ -325,14 +332,20 @@ module.exports = class extends Generator {
             this.options.SpfxOptions['plusbeta'] = this.options['plusbeta'];
         }
 
-        if (this.options['environment'] !== undefined && this.options['environment'] === 'onprem') {
+        if (this.options['environment'] !== undefined) {
             this.options.SpfxOptions['environment'] = this.options['environment'];
         }
 
         if (this.options['extension-type'] !== undefined) {
-            // this.options['extensionType'] = this.options['extension-type'];
+
             this.options.SpfxOptions['extensionType'] = this.options['extension-type'];
-            // this.options.SpfxOptions['extension-type'] = this.options['extension-type'];
+
+        }
+
+        if (this.options['is-domain-isolated'] !== undefined) {
+
+            this.options.SpfxOptions['is-domain-isolated'] = this.options['is-domain-isolated'];
+
         }
 
         // always skip install

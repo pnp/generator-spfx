@@ -13,7 +13,7 @@ This extension supports additional client-side libraries such as PnPjs or jQuery
 
 | Base Generator | |
 |:--|:--|
-| @microsoft/generator-sharepoint | 1.6.0 |
+| @microsoft/generator-sharepoint | 1.7.0 |
 
 
 ### Available Client-side extensions and Add-ons
