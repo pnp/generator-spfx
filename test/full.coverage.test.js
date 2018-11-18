@@ -8,6 +8,14 @@ let onpremWebPart = [
     require('./testdefinitions/vuejs/vuejs.onprem.webpart')
 ];
 
+let onprem19WebPart = [
+    require('./testdefinitions/handlebars/handlebars.onprem19.webpart'),
+    require('./testdefinitions/knockout/knockout.onprem19.webpart'),
+    require('./testdefinitions/noframework/noframework.onprem.webpart'),
+    // require('./testdefinitions/reactjs/react.onprem.webpart'),
+    require('./testdefinitions/vuejs/vuejs.onprem.webpart')
+];
+
 let spoWebPart = [
     require('./testdefinitions/handlebars/handlebars.spo.webpart'),
     require('./testdefinitions/knockout/knockout.spo.webpart'),
@@ -24,12 +32,28 @@ let spoAppCustomizer = [
     require('./testdefinitions/vuejs/vuejs.spo.appcustomizer')
 ];
 
+let onprem19AppCustomizer = [
+    require('./testdefinitions/handlebars/handlebars.onprem19.appcustomizer'),
+    // require('./testdefinitions/knockout/knockout.onprem19.appcustomizer'), // NOt AVAIlABLE
+    require('./testdefinitions/noframework/noframework.onprem19.appcustomizer'),
+    // require('./testdefinitions/reactjs/react.onprem19.appcustomizer'), // NOt AVAIlABLE
+    require('./testdefinitions/vuejs/vuejs.onprem19.appcustomizer')
+];
+
 let spoFieldCustomizer = [
     require('./testdefinitions/handlebars/handlebars.spo.fieldcustomizer'),
     // require('./testDefinitioknockout/ns/knockout.spo.fieldcustomizer'), NOT AVALIABLE
     require('./testdefinitions/noframework/noframework.spo.fieldcustomizer'),
     require('./testdefinitions/reactjs/react.spo.fieldcustomizer'),
     require('./testdefinitions/vuejs/vuejs.spo.fieldcustomizer')
+];
+
+let onprem19FieldCustomizer = [
+    require('./testdefinitions/handlebars/handlebars.onprem19.fieldcustomizer'),
+    // require('./testdefinitions/knockout/knockout.onprem19.fieldcustomizer'), NOT AVAILABLE
+    require('./testdefinitions/noframework/noframework.onprem19.fieldcustomizer'),
+    require('./testdefinitions/reactjs/react.onprem19.fieldcustomizer'),
+    require('./testdefinitions/vuejs/vuejs.onprem19.fieldcustomizer')
 ];
 
 let spoListViewCommandSet = [
@@ -42,9 +66,20 @@ let spoListViewCommandSet = [
 
 describe("Full Test Coverage includes all frameworks and possible assets", () => {
 
-    describe("On premises Test: Webpart", () => {
+    describe("On premises: Webpart", () => {
 
         onpremWebPart.forEach(test => {
+
+            let exec = new testRunner();
+            exec.run(test);
+
+        });
+
+    })
+
+    describe("On premises 2019: Webpart", () => {
+
+        onprem19WebPart.forEach(test => {
 
             let exec = new testRunner();
             exec.run(test);
@@ -75,10 +110,31 @@ describe("Full Test Coverage includes all frameworks and possible assets", () =>
 
     })
 
+    describe("On premises 2019: Application Customizer", () => {
+
+        onprem19AppCustomizer.forEach(test => {
+
+            let exec = new testRunner();
+            exec.run(test);
+
+        });
+
+    })
 
     describe("SPO: FieldCustomizer", () => {
 
         spoFieldCustomizer.forEach(test => {
+
+            let exec = new testRunner();
+            exec.run(test);
+
+        });
+
+    })
+
+    describe("On premises 2019: FieldCustomizer", () => {
+
+        onprem19FieldCustomizer.forEach(test => {
 
             let exec = new testRunner();
             exec.run(test);
