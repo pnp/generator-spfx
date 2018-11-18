@@ -26,3 +26,7 @@ To build Angular project and bundle it in single file you should use `npm run bu
 To build SPFx project, you can just use default `gulp bundle --ship` and `gulp package-solution --ship` commands in SPFx project folder.
 
 You can test your solution in SPFx Workbench using default `gulp serve` command in SPFx project folder or in Angular Dev Server using `npm run start` command in Angular project folder.
+
+## Live Demo
+
+[![Link to Video](../assets/pnp-web-cast-angular-elements.png)](https://www.youtube.com/watch?v=2aqLrw4zs4I)

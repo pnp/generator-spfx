@@ -2,30 +2,50 @@ const fs = require("fs");
 const path = require("path");
 const chalk = require("chalk");
 
-const wpTemplateSrc = '../node_modules/\@microsoft/generator-sharepoint/lib/generators/webpart/templates/none/';
+const wpTemplateSrc = '../../node_modules/\@microsoft/generator-sharepoint/lib/generators/webpart/templates/none/';
 const wpTemplateDest = '../templates/webparts/'
 
-const fileLocations = [{
+const fileLocations = [
+    {
         name: 'webpart-spo',
-        tmplSrc: '../node_modules/\@microsoft/generator-sharepoint/lib/generators/webpart/templates/none/',
+        tmplSrc: '../../node_modules/\@microsoft/generator-sharepoint/lib/generators/webpart/templates/none/',
         tmplDest: '../templates/webparts-spo/'
     },
     {
         name: 'webpart-onprem',
-        tmplSrc: '../node_modules/\@microsoft/generator-sharepoint/lib/generators/onPremWebpart/templates/none/',
+        tmplSrc: '../../node_modules/\@microsoft/generator-sharepoint/lib/generators/onPremWebpart/templates/none/',
         tmplDest: '../templates/webparts-onprem/'
     }, {
         name: 'fieldCustomizer',
-        tmplSrc: '../node_modules/\@microsoft/generator-sharepoint/lib/generators/fieldCustomizer/templates/none/',
+        tmplSrc: '../../node_modules/\@microsoft/generator-sharepoint/lib/generators/fieldCustomizer/templates/none/',
         tmplDest: '../templates/fieldcustomizer-spo/'
     }, {
         name: 'commandset',
-        tmplSrc: '../node_modules/\@microsoft/generator-sharepoint/lib/generators/commandSet/templates/none/',
+        tmplSrc: '../../node_modules/\@microsoft/generator-sharepoint/lib/generators/commandSet/templates/none/',
         tmplDest: '../templates/commandset-spo/'
     },
     {
         name: 'applicationCustomizer',
-        tmplSrc: '../node_modules/\@microsoft/generator-sharepoint/lib/generators/applicationCustomizer/templates/none/',
+        tmplSrc: '../../node_modules/\@microsoft/generator-sharepoint/lib/generators/applicationCustomizer/templates/none/',
+        tmplDest: '../templates/applicationcustomizer-spo/'
+    },
+    {
+        name: '19webpart',
+        tmplSrc: '../../node_modules/\@microsoft/generator-sharepoint/lib/generators/onPrem19ApplicationCustomizer/templates/none/',
+        tmplDest: '../templates/webparts-spo/'
+    },
+    {
+        name: '19fieldCustomizer',
+        tmplSrc: '../../node_modules/\@microsoft/generator-sharepoint/lib/generators/onPrem19FieldCustomizer/templates/none/',
+        tmplDest: '../templates/fieldcustomizer-spo/'
+    }, {
+        name: '19commandset',
+        tmplSrc: '../../node_modules/\@microsoft/generator-sharepoint/lib/generators/onPrem19CommandSet/templates/none/',
+        tmplDest: '../templates/commandset-spo/'
+    },
+    {
+        name: '19applicationCustomizer',
+        tmplSrc: '../../node_modules/\@microsoft/generator-sharepoint/lib/generators/applicationCustomizer/templates/none/',
         tmplDest: '../templates/applicationcustomizer-spo/'
     }
 ]
