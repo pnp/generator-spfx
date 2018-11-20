@@ -7,8 +7,6 @@ The PnP SPFx Yeoman generator uses 100% of the Microsoft SPFx Yeoman generator b
 
 This extension supports additional client-side libraries such as PnPjs or jQuery to extend SPFx capabilities as well as even more complex extensions such as the integration of HandlebarsJS, VueJS, and many more.
 
-> **Limitation:** Right now the PnP SPFx yeoman generator supports only the initial setup of new projects. To add additional web parts and extensions, please continue to use the Microsoft SPFx generator. In the future, this generator will be used to add elements to existing projects.
-
 ### SPFx Generator Version
 
 | Base Generator | |
@@ -85,7 +83,9 @@ Options:
                                         - "webpart"
                                         - "extension"
          --enviroment               # The target environment for the solution:
-                                        - "onprem" or "spo".
+                                        - "onprem"
+                                        - "onprem19"
+                                        - "spo"
          --extension-type           # The type of extension:
                                         - "ApplicationCustomizer",
                                         - "FieldCustomizer"
