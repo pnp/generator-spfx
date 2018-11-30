@@ -16,7 +16,7 @@ module.exports = class extends Generator {
 
     }
 
-    // Initialisation geenerator
+    // Initialisation generator
     initializing() {
 
     }
@@ -55,7 +55,7 @@ module.exports = class extends Generator {
             let requestedLibraries = this.options.libraries;
 
             let newPkgConfig = util.mergeAddons(addonConfig, requestedLibraries, config);
-                        
+
             fs.writeFileSync(
                 this.destinationPath('package.json'),
                 JSON.stringify(newPkgConfig, null, 2)
@@ -66,7 +66,7 @@ module.exports = class extends Generator {
     }
 
     end() {
-        
+
     }
 
 }

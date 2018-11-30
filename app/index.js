@@ -42,6 +42,7 @@ module.exports = class extends Generator {
         if (this.config.existed) {
 
             // add proper opptions in here
+            this.options.continuousIntegration = this.config.get('continuousIntegration');
             this.options.SpfxOptions['framework'] = this.config.get('framework');
             this.options.SpfxOptions['pnp-framework'] = this.config.get('framework');
             this.options.SpfxOptions['pnp-libraries'] = this.config.get('pnp-libraries');
@@ -93,14 +94,17 @@ module.exports = class extends Generator {
 
                     }
 
+                    this.options.continuousIntegration = answers.continuousIntegration;
+
                     // save configuration of first selection
                     this.config.set('framework', this.options.SpfxOptions['framework']);
                     this.config.set('pnpFramework', this.options.pnpFramework);
                     this.config.set('pnp-libraries', this.options.libraries);
+                    this.config.set('continuousIntegration', this.options.continuousIntegration);
                     this.config.save();
 
                     if (this.options['testRun'] === undefined) {
-                        // track yeaman configuration options
+                        // track yeoman configuration options
                         telemetry.trackEvent('Scaffold', this.options.SpfxOptions);
 
                     }
@@ -199,10 +203,13 @@ module.exports = class extends Generator {
                 this.composeWith(
                     subGenerator.addons,
                     options
-                )
+                );
 
             }
 
+        }
+        if (this.options.continuousIntegration !== 'none') {
+            this.composeWith(subGenerator.devops, options);
         }
 
         if (this.options.SpfxOptions.framework === "react" ||
@@ -305,9 +312,15 @@ module.exports = class extends Generator {
             type: String
         });
 
+        this.option('continuousIntegration', {
+            description: `Adds a pipeline definition for the desired continuous integration solution`,
+            type: String,
+            alias: 'ci'
+        });
+
     }
 
-    // Generatore SPFx specifc parameters
+    // Generator SPFx specifc parameters
     _generateSPFxOptions() {
 
         if (this.options['component-description'] !== undefined) {
