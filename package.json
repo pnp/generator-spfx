@@ -59,6 +59,7 @@
         "@microsoft/generator-sharepoint": "1.7.0",
         "@pnp/office365-cli": "^1.9.0",
         "applicationinsights": "^1.0.6",
+        "camel-case": "^3.0.0",
         "chalk": "^2.4.1",
         "command-exists": "^1.2.8",
         "lodash": "^4.17.11",
