@@ -1,4 +1,5 @@
 const chalk = require('chalk');
+const inquirer = require('inquirer');
 
 // jQuery version options
 const jqueryOptions = [{
@@ -65,17 +66,28 @@ const configOptions = [
     // Library selection
     {
         type: 'checkbox',
-        message: 'Which libraries to include',
-        name: 'jsLibrary',
+        message: 'Additional features:',
+        name: 'features',
         choices: answers => {
 
-            switch (answers.framework) {
-                case "react":
-                    return defaultLibs.concat(reactLibs);
-                default:
-                    return defaultLibs;
+            let allChoices = [
+                new inquirer.Separator('- Which libraries to include -'),
+                ...defaultLibs
+            ];
+
+            if(answers.framework === 'react'){
+                allChoices = allChoices.concat(reactLibs);
             }
 
+            if(answers.framework === 'react' || answers.framework === 'knockout'){
+                allChoices.push(new inquirer.Separator('- Which addons to include -'));
+                allChoices.push({
+                    name: 'stylelint',
+                    value: 'stylelint'
+                });
+            }
+
+            return allChoices;
         }
     },
     // jQuery version selection
@@ -85,7 +97,7 @@ const configOptions = [
         name: 'jQueryVersion',
         choices: jqueryOptions,
         // Show only when jQuery was included
-        when: answers => answers.jsLibrary !== undefined && answers.jsLibrary.indexOf('jquery') !== -1
+        when: answers => answers.features !== undefined && answers.features.indexOf('jquery') !== -1
     }
 ]
 

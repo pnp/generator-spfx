@@ -130,16 +130,16 @@ module.exports = class extends Generator {
 
     // Run installer normally time to say goodbye
     // If yarn is installed yarn will be used
-    end() {}
+    end() { }
 
     // Custom evalutation of Addon options
     _evalAddons(selections) {
 
-        if (selections.jsLibrary === undefined) {
+        if (selections.features === undefined) {
             return [];
         }
 
-        return selections.jsLibrary.map(item => {
+        return selections.features.map(item => {
 
             switch (item) {
                 case "jquery":
@@ -227,7 +227,6 @@ module.exports = class extends Generator {
             )
 
         }
-
     }
 
     // Setup Base Options
