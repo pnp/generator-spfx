@@ -42,7 +42,7 @@ let onprem19AppCustomizer = [
 
 let spoFieldCustomizer = [
     require('./testdefinitions/handlebars/handlebars.spo.fieldcustomizer'),
-    // require('./testDefinitioknockout/ns/knockout.spo.fieldcustomizer'), NOT AVALIABLE
+    // require('./testdefinitions/knockout/knockout.spo.fieldcustomizer'),
     require('./testdefinitions/noframework/noframework.spo.fieldcustomizer'),
     require('./testdefinitions/reactjs/react.spo.fieldcustomizer'),
     require('./testdefinitions/vuejs/vuejs.spo.fieldcustomizer')
