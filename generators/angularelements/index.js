@@ -102,19 +102,19 @@ module.exports = class extends Generator {
             `import '@webcomponents/custom-elements/src/native-shim';\r\n`
         );
 
-        // fs.appendFileSync(
-        //     path.join(angularSolutionPath, 'src/polyfills.ts'),
-        //     `import '@webcomponents/webcomponentsjs/bundles/webcomponents-sd-ce';\r\n`
-        // );
-
         const files = glob.sync(path.join(angularSolutionPath, 'src/app/app.component.*'));
 
         for (let file of files) {
             fs.unlinkSync(file);
         }
 
-        // Unlinking module manifest from SharePoint
-        fs.unlinkSync(manifest.componentMainFile.replace('.ts', '.module.scss'));
+        // Unlink style sheet from component
+        const componentStyleSheet = manifest.componentMainFile.replace('.ts', '.module.scss');
+        if (fs.existsSync(componentStyleSheet)) {
+
+            fs.unlinkSync(manifest.componentMainFile.replace('.ts', '.module.scss'));
+
+        }
 
         // Update add templates
         util.deployTemplates(this, ejsInject);

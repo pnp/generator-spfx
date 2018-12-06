@@ -13,7 +13,7 @@
     },
     "@pnp/pnpjs": {
         "dependencies": {
-            "@pnp/pnpjs": "^1.2.5"
+            "@pnp/pnpjs": "^1.2.7"
         }
     },
     "@pnp/spfx-property-controls": {
