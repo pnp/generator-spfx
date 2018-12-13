@@ -26,9 +26,9 @@ let spoWebPart = [
 
 let spoAppCustomizer = [
     require('./testdefinitions/handlebars/handlebars.spo.appcustomizer'),
-    require('./testdefinitions/knockout/knockout.spo.appcustomizer'),
+    // require('./testdefinitions/knockout/knockout.spo.appcustomizer'), // NOT AVAILABLE
     require('./testdefinitions/noframework/noframework.spo.appcustomizer'),
-    require('./testdefinitions/reactjs/react.spo.appcustomizer'),
+    // require('./testdefinitions/reactjs/react.spo.appcustomizer'), // NOT AVAILABLE
     require('./testdefinitions/vuejs/vuejs.spo.appcustomizer')
 ];
 
@@ -58,9 +58,9 @@ let onprem19FieldCustomizer = [
 
 let spoListViewCommandSet = [
     require('./testdefinitions/handlebars/handlebars.spo.listviewcommandset'),
-    require('./testdefinitions/knockout/knockout.spo.listviewcommandset'),
+    // require('./testdefinitions/knockout/knockout.spo.listviewcommandset'), NOT AVAILABLE
     require('./testdefinitions/noframework/noframework.spo.listviewcommandset'),
-    require('./testdefinitions/reactjs/react.spo.listviewcommandset'),
+    // require('./testdefinitions/reactjs/react.spo.listviewcommandset'),
     require('./testdefinitions/vuejs/vuejs.spo.listviewcommandset')
 ]
 
