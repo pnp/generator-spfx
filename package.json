@@ -1,10 +1,6 @@
 {
     "name": "@pnp/generator-spfx",
-<<<<<<< HEAD
     "version": "1.5.1",
-=======
-    "version": "1.5.0",
->>>>>>> a25115eb0aa54883b187903ef6fc7a5afeeb9263
     "description": "This is an open-source extension for native out of the box SPFx generator to introduce additional scaffolding support for Angular Elements, VueJS, Handlebars and many more in future. This generator has a dependency on native SPFx generator from Microsoft.",
     "author": {
         "name": "Office 365 / SharePoint PnP Core Team",
@@ -60,9 +56,9 @@
         }
     ],
     "dependencies": {
-        "@microsoft/generator-sharepoint": "1.7.0",
-        "@pnp/office365-cli": "^1.10.0",
-        "applicationinsights": "^1.0.7",
+        "@microsoft/generator-sharepoint": "1.7.1",
+        "@pnp/office365-cli": "^1.11.0",
+        "applicationinsights": "^1.0.8",
         "chalk": "^2.4.1",
         "command-exists": "^1.2.8",
         "lodash": "^4.17.11",
