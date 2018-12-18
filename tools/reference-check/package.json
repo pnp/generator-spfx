@@ -13,24 +13,27 @@
         "jquery": "^3.0.0",
         "@types/jquery": "^3.0.0",
         "@pnp/pnpjs": "^1.2.7",
-        "@pnp/spfx-property-controls": "1.12.0",
+        "jquery": "^3.3.1",
+        "@types/jquery": "^3.3.27",
+        "@pnp/pnpjs": "^1.2.7",
+        "@pnp/spfx-property-controls": "1.13.1",
         "@pnp/spfx-controls-react": "1.10.0",
 
 
-        "vue": "^2.5.16",
-        "vue-class-component": "^6.2.0",
-        "vue-property-decorator": "^7.0.0",
+        "vue": "^2.5.21",
+        "vue-class-component": "^6.3.2",
+        "vue-property-decorator": "^7.2.0",
         "sass-loader": "^7.1.0",
 
-        "handlebars": "^4.0.6"
+        "handlebars": "^4.0.12"
     },
     "devDependencies": {
 
         "sass-loader": "^7.1.0",
-        "ts-loader": "^5.3.0",
-        "fork-ts-checker-webpack-plugin": "^0.4.9",
-        "vue-loader": "^15.2.4",
-        "vue-template-compiler": "^2.5.16",
+        "ts-loader": "^5.3.1",
+        "fork-ts-checker-webpack-plugin": "^0.5.2",
+        "vue-loader": "^15.4.2",
+        "vue-template-compiler": "^2.5.21",
 
         "handlebars-template-loader": "^1.0.0",
         "@types/handlebars": "^4.0.39"
