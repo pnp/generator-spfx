@@ -13,6 +13,9 @@
         "jquery": "^3.3.1",
         "@types/jquery": "^3.3.27",
         "@pnp/pnpjs": "^1.2.7",
+        "jquery": "^3.3.1",
+        "@types/jquery": "^3.3.27",
+        "@pnp/pnpjs": "^1.2.7",
         "@pnp/spfx-property-controls": "1.13.1",
         "@pnp/spfx-controls-react": "1.10.0",
 
