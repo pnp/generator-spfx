@@ -31,7 +31,9 @@ module.exports = class extends Generator {
 
         this._addPackageDependencies();
 
-        if (this.options.SpfxOptions['pnp-vetting'].indexOf('stylelint') !== -1) {
+
+        if (undefined !== this.options.vetting &&
+            this.options.vetting.indexOf('stylelint') !== -1) {
 
             this._addStylelintConfig();
 
@@ -68,7 +70,9 @@ module.exports = class extends Generator {
             }
 
             // let jsAddons = this.options.libaries;
-            let requestedLibraries = this.options.libraries.concat(this.options.vetting);
+            let requestedLibraries =
+                (undefined !== this.options.vetting &&
+                    this.options.vetting.length !== 0) ? this.options.libraries.concat(this.options.vetting) : this.options.libraries;
 
             let newPkgConfig = util.mergeAddons(addonConfig, requestedLibraries, config);
 

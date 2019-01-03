@@ -185,6 +185,9 @@ class TestGenerator {
         const fileContent = new FileContent();
         const testType = new TestType();
 
+        /**
+         * No jQuery Test Definition
+         */
         noJQuery.name = " No jQuery";
         noJQuery.specifics = {};
         noJQuery.test = this.baseTest.test.concat([{
@@ -233,10 +236,14 @@ class TestGenerator {
 
         this._tests.push(noJQuery);
 
+        /**
+         * jQuery 2 test
+         */
+
         const jquery2 = Object.assign({}, this.baseTest);
         jquery2.name = " jQuery 2.x.x";
         jquery2.specifics = {
-            features: ['jquery'],
+            jsLibrary: ['jquery'],
             jQueryVersion: 2,
             force: true
         };
@@ -286,10 +293,13 @@ class TestGenerator {
 
         this._tests.push(jquery2);
 
+        /**
+         * jQuery 3 Test Definition
+         */
         const jquery3 = Object.assign({}, this.baseTest);
         jquery3.name = " jQuery 3.x.x";
         jquery3.specifics = {
-            features: ['jquery'],
+            jsLibrary: ['jquery'],
             jQueryVersion: 3,
             force: true
         };
@@ -339,10 +349,13 @@ class TestGenerator {
 
         this._tests.push(jquery3);
 
+        /**
+         * jQuer 2, pnpjs test
+         */
         const jqueryPnPJS2 = Object.assign({}, this.baseTest);
         jqueryPnPJS2.name = " jQuery 2.x.x, pnpjs, ";
         jqueryPnPJS2.specifics = {
-            features: ['jquery', '@pnp/pnpjs'],
+            jsLibrary: ['jquery', '@pnp/pnpjs'],
             jQueryVersion: 2,
             force: true
         };
@@ -392,10 +405,13 @@ class TestGenerator {
 
         this._tests.push(jqueryPnPJS2);
 
+        /**
+         * jquery 3, pnpjs test
+         */
         const jqueryPnPJS3 = Object.assign({}, this.baseTest);
         jqueryPnPJS3.name = " jQuery 3.x.x, pnpjs";
         jqueryPnPJS3.specifics = {
-            features: ['jquery', '@pnp/pnpjs'],
+            jsLibrary: ['jquery', '@pnp/pnpjs'],
             jQueryVersion: 3,
             force: true
         };
@@ -445,10 +461,13 @@ class TestGenerator {
 
         this._tests.push(jqueryPnPJS3);
 
+        /**
+         * jquery 2 pnpjs, property control
+         */
         const jqueryPropPnPJS2 = Object.assign({}, this.baseTest);
         jqueryPropPnPJS2.name = " jQuery 2.x.x, pnp/pnpjs, @pnp/spfx-property-controls";
         jqueryPropPnPJS2.specifics = {
-            features: ['jquery', '@pnp/pnpjs', '@pnp/spfx-property-controls'],
+            jsLibrary: ['jquery', '@pnp/pnpjs', '@pnp/spfx-property-controls'],
             jQueryVersion: 2,
             force: true
         };
@@ -498,10 +517,13 @@ class TestGenerator {
 
         this._tests.push(jqueryPropPnPJS2);
 
+        /**
+         * jQUery 3, pnpjs, property control
+         */
         const jqueryPropPnPJS3 = Object.assign({}, this.baseTest);
         jqueryPropPnPJS3.name = " jQuery 3.x.x, pnpjs, @pnp/spfx-property-controls";
         jqueryPropPnPJS3.specifics = {
-            features: ['jquery', '@pnp/pnpjs', '@pnp/spfx-property-controls'],
+            jsLibrary: ['jquery', '@pnp/pnpjs', '@pnp/spfx-property-controls'],
             jQueryVersion: 3,
             force: true
         };

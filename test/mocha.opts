@@ -3,5 +3,5 @@
 ###
 
 --ui bdd
---timeout 50000
+--timeout 3000
 --full-trace

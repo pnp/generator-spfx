@@ -5,6 +5,7 @@ let onpremWebPart = [
     require('./testdefinitions/knockout/knockout.onprem.webpart'),
     require('./testdefinitions/noframework/noframework.onprem.webpart'),
     require('./testdefinitions/reactjs/react.onprem.webpart'),
+    require('./testdefinitions/reactjs.plus/react.onprem.webpart'),
     require('./testdefinitions/vuejs/vuejs.onprem.webpart')
 ];
 
@@ -21,6 +22,7 @@ let spoWebPart = [
     require('./testdefinitions/knockout/knockout.spo.webpart'),
     require('./testdefinitions/noframework/noframework.spo.webpart'),
     require('./testdefinitions/reactjs/react.spo.webpart'),
+    require('./testdefinitions/reactjs.plus/react.spo.webpart'),
     require('./testdefinitions/vuejs/vuejs.spo.webpart')
 ];
 
@@ -45,6 +47,7 @@ let spoFieldCustomizer = [
     // require('./testdefinitions/knockout/knockout.spo.fieldcustomizer'),
     require('./testdefinitions/noframework/noframework.spo.fieldcustomizer'),
     require('./testdefinitions/reactjs/react.spo.fieldcustomizer'),
+    require('./testdefinitions/reactjs.plus/react.spo.fieldcustomizer'),
     require('./testdefinitions/vuejs/vuejs.spo.fieldcustomizer')
 ];
 
@@ -53,6 +56,7 @@ let onprem19FieldCustomizer = [
     // require('./testdefinitions/knockout/knockout.onprem19.fieldcustomizer'), NOT AVAILABLE
     require('./testdefinitions/noframework/noframework.onprem19.fieldcustomizer'),
     require('./testdefinitions/reactjs/react.onprem19.fieldcustomizer'),
+    require('./testdefinitions/reactjs.plus/react.onprem19.fieldcustomizer'),
     require('./testdefinitions/vuejs/vuejs.onprem19.fieldcustomizer')
 ];
 

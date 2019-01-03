@@ -70,8 +70,6 @@ module.exports = class extends Generator {
                     this.options.pnpFramework = answers.framework;
                     this.options.vetting = answers.vetting;
 
-                    console.log(answers.vetting);
-
                     // check if test lint was selected in any of the generators
                     this.options.tsLint = answers.tsLint ? answers.tsLint : false;
 
@@ -84,8 +82,6 @@ module.exports = class extends Generator {
 
                     // Addon Vetting options
                     this.options.SpfxOptions['pnp-vetting'] = this.options.vetting;
-
-                    console.log('Vetting options:::: :: ', this.options.SpfxOptions['pnp-vetting']);
 
                     if (answers.framework === "angularelements") {
 
@@ -143,11 +139,11 @@ module.exports = class extends Generator {
     // Custom evalutation of Addon options
     _evalAddons(selections) {
 
-        if (selections.features === undefined) {
+        if (selections.jsLibrary === undefined) {
             return [];
         }
 
-        return selections.features.map(item => {
+        return selections.jsLibrary.map(item => {
 
             switch (item) {
                 case "jquery":
@@ -171,23 +167,33 @@ module.exports = class extends Generator {
         let generatorFramework;
 
         switch (selectedFramework) {
+
             case "handlebars":
             case "vuejs":
             case "angularelements":
                 generatorFramework = 'none';
                 break;
+
             case "reactjs":
             case "react":
                 generatorFramework = 'react';
                 break;
+
+            case "reactjs.plus":
+                generatorFramework = 'react';
+                break;
+
             case "knockout":
                 generatorFramework = 'knockout';
                 break;
+
             case "noframework":
                 generatorFramework = 'none';
                 break;
+
             default:
                 break;
+
         }
 
         return generatorFramework;
@@ -213,7 +219,8 @@ module.exports = class extends Generator {
 
         }
 
-        if (this.options.SpfxOptions.framework === "react" ||
+        if ((this.options.SpfxOptions.framework === "react" &&
+                this.options.pnpFramework !== "reactjs.plus") ||
             this.options.SpfxOptions.framework === "knockout") {
 
             this.options.SpfxOptions['skip-install'] = false;
