@@ -35,63 +35,49 @@ module.exports = class extends Generator {
 
     install() {
 
-        // deployes additional files to the project directory
-        this._deployFiles();
-        // add external to the configuration
-        this._addExternals();
+        let reactVersion = util.detectReactVersion(this);
+
         // add all package depenedencies configured in addonConfig.json.
-        this._addPackageDependencies();
-        // inject custom tasks to gulpfile
-        this._injectToGulpFile();
-        // Update add templates
-        util.deployTemplates(this);
-        // finally run install
+        this._addPackageDependencies(reactVersion);
+
         util.runInstall(this);
+
+        // return;
+
+        // // deployes additional files to the project directory
+        // this._deployFiles();
+        // // add external to the configuration
+        // this._addExternals();
+        // // inject custom tasks to gulpfile
+        // this._injectToGulpFile();
+        // // Update add templates
+        // util.deployTemplates(this);
+        // // finally run install
+        // util.runInstall(this);
 
     }
 
     // Run installer normally time to say goodbye
     // If yarn is installed yarn will be used
     end() {
+
     }
 
     _deployFiles() {
-
-        this.fs.copy(
-            this.templatePath('config/copy-static-assets.json'),
-            this.destinationPath('config/copy-static-assets.json')
-        )
 
     }
 
     _addExternals() {
 
-        // reading JSON
-        let config = JSON.parse(
-            fs.readFileSync(this.destinationPath('config/config.json'))
-        );
-
-        if (config.externals !== undefined) {
-            // Add Handlebars entry
-            config.externals.handlebars = "./node_modules/handlebars/dist/handlebars.amd.min.js";
-
-            // writing json
-            try {
-                fs.writeFileSync(
-                    this.destinationPath('config/config.json'),
-                    JSON.stringify(config, null, 2)
-                );
-            } catch (error) {
-                console.log(error);
-            }
-        }
-
     }
 
-    _addPackageDependencies() {
+    _addPackageDependencies(reactVersion) {
+
+        console.log("---Adding package dependencies")
 
         if (fs.existsSync(this.destinationPath('package.json'))) {
 
+            console.log("1. package.json");
             // request the default package file
             let config;
 
@@ -121,8 +107,10 @@ module.exports = class extends Generator {
 
             }
 
+            console.log("2. addonConfig");
+            console.log(addonConfig);
             // select the requested libraried
-            let requestedLibraries = ['handlebars'];
+            let requestedLibraries = [reactVersion];
 
             // declare new package config file
             let newPkgConfig;
@@ -152,29 +140,12 @@ module.exports = class extends Generator {
             }
 
         }
+
     }
 
     _injectToGulpFile() {
 
-        let targetGulpFile = this.destinationPath('gulpfile.js');
 
-        if (fs.existsSync(targetGulpFile)) {
-
-            let coreGulpTemplate = this.templatePath('../../../app/templates/gulpfile.js');
-            let customGulpTemplate = this.templatePath('./gulpfile.js');
-
-
-            try {
-
-                util.composeGulpFile(coreGulpTemplate, customGulpTemplate, targetGulpFile);
-
-            } catch (error) {
-
-                this.log(error);
-
-            }
-
-        }
     }
 
 }
