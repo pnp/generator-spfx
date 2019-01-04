@@ -25,5 +25,10 @@
         "dependencies": {
             "@pnp/spfx-controls-react": "1.10.0"
         }
+    },
+    "webpack-analyzer": {
+        "devDependencies": {
+            "webpack-bundle-analyzer": "^3.0.3"
+        }
     }
 }

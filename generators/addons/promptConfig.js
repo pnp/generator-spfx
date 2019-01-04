@@ -46,6 +46,17 @@ const reactLibs = [{
     value: '@pnp/spfx-controls-react'
 }];
 
+const vettingOptions = [{
+    name: 'WebPack Bundle Analyzer',
+    value: 'webpack-analyzer',
+    checked: true
+},
+{
+    name: 'Style Linter',
+    value: 'stylelint'
+},
+]
+
 const defaultLibs = [{
         name: 'jQuery',
         value: 'jquery'
@@ -86,6 +97,13 @@ const configOptions = [
         choices: jqueryOptions,
         // Show only when jQuery was included
         when: answers => answers.jsLibrary !== undefined && answers.jsLibrary.indexOf('jquery') !== -1
+    },
+    // Vetting and code style options
+    {
+        type: 'checkbox',
+        message: 'Vetting Options',
+        name: 'vetting',
+        choices: vettingOptions
     }
 ]
 
