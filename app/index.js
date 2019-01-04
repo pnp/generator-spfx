@@ -68,6 +68,9 @@ module.exports = class extends Generator {
                     this.options.SpfxOptions['framework'] = this._evalSPFxGenerator(answers.framework);
                     this.options.SpfxOptions['pnp-framework'] = answers.framework;
                     this.options.pnpFramework = answers.framework;
+                    this.options.vetting = answers.vetting;
+
+                    console.log(answers.vetting);
 
                     // check if test lint was selected in any of the generators
                     this.options.tsLint = answers.tsLint ? answers.tsLint : false;
@@ -76,8 +79,13 @@ module.exports = class extends Generator {
                     this.options.libraries = this._evalAddons(
                         answers
                     );
-
+                    // Addon Library
                     this.options.SpfxOptions['pnp-libraries'] = this.options.libraries;
+
+                    // Addon Vetting options
+                    this.options.SpfxOptions['pnp-vetting'] = this.options.vetting;
+
+                    console.log('Vetting options:::: :: ', this.options.SpfxOptions['pnp-vetting']);
 
                     if (answers.framework === "angularelements") {
 

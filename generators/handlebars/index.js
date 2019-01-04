@@ -156,6 +156,8 @@ module.exports = class extends Generator {
 
     _injectToGulpFile() {
 
+        console.log(this.options);
+
         let targetGulpFile = this.destinationPath('gulpfile.js');
 
         if (fs.existsSync(targetGulpFile)) {
@@ -166,7 +168,7 @@ module.exports = class extends Generator {
 
             try {
 
-                util.composeGulpFile(coreGulpTemplate, customGulpTemplate, targetGulpFile);
+                util.composeGulpFile(coreGulpTemplate, customGulpTemplate, targetGulpFile, this.options);
 
             } catch (error) {
 
