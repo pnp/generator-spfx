@@ -9,9 +9,10 @@ build.addSuppression(`Warning - [sass] The local CSS class 'ms-Grid' is not came
 <% if (undefined !== SpfxOptions && SpfxOptions['pnp-vetting'].indexOf('webpack-analyzer') !== -1) { %>
 /**
  * Webpack Bundel Anlyzer
- * Reference and gulp task
+ * Reference and custom gulp task
  */
 const bundleAnalyzer = require('webpack-bundle-analyzer');
+
 build.configureWebpack.mergeConfig({
   additionalConfiguration: (generatedConfiguration) => {
     const lastDirName = path.basename(__dirname);
@@ -29,6 +30,33 @@ build.configureWebpack.mergeConfig({
   }
 });
 <% } %>
+
+<% if (undefined !== SpfxOptions && SpfxOptions['pnp-vetting'].indexOf('stylelint') !== -1) { %>
+/**
+ * StyleLinter configuration
+ * Reference and custom gulp task
+ */
+const stylelint = require('gulp-stylelint');
+
+/* Stylelinter sub task */
+let styleLintSubTask = build.subTask('stylelint', (gulp) => {
+
+    console.log('[stylelint]: By default style lint errors will not break your build. If you want to change this behaviour, modify failAfterError parameter in gulpfile.js.');
+
+    return gulp
+      .src('src/**/*.scss')
+      .pipe(stylelint({
+        failAfterError: false,
+        reporters: [
+          { formatter: 'string', console: true }
+        ]
+      }));
+  });
+  /* end sub task */
+
+  build.rig.addPreBuildTask(styleLintSubTask);
+  <% } %>
+
 /**
  * Custom Framework Specific gulp tasks
  */

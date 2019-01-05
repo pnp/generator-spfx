@@ -30,5 +30,13 @@
         "devDependencies": {
             "webpack-bundle-analyzer": "^3.0.3"
         }
+    },
+    "stylelint": {
+        "devDependencies": {
+            "stylelint": "^9.9.0",
+            "stylelint-config-standard": "^18.2.0",
+            "stylelint-scss": "^3.4.0",
+            "gulp-stylelint": "^8.0.0"
+        }
     }
 }
