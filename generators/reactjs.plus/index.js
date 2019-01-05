@@ -1,0 +1,151 @@
+"use strict";
+
+// Base Yeoman generator
+const Generator = require('yeoman-generator');
+
+// filesystem
+const fs = require('fs');
+
+// importing utilities
+const util = require('../../lib/util.js');
+
+module.exports = class extends Generator {
+
+    constructor(args, opts) {
+        super(args, opts);
+    }
+
+    // Initialisation geenerator
+    initializing() {
+
+    }
+
+    // Prompt for user input for Custom Generator
+    prompting() {
+
+    }
+
+    // adds additonal editor support in this case CSS Comb
+    configuring() {
+
+    }
+
+
+    writing() {}
+
+    install() {
+
+        let reactVersion = util.detectReactVersion(this);
+
+        // add all package depenedencies configured in addonConfig.json.
+        this._addPackageDependencies(reactVersion);
+
+        util.runInstall(this);
+
+        // return;
+
+        // // deployes additional files to the project directory
+        // this._deployFiles();
+        // // add external to the configuration
+        // this._addExternals();
+        // // inject custom tasks to gulpfile
+        // this._injectToGulpFile();
+        // // Update add templates
+        // util.deployTemplates(this);
+        // // finally run install
+        // util.runInstall(this);
+
+    }
+
+    // Run installer normally time to say goodbye
+    // If yarn is installed yarn will be used
+    end() {
+
+    }
+
+    _deployFiles() {
+
+    }
+
+    _addExternals() {
+
+    }
+
+    _addPackageDependencies(reactVersion) {
+
+        console.log("---Adding package dependencies")
+
+        if (fs.existsSync(this.destinationPath('package.json'))) {
+
+            console.log("1. package.json");
+            // request the default package file
+            let config;
+
+            try {
+                config = JSON.parse(fs.readFileSync(
+                    this.destinationPath('package.json')
+                ));
+
+            } catch (error) {
+
+                throw error;
+
+            }
+
+            // request current addon configuration
+            let addonConfig;
+
+            try {
+                addonConfig = JSON.parse(
+                    fs.readFileSync(
+                        this.templatePath('addonConfig.json')
+                    )
+                )
+            } catch (err) {
+
+                throw err;
+
+            }
+
+            console.log("2. addonConfig");
+            console.log(addonConfig);
+            // select the requested libraried
+            let requestedLibraries = [reactVersion];
+
+            // declare new package config file
+            let newPkgConfig;
+
+            try {
+
+                newPkgConfig = util.mergeAddons(addonConfig, requestedLibraries, config);
+
+            } catch (error) {
+
+                throw error
+
+            }
+
+            // if content could be added to the new package.json write it
+            if (newPkgConfig !== undefined && newPkgConfig !== null) {
+
+                fs.writeFileSync(
+                    this.destinationPath('package.json'),
+                    JSON.stringify(newPkgConfig, null, 2)
+                );
+
+            } else {
+
+                throw 'Updated package.json file is invalid.';
+
+            }
+
+        }
+
+    }
+
+    _injectToGulpFile() {
+
+
+    }
+
+}

@@ -64,6 +64,7 @@ module.exports = class extends Generator {
             this.prompt(prompting.config)
                 .then(answers => {
 
+                    console.log('Framwork Answer:', answers.framework);
                     // Choose appro
                     this.options.SpfxOptions['framework'] = this._evalSPFxGenerator(answers.framework);
                     this.options.SpfxOptions['pnp-framework'] = answers.framework;
@@ -71,6 +72,10 @@ module.exports = class extends Generator {
                     this.options.vetting = answers.vetting;
 
                     console.log(answers.vetting);
+
+                    console.log('1', this.options.SpfxOptions['framework'])
+                    console.log('2', this.options.SpfxOptions['pnp-framework'])
+                    console.log('3', this.options.pnpFramework)
 
                     // check if test lint was selected in any of the generators
                     this.options.tsLint = answers.tsLint ? answers.tsLint : false;
@@ -171,23 +176,33 @@ module.exports = class extends Generator {
         let generatorFramework;
 
         switch (selectedFramework) {
+
             case "handlebars":
             case "vuejs":
             case "angularelements":
                 generatorFramework = 'none';
                 break;
+
             case "reactjs":
             case "react":
                 generatorFramework = 'react';
                 break;
+
+            case "reactjs.plus":
+                generatorFramework = 'react';
+                break;
+
             case "knockout":
                 generatorFramework = 'knockout';
                 break;
+
             case "noframework":
                 generatorFramework = 'none';
                 break;
+
             default:
                 break;
+
         }
 
         return generatorFramework;
@@ -196,6 +211,10 @@ module.exports = class extends Generator {
 
     // Configure and launch all required generators
     _configGenerators(options) {
+
+
+        console.log('PnP Framework:', this.options.pnpFramework);
+        console.log('Framework', this.options.SpfxOptions.framework);
 
         // Launch Default SPFx generator
         if (this.config.existed === false) {
@@ -213,7 +232,8 @@ module.exports = class extends Generator {
 
         }
 
-        if (this.options.SpfxOptions.framework === "react" ||
+        if ((this.options.SpfxOptions.framework === "react" &&
+                this.options.pnpFramework !== "reactjs.plus") ||
             this.options.SpfxOptions.framework === "knockout") {
 
             this.options.SpfxOptions['skip-install'] = false;
