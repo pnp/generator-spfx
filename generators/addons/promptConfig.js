@@ -1,5 +1,4 @@
 const chalk = require('chalk');
-const inquirer = require('inquirer');
 
 // jQuery version options
 const jqueryOptions = [{
@@ -48,14 +47,14 @@ const reactLibs = [{
 }];
 
 const vettingOptions = [{
-        name: 'WebPack Bundle Analyzer',
-        value: 'webpack-analyzer',
-        checked: true
-    },
-    {
-        name: 'StyleLint',
-        value: 'stylelint'
-    }
+    name: 'WebPack Bundle Analyzer',
+    value: 'webpack-analyzer',
+    checked: true
+},
+{
+    name: 'Style Linter',
+    value: 'stylelint'
+},
 ]
 
 const defaultLibs = [{
@@ -77,28 +76,17 @@ const configOptions = [
     // Library selection
     {
         type: 'checkbox',
-        message: 'Additional features:',
-        name: 'features',
+        message: 'Which libraries to include',
+        name: 'jsLibrary',
         choices: answers => {
 
-            let allChoices = [
-                new inquirer.Separator('- Which libraries to include -'),
-                ...defaultLibs
-            ];
-
-            if (answers.framework === 'react') {
-                allChoices = allChoices.concat(reactLibs);
+            switch (answers.framework) {
+                case "react":
+                    return defaultLibs.concat(reactLibs);
+                default:
+                    return defaultLibs;
             }
 
-            if (answers.framework === 'react' || answers.framework === 'knockout') {
-                allChoices.push(new inquirer.Separator('- Which addons to include -'));
-                allChoices.push({
-                    name: 'stylelint',
-                    value: 'stylelint'
-                });
-            }
-
-            return allChoices;
         }
     },
     // jQuery version selection

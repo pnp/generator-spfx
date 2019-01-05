@@ -9,7 +9,7 @@ build.addSuppression(`Warning - [sass] The local CSS class 'ms-Grid' is not came
 <% if (undefined !== SpfxOptions && SpfxOptions['pnp-vetting'].indexOf('webpack-analyzer') !== -1) { %>
 /**
  * Webpack Bundel Anlyzer
- * Reference and custom gulp task
+ * Reference and gulp task
  */
 const bundleAnalyzer = require('webpack-bundle-analyzer');
 
