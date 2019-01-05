@@ -148,11 +148,11 @@ module.exports = class extends Generator {
     // Custom evalutation of Addon options
     _evalAddons(selections) {
 
-        if (selections.features === undefined) {
+        if (selections.jsLibrary === undefined) {
             return [];
         }
 
-        return selections.features.map(item => {
+        return selections.jsLibrary.map(item => {
 
             switch (item) {
                 case "jquery":
