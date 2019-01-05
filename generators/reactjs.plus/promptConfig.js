@@ -16,7 +16,6 @@ const configOptions = [
         choices: options,
         when: answers => {
 
-            console.log(answers);
             answers.framework && answers.framework === 'react.plus';
             return true;
 

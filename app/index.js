@@ -64,18 +64,11 @@ module.exports = class extends Generator {
             this.prompt(prompting.config)
                 .then(answers => {
 
-                    console.log('Framwork Answer:', answers.framework);
                     // Choose appro
                     this.options.SpfxOptions['framework'] = this._evalSPFxGenerator(answers.framework);
                     this.options.SpfxOptions['pnp-framework'] = answers.framework;
                     this.options.pnpFramework = answers.framework;
                     this.options.vetting = answers.vetting;
-
-                    console.log(answers.vetting);
-
-                    console.log('1', this.options.SpfxOptions['framework'])
-                    console.log('2', this.options.SpfxOptions['pnp-framework'])
-                    console.log('3', this.options.pnpFramework)
 
                     // check if test lint was selected in any of the generators
                     this.options.tsLint = answers.tsLint ? answers.tsLint : false;
@@ -89,8 +82,6 @@ module.exports = class extends Generator {
 
                     // Addon Vetting options
                     this.options.SpfxOptions['pnp-vetting'] = this.options.vetting;
-
-                    console.log('Vetting options:::: :: ', this.options.SpfxOptions['pnp-vetting']);
 
                     if (answers.framework === "angularelements") {
 
@@ -211,10 +202,6 @@ module.exports = class extends Generator {
 
     // Configure and launch all required generators
     _configGenerators(options) {
-
-
-        console.log('PnP Framework:', this.options.pnpFramework);
-        console.log('Framework', this.options.SpfxOptions.framework);
 
         // Launch Default SPFx generator
         if (this.config.existed === false) {

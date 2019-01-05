@@ -73,11 +73,8 @@ module.exports = class extends Generator {
 
     _addPackageDependencies(reactVersion) {
 
-        console.log("---Adding package dependencies")
-
         if (fs.existsSync(this.destinationPath('package.json'))) {
 
-            console.log("1. package.json");
             // request the default package file
             let config;
 
@@ -107,8 +104,6 @@ module.exports = class extends Generator {
 
             }
 
-            console.log("2. addonConfig");
-            console.log(addonConfig);
             // select the requested libraried
             let requestedLibraries = [reactVersion];
 
