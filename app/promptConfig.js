@@ -45,7 +45,10 @@ const supportedFrameworks = [
     {
         name: '- No Framework',
         value: 'noframework'
-    }
+    },
+    new inquirer.Separator(
+        fgYellow('Additional Frameworks')
+    ),
 ];
 
 let configOptions = [

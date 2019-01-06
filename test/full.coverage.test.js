@@ -5,6 +5,7 @@ let onpremWebPart = [
     require('./testdefinitions/knockout/knockout.onprem.webpart'),
     require('./testdefinitions/noframework/noframework.onprem.webpart'),
     require('./testdefinitions/reactjs/react.onprem.webpart'),
+    require('./testdefinitions/reactjs.plus/react.onprem.webpart'),
     require('./testdefinitions/vuejs/vuejs.onprem.webpart')
 ];
 
