@@ -35,12 +35,19 @@ module.exports = class extends Generator {
 
     install() {
 
-        let reactVersion = util.detectReactVersion(this);
 
-        // add all package depenedencies configured in addonConfig.json.
-        this._addPackageDependencies(reactVersion);
+        if (this.config.existed !== true) {
 
-        util.runInstall(this);
+            let reactVersion = util.detectReactVersion(this);
+
+            // add all package depenedencies configured in addonConfig.json.
+            this._addPackageDependencies(reactVersion);
+            // // inject custom tasks to gulpfile
+            this._injectToGulpFile();
+
+            util.runInstall(this);
+
+        }
 
         // return;
 
@@ -48,8 +55,8 @@ module.exports = class extends Generator {
         // this._deployFiles();
         // // add external to the configuration
         // this._addExternals();
-        // // inject custom tasks to gulpfile
-        // this._injectToGulpFile();
+
+
         // // Update add templates
         // util.deployTemplates(this);
         // // finally run install
@@ -140,6 +147,25 @@ module.exports = class extends Generator {
 
     _injectToGulpFile() {
 
+        let targetGulpFile = this.destinationPath('gulpfile.js');
+
+        if (fs.existsSync(targetGulpFile)) {
+
+            let coreGulpTemplate = this.templatePath('../../../app/templates/gulpfile.js');
+            let customGulpTemplate = this.templatePath('./gulpfile.js');
+
+
+            try {
+
+                util.composeGulpFile(coreGulpTemplate, customGulpTemplate, targetGulpFile, this.options);
+
+            } catch (error) {
+
+                this.log(error);
+
+            }
+
+        }
 
     }
 

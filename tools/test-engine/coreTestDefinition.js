@@ -233,6 +233,36 @@ class TestGenerator {
                 file: fileContent.package,
                 expr: /@pnp\/spfx-controls-react/,
                 type: testType.noFileContent
+            },
+            {
+                name: 'no StyleLint Reference',
+                file: fileContent.package,
+                expr: /"stylelint"/,
+                type: testType.noFileContent
+            },
+            {
+                name: 'no StyleLint Config Standard',
+                file: fileContent.package,
+                expr: /"stylelint-config-standard"/,
+                type: testType.noFileContent
+            },
+            {
+                name: 'no StyleLint SCSS',
+                file: fileContent.package,
+                expr: /"stylelint-scss"/,
+                type: testType.nofileContent
+            },
+            {
+                name: 'no StyleLint Gulp',
+                file: fileContent.package,
+                expr: /"gulp-stylelint"/,
+                type: testType.noFileContent
+            },
+            {
+                name: 'no Webpack analyser',
+                file: fileContent.package,
+                expr: /"webpack-bundle-analyzer"/,
+                type: testType.noFileContent
             }
         ])
 
@@ -290,6 +320,36 @@ class TestGenerator {
                 file: fileContent.package,
                 expr: /@pnp\/spfx-controls-react/,
                 type: testType.noFileContent
+            },
+            {
+                name: 'no StyleLint Reference',
+                file: fileContent.package,
+                expr: /"stylelint"/,
+                type: testType.noFileContent
+            },
+            {
+                name: 'no StyleLint Config Standard',
+                file: fileContent.package,
+                expr: /"stylelint-config-standard"/,
+                type: testType.noFileContent
+            },
+            {
+                name: 'no StyleLint SCSS',
+                file: fileContent.package,
+                expr: /"stylelint-scss"/,
+                type: testType.nofileContent
+            },
+            {
+                name: 'no StyleLint Gulp',
+                file: fileContent.package,
+                expr: /"gulp-stylelint"/,
+                type: testType.noFileContent
+            },
+            {
+                name: 'no Webpack analyser',
+                file: fileContent.package,
+                expr: /"webpack-bundle-analyzer"/,
+                type: testType.noFileContent
             }
         ])
 
@@ -345,6 +405,36 @@ class TestGenerator {
                 name: 'no @pnp/spfx-controls-react',
                 file: fileContent.package,
                 expr: /@pnp\/spfx-controls-react/,
+                type: testType.noFileContent
+            },
+            {
+                name: 'no StyleLint Reference',
+                file: fileContent.package,
+                expr: /"stylelint"/,
+                type: testType.noFileContent
+            },
+            {
+                name: 'no StyleLint Config Standard',
+                file: fileContent.package,
+                expr: /"stylelint-config-standard"/,
+                type: testType.noFileContent
+            },
+            {
+                name: 'no StyleLint SCSS',
+                file: fileContent.package,
+                expr: /"stylelint-scss"/,
+                type: testType.nofileContent
+            },
+            {
+                name: 'no StyleLint Gulp',
+                file: fileContent.package,
+                expr: /"gulp-stylelint"/,
+                type: testType.noFileContent
+            },
+            {
+                name: 'no Webpack analyser',
+                file: fileContent.package,
+                expr: /"webpack-bundle-analyzer"/,
                 type: testType.noFileContent
             }
         ])
@@ -402,6 +492,36 @@ class TestGenerator {
                 file: fileContent.package,
                 expr: /@pnp\/spfx-controls-react/,
                 type: testType.noFileContent
+            },
+            {
+                name: 'no StyleLint Reference',
+                file: fileContent.package,
+                expr: /"stylelint"/,
+                type: testType.noFileContent
+            },
+            {
+                name: 'no StyleLint Config Standard',
+                file: fileContent.package,
+                expr: /"stylelint-config-standard"/,
+                type: testType.noFileContent
+            },
+            {
+                name: 'no StyleLint SCSS',
+                file: fileContent.package,
+                expr: /"stylelint-scss"/,
+                type: testType.nofileContent
+            },
+            {
+                name: 'no StyleLint Gulp',
+                file: fileContent.package,
+                expr: /"gulp-stylelint"/,
+                type: testType.noFileContent
+            },
+            {
+                name: 'no Webpack analyser',
+                file: fileContent.package,
+                expr: /"webpack-bundle-analyzer"/,
+                type: testType.noFileContent
             }
         ])
 
@@ -457,6 +577,36 @@ class TestGenerator {
                 name: 'no @pnp/spfx-controls-react',
                 file: fileContent.package,
                 expr: /@pnp\/spfx-controls-react/,
+                type: testType.noFileContent
+            },
+            {
+                name: 'no StyleLint Reference',
+                file: fileContent.package,
+                expr: /"stylelint"/,
+                type: testType.noFileContent
+            },
+            {
+                name: 'no StyleLint Config Standard',
+                file: fileContent.package,
+                expr: /"stylelint-config-standard"/,
+                type: testType.noFileContent
+            },
+            {
+                name: 'no StyleLint SCSS',
+                file: fileContent.package,
+                expr: /"stylelint-scss"/,
+                type: testType.nofileContent
+            },
+            {
+                name: 'no StyleLint Gulp',
+                file: fileContent.package,
+                expr: /"gulp-stylelint"/,
+                type: testType.noFileContent
+            },
+            {
+                name: 'no Webpack analyser',
+                file: fileContent.package,
+                expr: /"webpack-bundle-analyzer"/,
                 type: testType.noFileContent
             }
         ])
@@ -514,6 +664,36 @@ class TestGenerator {
                 file: fileContent.package,
                 expr: /@pnp\/spfx-controls-react/,
                 type: testType.noFileContent
+            },
+            {
+                name: 'no StyleLint Reference',
+                file: fileContent.package,
+                expr: /"stylelint"/,
+                type: testType.noFileContent
+            },
+            {
+                name: 'no StyleLint Config Standard',
+                file: fileContent.package,
+                expr: /"stylelint-config-standard"/,
+                type: testType.noFileContent
+            },
+            {
+                name: 'no StyleLint SCSS',
+                file: fileContent.package,
+                expr: /"stylelint-scss"/,
+                type: testType.nofileContent
+            },
+            {
+                name: 'no StyleLint Gulp',
+                file: fileContent.package,
+                expr: /"gulp-stylelint"/,
+                type: testType.noFileContent
+            },
+            {
+                name: 'no Webpack analyser',
+                file: fileContent.package,
+                expr: /"webpack-bundle-analyzer"/,
+                type: testType.noFileContent
             }
         ])
 
@@ -569,6 +749,36 @@ class TestGenerator {
                 name: 'no @pnp/spfx-controls-react',
                 file: fileContent.package,
                 expr: /@pnp\/spfx-controls-react/,
+                type: testType.noFileContent
+            },
+            {
+                name: 'no StyleLint Reference',
+                file: fileContent.package,
+                expr: /"stylelint"/,
+                type: testType.noFileContent
+            },
+            {
+                name: 'no StyleLint Config Standard',
+                file: fileContent.package,
+                expr: /"stylelint-config-standard"/,
+                type: testType.noFileContent
+            },
+            {
+                name: 'no StyleLint SCSS',
+                file: fileContent.package,
+                expr: /"stylelint-scss"/,
+                type: testType.nofileContent
+            },
+            {
+                name: 'no StyleLint Gulp',
+                file: fileContent.package,
+                expr: /"gulp-stylelint"/,
+                type: testType.noFileContent
+            },
+            {
+                name: 'no Webpack analyser',
+                file: fileContent.package,
+                expr: /"webpack-bundle-analyzer"/,
                 type: testType.noFileContent
             }
         ])

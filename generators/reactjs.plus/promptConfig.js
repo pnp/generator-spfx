@@ -14,7 +14,11 @@ const configOptions = [
         message: 'Test Framework',
         name: 'testframework',
         choices: options,
-        when: answers => answers.framework && answers.framework === 'react.plus'
+        when: answers => {
+
+            console.log('if :::::---:::::', answers.framework);
+            return answers.framework && answers.framework === 'reactjs.plus'
+        }
     }
     // , addon
 ]

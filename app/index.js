@@ -36,7 +36,7 @@ module.exports = class extends Generator {
     // Prompt for user input for Custom Generator
     prompting() {
 
-        /* DO NOT ENTER CODE HERE */
+        /* Be cauthios this contains the main logic of ther generator */
 
         // if config existed fallback to default generator
         if (this.config.existed) {
@@ -45,6 +45,7 @@ module.exports = class extends Generator {
             this.options.SpfxOptions['framework'] = this.config.get('framework');
             this.options.SpfxOptions['pnp-framework'] = this.config.get('framework');
             this.options.SpfxOptions['pnp-libraries'] = this.config.get('pnp-libraries');
+            this.options.SpfxOptions['pnp-vetting'] = this.config.get('pnp-vetting');
 
             this.options.pnpFramework = this.config.get('pnpFramework') !== 'angularelements' ? this.config.get('pnpFramework') : "none";
 
@@ -101,6 +102,7 @@ module.exports = class extends Generator {
                     this.config.set('framework', this.options.SpfxOptions['framework']);
                     this.config.set('pnpFramework', this.options.pnpFramework);
                     this.config.set('pnp-libraries', this.options.libraries);
+                    this.config.set('pnp-vetting', this.options.vetting);
                     this.config.save();
 
                     if (this.options['testRun'] === undefined) {

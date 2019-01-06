@@ -35,6 +35,8 @@ module.exports = class extends Generator {
 
     install() {
 
+        console.log('CONFIG EXISTED ____::::::::::________', this.options);
+
         // deployes additional files to the project directory
         this._deployFiles();
         // add external to the configuration
@@ -175,6 +177,7 @@ module.exports = class extends Generator {
             }
 
         }
+
     }
 
 }
