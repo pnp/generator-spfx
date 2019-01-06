@@ -15,10 +15,9 @@ const configOptions = [
         name: 'testframework',
         choices: options,
         when: answers => {
-
-            console.log('if :::::---:::::', answers.framework);
             return answers.framework && answers.framework === 'reactjs.plus'
         }
+
     }
     // , addon
 ]

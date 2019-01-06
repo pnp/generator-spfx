@@ -154,7 +154,6 @@ module.exports = class extends Generator {
             let coreGulpTemplate = this.templatePath('../../../app/templates/gulpfile.js');
             let customGulpTemplate = this.templatePath('./gulpfile.js');
 
-
             try {
 
                 util.composeGulpFile(coreGulpTemplate, customGulpTemplate, targetGulpFile, this.options);
