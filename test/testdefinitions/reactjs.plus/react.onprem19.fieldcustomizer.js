@@ -2,9 +2,9 @@ const baseTest = require('../../../tools/test-engine/coreTestDefinition');
 
 const testSuite = new baseTest.TestSuite();
 
-testSuite.name = "ReactJS";
+testSuite.name = "ReactJS Plus";
 testSuite.environment = "onprem19";
-testSuite.framework = "react";
+testSuite.framework = "reactjs.plus";
 testSuite.component = {
     componentType: 'extension',
     extensionType: 'FieldCustomizer'

@@ -3,9 +3,9 @@ const baseTest = require('../../tools/testGenerator/"coreTestDefinition');
 
 const testSuite = new baseTest.TestSuite();
 
-testSuite.name = "ReactJS";
+testSuite.name = "ReactJS Plus";
 testSuite.environment = "spo";
-testSuite.framework = "react";
+testSuite.framework = "reactjs.plus";
 
 const baseTestCase = new baseTest.BaseTestCase();
 const additonalTests = [{
