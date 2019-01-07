@@ -33,13 +33,11 @@ module.exports = class extends Generator {
 
 
         if (undefined !== this.options.vetting &&
-
             this.options.vetting.indexOf('stylelint') !== -1) {
 
             this._addStylelintConfig();
 
             this._injectToGulpFile();
-
         }
 
     }

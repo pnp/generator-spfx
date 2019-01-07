@@ -279,6 +279,7 @@ class TestGenerator {
         jquery2.name = " jQuery 2.x.x";
         jquery2.specifics = {
             jsLibrary: ['jquery'],
+            vetting: ['stylelint'],
             jQueryVersion: 2,
             force: true
         };
@@ -365,6 +366,7 @@ class TestGenerator {
         jquery3.name = " jQuery 3.x.x";
         jquery3.specifics = {
             jsLibrary: ['jquery'],
+            vetting: ['stylelint'],
             jQueryVersion: 3,
             force: true
         };
@@ -451,6 +453,7 @@ class TestGenerator {
         jqueryPnPJS2.name = " jQuery 2.x.x, pnpjs, ";
         jqueryPnPJS2.specifics = {
             jsLibrary: ['jquery', '@pnp/pnpjs'],
+            vetting: ['stylelint'],
             jQueryVersion: 2,
             force: true
         };
@@ -537,6 +540,7 @@ class TestGenerator {
         jqueryPnPJS3.name = " jQuery 3.x.x, pnpjs";
         jqueryPnPJS3.specifics = {
             jsLibrary: ['jquery', '@pnp/pnpjs'],
+            vetting: ['stylelint'],
             jQueryVersion: 3,
             force: true
         };
@@ -623,6 +627,7 @@ class TestGenerator {
         jqueryPropPnPJS2.name = " jQuery 2.x.x, pnp/pnpjs, @pnp/spfx-property-controls";
         jqueryPropPnPJS2.specifics = {
             jsLibrary: ['jquery', '@pnp/pnpjs', '@pnp/spfx-property-controls'],
+            vetting: ['stylelint'],
             jQueryVersion: 2,
             force: true
         };
@@ -709,6 +714,7 @@ class TestGenerator {
         jqueryPropPnPJS3.name = " jQuery 3.x.x, pnpjs, @pnp/spfx-property-controls";
         jqueryPropPnPJS3.specifics = {
             jsLibrary: ['jquery', '@pnp/pnpjs', '@pnp/spfx-property-controls'],
+            vetting: ['stylelint'],
             jQueryVersion: 3,
             force: true
         };

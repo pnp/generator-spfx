@@ -136,7 +136,7 @@ module.exports = class extends Generator {
 
     // Run installer normally time to say goodbye
     // If yarn is installed yarn will be used
-    end() {}
+    end() { }
 
     // Custom evalutation of Addon options
     _evalAddons(selections) {
