@@ -13,11 +13,7 @@
     },
     "@pnp/pnpjs": {
         "dependencies": {
-<<<<<<< HEAD
             "@pnp/pnpjs": "^1.2.7"
-=======
-            "@pnp/pnpjs": "^1.2.5"
->>>>>>> 30db63a... Added package update checker
         }
     },
     "@pnp/spfx-property-controls": {
