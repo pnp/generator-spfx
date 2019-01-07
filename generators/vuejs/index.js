@@ -46,7 +46,7 @@ module.exports = class extends Generator {
         // add external to the configuration
         this._addExternals();
         // add all package depenedencies configured in addonConfig.json.
-        this._addPackageDependencies(['vuejs']);
+        this._addPackageDependencies();
         // inject custom tasks to gulpfile
         this._injectToGulpFile();
         // remove default scss
@@ -188,7 +188,7 @@ module.exports = class extends Generator {
     }
 
     // adds dependencies and devDependencies to the package.json
-    _addPackageDependencies(requestedLibraries) {
+    _addPackageDependencies() {
 
         if (fs.existsSync(this.destinationPath('package.json'))) {
 
@@ -220,6 +220,8 @@ module.exports = class extends Generator {
                 throw err;
 
             }
+
+            let requestedLibraries = ['vuejs'];
 
             // declare new package config file
             let newPkgConfig;
