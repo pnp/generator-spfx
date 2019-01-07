@@ -2,9 +2,9 @@ const baseTest = require('../../../tools/test-engine/coreTestDefinition');
 
 const testSuite = new baseTest.TestSuite();
 
-testSuite.name = "KnockoutjS";
+testSuite.name = "KnockoutJS Plus";
 testSuite.environment = "onprem";
-testSuite.framework = "knockout";
+testSuite.framework = "knockout.plus";
 testSuite.component = {
     componentType: 'webpart'
 }
