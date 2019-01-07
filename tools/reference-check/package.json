@@ -8,19 +8,12 @@
     },
     "license": "MIT",
     "dependencies": {
-<<<<<<< HEAD
+
         "jquery": "^3.3.1",
         "@types/jquery": "^3.3.27",
         "@pnp/pnpjs": "^1.2.7",
         "@pnp/spfx-property-controls": "1.13.1",
-=======
-        "jquery": "^2.2.4",
-        "@types/jquery": "^2.0.49",
-        "jquery": "^3.0.0",
-        "@types/jquery": "^3.0.0",
-        "@pnp/pnpjs": "^1.2.7",
-        "@pnp/spfx-property-controls": "1.12.0",
->>>>>>> a25115e... Updated @pnp/pnpjs
+
         "@pnp/spfx-controls-react": "1.10.0",
 
 
