@@ -74,7 +74,6 @@ module.exports = class extends Generator {
             // append vetting options
             requestedLibraries = this.options.vetting === undefined ? requestedLibraries : requestedLibraries.concat(this.options.vetting);
 
-
             let newPkgConfig = util.mergeAddons(addonConfig, requestedLibraries, config);
 
             fs.writeFileSync(

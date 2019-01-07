@@ -6,4 +6,5 @@
 --ui bdd
 --timeout 30000
 --full-trace
+--bail
 
