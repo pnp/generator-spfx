@@ -1,13 +1,10 @@
-const baseTest = require('../../../tools/test-engine/coreTestDefinition');
+const baseTest = require('../../tools/testGenerator/"coreTestDefinition');
 
 const testSuite = new baseTest.TestSuite();
 
-testSuite.name = "KnockoutjS";
+testSuite.name = "ReactJS Plus";
 testSuite.environment = "onprem";
-testSuite.framework = "knockout";
-testSuite.component = {
-    componentType: 'webpart'
-}
+testSuite.framework = "reactjs.plus";
 
 const baseTestCase = new baseTest.BaseTestCase();
 const additonalTests = [{
@@ -15,16 +12,19 @@ const additonalTests = [{
         file: baseTest.FileContent.yorc,
         expr: /\"environment\": \"onprem\"/,
         type: baseTest.TestType.fileContent
-    },{
-        name: 'KnockoutJS',
-        file: baseTest.FileContent.package,
-        expr: /knockout/,
-        type: baseTest.TestType.fileContent
     }
 ];
 
 const removeTests = [{
-    name: 'No KnockoutJS'
+    name: 'ReactJS',
+    file: baseTest.FileContent.package,
+    expr: /react/,
+    type: baseTest.TestType.noFileContent
+}, {
+    name: 'ReactJS Dom',
+    file: baseTest.FileContent.package,
+    expr: /react-dom/,
+    type: baseTest.TestType.noFileContent
 }]
 
 baseTestCase.test = baseTestCase.test.filter(elem => {

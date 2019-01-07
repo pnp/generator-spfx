@@ -21,6 +21,17 @@ const supportedFrameworks = [
         value: 'angularelements'
     },
     new inquirer.Separator(
+        fgYellow('Enhanced SPFx')
+    ),
+    {
+        name: '- ReactJS Plus',
+        value: 'reactjs.plus'
+    },
+    {
+        name: '- Knockout Plus',
+        value: 'knockout.plus'
+    },
+    new inquirer.Separator(
         fgYellow('Default SPFx')
     ),
     {
@@ -34,7 +45,10 @@ const supportedFrameworks = [
     {
         name: '- No Framework',
         value: 'noframework'
-    }
+    },
+    new inquirer.Separator(
+        fgYellow('Additional Frameworks')
+    ),
 ];
 
 let configOptions = [
@@ -56,6 +70,9 @@ configOptions = configOptions.concat(angularElements);
 
 const vuejs = require('../generators/vuejs/promptConfig');
 configOptions = configOptions.concat(vuejs);
+
+const reactplus = require('../generators/reactjs.plus/promptConfig');
+configOptions = configOptions.concat(reactplus);
 
 const promptConfig = {
     config: configOptions

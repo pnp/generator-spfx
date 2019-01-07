@@ -1,13 +1,10 @@
-const baseTest = require('../../../tools/test-engine/coreTestDefinition');
+const baseTest = require('../../tools/testGenerator/"coreTestDefinition');
 
 const testSuite = new baseTest.TestSuite();
 
-testSuite.name = "KnockoutjS";
+testSuite.name = "KnockoutJS Plus";
 testSuite.environment = "onprem";
-testSuite.framework = "knockout";
-testSuite.component = {
-    componentType: 'webpart'
-}
+testSuite.framework = "knockout.plus";
 
 const baseTestCase = new baseTest.BaseTestCase();
 const additonalTests = [{

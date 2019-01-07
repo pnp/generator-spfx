@@ -2,25 +2,20 @@ const baseTest = require('../../../tools/test-engine/coreTestDefinition');
 
 const testSuite = new baseTest.TestSuite();
 
-testSuite.name = "KnockoutJS";
-testSuite.environment = "spo";
-testSuite.framework = "knockout";
+testSuite.name = "ReactJS Plus";
+testSuite.environment = "onprem19";
+testSuite.framework = "reactjs.plus";
 testSuite.component = {
     componentType: 'extension',
-    extensionType: 'ListViewCommandSet'
+    extensionType: 'ApplicationCustomizer'
 }
+
 
 const baseTestCase = new baseTest.BaseTestCase();
 const additonalTests = [{
-        name: 'Is on SPO?',
+        name: 'Is on on-premises 2019?',
         file: baseTest.FileContent.yorc,
-        expr: /\"environment\": \"spo\"/,
-        type: baseTest.TestType.fileContent
-    },
-    {
-        name: 'Knockout',
-        file: baseTest.FileContent.package,
-        expr: /knockout/,
+        expr: /\"environment\": \"onprem19\"/,
         type: baseTest.TestType.fileContent
     },
     {
@@ -31,22 +26,31 @@ const additonalTests = [{
     {
         name: "Is List View Command Set?",
         file: baseTest.FileContent.yorc,
-        expr: /(?=.*\bextensionType\b)(?=.*\bListViewCommandSet\b).+/gi
+        expr: /(?=.*\bextensionType\b)(?=.*\bApplicationCustomizer\b).+/gi
+    },
+    {
+        name: 'ReactJS',
+        file: baseTest.FileContent.package,
+        expr: /react/,
+        type: baseTest.TestType.fileContent
+    }, {
+        name: 'ReactJS Dom',
+        file: baseTest.FileContent.package,
+        expr: /react-dom/,
+        type: baseTest.TestType.FileContent
     }
 ];
 
 const removeTests = [{
-        name: 'Is WebPart?'
-    },
-    {
-        name: 'No KnockoutJS'
-    }
-];
+    name: 'No ReactJS',
+}, {
+    name: 'No ReactJS Dom',
+}, {
+    name: 'Is WebPart?'
+}]
 
 baseTestCase.removeTests(removeTests);
 baseTestCase.addTests(additonalTests);
-
-// baseTestCase.test.push(...additonalTests);
 
 const allTests = new baseTest.TestGenerator(baseTestCase);
 

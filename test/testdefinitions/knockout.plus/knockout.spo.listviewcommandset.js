@@ -2,9 +2,9 @@ const baseTest = require('../../../tools/test-engine/coreTestDefinition');
 
 const testSuite = new baseTest.TestSuite();
 
-testSuite.name = "KnockoutJS";
+testSuite.name = "KnockoutJS Plus";
 testSuite.environment = "spo";
-testSuite.framework = "knockout";
+testSuite.framework = "knockout.plus";
 testSuite.component = {
     componentType: 'extension',
     extensionType: 'ListViewCommandSet'

@@ -35,56 +35,42 @@ module.exports = class extends Generator {
 
     install() {
 
-        // deployes additional files to the project directory
-        this._deployFiles();
-        // add external to the configuration
-        this._addExternals();
-        // add all package depenedencies configured in addonConfig.json.
-        this._addPackageDependencies();
-        // inject custom tasks to gulpfile
-        this._injectToGulpFile();
-        // Update add templates
-        util.deployTemplates(this);
-        // finally run install
-        util.runInstall(this);
+
+        if (this.config.existed !== true) {
+
+            // inject custom tasks to gulpfile
+            this._injectToGulpFile();
+
+            util.runInstall(this);
+
+        }
+
+        // return;
+
+        // // deployes additional files to the project directory
+        // this._deployFiles();
+        // // add external to the configuration
+        // this._addExternals();
+
+
+        // // Update add templates
+        // util.deployTemplates(this);
+        // // finally run install
+        // util.runInstall(this);
 
     }
 
     // Run installer normally time to say goodbye
     // If yarn is installed yarn will be used
     end() {
+
     }
 
     _deployFiles() {
 
-        this.fs.copy(
-            this.templatePath('config/copy-static-assets.json'),
-            this.destinationPath('config/copy-static-assets.json')
-        )
-
     }
 
     _addExternals() {
-
-        // reading JSON
-        let config = JSON.parse(
-            fs.readFileSync(this.destinationPath('config/config.json'))
-        );
-
-        if (config.externals !== undefined) {
-            // Add Handlebars entry
-            config.externals.handlebars = "./node_modules/handlebars/dist/handlebars.amd.min.js";
-
-            // writing json
-            try {
-                fs.writeFileSync(
-                    this.destinationPath('config/config.json'),
-                    JSON.stringify(config, null, 2)
-                );
-            } catch (error) {
-                console.log(error);
-            }
-        }
 
     }
 
@@ -122,7 +108,7 @@ module.exports = class extends Generator {
             }
 
             // select the requested libraried
-            let requestedLibraries = ['handlebars'];
+            let requestedLibraries = [];
 
             // declare new package config file
             let newPkgConfig;
@@ -152,6 +138,7 @@ module.exports = class extends Generator {
             }
 
         }
+
     }
 
     _injectToGulpFile() {
@@ -162,7 +149,6 @@ module.exports = class extends Generator {
 
             let coreGulpTemplate = this.templatePath('../../../app/templates/gulpfile.js');
             let customGulpTemplate = this.templatePath('./gulpfile.js');
-
 
             try {
 
