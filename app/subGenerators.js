@@ -9,6 +9,8 @@ module.exports = {
     'vuejs': require.resolve('../generators/vuejs'),
     // React Plus generator to support further customisation of all react components
     'reactjs.plus': require.resolve('../generators/reactjs.plus'),
+    // Knockout Plus generator to support further customisation of all react components
+    'knockout.plus': require.resolve('../generators/knockout.plus'),
     // SPFx
     'spfx': require.resolve('@microsoft/generator-sharepoint/lib/generators/app/index.js')
 }

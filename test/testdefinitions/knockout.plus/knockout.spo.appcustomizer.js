@@ -2,12 +2,12 @@ const baseTest = require('../../../tools/test-engine/coreTestDefinition');
 
 const testSuite = new baseTest.TestSuite();
 
-testSuite.name = "KnockoutJS";
+testSuite.name = "KnockoutJS Plus";
 testSuite.environment = "spo";
-testSuite.framework = "knockout";
+testSuite.framework = "knockout.plus";
 testSuite.component = {
     componentType: 'extension',
-    extensionType: 'ListViewCommandSet'
+    extensionType: 'ApplicationCustomizer'
 }
 
 const baseTestCase = new baseTest.BaseTestCase();
@@ -31,7 +31,7 @@ const additonalTests = [{
     {
         name: "Is List View Command Set?",
         file: baseTest.FileContent.yorc,
-        expr: /(?=.*\bextensionType\b)(?=.*\bListViewCommandSet\b).+/gi
+        expr: /(?=.*\bextensionType\b)(?=.*\ApplicationCustomizer\b).+/gi
     }
 ];
 

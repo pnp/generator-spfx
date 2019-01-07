@@ -3,6 +3,7 @@ let testRunner = require('../tools/test-engine/testRunner');
 let onpremWebPart = [
     require('./testdefinitions/handlebars/handlebars.onprem.webpart'),
     require('./testdefinitions/knockout/knockout.onprem.webpart'),
+    require('./testdefinitions/knockout.plus/knockout.onprem.webpart'),
     require('./testdefinitions/noframework/noframework.onprem.webpart'),
     require('./testdefinitions/reactjs/react.onprem.webpart'),
     require('./testdefinitions/reactjs.plus/react.onprem.webpart'),
@@ -12,14 +13,17 @@ let onpremWebPart = [
 let onprem19WebPart = [
     require('./testdefinitions/handlebars/handlebars.onprem19.webpart'),
     require('./testdefinitions/knockout/knockout.onprem19.webpart'),
+    require('./testdefinitions/knockout.plus/knockout.onprem19.webpart'),
     require('./testdefinitions/noframework/noframework.onprem.webpart'),
-    // require('./testdefinitions/reactjs/react.onprem.webpart'),
+    require('./testdefinitions/reactjs/react.onprem.webpart'),
+    require('./testdefinitions/reactjs.plus/react.onprem.webpart'),
     require('./testdefinitions/vuejs/vuejs.onprem.webpart')
 ];
 
 let spoWebPart = [
     require('./testdefinitions/handlebars/handlebars.spo.webpart'),
     require('./testdefinitions/knockout/knockout.spo.webpart'),
+    require('./testdefinitions/knockout.plus/knockout.spo.webpart'),
     require('./testdefinitions/noframework/noframework.spo.webpart'),
     require('./testdefinitions/reactjs/react.spo.webpart'),
     require('./testdefinitions/reactjs.plus/react.spo.webpart'),
@@ -45,6 +49,7 @@ let onprem19AppCustomizer = [
 let spoFieldCustomizer = [
     require('./testdefinitions/handlebars/handlebars.spo.fieldcustomizer'),
     // require('./testdefinitions/knockout/knockout.spo.fieldcustomizer'),
+    // require('./testdefinitions/knockout.plus/knockout.spo.fieldcustomizer'),
     require('./testdefinitions/noframework/noframework.spo.fieldcustomizer'),
     require('./testdefinitions/reactjs/react.spo.fieldcustomizer'),
     require('./testdefinitions/reactjs.plus/react.spo.fieldcustomizer'),

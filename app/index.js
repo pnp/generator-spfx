@@ -189,6 +189,10 @@ module.exports = class extends Generator {
                 generatorFramework = 'knockout';
                 break;
 
+            case "knockout.plus":
+                generatorFramework = 'knockout';
+                break;
+
             case "noframework":
                 generatorFramework = 'none';
                 break;
@@ -226,7 +230,8 @@ module.exports = class extends Generator {
 
         if ((this.options.SpfxOptions.framework === "react" &&
                 this.options.pnpFramework !== "reactjs.plus") ||
-            this.options.SpfxOptions.framework === "knockout") {
+            (this.options.SpfxOptions.framework === "knockout" &&
+                this.options.pnpFramework !== "knockout.plus")) {
 
             this.options.SpfxOptions['skip-install'] = false;
 
