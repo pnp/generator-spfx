@@ -156,7 +156,9 @@ class TestSuite {
     }
 
 }
-
+/**
+ * Base Test Generator
+ */
 class TestGenerator {
 
     constructor(baseTest) {
@@ -797,8 +799,9 @@ class TestGenerator {
         /**
          * No jQuery Test Definition
          */
-        noJQuery.name = " No jQuery";
+        noJQuery.name = " No jQuery, Webpack Bundle Analyser, StyleLint";
         noJQuery.specifics = {
+            jsLibrary: [],
             vetting: ['stylelint', 'webpack-analyzer']
         };
         noJQuery.test = this.baseTest.test.concat([{
@@ -882,7 +885,7 @@ class TestGenerator {
          */
 
         const jquery2 = Object.assign({}, this.baseTest);
-        jquery2.name = " jQuery 2.x.x";
+        jquery2.name = " jQuery 2.x.x, Webpack Bundle Analyser, StyleLint";
         jquery2.specifics = {
             jsLibrary: ['jquery'],
             vetting: ['stylelint', 'webpack-analyzer'],
@@ -969,7 +972,7 @@ class TestGenerator {
          * jQuery 3 Test Definition
          */
         const jquery3 = Object.assign({}, this.baseTest);
-        jquery3.name = " jQuery 3.x.x";
+        jquery3.name = " jQuery 3.x.x, Webpack Bundle Analyser, StyleLint";
         jquery3.specifics = {
             jsLibrary: ['jquery'],
             vetting: ['stylelint', 'webpack-analyzer'],
@@ -1056,7 +1059,7 @@ class TestGenerator {
          * jQuer 2, pnpjs test
          */
         const jqueryPnPJS2 = Object.assign({}, this.baseTest);
-        jqueryPnPJS2.name = " jQuery 2.x.x, pnpjs, ";
+        jqueryPnPJS2.name = " jQuery 2.x.x, pnpjs, Webpack Bundle Analyser, StyleLint";
         jqueryPnPJS2.specifics = {
             jsLibrary: ['jquery', '@pnp/pnpjs'],
             vetting: ['stylelint', 'webpack-analyzer'],
@@ -1143,7 +1146,7 @@ class TestGenerator {
          * jquery 3, pnpjs test
          */
         const jqueryPnPJS3 = Object.assign({}, this.baseTest);
-        jqueryPnPJS3.name = " jQuery 3.x.x, pnpjs";
+        jqueryPnPJS3.name = " jQuery 3.x.x, pnpjs, Webpack Bundle Analyser, StyleLint";
         jqueryPnPJS3.specifics = {
             jsLibrary: ['jquery', '@pnp/pnpjs'],
             vetting: ['stylelint', 'webpack-analyzer'],
@@ -1230,7 +1233,7 @@ class TestGenerator {
          * jquery 2 pnpjs, property control
          */
         const jqueryPropPnPJS2 = Object.assign({}, this.baseTest);
-        jqueryPropPnPJS2.name = " jQuery 2.x.x, pnp/pnpjs, @pnp/spfx-property-controls";
+        jqueryPropPnPJS2.name = " jQuery 2.x.x, pnp/pnpjs, @pnp/spfx-property-controls, Webpack Bundle Analyser, StyleLint";
         jqueryPropPnPJS2.specifics = {
             jsLibrary: ['jquery', '@pnp/pnpjs', '@pnp/spfx-property-controls'],
             vetting: ['stylelint', 'webpack-analyzer'],
@@ -1317,7 +1320,7 @@ class TestGenerator {
          * jQUery 3, pnpjs, property control
          */
         const jqueryPropPnPJS3 = Object.assign({}, this.baseTest);
-        jqueryPropPnPJS3.name = " jQuery 3.x.x, pnpjs, @pnp/spfx-property-controls";
+        jqueryPropPnPJS3.name = " jQuery 3.x.x, pnpjs, @pnp/spfx-property-controls, Webpack Bundle Analyser, StyleLint";
         jqueryPropPnPJS3.specifics = {
             jsLibrary: ['jquery', '@pnp/pnpjs', '@pnp/spfx-property-controls'],
             vetting: ['stylelint', 'webpack-analyzer'],
@@ -1411,7 +1414,7 @@ class TestGenerator {
         /**
          * No jQuery Test Definition
          */
-        noJQuery.name = " No jQuery";
+        noJQuery.name = " No jQuery, WebPack Bundle Analyzer";
         noJQuery.specifics = {
             vetting: ['webpack-analyzer']
         };
@@ -1474,7 +1477,7 @@ class TestGenerator {
          */
 
         const jquery2 = Object.assign({}, this.baseTest);
-        jquery2.name = " jQuery 2.x.x";
+        jquery2.name = " jQuery 2.x.x, WebPack Bundle Analyzer";
         jquery2.specifics = {
             jsLibrary: ['jquery'],
             vetting: ['webpack-analyzer'],
@@ -1537,7 +1540,7 @@ class TestGenerator {
          * jQuery 3 Test Definition
          */
         const jquery3 = Object.assign({}, this.baseTest);
-        jquery3.name = " jQuery 3.x.x";
+        jquery3.name = " jQuery 3.x.x, WebPack Bundle Analyzer";
         jquery3.specifics = {
             jsLibrary: ['jquery'],
             vetting: ['webpack-analyzer'],
@@ -1600,7 +1603,7 @@ class TestGenerator {
          * jQuer 2, pnpjs test
          */
         const jqueryPnPJS2 = Object.assign({}, this.baseTest);
-        jqueryPnPJS2.name = " jQuery 2.x.x, pnpjs, ";
+        jqueryPnPJS2.name = " jQuery 2.x.x, pnpjs, WebPack Bundle Analyzer";
         jqueryPnPJS2.specifics = {
             jsLibrary: ['jquery', '@pnp/pnpjs'],
             vetting: ['webpack-analyzer'],
@@ -1663,7 +1666,7 @@ class TestGenerator {
          * jquery 3, pnpjs test
          */
         const jqueryPnPJS3 = Object.assign({}, this.baseTest);
-        jqueryPnPJS3.name = " jQuery 3.x.x, pnpjs";
+        jqueryPnPJS3.name = " jQuery 3.x.x, pnpjs, WebPack Bundle Analyzer";
         jqueryPnPJS3.specifics = {
             jsLibrary: ['jquery', '@pnp/pnpjs'],
             vetting: ['webpack-analyzer'],
@@ -1726,7 +1729,7 @@ class TestGenerator {
          * jquery 2 pnpjs, property control
          */
         const jqueryPropPnPJS2 = Object.assign({}, this.baseTest);
-        jqueryPropPnPJS2.name = " jQuery 2.x.x, pnp/pnpjs, @pnp/spfx-property-controls";
+        jqueryPropPnPJS2.name = " jQuery 2.x.x, pnp/pnpjs, @pnp/spfx-property-controls, WebPack Bundle Analyzer";
         jqueryPropPnPJS2.specifics = {
             jsLibrary: ['jquery', '@pnp/pnpjs', '@pnp/spfx-property-controls'],
             vetting: ['webpack-analyzer'],
@@ -1783,7 +1786,7 @@ class TestGenerator {
          * jQUery 3, pnpjs, property control
          */
         const jqueryPropPnPJS3 = Object.assign({}, this.baseTest);
-        jqueryPropPnPJS3.name = " jQuery 3.x.x, pnpjs, @pnp/spfx-property-controls";
+        jqueryPropPnPJS3.name = " jQuery 3.x.x, pnpjs, @pnp/spfx-property-controls, WebPack Bundle Analyzer";
         jqueryPropPnPJS3.specifics = {
             jsLibrary: ['jquery', '@pnp/pnpjs', '@pnp/spfx-property-controls'],
             vetting: ['webpack-analyzer'],
@@ -1855,7 +1858,7 @@ class TestGenerator {
          * jQuery 2 test
          */
         const jquery2 = Object.assign({}, this.baseTest);
-        jquery2.name = " jQuery 2.x.x";
+        jquery2.name = " jQuery 2.x.x, StyleLint";
         jquery2.specifics = {
             jsLibrary: ['jquery'],
             vetting: ['stylelint'],
@@ -1936,7 +1939,7 @@ class TestGenerator {
          * jQuery 3 Test Definition
          */
         const jquery3 = Object.assign({}, this.baseTest);
-        jquery3.name = " jQuery 3.x.x";
+        jquery3.name = " jQuery 3.x.x, StyleLint";
         jquery3.specifics = {
             jsLibrary: ['jquery'],
             vetting: ['stylelint'],
@@ -2017,7 +2020,7 @@ class TestGenerator {
          * jQuer 2, pnpjs test
          */
         const jqueryPnPJS2 = Object.assign({}, this.baseTest);
-        jqueryPnPJS2.name = " jQuery 2.x.x, pnpjs, ";
+        jqueryPnPJS2.name = " jQuery 2.x.x, pnpjs, StyleLint";
         jqueryPnPJS2.specifics = {
             jsLibrary: ['jquery', '@pnp/pnpjs'],
             vetting: ['stylelint'],
@@ -2098,7 +2101,7 @@ class TestGenerator {
          * jquery 3, pnpjs test
          */
         const jqueryPnPJS3 = Object.assign({}, this.baseTest);
-        jqueryPnPJS3.name = " jQuery 3.x.x, pnpjs";
+        jqueryPnPJS3.name = " jQuery 3.x.x, pnpjs, StyleLint";
         jqueryPnPJS3.specifics = {
             jsLibrary: ['jquery', '@pnp/pnpjs'],
             vetting: ['stylelint'],
@@ -2179,7 +2182,7 @@ class TestGenerator {
          * jquery 2 pnpjs, property control
          */
         const jqueryPropPnPJS2 = Object.assign({}, this.baseTest);
-        jqueryPropPnPJS2.name = " jQuery 2.x.x, pnp/pnpjs, @pnp/spfx-property-controls";
+        jqueryPropPnPJS2.name = " jQuery 2.x.x, pnp/pnpjs, @pnp/spfx-property-controls, StyleLint";
         jqueryPropPnPJS2.specifics = {
             jsLibrary: ['jquery', '@pnp/pnpjs', '@pnp/spfx-property-controls'],
             vetting: ['stylelint'],
@@ -2260,7 +2263,7 @@ class TestGenerator {
          * jQUery 3, pnpjs, property control
          */
         const jqueryPropPnPJS3 = Object.assign({}, this.baseTest);
-        jqueryPropPnPJS3.name = " jQuery 3.x.x, pnpjs, @pnp/spfx-property-controls";
+        jqueryPropPnPJS3.name = " jQuery 3.x.x, pnpjs, @pnp/spfx-property-controls, StyleLint";
         jqueryPropPnPJS3.specifics = {
             jsLibrary: ['jquery', '@pnp/pnpjs', '@pnp/spfx-property-controls'],
             vetting: ['stylelint'],

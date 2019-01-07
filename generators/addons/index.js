@@ -33,11 +33,13 @@ module.exports = class extends Generator {
 
 
         if (undefined !== this.options.vetting &&
+
             this.options.vetting.indexOf('stylelint') !== -1) {
 
             this._addStylelintConfig();
 
             this._injectToGulpFile();
+
         }
 
     }
@@ -69,10 +71,11 @@ module.exports = class extends Generator {
 
             }
 
-            // let jsAddons = this.options.libaries;
-            let requestedLibraries =
-                (undefined !== this.options.vetting &&
-                    this.options.vetting.length !== 0) ? this.options.libraries.concat(this.options.vetting) : this.options.libraries;
+            // define all requested libraries
+            let requestedLibraries = this.options.libraries === undefined ? [] : this.options.libraries;
+            // append vetting options
+            requestedLibraries = this.options.vetting === undefined ? requestedLibraries : requestedLibraries.concat(this.options.vetting);
+
 
             let newPkgConfig = util.mergeAddons(addonConfig, requestedLibraries, config);
 

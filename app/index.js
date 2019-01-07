@@ -136,7 +136,7 @@ module.exports = class extends Generator {
 
     // Run installer normally time to say goodbye
     // If yarn is installed yarn will be used
-    end() { }
+    end() {}
 
     // Custom evalutation of Addon options
     _evalAddons(selections) {
@@ -209,8 +209,11 @@ module.exports = class extends Generator {
         if (this.config.existed === false) {
 
             // If required launch library generator
-            if (options.libraries.length !== undefined &&
-                options.libraries.length !== 0) {
+            if (
+                (options.libraries !== undefined &&
+                    options.libraries.length !== 0) ||
+                (options.vetting !== undefined &&
+                    options.vetting.length !== 0)) {
 
                 this.composeWith(
                     subGenerator.addons,
