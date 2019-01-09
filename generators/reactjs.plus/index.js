@@ -35,19 +35,15 @@ module.exports = class extends Generator {
 
     install() {
 
+        let reactVersion = util.detectReactVersion(this);
 
-        if (this.config.existed !== true) {
+        // add all package depenedencies configured in addonConfig.json.
+        this._addPackageDependencies(reactVersion);
+        // // inject custom tasks to gulpfile
+        this._injectToGulpFile();
 
-            let reactVersion = util.detectReactVersion(this);
+        util.runInstall(this);
 
-            // add all package depenedencies configured in addonConfig.json.
-            this._addPackageDependencies(reactVersion);
-            // // inject custom tasks to gulpfile
-            this._injectToGulpFile();
-
-            util.runInstall(this);
-
-        }
 
         // return;
 
