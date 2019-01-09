@@ -36,14 +36,10 @@ module.exports = class extends Generator {
     install() {
 
 
-        if (this.config.existed !== true) {
+        // inject custom tasks to gulpfile
+        this._injectToGulpFile();
 
-            // inject custom tasks to gulpfile
-            this._injectToGulpFile();
-
-            util.runInstall(this);
-
-        }
+        util.runInstall(this);
 
         // return;
 
