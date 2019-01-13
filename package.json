@@ -65,7 +65,7 @@
         "lodash": "^4.17.11",
         "param-case": "^2.1.1",
         "update-notifier": "^2.5.0",
-        "yeoman-generator": "~3.1.1"
+        "yeoman-generator": "~3.2.0"
     },
     "devDependencies": {
         "mocha": "~5.2.0",
