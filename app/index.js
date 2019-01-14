@@ -136,7 +136,7 @@ module.exports = class extends Generator {
 
     // Run installer normally time to say goodbye
     // If yarn is installed yarn will be used
-    end() { }
+    end() {}
 
     // Custom evalutation of Addon options
     _evalAddons(selections) {
@@ -197,6 +197,10 @@ module.exports = class extends Generator {
                 generatorFramework = 'none';
                 break;
 
+            case "none.plus":
+                generatorFramework = 'none';
+                break;
+
             default:
                 break;
 
@@ -231,7 +235,9 @@ module.exports = class extends Generator {
         if ((this.options.SpfxOptions.framework === "react" &&
                 this.options.pnpFramework !== "reactjs.plus") ||
             (this.options.SpfxOptions.framework === "knockout" &&
-                this.options.pnpFramework !== "knockout.plus")) {
+                this.options.pnpFramework !== "knockout.plus") ||
+            (this.options.SpfxOptions.framework === "none" &&
+                this.options.pnpFramework !== "none.plus")) {
 
             this.options.SpfxOptions['skip-install'] = false;
 

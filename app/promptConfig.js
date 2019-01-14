@@ -33,7 +33,7 @@ const supportedFrameworks = [
     },
     {
         name: '- No Framework',
-        value: 'noframework'
+        value: 'none.plus'
     },
     new inquirer.Separator(
         fgYellow('Additional Frameworks')

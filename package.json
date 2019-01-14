@@ -1,7 +1,7 @@
 {
     "name": "@pnp/generator-spfx",
     "version": "1.6.0-beta2",
-    "description": "This is an open-source extension for native out of the box SPFx generator to introduce additional scaffolding support for Angular Elements, VueJS, Handlebars and many more in future. This generator has a dependency on native SPFx generator from Microsoft.",
+    "description": "This Yeoman generator helps organisations to improve their development workflow with the SharePoint Framework. It extends the functionalities of the @microsoft/generator-sharepoint based on best pattern and practices. This generator extends the capabilities of ReactJS, and Knockout projects add support for additional frameworks and include advanced code analysis tools.",
     "author": {
         "name": "Office 365 / SharePoint PnP Core Team",
         "url": "https://github.com/pnp"
