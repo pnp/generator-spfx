@@ -47,14 +47,14 @@ const reactLibs = [{
 }];
 
 const vettingOptions = [{
-    name: 'WebPack Bundle Analyzer',
-    value: 'webpack-analyzer',
-    checked: true
-},
-{
-    name: 'Style Linter',
-    value: 'stylelint'
-},
+        name: 'WebPack Bundle Analyzer',
+        value: 'webpack-analyzer',
+        checked: true
+    },
+    {
+        name: 'Style Linter',
+        value: 'stylelint'
+    },
 ]
 
 const defaultLibs = [{
@@ -76,12 +76,13 @@ const configOptions = [
     // Library selection
     {
         type: 'checkbox',
-        message: 'Which libraries to include',
+        message: 'Which libraries to include ?',
         name: 'jsLibrary',
         choices: answers => {
 
             switch (answers.framework) {
                 case "react":
+                case "reactjs.plus":
                     return defaultLibs.concat(reactLibs);
                 default:
                     return defaultLibs;

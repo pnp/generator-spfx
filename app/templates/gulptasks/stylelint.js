@@ -1,7 +1,10 @@
-/** Can be removed */
+/**
+ * StyleLinter configuration
+ * Reference and custom gulp task
+ */
 const stylelint = require('gulp-stylelint');
 
-/* stylelint sub task */
+/* Stylelinter sub task */
 let styleLintSubTask = build.subTask('stylelint', (gulp) => {
 
     console.log('[stylelint]: By default style lint errors will not break your build. If you want to change this behaviour, modify failAfterError parameter in gulpfile.js.');
