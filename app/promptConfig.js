@@ -24,23 +24,12 @@ const supportedFrameworks = [
         fgYellow('Enhanced SPFx')
     ),
     {
-        name: '- ReactJS Plus',
+        name: '- ReactJS',
         value: 'reactjs.plus'
     },
     {
-        name: '- Knockout Plus',
-        value: 'knockout.plus'
-    },
-    new inquirer.Separator(
-        fgYellow('Default SPFx')
-    ),
-    {
-        name: '- ReactJS',
-        value: 'react'
-    },
-    {
         name: '- Knockout',
-        value: 'knockout'
+        value: 'knockout.plus'
     },
     {
         name: '- No Framework',
