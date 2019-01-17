@@ -36,7 +36,7 @@ module.exports = class extends Generator {
     // Prompt for user input for Custom Generator
     prompting() {
 
-        /* Be cauthios this contains the main logic of ther generator */
+        /* Generator Main Logic */
 
         // if config existed fallback to default generator
         if (this.config.existed) {
