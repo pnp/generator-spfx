@@ -4,7 +4,7 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const vuePlugin = new VueLoaderPlugin();
 const themedStyleLoader = require.resolve('@microsoft/loader-load-themed-styles');
 
-<% if (tslint) { %>
+<% if (tsLint) { %>
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
     const forkTsPlugin = new ForkTsCheckerWebpackPlugin({
         vue: true,
@@ -51,7 +51,7 @@ const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
             }];
 
             generatedConfiguration.plugins.push(vuePlugin);
-        <% if (tslint) { %>
+        <% if (tsLint) { %>
                 generatedConfiguration.plugins.push(forkTsPlugin);
         <% } %>
                 generatedConfiguration.module.rules.push(...loadersConfigs);

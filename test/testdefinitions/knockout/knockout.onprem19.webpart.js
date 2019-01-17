@@ -24,10 +24,7 @@ const additonalTests = [{
 ];
 
 const removeTests = [{
-    name: 'No KnockoutJS',
-    file: baseTest.FileContent.package,
-    expr: /knockout/,
-    type: baseTest.TestType.noFileContent
+    name: 'No KnockoutJS'
 }]
 
 baseTestCase.test = baseTestCase.test.filter(elem => {

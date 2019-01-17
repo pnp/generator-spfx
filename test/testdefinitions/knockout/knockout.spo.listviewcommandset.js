@@ -2,7 +2,7 @@ const baseTest = require('../../../tools/test-engine/coreTestDefinition');
 
 const testSuite = new baseTest.TestSuite();
 
-testSuite.name = "Knockout";
+testSuite.name = "KnockoutJS";
 testSuite.environment = "spo";
 testSuite.framework = "knockout";
 testSuite.component = {

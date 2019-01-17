@@ -1,7 +1,7 @@
 {
     "name": "@pnp/generator-spfx",
-    "version": "1.5.2",
-    "description": "This is an open-source extension for native out of the box SPFx generator to introduce additional scaffolding support for Angular Elements, VueJS, Handlebars and many more in future. This generator has a dependency on native SPFx generator from Microsoft.",
+    "version": "1.6.0-beta3",
+    "description": "This Yeoman generator helps organisations to improve their development workflow with the SharePoint Framework. It extends the functionalities of the @microsoft/generator-sharepoint based on best pattern and practices. This generator extends the capabilities of ReactJS, and Knockout projects add support for additional frameworks and include advanced code analysis tools.",
     "author": {
         "name": "Office 365 / SharePoint PnP Core Team",
         "url": "https://github.com/pnp"
@@ -17,19 +17,19 @@
         "lib"
     ],
     "keywords": [
-        "yeoman-generator",
-        "Pattern and Practices",
-        "PnP",
-        "SPFx",
-        "SharePointFramework",
-        "SharePoint Framework",
         "SharePoint",
+        "SPFx",
+        "SharePoint Framework",
+        "Pattern and Practices",
         "Office 365",
         "Office 365 Development",
+        "SharePoint Framework Development",
+        "yeoman-generator",
+        "PnP",
         "VueJS",
         "Handlebars",
         "Angular Elements",
-        "Angular"
+        "SharePointFramework"
     ],
     "maintainers": [
         {
@@ -38,21 +38,21 @@
             "url": "https://www.n8d.at/"
         },
         {
-            "name": "Chris Kent",
-            "email": "ihatetimemachines@gmail.com",
-            "url": "https://thechriskent.com/"
+            "name": "Sergei Sergeev",
+            "url": "https://github.com/s-KaiNet"
         },
         {
             "name": "Paweł Hawrylak",
             "url": "https://github.com/phawrylak"
         },
         {
-            "name": "Alex Terentiev",
-            "url": "https://github.com/AJIXuMuK"
+            "name": "Chris Kent",
+            "email": "ihatetimemachines@gmail.com",
+            "url": "https://thechriskent.com/"
         },
         {
-            "name": "Sergei Sergeev",
-            "url": "https://github.com/s-KaiNet"
+            "name": "Alex Terentiev",
+            "url": "https://github.com/AJIXuMuK"
         }
     ],
     "dependencies": {
@@ -64,7 +64,7 @@
         "lodash": "^4.17.11",
         "param-case": "^2.1.1",
         "update-notifier": "^2.5.0",
-        "yeoman-generator": "~3.1.1"
+        "yeoman-generator": "~3.2.0"
     },
     "devDependencies": {
         "mocha": "~5.2.0",
