@@ -5,6 +5,7 @@
 const bundleAnalyzer = require('webpack-bundle-analyzer');
 
 build.configureWebpack.mergeConfig({
+
     additionalConfiguration: (generatedConfiguration) => {
         const lastDirName = path.basename(__dirname);
         const dropPath = path.join(__dirname, 'temp', 'stats');
@@ -19,4 +20,5 @@ build.configureWebpack.mergeConfig({
 
         return generatedConfiguration;
     }
+
 });
