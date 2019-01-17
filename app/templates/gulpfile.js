@@ -1,4 +1,3 @@
-<%= SpfxOptions %>
 <%
 
 var allGulpTasks = [];
