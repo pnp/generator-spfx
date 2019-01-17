@@ -1,5 +1,5 @@
 /**
- * Webpack Bundel Anlyzer
+ * Webpack Bundle Anlayzer
  * Reference and gulp task
  */
 const bundleAnalyzer = require('webpack-bundle-analyzer');
