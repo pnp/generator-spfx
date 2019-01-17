@@ -248,6 +248,7 @@ module.exports = class extends Generator {
             this.options.SpfxOptions
         );
 
+        console.log(subGenerator[this.options.pnpFramework]);
         // Launch custom framework generators
         if (this.options.pnpFramework !== undefined &&
             subGenerator[this.options.pnpFramework] !== undefined) {
