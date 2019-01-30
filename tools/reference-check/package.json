@@ -1,7 +1,7 @@
 {
     "name": "dummypackage",
     "version": "0.0.1",
-    "description": "",
+    "description": "Only used to check for upgrades",
     "author": {
         "name": "Office 365 / SharePoint PnP Core Team",
         "url": "https://github.com/pnp"
@@ -15,8 +15,8 @@
         "jquery": "^3.3.1",
         "@types/jquery": "^3.3.27",
         "@pnp/pnpjs": "^1.2.7",
-        "@pnp/spfx-property-controls": "1.13.1",
-        "@pnp/spfx-controls-react": "1.10.0",
+        "@pnp/spfx-property-controls": "1.14.0",
+        "@pnp/spfx-controls-react": "1.11.0",
 
 
         "vue": "^2.5.21",

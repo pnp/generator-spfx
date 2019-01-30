@@ -8,7 +8,7 @@
     "jquery@3": {
         "dependencies": {
             "jquery": "^3.3.1",
-            "@types/jquery": "^3.3.22"
+            "@types/jquery": "^3.3.29"
         }
     },
     "@pnp/pnpjs": {
@@ -18,12 +18,12 @@
     },
     "@pnp/spfx-property-controls": {
         "dependencies": {
-            "@pnp/spfx-property-controls": "1.13.1"
+            "@pnp/spfx-property-controls": "1.14.0"
         }
     },
     "@pnp/spfx-controls-react": {
         "dependencies": {
-            "@pnp/spfx-controls-react": "1.10.0"
+            "@pnp/spfx-controls-react": "1.11.0"
         }
     },
     "webpack-analyzer": {
