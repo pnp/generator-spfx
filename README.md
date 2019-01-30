@@ -12,11 +12,7 @@ This is an open-source extension for native out of the box SPFx generator to int
 
 ## Documentation
 
-<<<<<<< HEAD
 More details can be found in the documentation at [https://aka.ms/pnpgenerator](https://aka.ms/pnpgenerator)
-=======
-More details can be found in the documentation at [pnp.github.io/generator-spfx/](https://pnp.github.io/generator-spfx/)
->>>>>>> 803fad6... Update to Version 1.6.0
 
 ## Installation
 
