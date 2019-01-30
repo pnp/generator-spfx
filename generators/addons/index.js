@@ -71,8 +71,11 @@ module.exports = class extends Generator {
 
             // define all requested libraries
             let requestedLibraries = this.options.libraries === undefined ? [] : this.options.libraries;
-            // append vetting options
-            requestedLibraries = this.options.vetting === undefined ? requestedLibraries : requestedLibraries.concat(this.options.vetting);
+            // append vetting options if selected
+            requestedLibraries = this.options.vetting === undefined ? requestedLibraries :
+                requestedLibraries.concat(this.options.vetting);
+            // Add gulp-sequence for gulp dist automatically
+            requestedLibraries.push('gulp-sequence');
 
             let newPkgConfig = util.mergeAddons(addonConfig, requestedLibraries, config);
 

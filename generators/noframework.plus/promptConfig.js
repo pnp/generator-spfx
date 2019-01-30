@@ -15,7 +15,7 @@ const configOptions = [
         name: 'testframework',
         choices: options,
         when: answers => {
-            return answers.framework && answers.framework === 'noframework.plus'
+            return answers.framework && answers.framework === 'none.plus'
         }
 
     }

@@ -63,6 +63,9 @@ configOptions = configOptions.concat(vuejs);
 const reactplus = require('../generators/reactjs.plus/promptConfig');
 configOptions = configOptions.concat(reactplus);
 
+const noframework = require('../generators/noframework.plus/promptConfig');
+configOptions = configOptions.concat(noframework);
+
 const promptConfig = {
     config: configOptions
 };

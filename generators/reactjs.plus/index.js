@@ -44,20 +44,6 @@ module.exports = class extends Generator {
 
         util.runInstall(this);
 
-
-        // return;
-
-        // // deployes additional files to the project directory
-        // this._deployFiles();
-        // // add external to the configuration
-        // this._addExternals();
-
-
-        // // Update add templates
-        // util.deployTemplates(this);
-        // // finally run install
-        // util.runInstall(this);
-
     }
 
     // Run installer normally time to say goodbye

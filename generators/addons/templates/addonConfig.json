@@ -38,5 +38,10 @@
             "stylelint-scss": "^3.4.0",
             "gulp-stylelint": "^8.0.0"
         }
+    },
+    "gulp-sequence": {
+        "devDependencies": {
+            "gulp-sequence": "1.0.0"
+        }
     }
 }
