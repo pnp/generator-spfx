@@ -38,21 +38,8 @@ module.exports = class extends Generator {
 
         // inject custom tasks to gulpfile
         this._injectToGulpFile();
-
+        this._addPackageDependencies();
         util.runInstall(this);
-
-        // return;
-
-        // // deployes additional files to the project directory
-        // this._deployFiles();
-        // // add external to the configuration
-        // this._addExternals();
-
-
-        // // Update add templates
-        // util.deployTemplates(this);
-        // // finally run install
-        // util.runInstall(this);
 
     }
 
@@ -104,7 +91,7 @@ module.exports = class extends Generator {
             }
 
             // select the requested libraried
-            let requestedLibraries = [];
+            let requestedLibraries = ['jest'];
 
             // declare new package config file
             let newPkgConfig;
