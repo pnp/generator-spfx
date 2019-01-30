@@ -104,7 +104,7 @@ module.exports = class extends Generator {
             }
 
             // select the requested libraried
-            let requestedLibraries = [];
+            let requestedLibraries = ['jest'];
 
             // declare new package config file
             let newPkgConfig;

@@ -1,2 +1,8 @@
 {
+    "jest": {
+        "devDependencies": {
+            "jest": "^23.6.0",
+            "@voitanos/jest-preset-spfx": "^1.1.0"
+        }
+    }
 }
