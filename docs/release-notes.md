@@ -21,7 +21,7 @@
 - WebPack Bundle Analyser
 - StyleLint
 - pnp/pnpjs 1.2.8
- 
+
 **ReactJS supports:**
 
 - JEST testing support
