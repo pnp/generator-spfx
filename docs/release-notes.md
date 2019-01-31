@@ -2,15 +2,16 @@
 
 ## 1.6.1 - 'gulp dist', Jest for no framework project
 
-Jest testing framework support for 'No Framework' projects
+**Jest testing framework support for 'No Framework' projects**
+
 - New "gulp dist" task for faster-creating builds for production ('clean', 'bundle', 'package-solution')
 - Update package versions on VueJS, HandlbarsJS generator
  
-Includes:
+**Includes:**
+
 - pnp/pnpjs - v1.2.7
 - @pnp/spfx-property-controls - v1.14.0
 - @pnp/spfx-property-controls": v1.12.0
-
 - Bugfix #147
 
 ## 1.6.0 - Support for Jest, Webpack Bundle Analyser and StyleLint
