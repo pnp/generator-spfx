@@ -16,13 +16,13 @@
 
 ## 1.6.0 - Support for Jest, Webpack Bundle Analyser and StyleLint
 
-**All generator can have support:**
+**All generator can have support:** 
 
 - WebPack Bundle Analyser
 - StyleLint
 - pnp/pnpjs 1.2.8
 
-**ReactJS supports:**
+**ReactJS supports:** 
 
 - JEST testing support
 
