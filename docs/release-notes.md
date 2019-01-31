@@ -9,9 +9,9 @@
  
 **Includes:**
 
-- pnp/pnpjs - v1.2.7
-- @pnp/spfx-property-controls - v1.14.0
-- @pnp/spfx-controls-react: - v1.11.0
+- pnp/pnpjs: v1.2.7
+- @pnp/spfx-property-controls: v1.14.0
+- @pnp/spfx-controls-react: v1.11.0
 - Bugfix #147
 
 ## 1.6.0 - Support for Jest, Webpack Bundle Analyser and StyleLint
