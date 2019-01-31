@@ -11,7 +11,7 @@ This extension supports additional client-side libraries such as PnPjs or jQuery
 
 | Base Generator | |
 |:--|:--|
-| @microsoft/generator-sharepoint | 1.7.0 |
+| @microsoft/generator-sharepoint | 1.7.1 |
 
 
 ### Available Client-side extensions and Add-ons
@@ -20,36 +20,46 @@ This extension supports additional client-side libraries such as PnPjs or jQuery
 |:--|:--|:--|
 | [jQuery](http://jquery.com) | 2.x, 3.x | All |
 | [@pnp/pnpjs](https://github.com/pnp/pnpjs) | > 1.4. | All |
-| [@pnp/spfx-property-controls](https://github.com/SharePoint/sp-dev-fx-property-controls) | 1.10.0 | All |
-| [@pnp/spfx-controls-react](https://github.com/SharePoint/sp-dev-fx-controls-react/) | 1.8.0 | ReactJS |
+| [@pnp/spfx-property-controls](https://github.com/SharePoint/sp-dev-fx-property-controls) | 1.14.0 | All |
+| [@pnp/spfx-controls-react](https://github.com/SharePoint/sp-dev-fx-controls-react/) | 1.11.0 | ReactJS |
 
 ### Available Framework Extensions
 
 | Framework | Version | Documentation |
 |:--|:--|:--|
 | [Handlebars](http://handlebarsjs.com) | > 4.0.0 |
-| [VueJS](https://vuejs.org) | >2.5.16 |
+| [VueJS](https://vuejs.org) | >2.5.22 |
 | [Angular Elements](https://angular.io/guide/elements) | > 7.0.0 | [Documentation](./howtos/angular-elements.md) |
 
-## Installation
+### Installation
 
-The generator needs to be installed globally depending on the package manager you use.
+#### via NPM
 
-**Using NPM:**
 ```sh
 npm install -g @pnp/generator-spfx
 ```
 
-**Using Yarn:**
+#### via YARN
+
 ```sh
-yarn install global @pnp/generator-spfx
+yarn global add @pnp/generator-spfx
 ```
 
-**Using pnpm:**
+#### via PNPM
+
 ```sh
-pnpm install global-pnpmfile @pnp/generator-spfx
+pnpm install -g @pnp/generator-spfx
 ```
 
+#### For Evaluation and Testing
+
+This generator can be also tested via [npx](https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b) and the following command:
+
+```sh
+npx -p yo -p @pnp/generator-spfx yo @pnp/spfx
+```
+
+It will create a new project without installation of the generator. To add other assets the same command line can be executed again on the project folder.
 
 ## Start a new project
 
