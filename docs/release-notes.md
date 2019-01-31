@@ -23,6 +23,7 @@
 - pnp/pnpjs 1.2.8
  
 **ReactJS supports:**
+
 - JEST testing support
 
 ## 1.5.0 - Upgrade to version @microsoft/generator-spfx 1.7.0
