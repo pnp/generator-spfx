@@ -64,7 +64,7 @@ build.configureWebpack.mergeConfig({
 
 });
 <% }; %>
-<% if(webpackBundleAnalyzer) {%>
+<% if(stylelint) {%>
 /**
  * StyleLinter configuration
  * Reference and custom gulp task
