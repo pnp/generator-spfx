@@ -1,0 +1,17 @@
+{
+    "name": "dummypackage",
+    "version": "0.0.1",
+    "description": "Only used to check for upgrades",
+    "author": {
+        "name": "Office 365 / SharePoint PnP Core Team",
+        "url": "https://github.com/pnp"
+    },
+    "license": "MIT",
+    "dependencies": {
+        "handlebars": "^4.0.12"
+    },
+    "devDependencies": {
+        "handlebars-template-loader": "^1.0.0",
+        "@types/handlebars": "^4.0.40"
+    }
+}

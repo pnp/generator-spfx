@@ -1,0 +1,22 @@
+{
+    "name": "dummypackage",
+    "version": "0.0.1",
+    "description": "Only used to check for upgrades",
+    "author": {
+        "name": "Office 365 / SharePoint PnP Core Team",
+        "url": "https://github.com/pnp"
+    },
+    "license": "MIT",
+    "dependencies": {
+        "vue": "^2.6.2",
+        "vue-class-component": "^6.3.2",
+        "vue-property-decorator": "^7.3.0"
+    },
+    "devDependencies": {
+        "vue-loader": "^15.6.2",
+        "vue-template-compiler": "^2.6.2",
+        "sass-loader": "^7.1.0",
+        "ts-loader": "^5.3.3",
+        "fork-ts-checker-webpack-plugin": "^0.5.2"
+    }
+}
