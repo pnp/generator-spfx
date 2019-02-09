@@ -1,0 +1,21 @@
+{
+    "name": "dummypackage",
+    "version": "0.0.1",
+    "description": "Only used to check for upgrades",
+    "author": {
+        "name": "Office 365 / SharePoint PnP Core Team",
+        "url": "https://github.com/pnp"
+    },
+    "license": "MIT",
+    "dependencies": {
+        "@pnp/pnpjs": "^1.2.9",
+        "@pnp/spfx-property-controls": "1.14.0",
+        "@pnp/spfx-controls-react": "1.11.0",
+        "webpack-bundle-analyzer": "^3.0.3",
+        "stylelint": "^9.10.1",
+        "stylelint-config-standard": "^18.2.0",
+        "stylelint-scss": "^3.5.3",
+        "gulp-stylelint": "^8.0.0",
+        "gulp-sequence": "1.0.0"
+    }
+}

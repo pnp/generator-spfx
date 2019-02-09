@@ -13,7 +13,7 @@
     },
     "@pnp/pnpjs": {
         "dependencies": {
-            "@pnp/pnpjs": "^1.2.8"
+            "@pnp/pnpjs": "^1.2.9"
         }
     },
     "@pnp/spfx-property-controls": {
@@ -33,9 +33,9 @@
     },
     "stylelint": {
         "devDependencies": {
-            "stylelint": "^9.9.0",
+            "stylelint": "^9.10.1",
             "stylelint-config-standard": "^18.2.0",
-            "stylelint-scss": "^3.4.0",
+            "stylelint-scss": "^3.5.3",
             "gulp-stylelint": "^8.0.0"
         }
     },
