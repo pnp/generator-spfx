@@ -54,7 +54,7 @@ const vettingOptions = [{
     {
         name: 'Style Linter',
         value: 'stylelint'
-    },
+    }
 ]
 
 const defaultLibs = [{

@@ -78,6 +78,7 @@ module.exports = class extends Generator {
                     this.options.libraries = this._evalAddons(
                         answers
                     );
+
                     // Addon Library
                     this.options.SpfxOptions['pnp-libraries'] = this.options.libraries;
 
@@ -349,9 +350,7 @@ module.exports = class extends Generator {
         }
 
         if (this.options['component-type'] !== undefined) {
-
             this.options.SpfxOptions['componentType'] = this.options['component-type'];
-
         }
 
         if (this.options['solution-name'] !== undefined) {
@@ -367,15 +366,11 @@ module.exports = class extends Generator {
         }
 
         if (this.options['extension-type'] !== undefined) {
-
             this.options.SpfxOptions['extensionType'] = this.options['extension-type'];
-
         }
 
         if (this.options['is-domain-isolated'] !== undefined) {
-
             this.options.SpfxOptions['is-domain-isolated'] = this.options['is-domain-isolated'];
-
         }
 
         // always skip install
@@ -390,7 +385,7 @@ module.exports = class extends Generator {
             this.options.SpfxOptions['package-manager'] = this.options['package-manager'];
         }
 
-        if (this.options['test-run'] !== undefined) {
+        if (this.options['test-run'] !== undefined || this.options['skip-telemetry'] !== undefined) {
             this.options.SpfxOptions['testrun'] = true;
         } else {
             this.options.SpfxOptions['testrun'] = false;
