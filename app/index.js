@@ -38,6 +38,7 @@ module.exports = class extends Generator {
 
         /* Generator Main Logic */
 
+
         // if config existed fallback to default generator
         if (this.config.existed) {
 
@@ -62,12 +63,16 @@ module.exports = class extends Generator {
                 process.exit(1);
             }
 
-            this.prompt(prompting.config)
+            this.prompt(
+                    prompting.config(this.options.environment)
+                )
                 .then(answers => {
 
                     // Choose appro
                     this.options.SpfxOptions['framework'] = this._evalSPFxGenerator(answers.framework);
                     this.options.SpfxOptions['pnp-framework'] = answers.framework;
+                    this.options.SpfxOptions['environment'] = answers.spfxenv;
+                    this.options.environment = this.options.environment || answers.spfxenv;
                     this.options.pnpFramework = answers.framework;
                     this.options.vetting = answers.vetting;
 
