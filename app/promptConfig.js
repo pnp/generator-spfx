@@ -83,12 +83,6 @@ const onPremFrameworks = [
 
 
 let configOptions = [
-    {
-        type: 'list',
-        message: 'Which baseline packages do you want to target for your component(s)?',
-        name: 'target',
-        choices: supportedSPFxTargets
-    },
     // select your framework
     {
         type: 'list',
@@ -146,7 +140,7 @@ const promptConfig = (environmnet) => {
                 return false;
             }
 
-            return environmentOptions.concat(configOptions);
+            // return environmentOptions.concat(configOptions);
 
         }
 
