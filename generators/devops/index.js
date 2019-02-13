@@ -27,14 +27,13 @@ module.exports = class extends Generator {
     }
 
     install() {
-        const solutionPath = this.destinationPath();
         if (this.options.continuousIntegration === 'azure') {
             const azurePipelines = this.fs.read(
-                this.templatePath('devops/azure-pipelines.yml'),
+                this.templatePath('azure-pipelines.yml'),
                 'utf-8');
 
             fs.writeFileSync(
-                path.join(solutionPath, 'azure-pipelines.yml'),
+                this.destinationPath('azure-pipelines.yml'),
                 azurePipelines
             )
         }
