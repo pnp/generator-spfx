@@ -15,16 +15,13 @@ steps:
   displayName: 'Use Node 8.x'
   inputs:
     versionSpec: 8.x
-
     checkLatest: true
-
 
 #install nodejs modules with npm
 - task: Npm@1
   displayName: 'npm install'
   inputs:
     workingDir: '$(Build.SourcesDirectory)'
-
     verbose: false
 
 #start unit tests
@@ -32,20 +29,15 @@ steps:
   displayName: 'gulp test'
   inputs:
     gulpFile: '$(Build.SourcesDirectory)/gulpfile.js'
-
     targets: test
-
     publishJUnitResults: true
-
     testResultsFiles: '**/test-*.xml'
 #publish test results
 - task: PublishCodeCoverageResults@1
   displayName: 'Publish Code Coverage Results $(Build.SourcesDirectory)/temp/coverage/cobertura/cobertura.xml'
   inputs:
     codeCoverageTool: Cobertura
-
     summaryFileLocation: '$(Build.SourcesDirectory)/temp/coverage/cobertura/cobertura.xml'
-
     reportDirectory: '$(Build.SourcesDirectory)/temp/coverage/cobertura'
 
 #bundle code with gulp
@@ -53,11 +45,8 @@ steps:
   displayName: 'gulp bundle'
   inputs:
     gulpFile: '$(Build.SourcesDirectory)/gulpfile.js'
-
     targets: bundle
-
     arguments: '--ship'
-
   continueOnError: true
 
 #package solution with gulp
@@ -65,9 +54,7 @@ steps:
   displayName: 'gulp package-solution'
   inputs:
     gulpFile: '$(Build.SourcesDirectory)/gulpfile.js'
-
     targets: 'package-solution'
-
     arguments: '--ship'
 
 #copy files to artifact repository
@@ -75,7 +62,6 @@ steps:
   displayName: 'Copy Files to: $(build.artifactstagingdirectory)/drop'
   inputs:
     Contents: '**\*.sppkg'
-
     TargetFolder: '$(build.artifactstagingdirectory)/drop'
 
 #publish artifacts
