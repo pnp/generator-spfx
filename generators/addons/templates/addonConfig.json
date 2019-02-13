@@ -8,22 +8,40 @@
     "jquery@3": {
         "dependencies": {
             "jquery": "^3.3.1",
-            "@types/jquery": "^3.3.22"
+            "@types/jquery": "^3.3.29"
         }
     },
     "@pnp/pnpjs": {
         "dependencies": {
-            "@pnp/pnpjs": "^1.2.5"
+            "@pnp/pnpjs": "^1.2.9"
         }
     },
     "@pnp/spfx-property-controls": {
         "dependencies": {
-            "@pnp/spfx-property-controls": "1.12.0"
+            "@pnp/spfx-property-controls": "1.14.0"
         }
     },
     "@pnp/spfx-controls-react": {
         "dependencies": {
-            "@pnp/spfx-controls-react": "1.10.0"
+            "@pnp/spfx-controls-react": "1.11.0"
+        }
+    },
+    "webpack-analyzer": {
+        "devDependencies": {
+            "webpack-bundle-analyzer": "^3.0.3"
+        }
+    },
+    "stylelint": {
+        "devDependencies": {
+            "stylelint": "^9.10.1",
+            "stylelint-config-standard": "^18.2.0",
+            "stylelint-scss": "^3.5.3",
+            "gulp-stylelint": "^8.0.0"
+        }
+    },
+    "gulp-sequence": {
+        "devDependencies": {
+            "gulp-sequence": "1.0.0"
         }
     }
 }

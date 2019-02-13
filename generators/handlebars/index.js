@@ -166,7 +166,7 @@ module.exports = class extends Generator {
 
             try {
 
-                util.composeGulpFile(coreGulpTemplate, customGulpTemplate, targetGulpFile);
+                util.composeGulpFile(coreGulpTemplate, customGulpTemplate, targetGulpFile, this.options);
 
             } catch (error) {
 
@@ -175,6 +175,7 @@ module.exports = class extends Generator {
             }
 
         }
+
     }
 
 }

@@ -3,9 +3,9 @@ const baseTest = require('../../tools/testGenerator/"coreTestDefinition');
 
 const testSuite = new baseTest.TestSuite();
 
-testSuite.name = "ReactJS";
+testSuite.name = "KnockoutJS";
 testSuite.environment = "spo";
-testSuite.framework = "react";
+testSuite.framework = "knockout";
 
 const baseTestCase = new baseTest.BaseTestCase();
 const additonalTests = [{
@@ -17,15 +17,7 @@ const additonalTests = [{
 ];
 
 const removeTests = [{
-    name: 'No ReactJS',
-    file: baseTest.FileContent.package,
-    expr: /react/,
-    type: baseTest.TestType.noFileContent
-}, {
-    name: 'No ReactJS Dom',
-    file: baseTest.FileContent.package,
-    expr: /react-dom/,
-    type: baseTest.TestType.noFileContent
+    name: 'No KnockoutJS'
 }]
 
 baseTestCase.test = baseTestCase.test.filter(elem => {

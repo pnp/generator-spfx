@@ -40,12 +40,17 @@ class TestRunner {
         }
 
         // Run all Tests sequential
-        const testSuiteName =
-            `Test Suite: ${testSuite.name}, Framework: ${testSuite.framework}, Environment: ${testSuite.environment}, Component: ${testSuite.component.componentType} ${testSuite.component.componentType == "extension" ? testSuite.component.extensionType : ''}`;
+        let testSuiteName =
+            `\n\tTest Suite: ${testSuite.name},
+\tFramework: ${testSuite.framework},
+\tEnvironment: ${testSuite.environment},
+\tComponent: ${testSuite.component.componentType} ${testSuite.component.componentType == "extension" ? testSuite.component.extensionType : ''}`;
 
         testSuite.definitions.forEach(definition => {
 
-            describe(testSuiteName, (done) => {
+            let detailedTestSuiteName = `${testSuiteName}\n\tOptions:${definition.name}`;
+
+            describe(detailedTestSuiteName, (done) => {
 
                 let userWebPartConfig = {
                     componentDescription: 'HelloWorld',
