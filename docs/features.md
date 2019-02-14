@@ -87,7 +87,7 @@ This option creates a project based on SPFx version 1.4.0
 | HandlebarsJS| |
 | Angular Elements| |
 
-**SharePoint Online, SharePoint 2019, SharePoint 2016**
+## SharePoint Online, SharePoint 2019, SharePoint 2016
 
 This option creates a project based on SPFx version 1.1.0. This old version makes avoid to securly use the following frameworks:
 
