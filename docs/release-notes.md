@@ -1,5 +1,17 @@
 # Release Notes
 
+# 1.6.2 Update of the project creation process
+
+- Only supported options are available now #154
+- [Feature Matrix](https://pnp.github.io/generator-spfx/features/) in documentation updated
+- Bugfix #150
+- 
+ 
+**Includes:**
+- pnp/pnpjs - v1.2.9
+- @pnp/spfx-property-controls - v1.14.0
+- @pnp/@pnp/spfx-controls-react : v1.11.0
+ 
 ## 1.6.1 - 'gulp dist', Jest for no framework project
 
 **Jest testing framework support for 'No Framework' projects**

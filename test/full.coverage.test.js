@@ -1,14 +1,14 @@
 let testRunner = require('../tools/test-engine/testRunner');
 
 let onpremWebPart = [
-    require('./testdefinitions/handlebars/handlebars.onprem.webpart'),
+    // require('./testdefinitions/handlebars/handlebars.onprem.webpart'),
     require('./testdefinitions/knockout/knockout.onprem.webpart'),
     require('./testdefinitions/knockout.plus/knockout.onprem.webpart'),
     require('./testdefinitions/noframework/noframework.onprem.webpart'),
     require('./testdefinitions/noframework.plus/noframework.onprem.webpart'),
     require('./testdefinitions/reactjs/react.onprem.webpart'),
     require('./testdefinitions/reactjs.plus/react.onprem.webpart'),
-    require('./testdefinitions/vuejs/vuejs.onprem.webpart')
+    // require('./testdefinitions/vuejs/vuejs.onprem.webpart')
 ];
 
 let onprem19WebPart = [

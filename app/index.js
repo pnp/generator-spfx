@@ -113,6 +113,7 @@ module.exports = class extends Generator {
                     this.config.set('pnp-libraries', this.options.libraries);
                     this.config.set('continuousIntegration', this.options.continuousIntegration);
                     this.config.set('pnp-vetting', this.options.vetting);
+                    this.config.set('spfxenv', this.options.SpfxOptions['environment']);
                     this.config.save();
 
                     if (this.options['testRun'] === undefined) {

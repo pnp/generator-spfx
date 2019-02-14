@@ -2,8 +2,6 @@ const inquirer = require('inquirer');
 const chalk = require('chalk');
 const utils = require('../lib/util');
 
-console.log(this);
-
 const fgYellow = chalk.whiteBright.bold;
 
 const supportedSPFxTargets = [{
@@ -143,7 +141,7 @@ const promptConfig = (environmnet) => {
                 return false;
             }
 
-            // return environmentOptions.concat(configOptions);
+            return environmentOptions.concat(configOptions);
 
         }
 
