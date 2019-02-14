@@ -119,10 +119,18 @@ module.exports = class extends Generator {
 
     _addContinuousConfig() {
         let adoFileName = 'azure-pipelines.yml';
+        let karmaFileDestPath = 'config/karma.config.js';
+        let karmaFileSourcePath = 'karma.config.js';
         if (!fs.existsSync(this.destinationPath(adoFileName))) {
             this.fs.copy(
                 this.templatePath(adoFileName),
                 this.destinationPath(adoFileName)
+            );
+        }
+        if (!fs.existsSync(this.destinationPath(karmaFileDestPath))) {
+            this.fs.copy(
+                this.templatePath(karmaFileSourcePath),
+                this.destinationPath(karmaFileDestPath)
             );
         }
     }
