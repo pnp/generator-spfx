@@ -104,9 +104,6 @@ let configOptions = [
 const addon = require('../generators/addons/promptConfig');
 configOptions = configOptions.concat(addon);
 
-const devops = require('../generators/devops/promptConfig');
-configOptions = configOptions.concat(devops);
-
 // Add configuration of angular elements generator
 const angularElements = require('../generators/angularelements/promptConfig');
 configOptions = configOptions.concat(angularElements);

@@ -39,7 +39,10 @@ module.exports = class extends Generator {
 
             this._injectToGulpFile();
         }
-
+        if (undefined !== this.options.continuousIntegration &&
+            this.options.continuousIntegration === 'azure') {
+                this._addContinuousConfig();
+        }
     }
 
     end() {
@@ -111,6 +114,15 @@ module.exports = class extends Generator {
         // }
     }
 
+    _addContinuousConfig() {
+        let adoFileName = 'azure-pipelines.yml';
+        if (!fs.existsSync(this.destinationPath(adoFileName))) {
+            this.fs.copy(
+                this.templatePath(adoFileName),
+                this.destinationPath(adoFileName)
+            );
+        }
+    }
     _addStylelintConfig() {
 
         if (!fs.existsSync(this.destinationPath('.stylelintrc'))) {

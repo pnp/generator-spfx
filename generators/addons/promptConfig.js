@@ -58,7 +58,19 @@ const vettingOptions = [{
         name: 'Style Linter',
         value: 'stylelint'
     }
-]
+];
+
+// continuous integrations options
+const ciOptions = [
+    {
+        name: 'None',
+        value: 'none'
+    },
+    {
+        name: 'Azure DevOps',
+        value: 'azure'
+    }
+];
 
 // SharePoint Online supported libraries
 const spoLibs = [{
@@ -134,6 +146,12 @@ const configOptions = [
         message: 'Vetting Options',
         name: 'vetting',
         choices: vettingOptions
+    },
+    {
+        type: 'list',
+        message: 'Which pipeline configuration to include',
+        name: 'continuousIntegration',
+        choices: ciOptions
     }
 ]
 

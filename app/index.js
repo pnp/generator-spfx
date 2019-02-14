@@ -43,7 +43,6 @@ module.exports = class extends Generator {
         if (this.config.existed) {
 
             // add proper opptions in here
-            this.options.continuousIntegration = this.config.get('continuousIntegration');
             this.options.SpfxOptions['framework'] = this.config.get('framework');
             this.options.SpfxOptions['pnp-framework'] = this.config.get('framework');
             this.options.SpfxOptions['pnp-libraries'] = this.config.get('pnp-libraries');
@@ -76,6 +75,7 @@ module.exports = class extends Generator {
                     this.options.environment = this.options.environment || answers.spfxenv;
                     this.options.pnpFramework = answers.framework;
                     this.options.vetting = answers.vetting;
+                    this.options.continuousIntegration = answers.continuousIntegration;
 
                     // check if test lint was selected in any of the generators
                     this.options.tsLint = answers.tsLint ? answers.tsLint : false;
@@ -104,8 +104,6 @@ module.exports = class extends Generator {
                         this.options.angularCliOptions = answers.angularCliOptions;
 
                     }
-
-                    this.options.continuousIntegration = answers.continuousIntegration;
 
                     // save configuration of first selection
                     this.config.set('framework', this.options.SpfxOptions['framework']);
@@ -232,7 +230,9 @@ module.exports = class extends Generator {
                 (options.libraries !== undefined &&
                     options.libraries.length !== 0) ||
                 (options.vetting !== undefined &&
-                    options.vetting.length !== 0)) {
+                    options.vetting.length !== 0) ||
+                options.continuousIntegration !== undefined &&
+                    options.continuousIntegration.length !== 0) {
 
                 this.composeWith(
                     subGenerator.addons,
@@ -241,9 +241,6 @@ module.exports = class extends Generator {
 
             }
 
-        }
-        if (this.options.continuousIntegration !== 'none') {
-            this.composeWith(subGenerator.devops, options);
         }
 
         if ((this.options.SpfxOptions.framework === "react" &&
