@@ -109,6 +109,7 @@ module.exports = class extends Generator {
                     this.config.set('pnpFramework', this.options.pnpFramework);
                     this.config.set('pnp-libraries', this.options.libraries);
                     this.config.set('pnp-vetting', this.options.vetting);
+                    this.config.set('spfxenv', this.options.SpfxOptions['environment']);
                     this.config.save();
 
                     if (this.options['testRun'] === undefined) {
@@ -116,7 +117,6 @@ module.exports = class extends Generator {
                         telemetry.trackEvent('Scaffold', this.options.SpfxOptions);
 
                     }
-
 
                     this._configGenerators(this.options);
 

@@ -138,7 +138,7 @@ const promptConfig = (environmnet) => {
                 return false;
             }
 
-            // return environmentOptions.concat(configOptions);
+            return environmentOptions.concat(configOptions);
 
         }
 
