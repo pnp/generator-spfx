@@ -118,7 +118,6 @@ module.exports = class extends Generator {
 
                     }
 
-
                     this._configGenerators(this.options);
 
                 });
