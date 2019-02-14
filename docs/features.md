@@ -111,9 +111,6 @@ This option creates a project based on SPFx version 1.1.0. This old version make
 |ReactJS|✅|✅|
 |KnockoutJS|✅|✅|
 |No Framework|✅|✅|
-|VueJS|✅| 
-|HandlebarsJS|✅|✅|
-|Angular Elements|✅|✅|
 
 ### Test Framework
 
@@ -122,6 +119,3 @@ This option creates a project based on SPFx version 1.1.0. This old version make
 | ReactJS |✅|
 | KnockoutJS| | 
 | No Framework|✅|
-| VueJS| |
-| HandlebarsJS| |
-| Angular Elements| |
