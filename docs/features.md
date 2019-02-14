@@ -12,7 +12,7 @@ Not all those options generate the same version of SPFx projects and the availab
 
 Depending on the selections mad different options can be supported by the SharePoint Framework.
 
-## SharePoint Online and SharePoint 2019
+## SharePoint Online
 
 This options create a project based on the latest SPFx version 1.7.1
 
