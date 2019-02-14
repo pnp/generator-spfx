@@ -81,12 +81,6 @@ const onPremFrameworks = [
 
 
 let configOptions = [
-    {
-        type: 'list',
-        message: 'Which baseline packages do you want to target for your component(s)?',
-        name: 'target',
-        choices: supportedSPFxTargets
-    },
     // select your framework
     {
         type: 'list',
