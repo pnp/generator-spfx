@@ -42,7 +42,6 @@ module.exports = class extends Generator {
         const manifest = util.getComponentManifest(this);
 
         if (!manifest) {
-            console.log("Return on everything");
             return;
         }
 
