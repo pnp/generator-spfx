@@ -126,4 +126,4 @@ This option creates a project based on SPFx version 1.1.0. This old version make
 | HandlebarsJS| |
 | Angular Elements| |
 
-[spfx-select]: /assets/framework-selection-options.png "Framework selection options"
+[spfx-select]: https://github.com/pnp/generator-spfx/edit/master/docs//assets/framework-selection-options.png "Framework selection options"
