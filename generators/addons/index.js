@@ -77,6 +77,9 @@ module.exports = class extends Generator {
             // append vetting options if selected
             requestedLibraries = this.options.vetting === undefined ? requestedLibraries :
                 requestedLibraries.concat(this.options.vetting);
+            // Append Azure DevOps options if selected
+            requestedLibraries = this.options.continuousIntegration === undefined ? requestedLibraries :
+                requestedLibraries.concat('continuousIntegrationKarma');
             // Add gulp-sequence for gulp dist automatically
             requestedLibraries.push('gulp-sequence');
 

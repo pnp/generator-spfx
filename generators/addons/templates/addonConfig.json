@@ -39,6 +39,11 @@
             "gulp-stylelint": "^8.0.0"
         }
     },
+    "continuousIntegrationKarma": {
+        "devDependencies": {
+            "karma-junit-reporter": "^1.2.0"
+        }
+    },
     "gulp-sequence": {
         "devDependencies": {
             "gulp-sequence": "1.0.0"
