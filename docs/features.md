@@ -8,7 +8,7 @@ The official SPFx generator targets for three specific platforms:
 
 Not all those options generate the same version of SPFx projects and the available features are limited to the lowest supported version.
 
-![Target framework seletion][spfx-select]
+![Target framework seletion](./assets/framework-selection-options.png)
 
 Depending on the selections mad different options can be supported by the SharePoint Framework.
 
@@ -125,5 +125,3 @@ This option creates a project based on SPFx version 1.1.0. This old version make
 | VueJS| |
 | HandlebarsJS| |
 | Angular Elements| |
-
-[spfx-select]: https://github.com/pnp/generator-spfx/edit/master/docs//assets/framework-selection-options.png "Framework selection options"
