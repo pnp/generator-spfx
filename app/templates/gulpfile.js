@@ -1,9 +1,8 @@
 <%
 
-var allGulpTasks = [];
-
 var webpackBundleAnalyzer = false;
 var stylelint = false;
+var ci = false;
 
 if (undefined !== SpfxOptions) {
 
@@ -16,10 +15,13 @@ if (undefined !== SpfxOptions) {
         stylelint = true;
     }
 
+    if(SpfxOptions['pnp-ci'].length !== 0){
+        ci = true;
+    }
+
 }
 
-%>
-'use strict';
+%>'use strict';
 
 // check if gulp dist was called
 if (process.argv.indexOf('dist') !== -1) {
@@ -90,10 +92,23 @@ let styleLintSubTask = build.subTask('stylelint', (gulp) => {
 
 build.rig.addPreBuildTask(styleLintSubTask);
 <% }; %>
-
 /**
  * Custom Framework Specific gulp tasks
  */
 <%- customTasks %>
 
 build.initialize(gulp);
+
+/**
+ * Continuous Integration
+ */
+<% if(ci) {%>
+const buildConfig = build.getConfig();
+
+const karmaTaskCandidates = buildConfig.uniqueTasks.filter(task => task.name === 'karma');
+
+if (karmaTaskCandidates && karmaTaskCandidates.length > 0) {
+    const karmaTask = karmaTaskCandidates[0];
+    karmaTask.taskConfig.configPath = './config/karma.config.js';
+}
+<% }; %>

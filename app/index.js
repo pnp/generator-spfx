@@ -45,6 +45,7 @@ module.exports = class extends Generator {
             this.options.SpfxOptions['pnp-framework'] = this.config.get('framework');
             this.options.SpfxOptions['pnp-libraries'] = this.config.get('pnp-libraries');
             this.options.SpfxOptions['pnp-vetting'] = this.config.get('pnp-vetting');
+            this.options.SpfxOptions['pnp-ci'] = this.config.get('pnp-ci');
 
             this.options.pnpFramework = this.config.get('pnpFramework') !== 'angularelements' ? this.config.get('pnpFramework') : "none";
 
@@ -70,10 +71,12 @@ module.exports = class extends Generator {
                     this.options.SpfxOptions['framework'] = this._evalSPFxGenerator(answers.framework);
                     this.options.SpfxOptions['pnp-framework'] = answers.framework;
                     this.options.SpfxOptions['environment'] = answers.spfxenv;
+
                     this.options.environment = this.options.environment || answers.spfxenv;
                     this.options.pnpFramework = answers.framework;
                     this.options.vetting = answers.vetting;
-                    this.options.continuousIntegration = answers.continuousIntegration;
+                    this.options.ci = answers.continuousIntegration;
+
 
                     // check if test lint was selected in any of the generators
                     this.options.tsLint = answers.tsLint ? answers.tsLint : false;
@@ -88,6 +91,9 @@ module.exports = class extends Generator {
 
                     // Addon Vetting options
                     this.options.SpfxOptions['pnp-vetting'] = this.options.vetting;
+
+                    // Addon continouse integration
+                    this.options.SpfxOptions['pnp-ci'] = this.options.ci;
 
                     if (answers.framework === "angularelements") {
 
@@ -107,7 +113,7 @@ module.exports = class extends Generator {
                     this.config.set('framework', this.options.SpfxOptions['framework']);
                     this.config.set('pnpFramework', this.options.pnpFramework);
                     this.config.set('pnp-libraries', this.options.libraries);
-                    this.config.set('continuousIntegration', this.options.continuousIntegration);
+                    this.config.set('pnp-ci', this.options.continuousIntegration);
                     this.config.set('pnp-vetting', this.options.vetting);
                     this.config.set('spfxenv', this.options.SpfxOptions['environment']);
                     this.config.save();
@@ -222,28 +228,10 @@ module.exports = class extends Generator {
         // Launch Addon Configurator SPFx generator
         if (this.config.existed === false) {
 
-<<<<<<< HEAD
             this.composeWith(
                 subGenerator.addons,
                 options
             )
-=======
-            // If required launch library generator
-            if (
-                (options.libraries !== undefined &&
-                    options.libraries.length !== 0) ||
-                (options.vetting !== undefined &&
-                    options.vetting.length !== 0) ||
-                options.continuousIntegration !== undefined &&
-                    options.continuousIntegration.length !== 0) {
-
-                this.composeWith(
-                    subGenerator.addons,
-                    options
-                );
-
-            }
->>>>>>> 97fcad47b189460c98e2dfc7b01f09085df92604
 
         }
 

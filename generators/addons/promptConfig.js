@@ -32,10 +32,6 @@ const vettingOptions = [{
 // continuous integrations options
 const ciOptions = [
     {
-        name: 'None',
-        value: 'none'
-    },
-    {
         name: 'Azure DevOps',
         value: 'azure'
     }
@@ -117,8 +113,8 @@ const configOptions = [
         choices: vettingOptions
     },
     {
-        type: 'list',
-        message: 'Which pipeline configuration to include',
+        type: 'checkbox',
+        message: 'Include pipeline configuration?',
         name: 'continuousIntegration',
         choices: ciOptions
     }

@@ -10,7 +10,7 @@ const options = [{
 const configOptions = [
     // Sample content of questions
     {
-        type: 'choice',
+        type: 'checkbox',
         message: 'Test Framework',
         name: 'testframework',
         choices: options,

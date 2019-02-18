@@ -67,7 +67,7 @@
         "yeoman-generator": "~3.2.0"
     },
     "devDependencies": {
-        "mocha": "~5.2.0",
+        "mocha": "~6.0.0",
         "rimraf": "^2.6.3",
         "yeoman-assert": "~3.1.1",
         "yeoman-test": "~1.9.1"
