@@ -73,6 +73,7 @@ module.exports = class extends Generator {
                     this.options.environment = this.options.environment || answers.spfxenv;
                     this.options.pnpFramework = answers.framework;
                     this.options.vetting = answers.vetting;
+                    this.options.continuousIntegration = answers.continuousIntegration;
 
                     // check if test lint was selected in any of the generators
                     this.options.tsLint = answers.tsLint ? answers.tsLint : false;
@@ -106,12 +107,13 @@ module.exports = class extends Generator {
                     this.config.set('framework', this.options.SpfxOptions['framework']);
                     this.config.set('pnpFramework', this.options.pnpFramework);
                     this.config.set('pnp-libraries', this.options.libraries);
+                    this.config.set('continuousIntegration', this.options.continuousIntegration);
                     this.config.set('pnp-vetting', this.options.vetting);
                     this.config.set('spfxenv', this.options.SpfxOptions['environment']);
                     this.config.save();
 
                     if (this.options['testRun'] === undefined) {
-                        // track yeaman configuration options
+                        // track yeoman configuration options
                         telemetry.trackEvent('Scaffold', this.options.SpfxOptions);
 
                     }
@@ -220,10 +222,28 @@ module.exports = class extends Generator {
         // Launch Addon Configurator SPFx generator
         if (this.config.existed === false) {
 
+<<<<<<< HEAD
             this.composeWith(
                 subGenerator.addons,
                 options
             )
+=======
+            // If required launch library generator
+            if (
+                (options.libraries !== undefined &&
+                    options.libraries.length !== 0) ||
+                (options.vetting !== undefined &&
+                    options.vetting.length !== 0) ||
+                options.continuousIntegration !== undefined &&
+                    options.continuousIntegration.length !== 0) {
+
+                this.composeWith(
+                    subGenerator.addons,
+                    options
+                );
+
+            }
+>>>>>>> 97fcad47b189460c98e2dfc7b01f09085df92604
 
         }
 
@@ -332,9 +352,15 @@ module.exports = class extends Generator {
             type: String
         });
 
+        this.option('continuousIntegration', {
+            description: `Adds a pipeline definition for the desired continuous integration solution`,
+            type: String,
+            alias: 'ci'
+        });
+
     }
 
-    // Generatore SPFx specifc parameters
+    // Generator SPFx specifc parameters
     _generateSPFxOptions() {
 
         if (this.options['component-description'] !== undefined) {

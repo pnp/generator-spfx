@@ -16,7 +16,7 @@ module.exports = class extends Generator {
 
     }
 
-    // Initialisation geenerator
+    // Initialisation generator
     initializing() {
 
     }
@@ -39,7 +39,10 @@ module.exports = class extends Generator {
 
             this._injectToGulpFile();
         }
-
+        if (undefined !== this.options.continuousIntegration &&
+            this.options.continuousIntegration === 'azure') {
+                this._addContinuousConfig();
+        }
     }
 
     end() {
@@ -75,7 +78,13 @@ module.exports = class extends Generator {
             // append vetting options if selected
             requestedLibraries = this.options.vetting === undefined ? requestedLibraries :
                 requestedLibraries.concat(this.options.vetting);
+<<<<<<< HEAD
 
+=======
+            // Append Azure DevOps options if selected
+            requestedLibraries = this.options.continuousIntegration === undefined ? requestedLibraries :
+                requestedLibraries.concat('continuousIntegrationKarma');
+>>>>>>> 97fcad47b189460c98e2dfc7b01f09085df92604
             // Add gulp-sequence for gulp dist automatically
             requestedLibraries.push('gulp-sequence');
 
@@ -94,6 +103,23 @@ module.exports = class extends Generator {
 
     }
 
+    _addContinuousConfig() {
+        let adoFileName = 'azure-pipelines.yml';
+        let karmaFileDestPath = 'config/karma.config.js';
+        let karmaFileSourcePath = 'karma.config.js';
+        if (!fs.existsSync(this.destinationPath(adoFileName))) {
+            this.fs.copy(
+                this.templatePath(adoFileName),
+                this.destinationPath(adoFileName)
+            );
+        }
+        if (!fs.existsSync(this.destinationPath(karmaFileDestPath))) {
+            this.fs.copy(
+                this.templatePath(karmaFileSourcePath),
+                this.destinationPath(karmaFileDestPath)
+            );
+        }
+    }
     _addStylelintConfig() {
 
         if (!fs.existsSync(this.destinationPath('.stylelintrc'))) {
