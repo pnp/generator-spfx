@@ -37,8 +37,6 @@ module.exports = class extends Generator {
     prompting() {
 
         /* Generator Main Logic */
-
-
         // if config existed fallback to default generator
         if (this.config.existed) {
 
@@ -219,25 +217,17 @@ module.exports = class extends Generator {
     // Configure and launch all required generators
     _configGenerators(options) {
 
-        // Launch Default SPFx generator
+        // Launch Addon Configurator SPFx generator
         if (this.config.existed === false) {
 
-            // If required launch library generator
-            if (
-                (options.libraries !== undefined &&
-                    options.libraries.length !== 0) ||
-                (options.vetting !== undefined &&
-                    options.vetting.length !== 0)) {
-
-                this.composeWith(
-                    subGenerator.addons,
-                    options
-                )
-
-            }
+            this.composeWith(
+                subGenerator.addons,
+                options
+            )
 
         }
 
+        // Do not 'skip-install' for original SPFx generator
         if ((this.options.SpfxOptions.framework === "react" &&
                 this.options.pnpFramework !== "reactjs.plus") ||
             (this.options.SpfxOptions.framework === "knockout" &&
@@ -249,6 +239,7 @@ module.exports = class extends Generator {
 
         }
 
+        // Launch defaul generator
         this.composeWith(
             subGenerator.spfx,
             this.options.SpfxOptions

@@ -12,37 +12,6 @@ const jqueryOptions = [{
     }
 ]
 
-// currently not used trimmdown
-const pnpJsOptions = [{
-        'name': '@pnp/common',
-        'value': '@pnp/common'
-    },
-    {
-        'name': '@pnp/config-store',
-        'value': '@pnp/config-store'
-    },
-    {
-        'name': '@pnp/graph',
-        'value': '@pnp/graph'
-    },
-    {
-        'name': '@pnp/logging',
-        'value': '@pnp/logging'
-    },
-    {
-        'name': '@pnp/odata',
-        'value': '@pnp/odata'
-    },
-    {
-        'name': '@pnp/sp',
-        'value': '@pnp/sp'
-    },
-    {
-        'name': '@pnp/sp-taxonomy',
-        'value': '@pnp/sp-taxonomy'
-    }
-]
-
 // ReactJS libraries only
 const reactLibs = [{
     name: 'PnP Reusable Controls',

@@ -71,9 +71,11 @@ module.exports = class extends Generator {
 
             // define all requested libraries
             let requestedLibraries = this.options.libraries === undefined ? [] : this.options.libraries;
+
             // append vetting options if selected
             requestedLibraries = this.options.vetting === undefined ? requestedLibraries :
                 requestedLibraries.concat(this.options.vetting);
+
             // Add gulp-sequence for gulp dist automatically
             requestedLibraries.push('gulp-sequence');
 
@@ -90,25 +92,6 @@ module.exports = class extends Generator {
 
     _injectToGulpFile() {
 
-        // let targetGulpFile = this.destinationPath('gulpfile.js');
-
-        // if (fs.existsSync(targetGulpFile)) {
-
-        //     let coreGulpTemplate = this.templatePath('../../../app/templates/gulpfile.js');
-        //     let customGulpTemplate = this.templatePath('./gulpfile.js');
-
-
-        //     try {
-
-        //         util.composeGulpFile(coreGulpTemplate, customGulpTemplate, targetGulpFile);
-
-        //     } catch (error) {
-
-        //         this.log(error);
-
-        //     }
-
-        // }
     }
 
     _addStylelintConfig() {

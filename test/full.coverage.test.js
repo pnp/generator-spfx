@@ -1,7 +1,7 @@
 let testRunner = require('../tools/test-engine/testRunner');
 
 let onpremWebPart = [
-    // require('./testdefinitions/handlebars/handlebars.onprem.webpart'),
+    require('./testdefinitions/handlebars/handlebars.onprem.webpart'),
     require('./testdefinitions/knockout/knockout.onprem.webpart'),
     require('./testdefinitions/knockout.plus/knockout.onprem.webpart'),
     require('./testdefinitions/noframework/noframework.onprem.webpart'),
