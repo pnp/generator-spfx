@@ -1,5 +1,9 @@
 # Known Issues
 
+## Version 1.6.2
+
+* When no library and no vetting option get selected 'gulp-sequence' is missing and has to be installed manually using ```npm install gulp-sequence --save-dev```. [#158](https://github.com/pnp/generator-spfx/issues/158)
+
 ## Version 1.4.0
 
 ### Problem with 'ng serve' in application created by Angular Elements generator
