@@ -38,8 +38,8 @@ module.exports = class extends Generator {
             this._addStylelintConfig();
 
         }
-        if (undefined !== this.options.continuousIntegration &&
-            this.options.continuousIntegration === 'azure') {
+        if (undefined !== this.options.ci &&
+            this.options.ci.indexOf('azure') !== -1) {
 
             this._addContinuousConfig();
 
@@ -84,7 +84,7 @@ module.exports = class extends Generator {
                 requestedLibraries.concat(this.options.vetting);
 
             // Append Azure DevOps options if selected
-            requestedLibraries = this.options.continuousIntegration === undefined ? requestedLibraries :
+            requestedLibraries = this.options.ci === undefined ? requestedLibraries :
                 requestedLibraries.concat('continuousIntegrationKarma');
 
             // Add gulp-sequence for gulp dist automatically
