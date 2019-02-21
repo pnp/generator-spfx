@@ -22,7 +22,7 @@ This generator supports a variaty of of frameworks and features such as:
 * Angular Elements
 * Addons such as JEST, StyleLint or WebPack Bundel analyser
 
-More on that in the [features section](/features).
+More on that in the [features section](/generator-spfx/features/).
 
 
 ### Installation
