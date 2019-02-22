@@ -38,6 +38,8 @@ build.addSuppression(`Warning - [sass] The local CSS class 'ms-Grid' is not came
 
 // Create clean distrubution package
 gulp.task('dist', gulpSequence('clean', 'bundle', 'package-solution'));
+// Create clean development package
+gulp.task('dev', gulpSequence('clean', 'bundle', 'package-solution'));
 
 
 <% if(webpackBundleAnalyzer) {%>
