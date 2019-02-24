@@ -31,11 +31,15 @@
         "Angular Elements",
         "SharePointFramework"
     ],
-    "maintainers": [
-        {
-            "name": "Stefan Bauer",
-            "email": "office@n8d.at",
-            "url": "https://www.n8d.at/"
+    "maintainers": [{
+        "name": "Stefan Bauer",
+        "email": "office@n8d.at",
+        "url": "https://www.n8d.at/"
+    }],
+    "contributors": [{
+            "name": "Vincent Biret",
+            "email": "vincentbiret@hotmail.com",
+            "url": "https://microsofttouch.fr/default/b/vincent/"
         },
         {
             "name": "Sergei Sergeev",
