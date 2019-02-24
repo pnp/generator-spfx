@@ -31,11 +31,15 @@
         "Angular Elements",
         "SharePointFramework"
     ],
-    "maintainers": [
-        {
-            "name": "Stefan Bauer",
-            "email": "office@n8d.at",
-            "url": "https://www.n8d.at/"
+    "maintainers": [{
+        "name": "Stefan Bauer",
+        "email": "office@n8d.at",
+        "url": "https://www.n8d.at/"
+    }],
+    "contributors": [{
+            "name": "Vincent Biret",
+            "email": "vincentbiret@hotmail.com",
+            "url": "https://microsofttouch.fr/default/b/vincent/"
         },
         {
             "name": "Sergei Sergeev",
@@ -67,7 +71,11 @@
         "yeoman-generator": "~3.2.0"
     },
     "devDependencies": {
+<<<<<<< HEAD
         "mocha": "~6.0.2",
+=======
+        "mocha": "~6.0.1",
+>>>>>>> 26dafac... 'npm version' script and dependency updates (#164)
         "rimraf": "^2.6.3",
         "yeoman-assert": "~3.1.1",
         "yeoman-test": "~1.9.1"

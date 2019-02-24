@@ -11,10 +11,14 @@
         "@pnp/pnpjs": "^1.2.9",
         "@pnp/spfx-property-controls": "1.14.1",
         "@pnp/spfx-controls-react": "1.12.0",
+<<<<<<< HEAD
         "webpack-bundle-analyzer": "^3.0.3",
+=======
+        "webpack-bundle-analyzer": "^3.0.4",
+>>>>>>> 26dafac... 'npm version' script and dependency updates (#164)
         "stylelint": "^9.10.1",
         "stylelint-config-standard": "^18.2.0",
-        "stylelint-scss": "^3.5.3",
+        "stylelint-scss": "^3.5.4",
         "gulp-stylelint": "^8.0.0",
         "gulp-sequence": "1.0.0"
     }
