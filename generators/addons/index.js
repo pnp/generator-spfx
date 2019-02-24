@@ -36,18 +36,29 @@ module.exports = class extends Generator {
             this.options.vetting.indexOf('stylelint') !== -1) {
 
             this._addStylelintConfig();
-
         }
+
         if (undefined !== this.options.ci &&
             this.options.ci.indexOf('azure') !== -1) {
 
             this._addContinuousConfig();
-
         }
+
+        this._addToolScripts();
+
 
     }
 
     end() {
+
+    }
+
+    _addToolScripts(){
+
+        this.fs.copy(
+            this.templatePath('./tools/pre-version.js'),
+            this.destinationPath('./tools/pre-version.js')
+        );
 
     }
 
@@ -92,6 +103,36 @@ module.exports = class extends Generator {
 
             // merge all options and check if gulpfile is required
             let newPkgConfig = util.mergeAddons(addonConfig, requestedLibraries, config);
+
+            // add pre-version script to package.json
+            if (newPkgConfig.scripts !== undefined) {
+                // add preversion script
+                if (newPkgConfig.scripts.preversion === undefined) {
+
+                    newPkgConfig.scripts.preversion = "node ./tools/pre-version.js";
+
+                } else {
+
+                    newPkgConfig.scripts.preversion += " && node ./tools/pre-version.js";
+
+                }
+                // add postversion scripts
+                if (newPkgConfig.scripts.postversion === undefined) {
+
+                    newPkgConfig.scripts.postversion = "gulp dist";
+
+                } else {
+
+                    // check if gulp dist not already exists
+                    if (newPkgConfig.scripts.postversion.indexOf('gulp dist') === -1) {
+
+                        newPkgConfig.scripts.postversion += " && gulp dist";
+
+                    }
+
+                }
+
+            }
 
             fs.writeFileSync(
                 this.destinationPath('package.json'),
