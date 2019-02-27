@@ -4,4 +4,7 @@ This section contains all the important information about how to work with the p
 
 * [Angular Elements](angularelements.md)
 * [Continuous Integration](continuousintegration.md)
+<<<<<<< HEAD
 * [Use Docker with SPFx](dockerimg.md)
+=======
+>>>>>>> master
