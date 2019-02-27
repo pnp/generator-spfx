@@ -3,6 +3,10 @@
     width: 150px;
 }
 
+.md-container{
+    padding-top: 75px;
+}
+
 .md-header{
     height: 75px;
 }

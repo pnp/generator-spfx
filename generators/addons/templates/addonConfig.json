@@ -18,25 +18,30 @@
     },
     "@pnp/spfx-property-controls": {
         "dependencies": {
-            "@pnp/spfx-property-controls": "1.14.0"
+            "@pnp/spfx-property-controls": "1.14.1"
         }
     },
     "@pnp/spfx-controls-react": {
         "dependencies": {
-            "@pnp/spfx-controls-react": "1.11.0"
+            "@pnp/spfx-controls-react": "1.12.0"
         }
     },
     "webpack-analyzer": {
         "devDependencies": {
-            "webpack-bundle-analyzer": "^3.0.3"
+            "webpack-bundle-analyzer": "^3.0.4"
         }
     },
     "stylelint": {
         "devDependencies": {
             "stylelint": "^9.10.1",
             "stylelint-config-standard": "^18.2.0",
-            "stylelint-scss": "^3.5.3",
+            "stylelint-scss": "^3.5.4",
             "gulp-stylelint": "^8.0.0"
+        }
+    },
+    "continuousIntegrationKarma": {
+        "devDependencies": {
+            "karma-junit-reporter": "^1.2.0"
         }
     },
     "gulp-sequence": {

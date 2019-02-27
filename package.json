@@ -1,6 +1,6 @@
 {
     "name": "@pnp/generator-spfx",
-    "version": "1.6.2",
+    "version": "1.6.3-beta2",
     "description": "This Yeoman generator helps organisations to improve their development workflow with the SharePoint Framework. It extends the functionalities of the @microsoft/generator-sharepoint based on best pattern and practices. This generator extends the capabilities of ReactJS, and Knockout projects add support for additional frameworks and include advanced code analysis tools.",
     "author": {
         "name": "Office 365 / SharePoint PnP Core Team",
@@ -31,11 +31,15 @@
         "Angular Elements",
         "SharePointFramework"
     ],
-    "maintainers": [
-        {
-            "name": "Stefan Bauer",
-            "email": "office@n8d.at",
-            "url": "https://www.n8d.at/"
+    "maintainers": [{
+        "name": "Stefan Bauer",
+        "email": "office@n8d.at",
+        "url": "https://www.n8d.at/"
+    }],
+    "contributors": [{
+            "name": "Vincent Biret",
+            "email": "vincentbiret@hotmail.com",
+            "url": "https://microsofttouch.fr/default/b/vincent/"
         },
         {
             "name": "Sergei Sergeev",
@@ -58,7 +62,7 @@
     "dependencies": {
         "@microsoft/generator-sharepoint": "1.7.1",
         "@pnp/office365-cli": "^1.13.0",
-        "applicationinsights": "^1.1.0",
+        "applicationinsights": "^1.2.0",
         "chalk": "^2.4.2",
         "command-exists": "^1.2.8",
         "lodash": "^4.17.11",
@@ -67,7 +71,7 @@
         "yeoman-generator": "~3.2.0"
     },
     "devDependencies": {
-        "mocha": "~5.2.0",
+        "mocha": "~6.0.2",
         "rimraf": "^2.6.3",
         "yeoman-assert": "~3.1.1",
         "yeoman-test": "~1.9.1"

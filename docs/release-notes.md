@@ -1,14 +1,31 @@
 # Release Notes
 
+# 1.6.3 Azure Devops
+
+- **Azure DevOps base integration added** by [Vincent Biret](https://twitter.com/baywet)
+- **npm version** - Updates package-solution.json and Teams manifest.json with package.json version
+- **gulp dev** - for package solution for development
+- **Jest Testing Framework** - is now optional [#157](https://github.com/pnp/generator-spfx/issues/157)
+
+**Bugfix:**
+
+- [#158](https://github.com/pnp/generator-spfx/issues/158) - Missing gulp-sequence in package.json
+
+**Updates:**
+
+- @pnp/spfx-property-controls - 1.14.1
+- @pnp/spfx-controls-react - 1.12.0
+
+
 # 1.6.2 Update of the project creation process
 
 - Only supported options are available now #154
 - [Feature Matrix](https://pnp.github.io/generator-spfx/features/) in documentation updated
-- Bugfix #150
-- 
+- Bugfix [#150](https://github.com/pnp/generator-spfx/issues/150)
  
 **Includes:**
-- pnp/pnpjs - v1.2.9
+
+- [@pnp/pnpjs](https://github.com/pnp/pnpjs) - v1.2.9
 - @pnp/spfx-property-controls - v1.14.0
 - @pnp/@pnp/spfx-controls-react : v1.11.0
  
@@ -24,7 +41,7 @@
 - pnp/pnpjs: v1.2.7
 - @pnp/spfx-property-controls: v1.14.0
 - @pnp/spfx-controls-react: v1.11.0
-- Bugfix #147
+- Bugfix [#147](https://github.com/pnp/generator-spfx/issues/157)
 
 ## 1.6.0 - Support for Jest, Webpack Bundle Analyser and StyleLint
 

@@ -82,6 +82,11 @@ class BaseTestCase extends TestCase {
             file: fileContent.package,
             expr: /knockout/,
             type: testType.noFileContent
+        }, {
+            name: 'Gulp Sequence',
+            file: fileContent.package,
+            expr: /gulp-sequence/,
+            type: testType.fileContent
         }];
 
         this.testNames = this.validTestNames();

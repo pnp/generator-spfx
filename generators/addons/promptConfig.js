@@ -12,37 +12,6 @@ const jqueryOptions = [{
     }
 ]
 
-// currently not used trimmdown
-const pnpJsOptions = [{
-        'name': '@pnp/common',
-        'value': '@pnp/common'
-    },
-    {
-        'name': '@pnp/config-store',
-        'value': '@pnp/config-store'
-    },
-    {
-        'name': '@pnp/graph',
-        'value': '@pnp/graph'
-    },
-    {
-        'name': '@pnp/logging',
-        'value': '@pnp/logging'
-    },
-    {
-        'name': '@pnp/odata',
-        'value': '@pnp/odata'
-    },
-    {
-        'name': '@pnp/sp',
-        'value': '@pnp/sp'
-    },
-    {
-        'name': '@pnp/sp-taxonomy',
-        'value': '@pnp/sp-taxonomy'
-    }
-]
-
 // ReactJS libraries only
 const reactLibs = [{
     name: 'PnP Reusable Controls',
@@ -58,7 +27,15 @@ const vettingOptions = [{
         name: 'Style Linter',
         value: 'stylelint'
     }
-]
+];
+
+// continuous integrations options
+const ciOptions = [
+    {
+        name: 'Azure DevOps',
+        value: 'azure'
+    }
+];
 
 // SharePoint Online supported libraries
 const spoLibs = [{
@@ -134,6 +111,12 @@ const configOptions = [
         message: 'Vetting Options',
         name: 'vetting',
         choices: vettingOptions
+    },
+    {
+        type: 'checkbox',
+        message: 'Include pipeline configuration?',
+        name: 'continuousIntegration',
+        choices: ciOptions
     }
 ]
 

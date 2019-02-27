@@ -37,8 +37,6 @@ module.exports = class extends Generator {
     prompting() {
 
         /* Generator Main Logic */
-
-
         // if config existed fallback to default generator
         if (this.config.existed) {
 
@@ -47,6 +45,7 @@ module.exports = class extends Generator {
             this.options.SpfxOptions['pnp-framework'] = this.config.get('framework');
             this.options.SpfxOptions['pnp-libraries'] = this.config.get('pnp-libraries');
             this.options.SpfxOptions['pnp-vetting'] = this.config.get('pnp-vetting');
+            this.options.SpfxOptions['pnp-ci'] = this.config.get('pnp-ci');
 
             this.options.pnpFramework = this.config.get('pnpFramework') !== 'angularelements' ? this.config.get('pnpFramework') : "none";
 
@@ -72,9 +71,12 @@ module.exports = class extends Generator {
                     this.options.SpfxOptions['framework'] = this._evalSPFxGenerator(answers.framework);
                     this.options.SpfxOptions['pnp-framework'] = answers.framework;
                     this.options.SpfxOptions['environment'] = answers.spfxenv;
+
                     this.options.environment = this.options.environment || answers.spfxenv;
                     this.options.pnpFramework = answers.framework;
                     this.options.vetting = answers.vetting;
+                    this.options.ci = answers.continuousIntegration;
+
 
                     // check if test lint was selected in any of the generators
                     this.options.tsLint = answers.tsLint ? answers.tsLint : false;
@@ -89,6 +91,9 @@ module.exports = class extends Generator {
 
                     // Addon Vetting options
                     this.options.SpfxOptions['pnp-vetting'] = this.options.vetting;
+
+                    // Addon continouse integration
+                    this.options.SpfxOptions['pnp-ci'] = this.options.ci;
 
                     if (answers.framework === "angularelements") {
 
@@ -108,12 +113,13 @@ module.exports = class extends Generator {
                     this.config.set('framework', this.options.SpfxOptions['framework']);
                     this.config.set('pnpFramework', this.options.pnpFramework);
                     this.config.set('pnp-libraries', this.options.libraries);
+                    this.config.set('pnp-ci', this.options.ci);
                     this.config.set('pnp-vetting', this.options.vetting);
                     this.config.set('spfxenv', this.options.SpfxOptions['environment']);
                     this.config.save();
 
                     if (this.options['testRun'] === undefined) {
-                        // track yeaman configuration options
+                        // track yeoman configuration options
                         telemetry.trackEvent('Scaffold', this.options.SpfxOptions);
 
                     }
@@ -219,25 +225,17 @@ module.exports = class extends Generator {
     // Configure and launch all required generators
     _configGenerators(options) {
 
-        // Launch Default SPFx generator
+        // Launch Addon Configurator SPFx generator
         if (this.config.existed === false) {
 
-            // If required launch library generator
-            if (
-                (options.libraries !== undefined &&
-                    options.libraries.length !== 0) ||
-                (options.vetting !== undefined &&
-                    options.vetting.length !== 0)) {
-
-                this.composeWith(
-                    subGenerator.addons,
-                    options
-                )
-
-            }
+            this.composeWith(
+                subGenerator.addons,
+                options
+            )
 
         }
 
+        // Do not 'skip-install' for original SPFx generator
         if ((this.options.SpfxOptions.framework === "react" &&
                 this.options.pnpFramework !== "reactjs.plus") ||
             (this.options.SpfxOptions.framework === "knockout" &&
@@ -249,6 +247,7 @@ module.exports = class extends Generator {
 
         }
 
+        // Launch defaul generator
         this.composeWith(
             subGenerator.spfx,
             this.options.SpfxOptions
@@ -341,9 +340,15 @@ module.exports = class extends Generator {
             type: String
         });
 
+        this.option('continuousIntegration', {
+            description: `Adds a pipeline definition for the desired continuous integration solution`,
+            type: String,
+            alias: 'ci'
+        });
+
     }
 
-    // Generatore SPFx specifc parameters
+    // Generator SPFx specifc parameters
     _generateSPFxOptions() {
 
         if (this.options['component-description'] !== undefined) {

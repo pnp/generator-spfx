@@ -4,7 +4,8 @@ const testSuite = new baseTest.TestSuite();
 
 testSuite.name = "KnockoutjS";
 testSuite.environment = "onprem";
-testSuite.framework = "knockout";
+testSuite.spfxoption = "onprem";
+testSuite.framework = "knockout.plus";
 testSuite.component = {
     componentType: 'webpart'
 }
