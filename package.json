@@ -71,11 +71,7 @@
         "yeoman-generator": "~3.2.0"
     },
     "devDependencies": {
-<<<<<<< HEAD
         "mocha": "~6.0.2",
-=======
-        "mocha": "~6.0.1",
->>>>>>> 26dafac... 'npm version' script and dependency updates (#164)
         "rimraf": "^2.6.3",
         "yeoman-assert": "~3.1.1",
         "yeoman-test": "~1.9.1"
