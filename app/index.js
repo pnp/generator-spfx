@@ -288,8 +288,8 @@ module.exports = class extends Generator {
                                         - "extension"`,
             type: String
         });
-
-        this.option('environment', {
+        // Disabled through renamee
+        this.option('enviroment', {
             description: `The target environment for the solution:
                                         - "onprem"
                                         - "onprem19"
