@@ -87,7 +87,7 @@ Options:
          --component-type           # The type of component:
                                         - "webpart"
                                         - "extension"
-         --enviroment               # The target environment for the solution:
+         --environment               # The target environment for the solution:
                                         - "onprem"
                                         - "onprem19"
                                         - "spo"
