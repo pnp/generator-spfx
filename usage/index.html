@@ -11,7 +11,7 @@
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
       
-        <link rel="canonical" href="https://pnp.github.io/generator-spfx/release-notes/">
+        <link rel="canonical" href="https://pnp.github.io/generator-spfx/usage/">
       
       
       
@@ -38,7 +38,7 @@
     
     
       
-        <title>Release Notes - PnP/generator-SPFx</title>
+        <title>Usage - PnP/generator-SPFx</title>
       
     
     
@@ -68,7 +68,7 @@
       <link rel="stylesheet" href="../css/extra.css">
     
     
-    <img src="https://telemetry.sharepointpnp.com/@pnp/generator-spfx/ghpages/generator-spfx/release-notes/" alt="spacer" />
+    <img src="https://telemetry.sharepointpnp.com/@pnp/generator-spfx/ghpages/generator-spfx/usage/" alt="spacer" />
 
     
   </head>
@@ -106,7 +106,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#release-notes" tabindex="1" class="md-skip">
+      <a href="#standard-gulp-task" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -131,7 +131,7 @@
               PnP/generator-SPFx
             </span>
             <span class="md-header-nav__topic">
-              Release Notes
+              Usage
             </span>
           
         </div>
@@ -335,11 +335,56 @@
       
       
 
+  
 
-  <li class="md-nav__item">
-    <a href="../usage/" title="Usage" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Usage
+      </label>
+    
+    <a href="./" title="Usage" class="md-nav__link md-nav__link--active">
       Usage
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#additional-gulp-tasks" title="Additional gulp tasks" class="md-nav__link">
+    Additional gulp tasks
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#npm-version" title="npm version" class="md-nav__link">
+    npm version
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
     
@@ -503,20 +548,11 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-    <a href="./" title="Release Notes" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../release-notes/" title="Release Notes" class="md-nav__link">
       Release Notes
     </a>
-    
   </li>
 
     
@@ -585,6 +621,29 @@
     
   
   
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#additional-gulp-tasks" title="Additional gulp tasks" class="md-nav__link">
+    Additional gulp tasks
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#npm-version" title="npm version" class="md-nav__link">
+    npm version
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -595,131 +654,47 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="http://github.com/pnp/generator-spfx/blob/master/docs/release-notes.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="http://github.com/pnp/generator-spfx/blob/master/docs/usage.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="release-notes">Release Notes<a class="headerlink" href="#release-notes" title="Permanent link">&para;</a></h1>
-<h1 id="163-azure-devops">1.6.3 Azure Devops<a class="headerlink" href="#163-azure-devops" title="Permanent link">&para;</a></h1>
+                <h1 id="standard-gulp-task">Standard gulp task<a class="headerlink" href="#standard-gulp-task" title="Permanent link">&para;</a></h1>
 <ul>
-<li><strong>Azure DevOps base integration added</strong> by <a href="https://twitter.com/baywet">Vincent Biret</a></li>
-<li><strong>npm version</strong> - Updates package-solution.json and Teams manifest.json with package.json version</li>
-<li><strong>gulp dev</strong> - for package solution for development</li>
-<li><strong>Jest Testing Framework</strong> - is now optional <a href="https://github.com/pnp/generator-spfx/issues/157">#157</a></li>
-<li><strong><a href="./howtos/dockerimg">Docker Documentation</a></strong> </li>
+<li>build - Builds the client-side solution project.</li>
+<li>bundle - Bundles the client-side solution project entry point and all its dependencies into a single JavaScript file.</li>
+<li>serve - Serves the client-side solution project and assets from the local machine.</li>
+<li>clean - Cleans the client-side solution project's build artifacts from the previous build and from the build target directories (lib and dist).</li>
+<li>test - Runs unit tests, if available, for the client-side solution project.</li>
+<li>package-solution - Packages the client-side solution into a SharePoint package.</li>
+<li>deploy-azure-storage - Deploys client-side solution project assets to Azure Storage.</li>
 </ul>
-<p><strong>Bugfix:</strong></p>
+<h2 id="additional-gulp-tasks">Additional gulp tasks<a class="headerlink" href="#additional-gulp-tasks" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="https://github.com/pnp/generator-spfx/issues/158">#158</a> - Missing gulp-sequence in package.json</li>
+<li>dist - combines clean, bundle and package-solution to package solution for production</li>
+<li>dev - combines clean, bundle and package-solution to package solution for development</li>
 </ul>
-<p><strong>Updates:</strong></p>
+<h2 id="npm-version">npm version<a class="headerlink" href="#npm-version" title="Permanent link">&para;</a></h2>
+<p>'<a href="https://docs.npmjs.com/cli/version.html">npm version</a>' is a command that increase the version number in the package.json file. When npm version wass used this also updated the version in the following files:</p>
+<p>'config/package-solution.json' gets set to the same version number followed by an additional '0'.</p>
+<p>'teams/manifest.json' (if applicable) the version will be updated there too.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <ul>
-<li>@pnp/spfx-property-controls - 1.14.1</li>
-<li>@pnp/spfx-controls-react - 1.12.0</li>
+<li>package.json: 1.2.3</li>
+<li><code>config/package-solution.json</code> : 1.2.3.0</li>
+<li><code>teams/mainfest.json</code>: 1.2.3</li>
 </ul>
-<h1 id="162-update-of-the-project-creation-process">1.6.2 Update of the project creation process<a class="headerlink" href="#162-update-of-the-project-creation-process" title="Permanent link">&para;</a></h1>
+</div>
+<p>Besides the current commit will <a href="https://git-scm.com/book/en/v2/Git-Basics-Tagging">tagged</a> on the git repository.</p>
+<p><img alt="Target framework seletion" src="../assets/git-version-tags.png" /></p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Addtional information:</p>
 <ul>
-<li>Only supported options are available now #154</li>
-<li><a href="https://pnp.github.io/generator-spfx/features/">Feature Matrix</a> in documentation updated</li>
-<li>Bugfix <a href="https://github.com/pnp/generator-spfx/issues/150">#150</a></li>
+<li><a href="https://docs.npmjs.com/cli/version.html">npm-version</a> - npm documentation</li>
+<li><a href="https://git-scm.com/book/en/v2/Git-Basics-Tagging">git-tag</a> - git documentation</li>
+<li><a href="https://n8d.at/blog/use-npm-version-to-upgrade-version-of-your-spfx-solution/">Use <code>npm version</code> to upgrade the version of your SPFx solution</a></li>
 </ul>
-<p><strong>Includes:</strong></p>
-<ul>
-<li><a href="https://github.com/pnp/pnpjs">@pnp/pnpjs</a> - v1.2.9</li>
-<li>@pnp/spfx-property-controls - v1.14.0</li>
-<li>@pnp/@pnp/spfx-controls-react : v1.11.0</li>
-</ul>
-<h2 id="161-gulp-dist-jest-for-no-framework-project">1.6.1 - 'gulp dist', Jest for no framework project<a class="headerlink" href="#161-gulp-dist-jest-for-no-framework-project" title="Permanent link">&para;</a></h2>
-<p><strong>Jest testing framework support for 'No Framework' projects</strong></p>
-<ul>
-<li>New "gulp dist" task for faster-creating builds for production ('clean', 'bundle', 'package-solution')</li>
-<li>Update package versions on VueJS, HandlbarsJS generator</li>
-</ul>
-<p><strong>Includes:</strong></p>
-<ul>
-<li>pnp/pnpjs: v1.2.7</li>
-<li>@pnp/spfx-property-controls: v1.14.0</li>
-<li>@pnp/spfx-controls-react: v1.11.0</li>
-<li>Bugfix <a href="https://github.com/pnp/generator-spfx/issues/157">#147</a></li>
-</ul>
-<h2 id="160-support-for-jest-webpack-bundle-analyser-and-stylelint">1.6.0 - Support for Jest, Webpack Bundle Analyser and StyleLint<a class="headerlink" href="#160-support-for-jest-webpack-bundle-analyser-and-stylelint" title="Permanent link">&para;</a></h2>
-<p><strong>All generator can have support:</strong> </p>
-<ul>
-<li>WebPack Bundle Analyser</li>
-<li>StyleLint</li>
-<li>pnp/pnpjs 1.2.8</li>
-</ul>
-<p><strong>ReactJS supports:</strong> </p>
-<ul>
-<li>JEST testing support</li>
-</ul>
-<h2 id="150-upgrade-to-version-microsoftgenerator-spfx-170">1.5.0 - Upgrade to version @microsoft/generator-spfx 1.7.0<a class="headerlink" href="#150-upgrade-to-version-microsoftgenerator-spfx-170" title="Permanent link">&para;</a></h2>
-<ul>
-<li>Upgrade to @microsoft/sharepoint version 1.7 by <a href="https://github.com/phawrylak">Pawel Hawrylak</a></li>
-<li>Update Test definition for onprem19 - Application Customizer and Web Parts</li>
-<li>Updated for On-Premises Support SharePoint 2019</li>
-<li>Added additional SharePoint 2019 tests</li>
-<li>domain isolation option added</li>
-<li>package update checker added</li>
-</ul>
-<h2 id="143-handlebarjs-gulp-updated">1.4.3 - Handlebarjs Gulp updated<a class="headerlink" href="#143-handlebarjs-gulp-updated" title="Permanent link">&para;</a></h2>
-<ul>
-<li>Optimisation of Handlbar gulp task behaviour</li>
-</ul>
-<h2 id="142-angular-elements-browser-optimisation">1.4.2 - Angular Elements - Browser optimisation<a class="headerlink" href="#142-angular-elements-browser-optimisation" title="Permanent link">&para;</a></h2>
-<ul>
-<li>Polyfill and browser behaviour optimisation</li>
-</ul>
-<h2 id="141-angular-element-bugfix">1.4.1 - Angular Element - Bugfix<a class="headerlink" href="#141-angular-element-bugfix" title="Permanent link">&para;</a></h2>
-<ul>
-<li>Update on polyfill handling in various browsers</li>
-</ul>
-<h2 id="140-angular-generator-added">1.4.0 - Angular Generator added<a class="headerlink" href="#140-angular-generator-added" title="Permanent link">&para;</a></h2>
-<ul>
-<li>New Framework added: Angular Elements</li>
-<li>Other updates<ul>
-<li>Update Handlebar dependencies</li>
-<li>Version dependencies update for Addons generator</li>
-<li>Small fixes for Angular Elements generator</li>
-<li>Update Handlebar dependencies</li>
-<li>Version dependencies update for Addons generator</li>
-<li>Fix Kebab Case naming convention</li>
-<li>Fixed bug with project name in Angular Elements generator (#107)</li>
-<li>Update Maintainer email address</li>
-<li>Added guide for Angular Elements</li>
-<li>Update package-lock.json</li>
-<li>Update pnpsays.js</li>
-</ul>
-</li>
-</ul>
-<h2 id="131-version-131-minor-bugfix-in-vuejs-generator">1.3.1 - Version 1.3.1 - Minor bugfix in VueJS generator<a class="headerlink" href="#131-version-131-minor-bugfix-in-vuejs-generator" title="Permanent link">&para;</a></h2>
-<ul>
-<li>Bug fixed described in issue #98</li>
-</ul>
-<h2 id="130-integration-of-office-cli-for-version-check-and-test-bench-update">1.3.0 - Integration of Office CLI for Version Check and Test Bench update<a class="headerlink" href="#130-integration-of-office-cli-for-version-check-and-test-bench-update" title="Permanent link">&para;</a></h2>
-<ul>
-<li>Integration of Office CLI 365 for automated version check</li>
-<li>Implementation of new the test engine</li>
-<li>New Core Test Definition, Test Runner and Test Bench implemented</li>
-<li>Bugfix: Improvement file handling in gulp file</li>
-<li>Bugfix: #95 - Cannot find @microsoft/generator-sharepoint</li>
-</ul>
-<h2 id="12-vuejs-added">1.2 - VueJS added<a class="headerlink" href="#12-vuejs-added" title="Permanent link">&para;</a></h2>
-<ul>
-<li>New generator for <a href="https://vuejs.org">VueJs</a> - thanks to <a href="https://github.com/AJIXuMuK">Alex Terentiev</a></li>
-<li>Structural generator change: All components are stored in the folder <code>components</code>.</li>
-<li>Bugfix for folder creation during project creation <a href="https://github.com/pnp/generator-spfx/issues/84">#84</a></li>
-<li>Updates on utility class</li>
-</ul>
-<h2 id="11-reusable-controls-added">1.1 - Reusable controls added<a class="headerlink" href="#11-reusable-controls-added" title="Permanent link">&para;</a></h2>
-<ul>
-<li>Integration of <a href="https://sharepoint.github.io/sp-dev-fx-controls-react/">Reusable React Controls for SharePoint Solutions</a></li>
-<li>Integration of <a href="https://sharepoint.github.io/sp-dev-fx-property-controls/">Reusable Property Pane Controls for SharePoint Solutions</a></li>
-</ul>
-<h2 id="10-initial-release">1.0 - Initial release<a class="headerlink" href="#10-initial-release" title="Permanent link">&para;</a></h2>
-<ul>
-<li>First generator release</li>
-<li>Yeoman generator for <a href="http://handlebarsjs.com">Handlebars</a></li>
-</ul>
+</div>
                 
                   
                 
@@ -740,7 +715,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../faq/" title="FAQ" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../features/" title="Feature" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -749,19 +724,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                FAQ
+                Feature
               </span>
             </div>
           </a>
         
         
-          <a href="../known-issues/" title="Known Issues" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../howtos/" title="How Tos" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Known Issues
+                How Tos
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

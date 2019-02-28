@@ -3,12 +3,12 @@
     width: 150px;
 }
 
-.md-header{
-    height: 75px;
+.md-container{
+    padding-top: 75px;
 }
 
-.md-container{
-    padding-top: 70px;
+.md-header{
+    height: 75px;
 }
 
 .md-sidebar[data-md-state="lock"]{
