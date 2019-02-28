@@ -6,6 +6,7 @@
 - **npm version** - Updates package-solution.json and Teams manifest.json with package.json version
 - **gulp dev** - for package solution for development
 - **Jest Testing Framework** - is now optional [#157](https://github.com/pnp/generator-spfx/issues/157)
+- **[Docker Documentation](./howtos/dockerimg)** 
 
 **Bugfix:**
 

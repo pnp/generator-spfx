@@ -21,7 +21,7 @@ const nextPkgVersion = process.env.npm_package_version;
 
 // make sure next build version match
 const nextVersion = nextPkgVersion.indexOf('-') === -1 ?
-    nextPkgVersion + '.0' : nextPkgVersion.split('-')[0] + '.0';
+    nextPkgVersion : nextPkgVersion.split('-')[0];
 
 // Update version in SPFx package-solution if exists
 if (fs.existsSync(solution)) {
@@ -32,7 +32,7 @@ if (fs.existsSync(solution)) {
     const solutionContents = JSON.parse(solutionFileContent);
 
     // set property of version to next version
-    solutionContents.solution.version = nextVersion;
+    solutionContents.solution.version = nextVersion + '.0';
 
     // save file
     fs.writeFileSync(

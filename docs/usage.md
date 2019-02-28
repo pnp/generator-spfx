@@ -24,7 +24,7 @@
 !!! note
     * package.json: 1.2.3
     * `config/package-solution.json` : 1.2.3.0
-    * `teams/mainfest.json`: 1.2.3.0
+    * `teams/mainfest.json`: 1.2.3
 
 Besides the current commit will [tagged](https://git-scm.com/book/en/v2/Git-Basics-Tagging) on the git repository.
 
