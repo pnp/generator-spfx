@@ -7,10 +7,6 @@
     height: 75px;
 }
 
-.md-container{
-    padding-top: 70px;
-}
-
 .md-sidebar[data-md-state="lock"]{
     padding-top: 75px;
 }
