@@ -40,6 +40,11 @@
     ],
     "contributors": [
         {
+            "name": "Bill Ayers",
+            "email": "BillA@flosim.com",
+            "url": "http://www.SPDoctor.net"
+        },
+        {
             "name": "Vincent Biret",
             "email": "vincentbiret@hotmail.com",
             "url": "https://microsofttouch.fr/default/b/vincent/"
