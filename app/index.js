@@ -288,12 +288,13 @@ module.exports = class extends Generator {
                                         - "extension"`,
             type: String
         });
-        // Disabled through renamee
-        this.option('enviroment', {
+
+        this.option('environment', {
             description: `The target environment for the solution:
                                         - "onprem"
                                         - "onprem19"
-                                        - "spo".`
+                                        - "spo".`,
+            type: String
         });
 
         this.option('extension-type', {

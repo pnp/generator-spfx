@@ -11,7 +11,7 @@ const configOptions = [
         name: 'solutionName',
         when: (answers) => answers.framework === 'angularelements',
         default: path.basename(process.cwd()),
-        validate: (input) => input.indexOf('-') === -1 ? true : 'Dashes are not allowed in solution name'
+        validate: (input) => input.indexOf('-') === -1 && input.indexOf('_') === -1 ? true : 'Dashes or underscores are not allowed in solution name'
     },
     {
         type: 'input',
