@@ -1,10 +1,11 @@
 ## Frequently asked questions
 
+
 ### Why can't I use TypeScript?
+All project created with this generator use regular TypeScript like all SPFx projects. The code for the generator is not written in TypeScript.
+TypeScript requires compilation to JavaScript. This results would be more complexity and less support from the Yeoman community. 
 
-TypeScript requires compilation to JavaScript. This results in more complexity and less support from the Yeoman community. 
-
-To keep it plain and simple - only Node.js will be used at the moment.
+To keep it plain and simple - only Node.js is be used for this generator.
 
 ### What is the difference between NodeJS and JavaScript?
 
