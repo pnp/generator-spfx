@@ -62,7 +62,7 @@ jobs:
           command: echo -e "Host github.com\n\tStrictHostKeyChecking no\n" > ~/.ssh/config
       - run:
           name: Build docs
-          command: mkdocs gh-deploy --remote-branch gh-pages
+          command: mkdocs gh-deploy --remote-branch gh-pages -m [ci skip]
   publish:
     <<: *defaults
     steps:
