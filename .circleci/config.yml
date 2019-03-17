@@ -1,4 +1,7 @@
 version: 2
+branches:
+  ignore:
+    - gh-pages
 defaults: &defaults
   working_directory: ~/generator-spfx
   docker:
