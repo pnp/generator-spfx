@@ -1,5 +1,9 @@
 # Release Notes
 
+# 1.7.0 Update to @microsoft/generator-sharepoint version 1.8.0
+- Update to SPFx generator version 1.8.0
+- Bugfix command line options for environment
+
 # 1.6.3 Azure Devops
 
 - **Azure DevOps base integration added** by [Vincent Biret](https://twitter.com/baywet)
