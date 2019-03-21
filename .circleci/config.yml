@@ -1,4 +1,7 @@
 version: 2
+branches:
+  ignore:
+    - gh-pages
 defaults: &defaults
   working_directory: ~/generator-spfx
   docker:
@@ -63,7 +66,7 @@ jobs:
           command: echo -e "Host github.com\n\tStrictHostKeyChecking no\n" > ~/.ssh/config
       - run:
           name: Build docs
-          command: mkdocs gh-deploy --remote-branch gh-pages
+          command: mkdocs gh-deploy --remote-branch gh-pages -m "Documentation update [ci skip]"
   publish:
     <<: *defaults
     branches:

@@ -1,5 +1,9 @@
 # Release Notes
 
+# 1.7.0 SPFx base generator 1.8.0 update
+- Update to SPFx generator version 1.8.0
+- Bugfix command line options for environment
+
 # 1.6.3 Azure Devops
 
 - **Azure DevOps base integration added** by [Vincent Biret](https://twitter.com/baywet)
