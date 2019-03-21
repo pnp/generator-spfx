@@ -1,9 +1,11 @@
+version: 2
+branches:
+  ignore:
+    - gh-pages
 defaults: &defaults
   working_directory: ~/generator-spfx
   docker:
     - image: circleci/node:8.11.2
-
-version: 2
 jobs:
   build:
     <<: *defaults
@@ -63,7 +65,7 @@ jobs:
           command: echo -e "Host github.com\n\tStrictHostKeyChecking no\n" > ~/.ssh/config
       - run:
           name: Build docs
-          command: mkdocs gh-deploy --remote-branch gh-pages
+          command: mkdocs gh-deploy --remote-branch gh-pages -m "Documentation update [ci skip]"
   publish:
     <<: *defaults
     steps:

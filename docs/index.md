@@ -1,7 +1,7 @@
 # PnP SPFx Yeoman generator
 This Yeoman generator provides improved governance for SharePoint Framework projects. It extends the out of the box Yeoman generator from Microsoft (@microsoft/generator-sharepoint) with recommended patterns and additional capabilities.
 
-For an optimized development workflow, it extends the capabilities for ReactJS, and Knockout projects and support for additional frameworks, such as HandlebarsJS, VueJS and Angular Elements. It also includes includes advanced code analysis and testing tools, which you can take advantage in you development work.
+For an optimized development workflow, it extends the capabilities for ReactJS, and Knockout projects and support for additional frameworks, such as HandlebarsJS, VueJS and Angular Elements. It also includes includes advanced code analysis and testing tools, which you can take advantage of in your development work.
 
 ![PnP SPFx Generator][logo]
 
@@ -87,7 +87,7 @@ Options:
          --component-type           # The type of component:
                                         - "webpart"
                                         - "extension"
-         --enviroment               # The target environment for the solution:
+         --environment               # The target environment for the solution:
                                         - "onprem"
                                         - "onprem19"
                                         - "spo"

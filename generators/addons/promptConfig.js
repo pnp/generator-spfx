@@ -73,7 +73,7 @@ const configOptions = [
 
             let defaultLibs = [];
 
-            // Select supported libraries base on enviroment
+            // Select supported libraries base on environment
             switch (answers.spfxenv) {
                 case 'onprem':
                     defaultLibs = onpremLibs;

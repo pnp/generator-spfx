@@ -1,9 +1,9 @@
 site_name: PnP/generator-SPFx
 nav:
   - Home: 'index.md'
-  - Feature Overview: 'features.md'
+  - Feature: features.md
+  - Usage: usage.md
   - How Tos: howtos/index.md
-    - Continous Integration: howtos/continuousintegration.md
   - Compose:
     - General: compose/index.md
     - Prompting: compose/prompting.md

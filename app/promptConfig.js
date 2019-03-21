@@ -93,8 +93,8 @@ let configOptions = [
                 case 'onprem19':
                 case 'spo':
                     return spoFrameworks;
-                default:
-                    break;
+                default: // default to spo, but should log error here
+                    return spoFrameworks;
             }
         }
     }
@@ -120,7 +120,7 @@ configOptions = configOptions.concat(reactplus);
 const noframework = require('../generators/noframework.plus/promptConfig');
 configOptions = configOptions.concat(noframework);
 
-const promptConfig = (environmnet) => {
+const promptConfig = () => {
 
     // return questions based on the environmen command line switch
     const _getConfigOptions = (environment) => {
@@ -132,7 +132,7 @@ const promptConfig = (environmnet) => {
 
         } else {
 
-            // auto-set option when environment when command line switch was used
+            // auto-set option when environment command line switch was used
             environmentOptions[0].when = answers => {
                 answers.spfxenv = environment;
                 return false;
