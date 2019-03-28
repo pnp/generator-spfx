@@ -25,26 +25,33 @@ steps:
     verbose: false
 
 #start unit tests
-- task: Gulp@0
-  displayName: 'gulp test'
+- task: Npm@1
+  displayName: 'npm test'
   inputs:
-    gulpFile: '$(Build.SourcesDirectory)/gulpfile.js'
-    targets: test
-    publishJUnitResults: true
-    testResultsFiles: '**/test-*.xml'
-#publish test results
+    command: custom
+    customCommand: 'test'
+    workingDir: '$(Build.SourcesDirectory)'
+    verbose: false
+
+# Publish Test Results to Azure Pipelines/TFS
+- task: PublishTestResults@2
+  inputs:
+    testResultsFiles: 'temp/test/junit/junit.xml'
+    searchFolder: '$(Build.SourcesDirectory)'
+
+# publish coverage test results
 - task: PublishCodeCoverageResults@1
-  displayName: 'Publish Code Coverage Results $(Build.SourcesDirectory)/temp/coverage/cobertura/cobertura.xml'
+  displayName: 'Publish Code Coverage Results $(Build.SourcesDirectory)/temp/test/cobertura-coverage.xml'
   inputs:
     codeCoverageTool: Cobertura
-    summaryFileLocation: '$(Build.SourcesDirectory)/temp/coverage/cobertura/cobertura.xml'
-    reportDirectory: '$(Build.SourcesDirectory)/temp/coverage/cobertura'
+    summaryFileLocation: '$(Build.SourcesDirectory)/temp/test/cobertura-coverage.xml'
+    reportDirectory: '$(Build.SourcesDirectory)/temp/test/'
 
 #bundle code with gulp
 - task: Gulp@0
   displayName: 'gulp bundle'
   inputs:
-    gulpFile: '$(Build.SourcesDirectory)/gulpfile.js'
+    gulpFile: '$(Build.SourcesDirectory)gulpfile.js'
     targets: bundle
     arguments: '--ship'
   continueOnError: true

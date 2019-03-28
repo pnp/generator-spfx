@@ -96,7 +96,7 @@ module.exports = class extends Generator {
 
             // Append Azure DevOps options if selected
             requestedLibraries = this.options.ci === undefined ? requestedLibraries :
-                requestedLibraries.concat('continuousIntegrationKarma');
+                requestedLibraries.concat('continuousIntegrationJest');
 
             // Add gulp-sequence for gulp dist automatically
             requestedLibraries.push('gulp-sequence');
@@ -151,9 +151,9 @@ module.exports = class extends Generator {
 
         // azure deevops configuration
         let adoFileName = 'azure-pipelines.yml';
-        // Karma configuration
-        let karmaFileDestPath = 'config/karma.config.js';
-        let karmaFileSourcePath = 'karma.config.js';
+        // Jest configuration
+        let jestFileDestPath = 'config/jest.config.json';
+        let jestFileSourcePath = 'jest.config.json';
 
         this.fs.copy(
             this.templatePath(adoFileName),
@@ -161,8 +161,8 @@ module.exports = class extends Generator {
         );
 
         this.fs.copy(
-            this.templatePath(karmaFileSourcePath),
-            this.destinationPath(karmaFileDestPath)
+            this.templatePath(jestFileSourcePath),
+            this.destinationPath(jestFileDestPath)
         );
 
     }
