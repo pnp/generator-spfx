@@ -131,9 +131,18 @@ module.exports = class extends Generator {
                     }
 
                 }
+                if(this.options.ci !== undefined) {
+                    newPkgConfig.scripts.test = "./node_modules/.bin/jest --config ./config/jest.config.json"
+                    newPkgConfig.scripts["test:watch"] = "./node_modules/.bin/jest --config ./config/jest.config.json --watchAll"
+                }
 
             }
-
+            if(this.options.ci !== undefined) {
+                newPkgConfig["jest-junit"] = {
+                    "output": "temp/test/junit/junit.xml",
+                    "usePathForSuiteName": "true"
+                  };
+            }
             fs.writeFileSync(
                 this.destinationPath('package.json'),
                 JSON.stringify(newPkgConfig, null, 2)
