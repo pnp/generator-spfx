@@ -86,6 +86,7 @@
     },
     "scripts": {
         "test": "mocha ./test/full.coverage.test.js",
-        "postinstall": "node lib/patch.js"
+        "postinstall": "node lib/patch.js",
+        "extract-template": "node tools/scripts/get-template.js"
     }
 }
