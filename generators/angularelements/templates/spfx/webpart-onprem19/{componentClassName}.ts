@@ -5,6 +5,8 @@ import {
   PropertyPaneTextField
 } from '@microsoft/sp-webpart-base';
 
+import { escape } from '@microsoft/sp-lodash-subset';
+
 import * as strings from '<%= componentStrings %>';
 
 import '<%= angularSolutionNameKebabCase %>/dist/<%= angularSolutionName %>/bundle.js';
