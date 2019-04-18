@@ -1,16 +1,16 @@
 {
     "vuejs": {
         "dependencies": {
-            "vue": "^2.6.7",
-            "vue-class-component": "^7.0.1",
-            "vue-property-decorator": "^7.3.0"
+            "vue": "^2.6.10",
+            "vue-class-component": "^7.0.2",
+            "vue-property-decorator": "^8.1.0"
         },
         "devDependencies": {
-            "vue-loader": "^15.6.4",
-            "vue-template-compiler": "^2.6.7",
+            "vue-loader": "^15.7.0",
+            "vue-template-compiler": "^2.6.10",
             "sass-loader": "^7.1.0",
             "ts-loader": "^5.3.3",
-            "fork-ts-checker-webpack-plugin": "^0.5.2"
+            "fork-ts-checker-webpack-plugin": "^1.0.3"
         }
     }
 }

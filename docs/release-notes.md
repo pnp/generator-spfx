@@ -1,5 +1,18 @@
 # Release Notes
 
+# 1.7.1 SPFx base generator 1.8.1 update
+- Update to SPFx generator version 1.8.1
+
+**Updated References**
+
+- **pnp/pnpjs** - 1.3.2
+- **webpack-bundle-analyzer** - 3.3.2
+- **Handlebars** - 4.1.2
+- **Vue** - 2.6.10
+- **Office 365 CLI** - 1.17.0
+
+
+
 # 1.7.0 SPFx base generator 1.8.0 update
 - Update to SPFx generator version 1.8.0
 - Bugfix command line options for environment
