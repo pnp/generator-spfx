@@ -7,7 +7,7 @@
     },
     "jquery@3": {
         "dependencies": {
-            "jquery": "^3.3.1",
+            "jquery": "^3.4.1",
             "@types/jquery": "^3.3.29"
         }
     },
@@ -23,7 +23,7 @@
     },
     "@pnp/spfx-controls-react": {
         "dependencies": {
-            "@pnp/spfx-controls-react": "1.12.0"
+            "@pnp/spfx-controls-react": "1.13.0"
         }
     },
     "webpack-analyzer": {
@@ -34,8 +34,8 @@
     "stylelint": {
         "devDependencies": {
             "stylelint": "^9.10.1",
-            "stylelint-config-standard": "^18.2.0",
-            "stylelint-scss": "^3.5.4",
+            "stylelint-config-standard": "^18.3.0",
+            "stylelint-scss": "^3.6.1",
             "gulp-stylelint": "^8.0.0"
         }
     },

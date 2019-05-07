@@ -161,9 +161,10 @@ module.exports = class extends Generator {
 
             switch (item) {
                 case "jquery":
-                    if (selections.jQueryVersion !== undefined) {
-                        item = `${item}@${selections.jQueryVersion}`
-                    }
+                    // Disabled because jQuery2 is deprecated
+                    // if (selections.jQueryVersion !== undefined) {
+                    //     item = `${item}@${selections.jQueryVersion}`
+                    // }
                     break;
                 default:
                     break;
