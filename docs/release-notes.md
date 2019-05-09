@@ -1,5 +1,17 @@
 # Release Notes
 
+# 1.7.2 SPFx base generator 1.8.2 update
+- Update to SPFx generator version 1.8.2
+- Dropped support for jQUery version 2
+
+**Includes**
+- **jQuery** - 3.4.1
+- **pnp/pnpjs** - 1.3.2
+- **webpack-bundle-analyzer** - 3.3.2
+- **Handlebars** - 4.1.2
+- **Vue** - 2.6.10
+- **Office 365 CLI** - 1.19.0
+
 # 1.7.1 SPFx base generator 1.8.1 update
 - Update to SPFx generator version 1.8.1
 
