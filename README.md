@@ -1,8 +1,6 @@
 # PnP SPFx generator - community driven and open source
 
-Tests: [![CircleCI](https://circleci.com/gh/pnp/generator-spfx.svg?style=svg)](https://circleci.com/gh/pnp/generator-spfx)
-
-[![Gitter chat](https://badges.gitter.im/gitterHQ/gitter.png)](https://gitter.im/generator-spfx/generator)
+[![CircleCI](https://circleci.com/gh/pnp/generator-spfx.svg?style=shield)](https://circleci.com/gh/pnp/generator-spfx) [![Gitter chat](https://badges.gitter.im/gitterHQ/gitter.png)](https://gitter.im/generator-spfx/generator)
 
 
 This Yeoman generator provides improved governance for SharePoint Framework projects. It extends the out of the box Yeoman generator from Microsoft (@microsoft/generator-sharepoint) with recommended patterns and additional capabilities.
