@@ -65,10 +65,6 @@ module.exports = class extends Generator {
 
     _deployFiles() {
 
-        console.log('Environment::::', this);
-
-        console.log('Environment::::', this.options.SpfxOptions.environment)
-
         if(this.options !== undefined &&
             this.options.SpfxOptions !== undefined &&
             this.options.SpfxOptions.environment !== undefined &&
