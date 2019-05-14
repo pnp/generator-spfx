@@ -36,6 +36,10 @@ module.exports = class extends Generator {
     // Prompt for user input for Custom Generator
     prompting() {
 
+        if (!this.options.goodToGo) {
+            process.exit(1);
+        }
+
         /* Generator Main Logic */
         // if config existed fallback to default generator
         if (this.config.existed) {
@@ -57,10 +61,6 @@ module.exports = class extends Generator {
             this._configGenerators(this.options);
 
         } else {
-
-            if (!this.options.goodToGo) {
-                process.exit(1);
-            }
 
             this.prompt(
                     prompting.config(this.options.environment)
@@ -161,9 +161,10 @@ module.exports = class extends Generator {
 
             switch (item) {
                 case "jquery":
-                    if (selections.jQueryVersion !== undefined) {
-                        item = `${item}@${selections.jQueryVersion}`
-                    }
+                    // Disabled because jQuery2 is deprecated
+                    // if (selections.jQueryVersion !== undefined) {
+                    //     item = `${item}@${selections.jQueryVersion}`
+                    // }
                     break;
                 default:
                     break;

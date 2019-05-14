@@ -40,7 +40,7 @@ const ciOptions = [
 // SharePoint Online supported libraries
 const spoLibs = [{
         name: 'jQuery',
-        value: 'jquery'
+        value: 'jquery@3'
     }, {
         name: 'pnpjs',
         value: '@pnp/pnpjs'
@@ -97,14 +97,15 @@ const configOptions = [
         }
     },
     // jQuery version selection
-    {
-        type: 'list',
-        message: `${chalk.bold.yellow('jQuery: ')} Please choose a version:`,
-        name: 'jQueryVersion',
-        choices: jqueryOptions,
-        // Show only when jQuery was included
-        when: answers => answers.jsLibrary !== undefined && answers.jsLibrary.indexOf('jquery') !== -1
-    },
+    // Disables since nobody uses it
+    // {
+    //     type: 'list',
+    //     message: `${chalk.bold.yellow('jQuery: ')} Please choose a version:`,
+    //     name: 'jQueryVersion',
+    //     choices: jqueryOptions,
+    //     // Show only when jQuery was included
+    //     when: answers => answers.jsLibrary !== undefined && answers.jsLibrary.indexOf('jquery') !== -1
+    // },
     // Vetting and code style options
     {
         type: 'checkbox',

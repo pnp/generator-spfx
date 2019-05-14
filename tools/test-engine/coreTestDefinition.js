@@ -277,100 +277,12 @@ class TestGenerator {
         this._tests.push(noJQuery);
 
         /**
-         * jQuery 2 test
-         */
-
-        const jquery2 = Object.assign({}, this.baseTest);
-        jquery2.name = " jQuery 2.x.x";
-        jquery2.specifics = {
-            jsLibrary: ['jquery'],
-            jQueryVersion: 2,
-            force: true
-        };
-        jquery2.test = this.baseTest.test.concat([{
-                name: 'no jquery 2.x',
-                file: fileContent.package,
-                expr: /\"jquery\": \"\^2\./,
-                type: testType.fileContent
-            },
-            {
-                name: 'no @types/jquery 2.x',
-                file: fileContent.package,
-                expr: /\"@types\/jquery\": \"\^2\./,
-                type: testType.fileContent
-            },
-            {
-                name: 'no jquery 3.x',
-                file: fileContent.package,
-                expr: /\"jquery\": \"\^3\./,
-                type: testType.nofileContent
-            },
-            {
-                name: 'no @types/jquery 3.x',
-                file: fileContent.package,
-                expr: /\"@types\/jquery\": \"\^3\./,
-                type: testType.nofileContent
-            },
-            {
-                name: 'no pnpjs',
-                file: fileContent.package,
-                expr: /@pnp\/pnpjs/,
-                type: testType.noFileContent
-            },
-            {
-                name: 'no @pnp/spfx-property-controls',
-                file: fileContent.package,
-                expr: /@pnp\/spfx-property-controls/,
-                type: testType.noFileContent
-            },
-            {
-                name: 'no @pnp/spfx-controls-react',
-                file: fileContent.package,
-                expr: /@pnp\/spfx-controls-react/,
-                type: testType.noFileContent
-            },
-            {
-                name: 'no StyleLint Reference',
-                file: fileContent.package,
-                expr: /stylelint/,
-                type: testType.noFileContent
-            },
-            {
-                name: 'no StyleLint Config Standard',
-                file: fileContent.package,
-                expr: /"stylelint-config-standard("|:)"/,
-                type: testType.noFileContent
-            },
-            {
-                name: 'no StyleLint SCSS',
-                file: fileContent.package,
-                expr: /"stylelint-scss("|:)"/,
-                type: testType.nofileContent
-            },
-            {
-                name: 'no StyleLint Gulp',
-                file: fileContent.package,
-                expr: /"gulp-stylelint("|:)"/,
-                type: testType.noFileContent
-            },
-            {
-                name: 'no Webpack analyser',
-                file: fileContent.package,
-                expr: /"webpack-bundle-analyzer"/,
-                type: testType.noFileContent
-            }
-        ])
-
-        this._tests.push(jquery2);
-
-        /**
          * jQuery 3 Test Definition
          */
         const jquery3 = Object.assign({}, this.baseTest);
         jquery3.name = " jQuery 3.x.x";
         jquery3.specifics = {
-            jsLibrary: ['jquery'],
-            jQueryVersion: 3,
+            jsLibrary: ['jquery@3'],
             force: true
         };
         jquery3.test = this.baseTest.test.concat([{
@@ -450,99 +362,12 @@ class TestGenerator {
         this._tests.push(jquery3);
 
         /**
-         * jQuer 2, pnpjs test
-         */
-        const jqueryPnPJS2 = Object.assign({}, this.baseTest);
-        jqueryPnPJS2.name = " jQuery 2.x.x, pnpjs, ";
-        jqueryPnPJS2.specifics = {
-            jsLibrary: ['jquery', '@pnp/pnpjs'],
-            jQueryVersion: 2,
-            force: true
-        };
-        jqueryPnPJS2.test = this.baseTest.test.concat([{
-                name: 'jquery 2.x',
-                file: fileContent.package,
-                expr: /\"jquery\": \"\^2\./,
-                type: testType.fileContent
-            },
-            {
-                name: '@types/jquery 2.x',
-                file: fileContent.package,
-                expr: /\"@types\/jquery\": \"\^2\./,
-                type: testType.fileContent
-            },
-            {
-                name: 'no jquery 3.x',
-                file: fileContent.package,
-                expr: /\"jquery\": \"\^3\./,
-                type: testType.nofileContent
-            },
-            {
-                name: 'no @types/jquery 3.x',
-                file: fileContent.package,
-                expr: /\"@types\/jquery\": \"\^3\./,
-                type: testType.nofileContent
-            },
-            {
-                name: 'pnpjs',
-                file: fileContent.package,
-                expr: /@pnp\/pnpjs/,
-                type: testType.fileContent
-            },
-            {
-                name: 'no @pnp/spfx-property-controls',
-                file: fileContent.package,
-                expr: /@pnp\/spfx-property-controls/,
-                type: testType.noFileContent
-            },
-            {
-                name: 'no @pnp/spfx-controls-react',
-                file: fileContent.package,
-                expr: /@pnp\/spfx-controls-react/,
-                type: testType.noFileContent
-            },
-            {
-                name: 'no StyleLint Reference',
-                file: fileContent.package,
-                expr: /"stylelint"/,
-                type: testType.noFileContent
-            },
-            {
-                name: 'no StyleLint Config Standard',
-                file: fileContent.package,
-                expr: /"stylelint-config-standard"/,
-                type: testType.noFileContent
-            },
-            {
-                name: 'no StyleLint SCSS',
-                file: fileContent.package,
-                expr: /"stylelint-scss"/,
-                type: testType.nofileContent
-            },
-            {
-                name: 'no StyleLint Gulp',
-                file: fileContent.package,
-                expr: /"gulp-stylelint"/,
-                type: testType.noFileContent
-            },
-            {
-                name: 'no Webpack analyser',
-                file: fileContent.package,
-                expr: /"webpack-bundle-analyzer"/,
-                type: testType.noFileContent
-            }
-        ])
-
-        this._tests.push(jqueryPnPJS2);
-
-        /**
          * jquery 3, pnpjs test
          */
         const jqueryPnPJS3 = Object.assign({}, this.baseTest);
         jqueryPnPJS3.name = " jQuery 3.x.x, pnpjs";
         jqueryPnPJS3.specifics = {
-            jsLibrary: ['jquery', '@pnp/pnpjs'],
-            jQueryVersion: 3,
+            jsLibrary: ['jquery@3', '@pnp/pnpjs'],
             force: true
         };
         jqueryPnPJS3.test = this.baseTest.test.concat([{
@@ -622,99 +447,12 @@ class TestGenerator {
         this._tests.push(jqueryPnPJS3);
 
         /**
-         * jquery 2 pnpjs, property control
-         */
-        const jqueryPropPnPJS2 = Object.assign({}, this.baseTest);
-        jqueryPropPnPJS2.name = " jQuery 2.x.x, pnp/pnpjs, @pnp/spfx-property-controls";
-        jqueryPropPnPJS2.specifics = {
-            jsLibrary: ['jquery', '@pnp/pnpjs', '@pnp/spfx-property-controls'],
-            jQueryVersion: 2,
-            force: true
-        };
-        jqueryPropPnPJS2.test = this.baseTest.test.concat([{
-                name: 'no jquery 2.x',
-                file: fileContent.package,
-                expr: /\"jquery\": \"\^2\./,
-                type: testType.fileContent
-            },
-            {
-                name: '@types/jquery 2.x',
-                file: fileContent.package,
-                expr: /\"@types\/jquery\": \"\^2\./,
-                type: testType.fileContent
-            },
-            {
-                name: 'no jquery 3.x',
-                file: fileContent.package,
-                expr: /\"jquery\": \"\^3\./,
-                type: testType.nofileContent
-            },
-            {
-                name: 'no @types/jquery 3.x',
-                file: fileContent.package,
-                expr: /\"@types\/jquery\": \"\^3\./,
-                type: testType.nofileContent
-            },
-            {
-                name: 'pnpjs',
-                file: fileContent.package,
-                expr: /@pnp\/pnpjs/,
-                type: testType.fileContent
-            },
-            {
-                name: '@pnp/spfx-property-controls',
-                file: fileContent.package,
-                expr: /@pnp\/spfx-property-controls/,
-                type: testType.fileContent
-            },
-            {
-                name: 'no @pnp/spfx-controls-react',
-                file: fileContent.package,
-                expr: /@pnp\/spfx-controls-react/,
-                type: testType.noFileContent
-            },
-            {
-                name: 'no StyleLint Reference',
-                file: fileContent.package,
-                expr: /"stylelint"/,
-                type: testType.noFileContent
-            },
-            {
-                name: 'no StyleLint Config Standard',
-                file: fileContent.package,
-                expr: /"stylelint-config-standard"/,
-                type: testType.noFileContent
-            },
-            {
-                name: 'no StyleLint SCSS',
-                file: fileContent.package,
-                expr: /"stylelint-scss"/,
-                type: testType.nofileContent
-            },
-            {
-                name: 'no StyleLint Gulp',
-                file: fileContent.package,
-                expr: /"gulp-stylelint"/,
-                type: testType.noFileContent
-            },
-            {
-                name: 'no Webpack analyser',
-                file: fileContent.package,
-                expr: /"webpack-bundle-analyzer"/,
-                type: testType.noFileContent
-            }
-        ])
-
-        this._tests.push(jqueryPropPnPJS2);
-
-        /**
          * jQUery 3, pnpjs, property control
          */
         const jqueryPropPnPJS3 = Object.assign({}, this.baseTest);
         jqueryPropPnPJS3.name = " jQuery 3.x.x, pnpjs, @pnp/spfx-property-controls";
         jqueryPropPnPJS3.specifics = {
-            jsLibrary: ['jquery', '@pnp/pnpjs', '@pnp/spfx-property-controls'],
-            jQueryVersion: 3,
+            jsLibrary: ['jquery@3', '@pnp/pnpjs', '@pnp/spfx-property-controls'],
             force: true
         };
         jqueryPropPnPJS3.test = this.baseTest.test.concat([{
@@ -886,102 +624,13 @@ class TestGenerator {
         this._tests.push(noJQuery);
 
         /**
-         * jQuery 2 test
-         */
-
-        const jquery2 = Object.assign({}, this.baseTest);
-        jquery2.name = " jQuery 2.x.x, Webpack Bundle Analyser, StyleLint";
-        jquery2.specifics = {
-            jsLibrary: ['jquery'],
-            vetting: ['stylelint', 'webpack-analyzer'],
-            jQueryVersion: 2,
-            force: true
-        };
-        jquery2.test = this.baseTest.test.concat([{
-                name: 'no jquery 2.x',
-                file: fileContent.package,
-                expr: /\"jquery\": \"\^2\./,
-                type: testType.fileContent
-            },
-            {
-                name: 'no @types/jquery 2.x',
-                file: fileContent.package,
-                expr: /\"@types\/jquery\": \"\^2\./,
-                type: testType.fileContent
-            },
-            {
-                name: 'no jquery 3.x',
-                file: fileContent.package,
-                expr: /\"jquery\": \"\^3\./,
-                type: testType.nofileContent
-            },
-            {
-                name: 'no @types/jquery 3.x',
-                file: fileContent.package,
-                expr: /\"@types\/jquery\": \"\^3\./,
-                type: testType.nofileContent
-            },
-            {
-                name: 'no pnpjs',
-                file: fileContent.package,
-                expr: /@pnp\/pnpjs/,
-                type: testType.noFileContent
-            },
-            {
-                name: 'no @pnp/spfx-property-controls',
-                file: fileContent.package,
-                expr: /@pnp\/spfx-property-controls/,
-                type: testType.noFileContent
-            },
-            {
-                name: 'no @pnp/spfx-controls-react',
-                file: fileContent.package,
-                expr: /@pnp\/spfx-controls-react/,
-                type: testType.noFileContent
-            },
-            {
-                name: 'StyleLint Reference',
-                file: fileContent.package,
-                expr: /"stylelint"/,
-                type: testType.fileContent
-            },
-            {
-                name: 'StyleLint Config Standard',
-                file: fileContent.package,
-                expr: /"stylelint-config-standard"/,
-                type: testType.fileContent
-            },
-            {
-                name: 'StyleLint SCSS',
-                file: fileContent.package,
-                expr: /"stylelint-scss"/,
-                type: testType.fileContent
-            },
-            {
-                name: 'StyleLint Gulp',
-                file: fileContent.package,
-                expr: /"gulp-stylelint"/,
-                type: testType.fileContent
-            },
-            {
-                name: 'Webpack analyser',
-                file: fileContent.package,
-                expr: /"webpack-bundle-analyzer"/,
-                type: testType.fileContent
-            }
-        ])
-
-        this._tests.push(jquery2);
-
-        /**
          * jQuery 3 Test Definition
          */
         const jquery3 = Object.assign({}, this.baseTest);
         jquery3.name = " jQuery 3.x.x, Webpack Bundle Analyser, StyleLint";
         jquery3.specifics = {
-            jsLibrary: ['jquery'],
+            jsLibrary: ['jquery@3'],
             vetting: ['stylelint', 'webpack-analyzer'],
-            jQueryVersion: 3,
             force: true
         };
         jquery3.test = this.baseTest.test.concat([{
@@ -1061,101 +710,13 @@ class TestGenerator {
         this._tests.push(jquery3);
 
         /**
-         * jQuer 2, pnpjs test
-         */
-        const jqueryPnPJS2 = Object.assign({}, this.baseTest);
-        jqueryPnPJS2.name = " jQuery 2.x.x, pnpjs, Webpack Bundle Analyser, StyleLint";
-        jqueryPnPJS2.specifics = {
-            jsLibrary: ['jquery', '@pnp/pnpjs'],
-            vetting: ['stylelint', 'webpack-analyzer'],
-            jQueryVersion: 2,
-            force: true
-        };
-        jqueryPnPJS2.test = this.baseTest.test.concat([{
-                name: 'jquery 2.x',
-                file: fileContent.package,
-                expr: /\"jquery\": \"\^2\./,
-                type: testType.fileContent
-            },
-            {
-                name: '@types/jquery 2.x',
-                file: fileContent.package,
-                expr: /\"@types\/jquery\": \"\^2\./,
-                type: testType.fileContent
-            },
-            {
-                name: 'no jquery 3.x',
-                file: fileContent.package,
-                expr: /\"jquery\": \"\^3\./,
-                type: testType.nofileContent
-            },
-            {
-                name: 'no @types/jquery 3.x',
-                file: fileContent.package,
-                expr: /\"@types\/jquery\": \"\^3\./,
-                type: testType.nofileContent
-            },
-            {
-                name: 'pnpjs',
-                file: fileContent.package,
-                expr: /@pnp\/pnpjs/,
-                type: testType.fileContent
-            },
-            {
-                name: 'no @pnp/spfx-property-controls',
-                file: fileContent.package,
-                expr: /@pnp\/spfx-property-controls/,
-                type: testType.noFileContent
-            },
-            {
-                name: 'no @pnp/spfx-controls-react',
-                file: fileContent.package,
-                expr: /@pnp\/spfx-controls-react/,
-                type: testType.noFileContent
-            },
-            {
-                name: 'StyleLint Reference',
-                file: fileContent.package,
-                expr: /"stylelint"/,
-                type: testType.fileContent
-            },
-            {
-                name: 'StyleLint Config Standard',
-                file: fileContent.package,
-                expr: /"stylelint-config-standard"/,
-                type: testType.fileContent
-            },
-            {
-                name: 'StyleLint SCSS',
-                file: fileContent.package,
-                expr: /"stylelint-scss"/,
-                type: testType.fileContent
-            },
-            {
-                name: 'StyleLint Gulp',
-                file: fileContent.package,
-                expr: /"gulp-stylelint"/,
-                type: testType.fileContent
-            },
-            {
-                name: 'Webpack analyser',
-                file: fileContent.package,
-                expr: /"webpack-bundle-analyzer"/,
-                type: testType.fileContent
-            }
-        ])
-
-        this._tests.push(jqueryPnPJS2);
-
-        /**
          * jquery 3, pnpjs test
          */
         const jqueryPnPJS3 = Object.assign({}, this.baseTest);
         jqueryPnPJS3.name = " jQuery 3.x.x, pnpjs, Webpack Bundle Analyser, StyleLint";
         jqueryPnPJS3.specifics = {
-            jsLibrary: ['jquery', '@pnp/pnpjs'],
+            jsLibrary: ['jquery@3', '@pnp/pnpjs'],
             vetting: ['stylelint', 'webpack-analyzer'],
-            jQueryVersion: 3,
             force: true
         };
         jqueryPnPJS3.test = this.baseTest.test.concat([{
@@ -1235,101 +796,13 @@ class TestGenerator {
         this._tests.push(jqueryPnPJS3);
 
         /**
-         * jquery 2 pnpjs, property control
-         */
-        const jqueryPropPnPJS2 = Object.assign({}, this.baseTest);
-        jqueryPropPnPJS2.name = " jQuery 2.x.x, pnp/pnpjs, @pnp/spfx-property-controls, Webpack Bundle Analyser, StyleLint";
-        jqueryPropPnPJS2.specifics = {
-            jsLibrary: ['jquery', '@pnp/pnpjs', '@pnp/spfx-property-controls'],
-            vetting: ['stylelint', 'webpack-analyzer'],
-            jQueryVersion: 2,
-            force: true
-        };
-        jqueryPropPnPJS2.test = this.baseTest.test.concat([{
-                name: 'no jquery 2.x',
-                file: fileContent.package,
-                expr: /\"jquery\": \"\^2\./,
-                type: testType.fileContent
-            },
-            {
-                name: '@types/jquery 2.x',
-                file: fileContent.package,
-                expr: /\"@types\/jquery\": \"\^2\./,
-                type: testType.fileContent
-            },
-            {
-                name: 'no jquery 3.x',
-                file: fileContent.package,
-                expr: /\"jquery\": \"\^3\./,
-                type: testType.nofileContent
-            },
-            {
-                name: 'no @types/jquery 3.x',
-                file: fileContent.package,
-                expr: /\"@types\/jquery\": \"\^3\./,
-                type: testType.nofileContent
-            },
-            {
-                name: 'pnpjs',
-                file: fileContent.package,
-                expr: /@pnp\/pnpjs/,
-                type: testType.fileContent
-            },
-            {
-                name: '@pnp/spfx-property-controls',
-                file: fileContent.package,
-                expr: /@pnp\/spfx-property-controls/,
-                type: testType.fileContent
-            },
-            {
-                name: 'no @pnp/spfx-controls-react',
-                file: fileContent.package,
-                expr: /@pnp\/spfx-controls-react/,
-                type: testType.noFileContent
-            },
-            {
-                name: 'StyleLint Reference',
-                file: fileContent.package,
-                expr: /"stylelint"/,
-                type: testType.fileContent
-            },
-            {
-                name: 'StyleLint Config Standard',
-                file: fileContent.package,
-                expr: /"stylelint-config-standard"/,
-                type: testType.fileContent
-            },
-            {
-                name: 'StyleLint SCSS',
-                file: fileContent.package,
-                expr: /"stylelint-scss"/,
-                type: testType.fileContent
-            },
-            {
-                name: 'StyleLint Gulp',
-                file: fileContent.package,
-                expr: /"gulp-stylelint"/,
-                type: testType.fileContent
-            },
-            {
-                name: 'Webpack analyser',
-                file: fileContent.package,
-                expr: /"webpack-bundle-analyzer"/,
-                type: testType.fileContent
-            }
-        ])
-
-        this._tests.push(jqueryPropPnPJS2);
-
-        /**
          * jQUery 3, pnpjs, property control
          */
         const jqueryPropPnPJS3 = Object.assign({}, this.baseTest);
         jqueryPropPnPJS3.name = " jQuery 3.x.x, pnpjs, @pnp/spfx-property-controls, Webpack Bundle Analyser, StyleLint";
         jqueryPropPnPJS3.specifics = {
-            jsLibrary: ['jquery', '@pnp/pnpjs', '@pnp/spfx-property-controls'],
+            jsLibrary: ['jquery@3', '@pnp/pnpjs', '@pnp/spfx-property-controls'],
             vetting: ['stylelint', 'webpack-analyzer'],
-            jQueryVersion: 3,
             force: true
         };
         jqueryPropPnPJS3.test = this.baseTest.test.concat([{
@@ -1478,78 +951,13 @@ class TestGenerator {
         this._tests.push(noJQuery);
 
         /**
-         * jQuery 2 test
-         */
-
-        const jquery2 = Object.assign({}, this.baseTest);
-        jquery2.name = " jQuery 2.x.x, WebPack Bundle Analyzer";
-        jquery2.specifics = {
-            jsLibrary: ['jquery'],
-            vetting: ['webpack-analyzer'],
-            jQueryVersion: 2,
-            force: true
-        };
-        jquery2.test = this.baseTest.test.concat([{
-                name: 'no jquery 2.x',
-                file: fileContent.package,
-                expr: /\"jquery\": \"\^2\./,
-                type: testType.fileContent
-            },
-            {
-                name: 'no @types/jquery 2.x',
-                file: fileContent.package,
-                expr: /\"@types\/jquery\": \"\^2\./,
-                type: testType.fileContent
-            },
-            {
-                name: 'no jquery 3.x',
-                file: fileContent.package,
-                expr: /\"jquery\": \"\^3\./,
-                type: testType.nofileContent
-            },
-            {
-                name: 'no @types/jquery 3.x',
-                file: fileContent.package,
-                expr: /\"@types\/jquery\": \"\^3\./,
-                type: testType.nofileContent
-            },
-            {
-                name: 'no pnpjs',
-                file: fileContent.package,
-                expr: /@pnp\/pnpjs/,
-                type: testType.noFileContent
-            },
-            {
-                name: 'no @pnp/spfx-property-controls',
-                file: fileContent.package,
-                expr: /@pnp\/spfx-property-controls/,
-                type: testType.noFileContent
-            },
-            {
-                name: 'no @pnp/spfx-controls-react',
-                file: fileContent.package,
-                expr: /@pnp\/spfx-controls-react/,
-                type: testType.noFileContent
-            },
-            {
-                name: 'Webpack analyser',
-                file: fileContent.package,
-                expr: /"webpack-bundle-analyzer"/,
-                type: testType.fileContent
-            }
-        ])
-
-        this._tests.push(jquery2);
-
-        /**
          * jQuery 3 Test Definition
          */
         const jquery3 = Object.assign({}, this.baseTest);
         jquery3.name = " jQuery 3.x.x, WebPack Bundle Analyzer";
         jquery3.specifics = {
-            jsLibrary: ['jquery'],
+            jsLibrary: ['jquery@3'],
             vetting: ['webpack-analyzer'],
-            jQueryVersion: 3,
             force: true
         };
         jquery3.test = this.baseTest.test.concat([{
@@ -1605,77 +1013,13 @@ class TestGenerator {
         this._tests.push(jquery3);
 
         /**
-         * jQuer 2, pnpjs test
-         */
-        const jqueryPnPJS2 = Object.assign({}, this.baseTest);
-        jqueryPnPJS2.name = " jQuery 2.x.x, pnpjs, WebPack Bundle Analyzer";
-        jqueryPnPJS2.specifics = {
-            jsLibrary: ['jquery', '@pnp/pnpjs'],
-            vetting: ['webpack-analyzer'],
-            jQueryVersion: 2,
-            force: true
-        };
-        jqueryPnPJS2.test = this.baseTest.test.concat([{
-                name: 'jquery 2.x',
-                file: fileContent.package,
-                expr: /\"jquery\": \"\^2\./,
-                type: testType.fileContent
-            },
-            {
-                name: '@types/jquery 2.x',
-                file: fileContent.package,
-                expr: /\"@types\/jquery\": \"\^2\./,
-                type: testType.fileContent
-            },
-            {
-                name: 'no jquery 3.x',
-                file: fileContent.package,
-                expr: /\"jquery\": \"\^3\./,
-                type: testType.nofileContent
-            },
-            {
-                name: 'no @types/jquery 3.x',
-                file: fileContent.package,
-                expr: /\"@types\/jquery\": \"\^3\./,
-                type: testType.nofileContent
-            },
-            {
-                name: 'pnpjs',
-                file: fileContent.package,
-                expr: /@pnp\/pnpjs/,
-                type: testType.fileContent
-            },
-            {
-                name: 'no @pnp/spfx-property-controls',
-                file: fileContent.package,
-                expr: /@pnp\/spfx-property-controls/,
-                type: testType.noFileContent
-            },
-            {
-                name: 'no @pnp/spfx-controls-react',
-                file: fileContent.package,
-                expr: /@pnp\/spfx-controls-react/,
-                type: testType.noFileContent
-            },
-            {
-                name: 'Webpack analyser',
-                file: fileContent.package,
-                expr: /"webpack-bundle-analyzer"/,
-                type: testType.fileContent
-            }
-        ])
-
-        this._tests.push(jqueryPnPJS2);
-
-        /**
          * jquery 3, pnpjs test
          */
         const jqueryPnPJS3 = Object.assign({}, this.baseTest);
         jqueryPnPJS3.name = " jQuery 3.x.x, pnpjs, WebPack Bundle Analyzer";
         jqueryPnPJS3.specifics = {
-            jsLibrary: ['jquery', '@pnp/pnpjs'],
+            jsLibrary: ['jquery@3', '@pnp/pnpjs'],
             vetting: ['webpack-analyzer'],
-            jQueryVersion: 3,
             force: true
         };
         jqueryPnPJS3.test = this.baseTest.test.concat([{
@@ -1731,71 +1075,13 @@ class TestGenerator {
         this._tests.push(jqueryPnPJS3);
 
         /**
-         * jquery 2 pnpjs, property control
-         */
-        const jqueryPropPnPJS2 = Object.assign({}, this.baseTest);
-        jqueryPropPnPJS2.name = " jQuery 2.x.x, pnp/pnpjs, @pnp/spfx-property-controls, WebPack Bundle Analyzer";
-        jqueryPropPnPJS2.specifics = {
-            jsLibrary: ['jquery', '@pnp/pnpjs', '@pnp/spfx-property-controls'],
-            vetting: ['webpack-analyzer'],
-            jQueryVersion: 2,
-            force: true
-        };
-        jqueryPropPnPJS2.test = this.baseTest.test.concat([{
-                name: 'no jquery 2.x',
-                file: fileContent.package,
-                expr: /\"jquery\": \"\^2\./,
-                type: testType.fileContent
-            },
-            {
-                name: '@types/jquery 2.x',
-                file: fileContent.package,
-                expr: /\"@types\/jquery\": \"\^2\./,
-                type: testType.fileContent
-            },
-            {
-                name: 'no jquery 3.x',
-                file: fileContent.package,
-                expr: /\"jquery\": \"\^3\./,
-                type: testType.nofileContent
-            },
-            {
-                name: 'no @types/jquery 3.x',
-                file: fileContent.package,
-                expr: /\"@types\/jquery\": \"\^3\./,
-                type: testType.nofileContent
-            },
-            {
-                name: 'pnpjs',
-                file: fileContent.package,
-                expr: /@pnp\/pnpjs/,
-                type: testType.fileContent
-            },
-            {
-                name: '@pnp/spfx-property-controls',
-                file: fileContent.package,
-                expr: /@pnp\/spfx-property-controls/,
-                type: testType.fileContent
-            },
-            {
-                name: 'no @pnp/spfx-controls-react',
-                file: fileContent.package,
-                expr: /@pnp\/spfx-controls-react/,
-                type: testType.noFileContent
-            }
-        ])
-
-        this._tests.push(jqueryPropPnPJS2);
-
-        /**
          * jQUery 3, pnpjs, property control
          */
         const jqueryPropPnPJS3 = Object.assign({}, this.baseTest);
         jqueryPropPnPJS3.name = " jQuery 3.x.x, pnpjs, @pnp/spfx-property-controls, WebPack Bundle Analyzer";
         jqueryPropPnPJS3.specifics = {
-            jsLibrary: ['jquery', '@pnp/pnpjs', '@pnp/spfx-property-controls'],
+            jsLibrary: ['jquery@3', '@pnp/pnpjs', '@pnp/spfx-property-controls'],
             vetting: ['webpack-analyzer'],
-            jQueryVersion: 3,
             force: true
         };
         jqueryPropPnPJS3.test = this.baseTest.test.concat([{
@@ -1858,97 +1144,14 @@ class TestGenerator {
         const fileContent = new FileContent();
         const testType = new TestType();
 
-
-        /**
-         * jQuery 2 test
-         */
-        const jquery2 = Object.assign({}, this.baseTest);
-        jquery2.name = " jQuery 2.x.x, StyleLint";
-        jquery2.specifics = {
-            jsLibrary: ['jquery'],
-            vetting: ['stylelint'],
-            jQueryVersion: 2,
-            force: true
-        };
-        jquery2.test = this.baseTest.test.concat([{
-                name: 'no jquery 2.x',
-                file: fileContent.package,
-                expr: /\"jquery\": \"\^2\./,
-                type: testType.fileContent
-            },
-            {
-                name: 'no @types/jquery 2.x',
-                file: fileContent.package,
-                expr: /\"@types\/jquery\": \"\^2\./,
-                type: testType.fileContent
-            },
-            {
-                name: 'no jquery 3.x',
-                file: fileContent.package,
-                expr: /\"jquery\": \"\^3\./,
-                type: testType.nofileContent
-            },
-            {
-                name: 'no @types/jquery 3.x',
-                file: fileContent.package,
-                expr: /\"@types\/jquery\": \"\^3\./,
-                type: testType.nofileContent
-            },
-            {
-                name: 'no pnpjs',
-                file: fileContent.package,
-                expr: /@pnp\/pnpjs/,
-                type: testType.noFileContent
-            },
-            {
-                name: 'no @pnp/spfx-property-controls',
-                file: fileContent.package,
-                expr: /@pnp\/spfx-property-controls/,
-                type: testType.noFileContent
-            },
-            {
-                name: 'no @pnp/spfx-controls-react',
-                file: fileContent.package,
-                expr: /@pnp\/spfx-controls-react/,
-                type: testType.noFileContent
-            },
-            {
-                name: 'StyleLint Reference',
-                file: fileContent.package,
-                expr: /"stylelint"/,
-                type: testType.fileContent
-            },
-            {
-                name: 'StyleLint Config Standard',
-                file: fileContent.package,
-                expr: /"stylelint-config-standard"/,
-                type: testType.fileContent
-            },
-            {
-                name: 'StyleLint SCSS',
-                file: fileContent.package,
-                expr: /"stylelint-scss"/,
-                type: testType.fileContent
-            },
-            {
-                name: 'StyleLint Gulp',
-                file: fileContent.package,
-                expr: /"gulp-stylelint"/,
-                type: testType.fileContent
-            }
-        ])
-
-        this._tests.push(jquery2);
-
         /**
          * jQuery 3 Test Definition
          */
         const jquery3 = Object.assign({}, this.baseTest);
         jquery3.name = " jQuery 3.x.x, StyleLint";
         jquery3.specifics = {
-            jsLibrary: ['jquery'],
+            jsLibrary: ['jquery@3'],
             vetting: ['stylelint'],
-            jQueryVersion: 3,
             force: true
         };
         jquery3.test = this.baseTest.test.concat([{
@@ -2022,95 +1225,13 @@ class TestGenerator {
         this._tests.push(jquery3);
 
         /**
-         * jQuer 2, pnpjs test
-         */
-        const jqueryPnPJS2 = Object.assign({}, this.baseTest);
-        jqueryPnPJS2.name = " jQuery 2.x.x, pnpjs, StyleLint";
-        jqueryPnPJS2.specifics = {
-            jsLibrary: ['jquery', '@pnp/pnpjs'],
-            vetting: ['stylelint'],
-            jQueryVersion: 2,
-            force: true
-        };
-        jqueryPnPJS2.test = this.baseTest.test.concat([{
-                name: 'jquery 2.x',
-                file: fileContent.package,
-                expr: /\"jquery\": \"\^2\./,
-                type: testType.fileContent
-            },
-            {
-                name: '@types/jquery 2.x',
-                file: fileContent.package,
-                expr: /\"@types\/jquery\": \"\^2\./,
-                type: testType.fileContent
-            },
-            {
-                name: 'no jquery 3.x',
-                file: fileContent.package,
-                expr: /\"jquery\": \"\^3\./,
-                type: testType.nofileContent
-            },
-            {
-                name: 'no @types/jquery 3.x',
-                file: fileContent.package,
-                expr: /\"@types\/jquery\": \"\^3\./,
-                type: testType.nofileContent
-            },
-            {
-                name: 'pnpjs',
-                file: fileContent.package,
-                expr: /@pnp\/pnpjs/,
-                type: testType.fileContent
-            },
-            {
-                name: 'no @pnp/spfx-property-controls',
-                file: fileContent.package,
-                expr: /@pnp\/spfx-property-controls/,
-                type: testType.noFileContent
-            },
-            {
-                name: 'no @pnp/spfx-controls-react',
-                file: fileContent.package,
-                expr: /@pnp\/spfx-controls-react/,
-                type: testType.noFileContent
-            },
-            {
-                name: 'StyleLint Reference',
-                file: fileContent.package,
-                expr: /"stylelint"/,
-                type: testType.fileContent
-            },
-            {
-                name: 'StyleLint Config Standard',
-                file: fileContent.package,
-                expr: /"stylelint-config-standard"/,
-                type: testType.fileContent
-            },
-            {
-                name: 'StyleLint SCSS',
-                file: fileContent.package,
-                expr: /"stylelint-scss"/,
-                type: testType.fileContent
-            },
-            {
-                name: 'StyleLint Gulp',
-                file: fileContent.package,
-                expr: /"gulp-stylelint"/,
-                type: testType.fileContent
-            }
-        ])
-
-        this._tests.push(jqueryPnPJS2);
-
-        /**
          * jquery 3, pnpjs test
          */
         const jqueryPnPJS3 = Object.assign({}, this.baseTest);
         jqueryPnPJS3.name = " jQuery 3.x.x, pnpjs, StyleLint";
         jqueryPnPJS3.specifics = {
-            jsLibrary: ['jquery', '@pnp/pnpjs'],
+            jsLibrary: ['jquery@3', '@pnp/pnpjs'],
             vetting: ['stylelint'],
-            jQueryVersion: 3,
             force: true
         };
         jqueryPnPJS3.test = this.baseTest.test.concat([{
@@ -2184,95 +1305,13 @@ class TestGenerator {
         this._tests.push(jqueryPnPJS3);
 
         /**
-         * jquery 2 pnpjs, property control
-         */
-        const jqueryPropPnPJS2 = Object.assign({}, this.baseTest);
-        jqueryPropPnPJS2.name = " jQuery 2.x.x, pnp/pnpjs, @pnp/spfx-property-controls, StyleLint";
-        jqueryPropPnPJS2.specifics = {
-            jsLibrary: ['jquery', '@pnp/pnpjs', '@pnp/spfx-property-controls'],
-            vetting: ['stylelint'],
-            jQueryVersion: 2,
-            force: true
-        };
-        jqueryPropPnPJS2.test = this.baseTest.test.concat([{
-                name: 'no jquery 2.x',
-                file: fileContent.package,
-                expr: /\"jquery\": \"\^2\./,
-                type: testType.fileContent
-            },
-            {
-                name: '@types/jquery 2.x',
-                file: fileContent.package,
-                expr: /\"@types\/jquery\": \"\^2\./,
-                type: testType.fileContent
-            },
-            {
-                name: 'no jquery 3.x',
-                file: fileContent.package,
-                expr: /\"jquery\": \"\^3\./,
-                type: testType.nofileContent
-            },
-            {
-                name: 'no @types/jquery 3.x',
-                file: fileContent.package,
-                expr: /\"@types\/jquery\": \"\^3\./,
-                type: testType.nofileContent
-            },
-            {
-                name: 'pnpjs',
-                file: fileContent.package,
-                expr: /@pnp\/pnpjs/,
-                type: testType.fileContent
-            },
-            {
-                name: '@pnp/spfx-property-controls',
-                file: fileContent.package,
-                expr: /@pnp\/spfx-property-controls/,
-                type: testType.fileContent
-            },
-            {
-                name: 'no @pnp/spfx-controls-react',
-                file: fileContent.package,
-                expr: /@pnp\/spfx-controls-react/,
-                type: testType.noFileContent
-            },
-            {
-                name: 'StyleLint Reference',
-                file: fileContent.package,
-                expr: /"stylelint"/,
-                type: testType.fileContent
-            },
-            {
-                name: 'StyleLint Config Standard',
-                file: fileContent.package,
-                expr: /"stylelint-config-standard"/,
-                type: testType.fileContent
-            },
-            {
-                name: 'StyleLint SCSS',
-                file: fileContent.package,
-                expr: /"stylelint-scss"/,
-                type: testType.fileContent
-            },
-            {
-                name: 'StyleLint Gulp',
-                file: fileContent.package,
-                expr: /"gulp-stylelint"/,
-                type: testType.fileContent
-            }
-        ])
-
-        this._tests.push(jqueryPropPnPJS2);
-
-        /**
          * jQUery 3, pnpjs, property control
          */
         const jqueryPropPnPJS3 = Object.assign({}, this.baseTest);
         jqueryPropPnPJS3.name = " jQuery 3.x.x, pnpjs, @pnp/spfx-property-controls, StyleLint";
         jqueryPropPnPJS3.specifics = {
-            jsLibrary: ['jquery', '@pnp/pnpjs', '@pnp/spfx-property-controls'],
+            jsLibrary: ['jquery@3', '@pnp/pnpjs', '@pnp/spfx-property-controls'],
             vetting: ['stylelint'],
-            jQueryVersion: 3,
             force: true
         };
         jqueryPropPnPJS3.test = this.baseTest.test.concat([{

@@ -1,5 +1,8 @@
 # PnP SPFx generator - community driven and open source
 
+[![CircleCI](https://circleci.com/gh/pnp/generator-spfx.svg?style=shield)](https://circleci.com/gh/pnp/generator-spfx) [![Gitter chat](https://badges.gitter.im/gitterHQ/gitter.png)](https://gitter.im/generator-spfx/generator)
+
+
 This Yeoman generator provides improved governance for SharePoint Framework projects. It extends the out of the box Yeoman generator from Microsoft (@microsoft/generator-sharepoint) with recommended patterns and additional capabilities.
  
 For an optimized development workflow, it extends the capabilities for ReactJS, and Knockout projects and support for additional frameworks, such as HandlebarsJS, VueJS and Angular Elements. It also includes includes advanced code analysis and testing tools, which you can take advantage in you development work.
