@@ -10,7 +10,7 @@ import * as strings from '<%= componentStrings %>';
 
 // Importing Vue.js
 import Vue from 'vue';
-// Improting Vue.js SFC
+// Importing Vue.js SFC
 import <%= componentName %>Component from './components/<%= componentName %>.vue';
 
 export interface I<%= componentClassName %>Props {
