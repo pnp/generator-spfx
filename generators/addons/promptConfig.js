@@ -12,6 +12,17 @@ const jqueryOptions = [{
     }
 ]
 
+const ouifrOptions = [{
+    'name': 'Office UI Fabric 5.x.x (recommended)',
+    'value': '5'
+}, {
+    'name': 'Office UI Fabric 6.x.x',
+    'value': '6'
+}, {
+    'name': 'Office UI Fabric 6.x.x - Fluent',
+    'value': '6fluent'
+}]
+
 // ReactJS libraries only
 const reactLibs = [{
     name: 'PnP Reusable Controls',
@@ -30,12 +41,10 @@ const vettingOptions = [{
 ];
 
 // continuous integrations options
-const ciOptions = [
-    {
-        name: 'Azure DevOps',
-        value: 'azure'
-    }
-];
+const ciOptions = [{
+    name: 'Azure DevOps',
+    value: 'azure'
+}];
 
 // SharePoint Online supported libraries
 const spoLibs = [{
@@ -47,6 +56,9 @@ const spoLibs = [{
     }, {
         name: 'PnP Property Controls',
         value: '@pnp/spfx-property-controls'
+    }, {
+        name: 'Office UI Fabric',
+        value: 'ouifr'
     }
     // Add a new configuration object in here
 ]
@@ -96,16 +108,14 @@ const configOptions = [
 
         }
     },
-    // jQuery version selection
-    // Disables since nobody uses it
-    // {
-    //     type: 'list',
-    //     message: `${chalk.bold.yellow('jQuery: ')} Please choose a version:`,
-    //     name: 'jQueryVersion',
-    //     choices: jqueryOptions,
-    //     // Show only when jQuery was included
-    //     when: answers => answers.jsLibrary !== undefined && answers.jsLibrary.indexOf('jquery') !== -1
-    // },
+    {
+        type: 'list',
+        message: `${chalk.bold.yellow('Office UI Fabric: ')} Please choose a version:`,
+        name: 'ouifrVersion',
+        choices: ouifrOptions,
+        // Show only when jQuery was included
+        when: answers => answers.jsLibrary !== undefined && answers.jsLibrary.indexOf('ouifr') !== -1
+    },
     // Vetting and code style options
     {
         type: 'checkbox',
