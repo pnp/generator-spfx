@@ -159,16 +159,19 @@ module.exports = class extends Generator {
 
         return selections.jsLibrary.map(item => {
 
+            console.log(item);
+
             switch (item) {
-                case "jquery":
-                    // Disabled because jQuery2 is deprecated
-                    // if (selections.jQueryVersion !== undefined) {
-                    //     item = `${item}@${selections.jQueryVersion}`
-                    // }
+                case "ouifr":
+                    if (selections.ouifrVersion !== undefined) {
+                        item = `${item}@${selections.ouifrVersion}`
+                    }
                     break;
                 default:
                     break;
             }
+
+            console.log(item);
 
             return item;
 

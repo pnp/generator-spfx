@@ -13,13 +13,13 @@ const jqueryOptions = [{
 ]
 
 const ouifrOptions = [{
-    'name': 'Office UI Fabric 5.x.x (recommended)',
+    'name': '5.x.x (recommended)',
     'value': '5'
 }, {
-    'name': 'Office UI Fabric 6.x.x',
+    'name': '6.x.x',
     'value': '6'
 }, {
-    'name': 'Office UI Fabric 6.x.x - Fluent',
+    'name': '6.x.x - Fluent',
     'value': '6fluent'
 }]
 
@@ -27,6 +27,9 @@ const ouifrOptions = [{
 const reactLibs = [{
     name: 'PnP Reusable Controls',
     value: '@pnp/spfx-controls-react'
+}, {
+    name: 'Office UI Fabric',
+    value: 'ouifr'
 }];
 
 // Vetting options
@@ -56,9 +59,6 @@ const spoLibs = [{
     }, {
         name: 'PnP Property Controls',
         value: '@pnp/spfx-property-controls'
-    }, {
-        name: 'Office UI Fabric',
-        value: 'ouifr'
     }
     // Add a new configuration object in here
 ]
