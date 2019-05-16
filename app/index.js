@@ -86,6 +86,13 @@ module.exports = class extends Generator {
                         answers
                     );
 
+                    // Check if TypeScript
+                    if (answers.typescript !== undefined) {
+
+                        this.options.libraries = this.options.libraries.concat(answers.typescript)
+
+                    }
+
                     // Addon Library
                     this.options.SpfxOptions['pnp-libraries'] = this.options.libraries;
 
@@ -94,6 +101,9 @@ module.exports = class extends Generator {
 
                     // Addon continouse integration
                     this.options.SpfxOptions['pnp-ci'] = this.options.ci;
+
+                    // Addon testing integration
+                    this.options.SpfxOptions['pnp-testing'] = this.options.testFramework;
 
                     if (answers.framework === "angularelements") {
 
@@ -116,6 +126,7 @@ module.exports = class extends Generator {
                     this.config.set('pnp-ci', this.options.ci);
                     this.config.set('pnp-vetting', this.options.vetting);
                     this.config.set('spfxenv', this.options.SpfxOptions['environment']);
+                    this.config.set('pnp-testing', this.options.SpfxOptions['pnp-testing']);
                     this.config.save();
 
                     if (this.options['testRun'] === undefined) {
@@ -160,11 +171,10 @@ module.exports = class extends Generator {
         return selections.jsLibrary.map(item => {
 
             switch (item) {
-                case "jquery":
-                    // Disabled because jQuery2 is deprecated
-                    // if (selections.jQueryVersion !== undefined) {
-                    //     item = `${item}@${selections.jQueryVersion}`
-                    // }
+                case "ouifr":
+                    if (selections.ouifrVersion !== undefined) {
+                        item = `${item}@${selections.ouifrVersion}`
+                    }
                     break;
                 default:
                     break;

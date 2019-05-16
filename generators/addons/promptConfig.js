@@ -12,10 +12,43 @@ const jqueryOptions = [{
     }
 ]
 
+const ouifrOptions = [{
+    'name': '6.x.x',
+    'value': '6'
+}, {
+    'name': '6.x.x incl. Fluent Theme',
+    'value': '6fluent'
+}]
+
+const rushCompilerOption = [{
+        'name': 'TypeScript v2.9 - Default',
+        'value': 'rush@2.9'
+    },
+    {
+        'name': 'TypeScript v3.0',
+        'value': 'rush@3.0'
+    },
+    {
+        'name': 'TypeScript v3.1',
+        'value': 'rush@3.1'
+    },
+    {
+        'name': 'TypeScript v3.2',
+        'value': 'rush@3.2'
+    },
+    {
+        'name': 'TypeScript v3.3',
+        'value': 'rush@3.3'
+    }
+]
+
 // ReactJS libraries only
 const reactLibs = [{
     name: 'PnP Reusable Controls',
     value: '@pnp/spfx-controls-react'
+}, {
+    name: 'Office UI Fabric',
+    value: 'ouifr'
 }];
 
 // Vetting options
@@ -30,12 +63,10 @@ const vettingOptions = [{
 ];
 
 // continuous integrations options
-const ciOptions = [
-    {
-        name: 'Azure DevOps',
-        value: 'azure'
-    }
-];
+const ciOptions = [{
+    name: 'Azure DevOps',
+    value: 'azure'
+}];
 
 // SharePoint Online supported libraries
 const spoLibs = [{
@@ -96,16 +127,21 @@ const configOptions = [
 
         }
     },
-    // jQuery version selection
-    // Disables since nobody uses it
-    // {
-    //     type: 'list',
-    //     message: `${chalk.bold.yellow('jQuery: ')} Please choose a version:`,
-    //     name: 'jQueryVersion',
-    //     choices: jqueryOptions,
-    //     // Show only when jQuery was included
-    //     when: answers => answers.jsLibrary !== undefined && answers.jsLibrary.indexOf('jquery') !== -1
-    // },
+    {
+        type: 'list',
+        message: `${chalk.bold.yellow('Office UI Fabric: ')} Please choose a version:`,
+        name: 'ouifrVersion',
+        choices: ouifrOptions,
+        // Show only when jQuery was included
+        when: answers => answers.jsLibrary !== undefined && answers.jsLibrary.indexOf('ouifr') !== -1
+    },
+    {
+        type: 'list',
+        message: `${chalk.bold.yellow('TypeScript: ')} Please choose a version:`,
+        name: 'typescript',
+        choices: rushCompilerOption,
+        when: answers => answers.spfxenv !== undefined && answers.spfxenv === 'spo'
+    },
     // Vetting and code style options
     {
         type: 'checkbox',

@@ -81,7 +81,7 @@ module.exports = class extends Generator {
         return this.options.testFramework && this.options.testFramework.indexOf('jest') !== -1;
     }
 
-    _addToolScripts(){
+    _addToolScripts() {
 
         this.fs.copy(
             this.templatePath('./tools/pre-version.js'),
@@ -171,6 +171,9 @@ module.exports = class extends Generator {
                 JSON.stringify(newPkgConfig, null, 2)
             );
 
+            this._updateTSConfig(requestedLibraries, addonConfig);
+
+
         }
 
     }
@@ -195,6 +198,32 @@ module.exports = class extends Generator {
         this.fs.copy(
             this.templatePath('.stylelintrc'),
             this.destinationPath('.stylelintrc')
+        );
+
+    }
+
+    _updateTSConfig(requestedLibraries, addonConfig) {
+        // add tsconfig rules
+        let tsConfig = fs.readFileSync(this.destinationPath('tsconfig.json'), 'UTF-8'),
+            tsConfigJson = JSON.parse(tsConfig);
+
+        requestedLibraries.forEach(item => {
+
+            if (addonConfig[item].tsconfig !== undefined) {
+
+                Object.keys(addonConfig[item].tsconfig).forEach((key) => {
+
+                    tsConfigJson[key] = addonConfig[item].tsconfig[key];
+
+                });
+
+            }
+
+        })
+
+        fs.writeFileSync(
+            this.destinationPath('tsconfig.json'),
+            JSON.stringify(tsConfigJson, null, 2)
         );
 
     }
