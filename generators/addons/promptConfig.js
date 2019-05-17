@@ -13,15 +13,34 @@ const jqueryOptions = [{
 ]
 
 const ouifrOptions = [{
-    'name': '5.x.x (recommended)',
-    'value': '5'
-}, {
     'name': '6.x.x',
     'value': '6'
 }, {
-    'name': '6.x.x - Fluent',
+    'name': '6.x.x incl. Fluent Theme',
     'value': '6fluent'
 }]
+
+const rushCompilerOption = [{
+        'name': 'TypeScript v2.9 - Default',
+        'value': 'rush@2.9'
+    },
+    {
+        'name': 'TypeScript v3.0',
+        'value': 'rush@3.0'
+    },
+    {
+        'name': 'TypeScript v3.1',
+        'value': 'rush@3.1'
+    },
+    {
+        'name': 'TypeScript v3.2',
+        'value': 'rush@3.2'
+    },
+    {
+        'name': 'TypeScript v3.3',
+        'value': 'rush@3.3'
+    }
+]
 
 // ReactJS libraries only
 const reactLibs = [{
@@ -115,6 +134,13 @@ const configOptions = [
         choices: ouifrOptions,
         // Show only when jQuery was included
         when: answers => answers.jsLibrary !== undefined && answers.jsLibrary.indexOf('ouifr') !== -1
+    },
+    {
+        type: 'list',
+        message: `${chalk.bold.yellow('TypeScript: ')} Please choose a version:`,
+        name: 'typescript',
+        choices: rushCompilerOption,
+        when: answers => answers.spfxenv !== undefined && answers.spfxenv === 'spo'
     },
     // Vetting and code style options
     {

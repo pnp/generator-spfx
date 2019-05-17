@@ -86,6 +86,13 @@ module.exports = class extends Generator {
                         answers
                     );
 
+                    // Check if TypeScript
+                    if (answers.typescript !== undefined) {
+
+                        this.options.libraries = this.options.libraries.concat(answers.typescript)
+
+                    }
+
                     // Addon Library
                     this.options.SpfxOptions['pnp-libraries'] = this.options.libraries;
 

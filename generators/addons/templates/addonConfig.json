@@ -1,10 +1,4 @@
 {
-    "jquery@2": {
-        "dependencies": {
-            "jquery": "^2.2.4",
-            "@types/jquery": "^2.0.49"
-        }
-    },
     "jquery@3": {
         "dependencies": {
             "jquery": "^3.4.1",
@@ -19,13 +13,77 @@
     "ouifr@6": {
         "dependencies": {
             "office-ui-fabric-react": "^6.182.0"
+        },
+        "devDependencies": {
+            "@types/react": "^16.7.22"
+        },
+        "rmDependencies": [
+            "@microsoft/rush-stack-compiler-2.9"
+        ],
+        "tsconfig": {
+            "extends": "./node_modules/@microsoft/rush-stack-compiler-3.3/includes/tsconfig-web.json"
         }
     },
     "ouifr@6fluent": {
         "dependencies": {
             "office-ui-fabric-react": "^6.182.0",
-            "@uifabric/fluent-theme": "0.16.9"
+            "@uifabric/fluent-theme": "^0.16.9"
+        },
+        "devDependencies": {
+            "@types/react": "^16.7.22"
         }
+    },
+    "rush@2.9": {
+        "dependencies": {},
+        "devDependencies": {}
+    },
+    "rush@3.0": {
+        "devDependencies": {
+            "@microsoft/rush-stack-compiler-2.9.0": "~0.6.x",
+            "typescript": "~3.0.x"
+        },
+        "tsconfig": {
+            "extends": "./node_modules/@microsoft/rush-stack-compiler-3.0/includes/tsconfig-web.json"
+        },
+        "rmDependencies": [
+            "@microsoft/rush-stack-compiler-2.9"
+        ]
+    },
+    "rush@3.1": {
+        "devDependencies": {
+            "@microsoft/rush-stack-compiler-2.9.0": "~0.6.x",
+            "typescript": "~3.1.x"
+        },
+        "tsconfig": {
+            "extends": "./node_modules/@microsoft/rush-stack-compiler-3.1/includes/tsconfig-web.json"
+        },
+        "rmDependencies": [
+            "@microsoft/rush-stack-compiler-2.9"
+        ]
+    },
+    "rush@3.2": {
+        "devDependencies": {
+            "@microsoft/rush-stack-compiler-2.9.0": "~0.3.x",
+            "typescript": "~3.2.x"
+        },
+        "tsconfig": {
+            "extends": "./node_modules/@microsoft/rush-stack-compiler-3.2/includes/tsconfig-web.json"
+        },
+        "rmDependencies": [
+            "@microsoft/rush-stack-compiler-2.9"
+        ]
+    },
+    "rush@3.3": {
+        "devDependencies": {
+            "@microsoft/rush-stack-compiler-3.3": "~0.2.x",
+            "typescript": "~3.3.x"
+        },
+        "tsconfig": {
+            "extends": "./node_modules/@microsoft/rush-stack-compiler-3.3/includes/tsconfig-web.json"
+        },
+        "rmDependencies": [
+            "@microsoft/rush-stack-compiler-2.9"
+        ]
     },
     "@pnp/pnpjs": {
         "dependencies": {
