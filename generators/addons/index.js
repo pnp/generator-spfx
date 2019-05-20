@@ -160,7 +160,7 @@ module.exports = class extends Generator {
 
                 }
             }
-            if(this.options.ci !== undefined) {
+            if(this._isAzureCi() && this._isJestTesting()) {
                 newPkgConfig["jest-junit"] = {
                     "output": "temp/test/junit/junit.xml",
                     "usePathForSuiteName": "true"
