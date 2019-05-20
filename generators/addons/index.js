@@ -181,11 +181,12 @@ module.exports = class extends Generator {
 
     _addContinuousConfig() {
         // azure deevops configuration
-        let adoFileName = this._isJestTesting() ? 'azure-pipelines.yml' : 'azure-pipelines-notesting.yml';
+        let adoSrcFileName = this._isJestTesting() ? 'azure-pipelines.yml' : 'azure-pipelines-notesting.yml';
+        let adoDestFileName = 'azure-pipelines.yml';
 
         this.fs.copy(
-            this.templatePath(adoFileName),
-            this.destinationPath(adoFileName)
+            this.templatePath(adoSrcFileName),
+            this.destinationPath(adoDestFileName)
         );
     }
 
