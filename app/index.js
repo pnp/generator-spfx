@@ -166,8 +166,6 @@ module.exports = class extends Generator {
 
         return selections.jsLibrary.map(item => {
 
-            console.log(item);
-
             switch (item) {
                 case "ouifr":
                     if (selections.ouifrVersion !== undefined) {
@@ -177,8 +175,6 @@ module.exports = class extends Generator {
                 default:
                     break;
             }
-
-            console.log(item);
 
             return item;
 

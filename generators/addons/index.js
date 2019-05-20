@@ -186,11 +186,7 @@ module.exports = class extends Generator {
 
         requestedLibraries.forEach(item => {
 
-            console.log('item', item);
-
             if (addonConfig[item].tsconfig !== undefined) {
-
-                console.log('TSCONFIG:::::: ', addonConfig[item].tsconfig);
 
                 Object.keys(addonConfig[item].tsconfig).forEach((key) => {
 
