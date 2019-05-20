@@ -76,7 +76,7 @@ module.exports = class extends Generator {
                     this.options.pnpFramework = answers.framework;
                     this.options.vetting = answers.vetting;
                     this.options.ci = answers.continuousIntegration;
-
+                    this.options.testFramework = answers.testframework; // this is needed for CI and unit testing integration
 
                     // check if test lint was selected in any of the generators
                     this.options.tsLint = answers.tsLint ? answers.tsLint : false;
