@@ -131,11 +131,6 @@ module.exports = class extends Generator {
                     }
 
                 }
-                if(this.options.ci !== undefined) {
-                    newPkgConfig.scripts.test = "./node_modules/.bin/jest --config ./config/jest.config.json"
-                    newPkgConfig.scripts["test:watch"] = "./node_modules/.bin/jest --config ./config/jest.config.json --watchAll"
-                }
-
             }
             if(this.options.ci !== undefined) {
                 newPkgConfig["jest-junit"] = {
