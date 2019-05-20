@@ -56,7 +56,7 @@ module.exports = class extends Generator {
         let jestFileDestFullPath = path.resolve(this.destinationPath(jestFileDestPath));
         let jestFileAlreadyExists = fs.existsSync(jestFileDestFullPath);
 
-        if(this._isJestTesting()) {
+        if(this._isJestTesting() && this._isAzureCi()) {
             if (jestFileAlreadyExists === true) {
                 let currentConfiguration = JSON.parse(fs.readFileSync(this.destinationPath(jestFileDestPath), 'utf8'));
                 let additionalConfiguration = JSON.parse(fs.readFileSync(this.templatePath(jestFileSourcePath), 'utf8'));
