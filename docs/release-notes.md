@@ -1,5 +1,10 @@
 # Release Notes
 
+# 1.8.0 Azure DevOps and Jest, Office UI Fabric support, TypeScript version selector
+- Azure DevOps testing has been improved to support [Jest](https://jestjs.io) testing.
+- TypeScript selection for all SharePoint Online Projects
+- Office UI Fabric integration including Fluent Design
+
 # 1.7.3 SPFx base generator 1.8.2 update
 - Upgrade to @pnp/office365-cli 1.20.0
 
