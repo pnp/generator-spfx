@@ -13,3 +13,56 @@ Once your yaml definition file is committed and pushed, you will see a "name of 
 If you want to set up automated deployments of your solution, you can then follow the "Continuous Deployment" section of the [official documentation](https://docs.microsoft.com/en-us/sharepoint/dev/spfx/toolchain/implement-ci-cd-with-azure-devops#continuous-deployment).  
 
 Simply select the new build definition and update the paths to match the artifact name.
+
+## Upgrading from the KarmaJS infrastructure
+### Pre-reqs:
+You have previously upgraded your project to SPFx 1.8.0, if this is not done already, checkout the dedicated [Office 365 CLI command](https://pnp.github.io/office365-cli/cmd/spfx/project/project-upgrade/
+)
+### Steps
+1. Run the following commands in your shell.
+    ```Shell
+    npm un @types/chai-as-promised chai-as-promised karma-junit-reporter -D
+    npm i jest-junit jest @voitanos/jest-preset-spfx-react16 -D
+    rm ./config/karma.conf.js
+    ```
+1. In `package.json` add the following node to the root.
+    ```JSON
+    "jest-junit": {
+     "output": "temp/test/junit/junit.xml",
+     "usePathForSuiteName": "true"
+    }
+    ```
+1. in `package.json` add/update the following scripts.
+    ```JSON
+    "test": "./node_modules/.bin/jest --config ./config/jest.config.json",
+    "test:watch": "./node_modules/.bin/jest --config ./config/jest.config.json --watchAll"
+    ```
+1. Add a `config/jest.config.json` file with the following content.
+    ```JSON
+    {
+      "preset": "@voitanos/jest-preset-spfx-react16",
+      "rootDir": "../src",
+      "coverageReporters": [
+        "text",
+        "json",
+        "lcov",
+        "text-summary",
+        "cobertura"
+      ],
+      "reporters": [
+       "default",
+       "jest-junit"
+      ]
+    }
+    ```
+1. In `gulpfile.js` remove the following lines
+     ```JS
+     var buildConfig = build.getConfig();
+     var karmaTaskCandidates = buildConfig.uniqueTasks.filter((t) => t.name === 'karma');
+     if(karmaTaskCandidates && karmaTaskCandidates.length > 0) {
+      var karmaTask = karmaTaskCandidates[0];
+      karmaTask.taskConfig.configPath = './config/karma.config.js';
+     }
+     ```
+1. Rename your `.test.ts` files in `.spec.ts` and migrate the code like the [following example](https://github.com/SharePoint/sp-dev-build-extensions/samples/azure-devops-ci-cd-spfx/src/webparts/devOps/tests/DevOpsWebPart.spec.ts). 
+1. Update your `azure-pipelines.yml` to match the [following sample](https://github.com/SharePoint/sp-dev-build-extensions/samples/azure-devops-ci-cd-spfx/azure-pipelines.yml).

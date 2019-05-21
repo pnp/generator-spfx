@@ -76,7 +76,7 @@ module.exports = class extends Generator {
                     this.options.pnpFramework = answers.framework;
                     this.options.vetting = answers.vetting;
                     this.options.ci = answers.continuousIntegration;
-
+                    this.options.testFramework = answers.testframework; // this is needed for CI and unit testing integration
 
                     // check if test lint was selected in any of the generators
                     this.options.tsLint = answers.tsLint ? answers.tsLint : false;
@@ -102,6 +102,9 @@ module.exports = class extends Generator {
                     // Addon continouse integration
                     this.options.SpfxOptions['pnp-ci'] = this.options.ci;
 
+                    // Addon testing integration
+                    this.options.SpfxOptions['pnp-testing'] = this.options.testFramework;
+
                     if (answers.framework === "angularelements") {
 
                         // set choosen spfx frameworke
@@ -123,6 +126,7 @@ module.exports = class extends Generator {
                     this.config.set('pnp-ci', this.options.ci);
                     this.config.set('pnp-vetting', this.options.vetting);
                     this.config.set('spfxenv', this.options.SpfxOptions['environment']);
+                    this.config.set('pnp-testing', this.options.SpfxOptions['pnp-testing']);
                     this.config.save();
 
                     if (this.options['testRun'] === undefined) {

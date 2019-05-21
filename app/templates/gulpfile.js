@@ -100,17 +100,3 @@ build.rig.addPreBuildTask(styleLintSubTask);
 <%- customTasks %>
 
 build.initialize(gulp);
-
-/**
- * Continuous Integration
- */
-<% if(ci) {%>
-const buildConfig = build.getConfig();
-
-const karmaTaskCandidates = buildConfig.uniqueTasks.filter(task => task.name === 'karma');
-
-if (karmaTaskCandidates && karmaTaskCandidates.length > 0) {
-    const karmaTask = karmaTaskCandidates[0];
-    karmaTask.taskConfig.configPath = './config/karma.config.js';
-}
-<% }; %>

@@ -1,5 +1,8 @@
 # Release Notes
 
+# 1.7.3 SPFx base generator 1.8.2 update
+- Upgrade to @pnp/office365-cli 1.20.0
+
 # 1.7.2 SPFx base generator 1.8.2 update
 - Update to SPFx generator version 1.8.2
 - Dropped support for jQUery version 2

@@ -39,7 +39,7 @@
     },
     "rush@3.0": {
         "devDependencies": {
-            "@microsoft/rush-stack-compiler-2.9.0": "~0.6.x",
+            "@microsoft/rush-stack-compiler-3.0": "~0.6.x",
             "typescript": "~3.0.x"
         },
         "tsconfig": {
@@ -51,7 +51,7 @@
     },
     "rush@3.1": {
         "devDependencies": {
-            "@microsoft/rush-stack-compiler-2.9.0": "~0.6.x",
+            "@microsoft/rush-stack-compiler-3.1": "~0.6.x",
             "typescript": "~3.1.x"
         },
         "tsconfig": {
@@ -63,7 +63,7 @@
     },
     "rush@3.2": {
         "devDependencies": {
-            "@microsoft/rush-stack-compiler-2.9.0": "~0.3.x",
+            "@microsoft/rush-stack-compiler-3.2": "~0.3.x",
             "typescript": "~3.2.x"
         },
         "tsconfig": {
@@ -97,7 +97,7 @@
     },
     "@pnp/spfx-controls-react": {
         "dependencies": {
-            "@pnp/spfx-controls-react": "1.13.0"
+            "@pnp/spfx-controls-react": "1.13.1"
         }
     },
     "webpack-analyzer": {
@@ -113,9 +113,9 @@
             "gulp-stylelint": "^8.0.0"
         }
     },
-    "continuousIntegrationKarma": {
+    "continuousIntegrationJest": {
         "devDependencies": {
-            "karma-junit-reporter": "^1.2.0"
+            "jest-junit": "^6.3.0"
         }
     },
     "gulp-sequence": {

@@ -5,6 +5,7 @@ const Generator = require('yeoman-generator');
 
 // filesystem
 const fs = require('fs');
+const path = require('path');
 
 const util = require('../../lib/util.js');
 
@@ -38,8 +39,7 @@ module.exports = class extends Generator {
             this._addStylelintConfig();
         }
 
-        if (undefined !== this.options.ci &&
-            this.options.ci.indexOf('azure') !== -1) {
+        if (this._isAzureCi()) {
 
             this._addContinuousConfig();
         }
@@ -50,10 +50,38 @@ module.exports = class extends Generator {
     }
 
     end() {
+        // Jest configuration
+        let jestFileDestPath = 'config/jest.config.json';
+        let jestFileSourcePath = 'jest.config.json';
+        let jestFileDestFullPath = path.resolve(this.destinationPath(jestFileDestPath));
+        let jestFileAlreadyExists = fs.existsSync(jestFileDestFullPath);
 
+        if(this._isJestTesting() && this._isAzureCi()) {
+            if (jestFileAlreadyExists === true) {
+                let currentConfiguration = JSON.parse(fs.readFileSync(this.destinationPath(jestFileDestPath), 'utf8'));
+                let additionalConfiguration = JSON.parse(fs.readFileSync(this.templatePath(jestFileSourcePath), 'utf8'));
+                Object.assign(additionalConfiguration, currentConfiguration);
+                fs.writeFileSync(this.destinationPath(jestFileDestPath), JSON.stringify(additionalConfiguration), {
+                    encoding: 'utf8',
+                });
+            } else {// post install didn't happen, best effort
+                this.fs.copy(
+                    this.templatePath(jestFileSourcePath),
+                    this.destinationPath(jestFileDestPath)
+                );
+            }
+        }
     }
 
-    _addToolScripts() {
+    _isAzureCi() {
+        return this.options.ci && this.options.ci.indexOf('azure') !== -1;
+    }
+
+    _isJestTesting() {
+        return this.options.testFramework && this.options.testFramework.indexOf('jest') !== -1;
+    }
+
+   _addToolScripts() {
 
         this.fs.copy(
             this.templatePath('./tools/pre-version.js'),
@@ -95,8 +123,8 @@ module.exports = class extends Generator {
                 requestedLibraries.concat(this.options.vetting);
 
             // Append Azure DevOps options if selected
-            requestedLibraries = this.options.ci === undefined ? requestedLibraries :
-                requestedLibraries.concat('continuousIntegrationKarma');
+            requestedLibraries = (this._isJestTesting() && this._isAzureCi()) ?
+                requestedLibraries.concat('continuousIntegrationJest') : requestedLibraries;
 
             // Add gulp-sequence for gulp dist automatically
             requestedLibraries.push('gulp-sequence');
@@ -131,9 +159,13 @@ module.exports = class extends Generator {
                     }
 
                 }
-
             }
-
+            if(this._isAzureCi() && this._isJestTesting()) {
+                newPkgConfig["jest-junit"] = {
+                    "output": "temp/test/junit/junit.xml",
+                    "usePathForSuiteName": "true"
+                  };
+            }
             fs.writeFileSync(
                 this.destinationPath('package.json'),
                 JSON.stringify(newPkgConfig, null, 2)
@@ -151,23 +183,14 @@ module.exports = class extends Generator {
     }
 
     _addContinuousConfig() {
-
         // azure deevops configuration
-        let adoFileName = 'azure-pipelines.yml';
-        // Karma configuration
-        let karmaFileDestPath = 'config/karma.config.js';
-        let karmaFileSourcePath = 'karma.config.js';
+        let adoSrcFileName = this._isJestTesting() ? 'azure-pipelines.yml' : 'azure-pipelines-notesting.yml';
+        let adoDestFileName = 'azure-pipelines.yml';
 
         this.fs.copy(
-            this.templatePath(adoFileName),
-            this.destinationPath(adoFileName)
+            this.templatePath(adoSrcFileName),
+            this.destinationPath(adoDestFileName)
         );
-
-        this.fs.copy(
-            this.templatePath(karmaFileSourcePath),
-            this.destinationPath(karmaFileDestPath)
-        );
-
     }
 
     _addStylelintConfig() {
