@@ -92,12 +92,12 @@
     },
     "@pnp/spfx-property-controls": {
         "dependencies": {
-            "@pnp/spfx-property-controls": "1.14.1"
+            "@pnp/spfx-property-controls": "1.15.0"
         }
     },
     "@pnp/spfx-controls-react": {
         "dependencies": {
-            "@pnp/spfx-controls-react": "1.13.1"
+            "@pnp/spfx-controls-react": "1.13.2"
         }
     },
     "webpack-analyzer": {
@@ -109,7 +109,7 @@
         "devDependencies": {
             "stylelint": "^9.10.1",
             "stylelint-config-standard": "^18.3.0",
-            "stylelint-scss": "^3.6.1",
+            "stylelint-scss": "^3.8.0",
             "gulp-stylelint": "^8.0.0"
         }
     },
