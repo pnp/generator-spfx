@@ -13,7 +13,7 @@ if (process.env.npm_package_version === undefined) {
 const solution = './config/package-solution.json',
     teams = './teams/manifest.json';
 
-// require filesystem instanc
+// require filesystem instance
 const fs = require('fs');
 
 // get next automated package version from process variable
