@@ -2,6 +2,7 @@
 
 # 1.8.1 Azure DevOps update
 - Azure DevOps CI integration use now NodeJS 10
+- [CSSComb](https://github.com/csscomb/csscomb.js) integration - To use please install 
 
 **Includes**
 - **pnp/pnpjs** - 1.3.3

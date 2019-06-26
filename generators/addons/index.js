@@ -56,7 +56,7 @@ module.exports = class extends Generator {
         let jestFileDestFullPath = path.resolve(this.destinationPath(jestFileDestPath));
         let jestFileAlreadyExists = fs.existsSync(jestFileDestFullPath);
 
-        if(this._isJestTesting() && this._isAzureCi()) {
+        if (this._isJestTesting() && this._isAzureCi()) {
             if (jestFileAlreadyExists === true) {
                 let currentConfiguration = JSON.parse(fs.readFileSync(this.destinationPath(jestFileDestPath), 'utf8'));
                 let additionalConfiguration = JSON.parse(fs.readFileSync(this.templatePath(jestFileSourcePath), 'utf8'));
@@ -64,7 +64,7 @@ module.exports = class extends Generator {
                 fs.writeFileSync(this.destinationPath(jestFileDestPath), JSON.stringify(additionalConfiguration), {
                     encoding: 'utf8',
                 });
-            } else {// post install didn't happen, best effort
+            } else { // post install didn't happen, best effort
                 this.fs.copy(
                     this.templatePath(jestFileSourcePath),
                     this.destinationPath(jestFileDestPath)
@@ -81,7 +81,7 @@ module.exports = class extends Generator {
         return this.options.testFramework && this.options.testFramework.indexOf('jest') !== -1;
     }
 
-   _addToolScripts() {
+    _addToolScripts() {
 
         this.fs.copy(
             this.templatePath('./tools/pre-version.js'),
@@ -129,6 +129,15 @@ module.exports = class extends Generator {
             // Add gulp-sequence for gulp dist automatically
             requestedLibraries.push('gulp-sequence');
 
+            if (requestedLibraries.indexOf('csscomb') !== -1) {
+
+                this.fs.copy(
+                    this.templatePath('.csscomb.json'),
+                    this.destinationPath('.csscomb.json')
+                );
+
+            }
+
             // merge all options and check if gulpfile is required
             let newPkgConfig = util.mergeAddons(addonConfig, requestedLibraries, config);
 
@@ -160,12 +169,14 @@ module.exports = class extends Generator {
 
                 }
             }
-            if(this._isAzureCi() && this._isJestTesting()) {
+
+            if (this._isAzureCi() && this._isJestTesting()) {
                 newPkgConfig["jest-junit"] = {
                     "output": "temp/test/junit/junit.xml",
                     "usePathForSuiteName": "true"
-                  };
+                };
             }
+
             fs.writeFileSync(
                 this.destinationPath('package.json'),
                 JSON.stringify(newPkgConfig, null, 2)
