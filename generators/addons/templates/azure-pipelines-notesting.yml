@@ -3,18 +3,18 @@ resources:
 trigger:
 - master
 - develop
-queue:
-  name: Hosted VS2017
+pool:
+  vmImage: 'vs2017-win2016'
   demands:
   - npm
   - node.js
 
 steps:
-#install node 8.x
+#install node 10.x
 - task: NodeTool@0
-  displayName: 'Use Node 8.x'
+  displayName: 'Use Node 10.x'
   inputs:
-    versionSpec: 8.x
+    versionSpec: 10.x
     checkLatest: true
 
 #install nodejs modules with npm
