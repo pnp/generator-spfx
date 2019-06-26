@@ -1,5 +1,19 @@
 # Release Notes
 
+# 1.8.1 Azure DevOps update
+- Azure DevOps CI integration use now NodeJS 10
+
+**Includes**
+- **pnp/pnpjs** - 1.3.3
+- **pnp/spfx-property-controls** - 1.15.0
+- **pnp/spfx-controls-react** - 1.15.0
+- **jQuery** - 3.4.1
+- **webpack-bundle-analyzer** - 3.3.2
+- **Handlebars** - 4.1.2
+- **Vue** - 2.6.10
+- **Office 365 CLI** - 1.19.0
+- **StyleLint** - 10.1.0
+
 # 1.8.0 Azure DevOps and Jest, Office UI Fabric support, TypeScript version selector
 - Azure DevOps testing has been improved to support [Jest](https://jestjs.io) testing.
 - TypeScript selection for all SharePoint Online Projects

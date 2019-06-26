@@ -2,7 +2,7 @@
     "jquery@3": {
         "dependencies": {
             "jquery": "^3.4.1",
-            "@types/jquery": "^3.3.29"
+            "@types/jquery": "^3.3.30"
         }
     },
     "ouifr@5": {
@@ -87,7 +87,7 @@
     },
     "@pnp/pnpjs": {
         "dependencies": {
-            "@pnp/pnpjs": "^1.3.2"
+            "@pnp/pnpjs": "^1.3.3"
         }
     },
     "@pnp/spfx-property-controls": {
@@ -107,7 +107,7 @@
     },
     "stylelint": {
         "devDependencies": {
-            "stylelint": "^9.10.1",
+            "stylelint": "^10.1.0",
             "stylelint-config-standard": "^18.3.0",
             "stylelint-scss": "^3.8.0",
             "gulp-stylelint": "^8.0.0"

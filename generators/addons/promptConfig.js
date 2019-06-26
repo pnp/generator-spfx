@@ -59,6 +59,10 @@ const vettingOptions = [{
     {
         name: 'Style Linter',
         value: 'stylelint'
+    },
+    {
+        name: 'CSS Comb',
+        value: 'csscomb'
     }
 ];
 
