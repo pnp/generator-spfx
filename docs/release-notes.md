@@ -5,6 +5,7 @@
 - [CSSComb](https://github.com/csscomb/csscomb.js) integration
 
 **Includes**
+
 - **pnp/pnpjs** - 1.3.3
 - **pnp/spfx-property-controls** - 1.15.0
 - **pnp/spfx-controls-react** - 1.15.0
