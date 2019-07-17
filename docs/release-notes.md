@@ -29,6 +29,7 @@
 - Dropped support for jQUery version 2
 
 **Includes**
+
 - **jQuery** - 3.4.1
 - **pnp/pnpjs** - 1.3.2
 - **webpack-bundle-analyzer** - 3.3.2
