@@ -1,9 +1,9 @@
 import { Version } from '@microsoft/sp-core-library';
-import { BaseClientSideWebPart } from '@microsoft/sp-webpart-base';
 import {
-  IPropertyPaneConfiguration,
-  PropertyPaneTextField
-} from '@microsoft/sp-property-pane';
+    BaseClientSideWebPart,
+    IPropertyPaneConfiguration,
+    PropertyPaneTextField
+  } from '@microsoft/sp-webpart-base';
 import { escape } from '@microsoft/sp-lodash-subset';
 
 import styles from './<%= componentClassName %>.module.scss';
