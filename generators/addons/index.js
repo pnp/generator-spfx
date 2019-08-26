@@ -184,7 +184,6 @@ module.exports = class extends Generator {
 
             this._updateTSConfig(requestedLibraries, addonConfig);
 
-
         }
 
     }
@@ -214,6 +213,7 @@ module.exports = class extends Generator {
     }
 
     _updateTSConfig(requestedLibraries, addonConfig) {
+
         // add tsconfig rules
         let tsConfig = fs.readFileSync(this.destinationPath('tsconfig.json'), 'UTF-8'),
             tsConfigJson = JSON.parse(tsConfig);

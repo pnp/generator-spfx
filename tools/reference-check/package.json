@@ -9,26 +9,26 @@
     "license": "MIT",
     "dependencies": {
 
-        "@pnp/spfx-property-controls": "1.14.1",
+        "@pnp/spfx-property-controls": "1.16.0",
         "jquery": "^3.4.1",
-        "@types/jquery": "^3.3.29",
-        "@pnp/pnpjs": "^1.3.2",
-        "@pnp/spfx-controls-react": "1.13.0",
+        "@types/jquery": "^3.3.31",
+        "@pnp/pnpjs": "^1.3.5",
+        "@pnp/spfx-controls-react": "1.14.0",
 
 
         "vue": "^2.6.10",
-        "vue-class-component": "^6.3.2",
-        "vue-property-decorator": "^7.2.0",
-        "sass-loader": "^7.1.0",
+        "vue-class-component": "^7.1.0",
+        "vue-property-decorator": "^8.2.2",
+        "sass-loader": "^7.3.1",
 
         "handlebars": "^4.1.2"
     },
     "devDependencies": {
 
-        "sass-loader": "^7.1.0",
-        "ts-loader": "^5.3.1",
-        "fork-ts-checker-webpack-plugin": "^0.5.2",
-        "vue-loader": "^15.7.0",
+        "sass-loader": "^7.3.1",
+        "ts-loader": "^6.0.4",
+        "fork-ts-checker-webpack-plugin": "^1.5.0",
+        "vue-loader": "^15.7.1",
         "vue-template-compiler": "^2.6.10",
 
         "handlebars-template-loader": "^1.0.0",
