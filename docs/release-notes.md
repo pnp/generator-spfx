@@ -5,6 +5,7 @@
 - [CSSComb](https://github.com/csscomb/csscomb.js) integration
 
 **Includes**
+
 - **pnp/pnpjs** - 1.3.3
 - **pnp/spfx-property-controls** - 1.15.0
 - **pnp/spfx-controls-react** - 1.15.0
@@ -28,6 +29,7 @@
 - Dropped support for jQUery version 2
 
 **Includes**
+
 - **jQuery** - 3.4.1
 - **pnp/pnpjs** - 1.3.2
 - **webpack-bundle-analyzer** - 3.3.2
