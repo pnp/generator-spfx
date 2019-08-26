@@ -17,6 +17,7 @@
         "stylelint-scss": "^3.8.0",
         "gulp-stylelint": "^9.0.0",
         "gulp-sequence": "1.0.0",
+        "spfx-uifabric-themes": "^0.7.1",
         "@microsoft/rush-stack-compiler-3.0": "^0.6.x",
         "@microsoft/rush-stack-compiler-3.1": "^0.6.x",
         "@microsoft/rush-stack-compiler-3.2": "^0.3.x",

@@ -82,6 +82,10 @@ const spoLibs = [{
     }, {
         name: 'PnP Property Controls',
         value: '@pnp/spfx-property-controls'
+    },
+    {
+        name: "spfx-uifabric-themes - enhanced theming support",
+        value: "spfx-uifabric-themes"
     }
     // Add a new configuration object in here
 ]

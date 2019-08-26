@@ -33,6 +33,11 @@
             "@types/react": "^16.7.22"
         }
     },
+    "spfx-uifabric-themes":{
+        "devDependencies": {
+            "spfx-uifabric-themes": "^0.7.1"
+        }
+    },
     "rush@2.9": {
         "dependencies": {},
         "devDependencies": {}
