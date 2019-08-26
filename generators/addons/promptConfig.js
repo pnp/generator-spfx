@@ -89,7 +89,7 @@ const spoLibs = [{
 // On premises supported libraries
 const onpremLibs = [{
         name: 'jQuery',
-        value: 'jquery'
+        value: 'jquery@3'
     }, {
         name: 'pnpjs',
         value: '@pnp/pnpjs'
