@@ -65,24 +65,6 @@ module.exports = class extends Generator {
 
     _deployFiles() {
 
-        if(this.options !== undefined &&
-            this.options.SpfxOptions !== undefined &&
-            this.options.SpfxOptions.environment !== undefined &&
-            this.options.SpfxOptions.environment === "spo"){
-
-                // First remove the old tsconfig file
-                if(fs.existsSync(this.destinationPath('tsconfig.json'))){
-                    fs.unlinkSync(this.destinationPath('tsconfig.json'));
-                }
-
-                // add new tsconfig file  for VueJS spo projects
-                this.fs.copy(
-                    this.templatePath('tsconfig.json'),
-                    this.destinationPath('tsconfig.json')
-                )
-
-            }
-
         this.fs.copy(
             this.templatePath('config/copy-static-assets.json'),
             this.destinationPath('config/copy-static-assets.json')
@@ -277,7 +259,6 @@ module.exports = class extends Generator {
 
             let coreGulpTemplate = this.templatePath('../../../app/templates/gulpfile.js');
             let customGulpTemplate = this.templatePath('./gulpfile.js');
-
 
             try {
 

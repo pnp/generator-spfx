@@ -39,6 +39,14 @@ const rushCompilerOption = [{
     {
         'name': 'TypeScript v3.3',
         'value': 'rush@3.3'
+    },
+    {
+        'name': 'TypeScript v3.4',
+        'value': 'rush@3.4'
+    },
+    {
+        'name': 'TypeScript v3.5',
+        'value': 'rush@3.5'
     }
 ]
 
@@ -82,6 +90,10 @@ const spoLibs = [{
     }, {
         name: 'PnP Property Controls',
         value: '@pnp/spfx-property-controls'
+    },
+    {
+        name: "spfx-uifabric-themes - enhanced theming support",
+        value: "spfx-uifabric-themes"
     }
     // Add a new configuration object in here
 ]
@@ -89,7 +101,7 @@ const spoLibs = [{
 // On premises supported libraries
 const onpremLibs = [{
         name: 'jQuery',
-        value: 'jquery'
+        value: 'jquery@3'
     }, {
         name: 'pnpjs',
         value: '@pnp/pnpjs'

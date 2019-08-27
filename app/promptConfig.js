@@ -2,6 +2,30 @@ const inquirer = require('inquirer');
 const chalk = require('chalk');
 const utils = require('../lib/util');
 
+// check if @angular/cli is installed - otherwise disable this option
+const checkAngular = () => {
+    try {
+
+        const ngVersion = require('@angular/cli/package.json');
+
+        if (ngVersion.version.startsWith('7')) {
+            return false;
+        };
+
+        if (ngVersion.version.startsWith('6')) {
+            return false;
+        };
+
+        return true;
+
+    } catch {
+
+        // Angular is disabled because no Valid client could be found
+        return true;
+
+    }
+}
+
 const fgYellow = chalk.whiteBright.bold;
 
 const supportedSPFxTargets = [{
@@ -40,8 +64,9 @@ const spoFrameworks = [
         value: 'vuejs'
     },
     {
-        name: fgYellow('- Angular Elements'),
-        value: 'angularelements'
+        name: '- Angular Elements',
+        value: 'angularelements',
+        disabled: checkAngular
     },
     new inquirer.Separator(
         fgYellow('Enhanced SPFx')
