@@ -3,9 +3,24 @@
 const path = require('path');
 const process = require('process');
 
+let defaultOpts = '--style=scss --routing=false --skip-git';
+
+try {
+
+    const ngVersion = require('@angular/cli/package.json');
+
+    if (ngVersion.version.startsWith('7')) {
+        defaultOpts = defaultOpts + ' --enable-ivy'
+    };
+
+} catch {
+
+    console.log('No Angular');
+
+}
+
 // check if user want to have exntend linking capability
-const configOptions = [
-    {
+const configOptions = [{
         type: 'input',
         message: 'What is your solution name?',
         name: 'solutionName',
@@ -15,10 +30,10 @@ const configOptions = [
     },
     {
         type: 'input',
-        message: 'Angular CLI options',
+        message: 'Angular CLI options:',
         name: 'angularCliOptions',
         when: (answers) => answers.framework === 'angularelements',
-        default: '--style=scss --routing=false --skip-git'
+        default: defaultOpts
     }
 ]
 
