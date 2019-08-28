@@ -8,6 +8,7 @@
 - Support for library component
 
 **Includes**
+
 - **Office UI Fabric** - 5.x, 6.x, 6.x Fluent
 - **pnp/pnpjs** - 1.3.5
 - **pnp/spfx-property-controls** - 1.16.0
