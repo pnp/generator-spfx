@@ -13,7 +13,7 @@ try {
         defaultOpts = defaultOpts + ' --enable-ivy'
     };
 
-} catch {}
+} catch (error) {}
 
 // check if user want to have exntend linking capability
 const configOptions = [{

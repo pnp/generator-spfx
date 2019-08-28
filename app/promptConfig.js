@@ -2,8 +2,11 @@ const inquirer = require('inquirer');
 const chalk = require('chalk');
 const utils = require('../lib/util');
 
+const fgYellow = chalk.whiteBright.bold;
+
 // check if @angular/cli is installed - otherwise disable this option
 const checkAngular = () => {
+
     try {
 
         const ngVersion = require('@angular/cli/package.json');
@@ -18,15 +21,14 @@ const checkAngular = () => {
 
         return true;
 
-    } catch {
+    } catch (error) {
 
         // Angular is disabled because no Valid client could be found
         return true;
 
     }
-}
 
-const fgYellow = chalk.whiteBright.bold;
+}
 
 const supportedSPFxTargets = [{
         name: 'SharePoint Online only (latest)',
