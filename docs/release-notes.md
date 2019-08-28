@@ -1,5 +1,24 @@
 # Release Notes
 
+# 1.9.0 Update to SPFx 1.9.1
+- Upgrade to SPFx 1.9.1
+- Angular v6, v7 support added
+- SPFx-uifabric-themes add-on added
+- TypeScript support for 2.9, 3.0, 3.1, 3.2, 3.3, 3.4, 3.5
+- Support for library component
+
+**Includes**
+- **Office UI Fabric** - 5.x, 6.x, 6.x Fluent
+- **pnp/pnpjs** - 1.3.5
+- **pnp/spfx-property-controls** - 1.16.0
+- **pnp/spfx-controls-react** - 1.14.0
+- **jQuery** - 3.4.1
+- **webpack-bundle-analyzer** - 3.4.1
+- **Handlebars** - 4.1.2
+- **Vue** - 2.6.10
+- **Office 365 CLI** - 1.23.0
+- **StyleLint** - 10.1.0
+
 # 1.8.1 Azure DevOps update
 - Azure DevOps CI integration use now NodeJS 10
 - [CSSComb](https://github.com/csscomb/csscomb.js) integration
@@ -8,7 +27,7 @@
 
 - **pnp/pnpjs** - 1.3.3
 - **pnp/spfx-property-controls** - 1.15.0
-- **pnp/spfx-controls-react** - 1.15.0
+- **pnp/spfx-controls-react** - 1.14.0
 - **jQuery** - 3.4.1
 - **webpack-bundle-analyzer** - 3.3.2
 - **Handlebars** - 4.1.2

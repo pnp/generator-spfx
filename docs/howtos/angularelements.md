@@ -5,6 +5,12 @@ Before you can create new Angular Elements project you need to have @pnp/generat
 
 `npm install -g @pnp/generator-spfx @angular/cli`
 
+!!! note
+    Since version 1.9.0 it supports Angular version 6 and Angular version 7 (Ivy render engine is the default option)
+
+!!! note
+    If the Angular CLI is not installed Angular option is disabled.
+
 ## Getting started
 
 To create new Angular Elements project:
