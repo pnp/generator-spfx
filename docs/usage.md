@@ -1,4 +1,4 @@
-# Standard gulp task
+# Standard gulp tasks
 
 * build - Builds the client-side solution project.
 * bundle - Bundles the client-side solution project entry point and all its dependencies into a single JavaScript file.
@@ -10,28 +10,46 @@
 
 ## Additional gulp tasks
 
-* dist - combines clean, bundle and package-solution to package solution for production
-* dev - combines clean, bundle and package-solution to package solution for development
+* dist - Combines clean, bundle and package-solution (above) to package the solution for production
+* dev - Combines clean, bundle and package-solution (above) to package the solution for development
 
 ## npm version
 
-'[npm version](https://docs.npmjs.com/cli/version.html)' is a command that increase the version number in the package.json file. When npm version wass used this also updated the version in the following files:
+'[npm version](https://docs.npmjs.com/cli/version.html)' is a command that increases the version number in the package.json file. 
 
-'config/package-solution.json' gets set to the same version number followed by an additional '0'.
+With this generator out of the box, using `npm version` will change the version in the following files:
 
-'teams/manifest.json' (if applicable) the version will be updated there too.
+* `package.json`
+* `config/package-solution.json`
+* `teams/manifest.json` (if applicable)
 
-!!! note
-    * package.json: 1.2.3
-    * `config/package-solution.json` : 1.2.3.0
-    * `teams/mainfest.json`: 1.2.3
+To use `npm version`, you must have committed your changes - your working directory must be clean. If it isn't, you'll see an error like:
 
-Besides the current commit will [tagged](https://git-scm.com/book/en/v2/Git-Basics-Tagging) on the git repository.
+```
+npm ERR! Git working directory not clean.
+npm ERR! M config/package-solution.json
+...
+```
 
-![Target framework seletion](./assets/git-version-tags.png)
+Once you have committed all of your changes, you can run one of the following:
 
-!!! info 
-    Addtional information:
+* `npm version major` Set a major version and upgrade the ‘package.json’ to v1.0.0, v2.0.0, …
+* `npm version minor` Set a minor version and upgrade the ‘package.json’ to v1.1.0, v1.2.0, v1.3.0, …
+* `npm version patch` Set a minor version and upgrade the ‘package.json’ to v1.1.1, v1.1.2, v1.1.3, …
+
+**Note**
+
+It is up to you to ensure that the versions all match before you run these commands. Otherwise, your version numbers may be inconsistent.
+
+If you'd like to customize what happens when you run `npm version`, you can add your customizations to the `pre-version.js` file in the `tools` directory.
+
+The current commit will also be [tagged](https://git-scm.com/book/en/v2/Git-Basics-Tagging) on the git repository.
+
+![Git version tags](./assets/git-version-tags.png)
+
+**Info**
+
+Additional information:
 
     * [npm-version](https://docs.npmjs.com/cli/version.html) - npm documentation
     * [git-tag](https://git-scm.com/book/en/v2/Git-Basics-Tagging) - git documentation
