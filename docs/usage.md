@@ -51,6 +51,6 @@ The current commit will also be [tagged](https://git-scm.com/book/en/v2/Git-Basi
 
 Additional information:
 
-    * [npm-version](https://docs.npmjs.com/cli/version.html) - npm documentation
-    * [git-tag](https://git-scm.com/book/en/v2/Git-Basics-Tagging) - git documentation
-    * [Use `npm version` to upgrade the version of your SPFx solution](https://n8d.at/blog/use-npm-version-to-upgrade-version-of-your-spfx-solution/)
+* [npm-version](https://docs.npmjs.com/cli/version.html) - npm documentation
+* [git-tag](https://git-scm.com/book/en/v2/Git-Basics-Tagging) - git documentation
+* [Use `npm version` to upgrade the version of your SPFx solution](https://n8d.at/blog/use-npm-version-to-upgrade-version-of-your-spfx-solution/)
