@@ -11,6 +11,10 @@ const checkAngular = () => {
 
         const ngVersion = require('@angular/cli/package.json');
 
+        if (ngVersion.version.startsWith('8')) {
+            return false;
+        }
+
         if (ngVersion.version.startsWith('7')) {
             return false;
         };
@@ -31,17 +35,17 @@ const checkAngular = () => {
 }
 
 const supportedSPFxTargets = [{
-        name: 'SharePoint Online only (latest)',
-        value: 'spo'
-    },
-    {
-        name: 'SharePoint 2019 onwards, including SharePoint Online',
-        value: 'onprem19'
-    },
-    {
-        name: 'SharePoint 2016 onwards, including 2019 and SharePoint Online',
-        value: 'onprem'
-    }
+    name: 'SharePoint Online only (latest)',
+    value: 'spo'
+},
+{
+    name: 'SharePoint 2019 onwards, including SharePoint Online',
+    value: 'onprem19'
+},
+{
+    name: 'SharePoint 2016 onwards, including 2019 and SharePoint Online',
+    value: 'onprem'
+}
 ];
 
 // if environment optiosn have been specified
