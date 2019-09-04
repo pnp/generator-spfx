@@ -28,6 +28,32 @@ const checkAngular = () => {
 
 const fgYellow = chalk.whiteBright.bold;
 
+// check if @angular/cli is installed - otherwise disable this option
+const checkAngular = () => {
+
+    try {
+
+        const ngVersion = require('@angular/cli/package.json');
+
+        if (ngVersion.version.startsWith('7')) {
+            return false;
+        };
+
+        if (ngVersion.version.startsWith('6')) {
+            return false;
+        };
+
+        return true;
+
+    } catch (error) {
+
+        // Angular is disabled because no Valid client could be found
+        return true;
+
+    }
+
+}
+
 const supportedSPFxTargets = [{
         name: 'SharePoint Online only (latest)',
         value: 'spo'

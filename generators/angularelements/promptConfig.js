@@ -13,11 +13,7 @@ try {
         defaultOpts = defaultOpts + ' --enable-ivy'
     };
 
-} catch {
-
-    console.log('No Angular');
-
-}
+} catch (error) {}
 
 // check if user want to have exntend linking capability
 const configOptions = [{
