@@ -3,18 +3,23 @@ const chalk = require('chalk');
 const utils = require('../lib/util');
 const fgYellow = chalk.whiteBright.bold;
 
+let angularVersion = "";
+
+
 // check if @angular/cli is installed - otherwise disable this option
-const checkAngular = () => {
+const checkAngular = (() => {
 
     try {
 
         const ngVersion = require('@angular/cli/package.json');
 
-        if (ngVersion.version.startsWith('7')) {
-            return false;
-        };
+        // support for Angular 6/7/8
+        if (ngVersion.version.startsWith('6') ||
+            ngVersion.version.startsWith('7') ||
+            ngVersion.version.startsWith('8')) {
 
-        if (ngVersion.version.startsWith('6')) {
+            angularVersion = ` (uses @angular/cli ${ ngVersion.version})`;
+
             return false;
         };
 
@@ -27,7 +32,7 @@ const checkAngular = () => {
 
     }
 
-}
+})();
 
 const supportedSPFxTargets = [{
         name: 'SharePoint Online only (latest)',
@@ -65,7 +70,7 @@ const spoFrameworks = [
         value: 'vuejs'
     },
     {
-        name: '- Angular Elements',
+        name: '- Angular Elements' + angularVersion,
         value: 'angularelements',
         disabled: checkAngular
     },

@@ -9,6 +9,11 @@ const fs = require('fs');
 // importing utilities
 const util = require('../../lib/util.js');
 
+const readmeInfo = {
+    libraryName: '', // Placeholder for project name
+    techStack: 'This project uses [Knockout](https://knockoutjs.com).'
+};
+
 module.exports = class extends Generator {
 
     constructor(args, opts) {
@@ -38,6 +43,10 @@ module.exports = class extends Generator {
 
         // inject custom tasks to gulpfile
         this._injectToGulpFile();
+
+        // Updated Readme info
+        util.updateReadmeFile(this, readmeInfo);
+
 
         util.runInstall(this);
 

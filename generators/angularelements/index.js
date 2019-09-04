@@ -13,6 +13,11 @@ const paramCase = require('param-case');
 // importing utilities
 const util = require('../../lib/util.js');
 
+const readmeInfo = {
+    libraryName: '', // Placeholder for project name
+    techStack: 'This project uses [Angular Elements](https://angular.io/guide/elements).'
+};
+
 module.exports = class extends Generator {
 
     constructor(args, opts) {
@@ -70,6 +75,29 @@ module.exports = class extends Generator {
         this.spawnCommandSync('ng', generateComponentOptions, {
             cwd: angularSolutionPath
         });
+
+        // MOve Angular 8 back to ES5
+        const ngVersion = require('@angular/cli/package.json');
+
+        if (ngVersion.version !== undefined &&
+            ngVersion.version.startsWith("8")) {
+
+            const tsconfig = JSON.parse(
+                fs.readFileSync(
+                    path.join(angularSolutionPath, 'tsconfig.json'), 'utf-8')
+            );
+
+            // Set compiler options to ES5
+            tsconfig.compilerOptions.target = "es5";
+
+            // Save changed tsconfig
+            fs.writeFileSync(
+                path.join(angularSolutionPath, 'tsconfig.json'),
+                JSON.stringify(tsconfig, null, 2)
+            )
+
+        }
+
 
         const pkg = JSON.parse(
             fs.readFileSync(
@@ -156,6 +184,9 @@ module.exports = class extends Generator {
             })
 
         }
+
+        // Updated Readme info
+        util.updateReadmeFile(this, readmeInfo);
 
         // run SPFx install
         util.runInstall(this);

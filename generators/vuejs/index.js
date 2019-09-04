@@ -7,6 +7,11 @@ const path = require('path');
 // import nodejs fs
 const util = require('../../lib/util');
 
+const readmeInfo = {
+    libraryName: '', // Placeholder for project name
+    techStack: 'This project uses [VueJS](https://vuejs.org).'
+};
+
 module.exports = class extends Generator {
 
     constructor(args, opts) {
@@ -52,6 +57,8 @@ module.exports = class extends Generator {
         this._removeWebPartScss();
         // Update/add templates
         util.deployTemplates(this);
+        // Updated Readme info
+        util.updateReadmeFile(this, readmeInfo);
         // finally run install
         util.runInstall(this);
 

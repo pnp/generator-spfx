@@ -9,6 +9,12 @@ const fs = require('fs');
 // importing utilities
 const util = require('../../lib/util.js');
 
+// Information injected in the readme file
+const readmeInfo = {
+    libraryName: '', // Placeholder for project name
+    techStack: 'This project uses [React](https://reactjs.org).'
+};
+
 module.exports = class extends Generator {
 
     constructor(args, opts) {
@@ -35,13 +41,23 @@ module.exports = class extends Generator {
 
     install() {
 
-        let reactVersion = util.detectReactVersion(this);
+        // include JEST testing if requestd
+        if (this.options.testFramework !== undefined &&
+            this.options.testFramework.indexOf('jest') !== -1) {
 
-        // add all package depenedencies configured in addonConfig.json.
-        this._addPackageDependencies(reactVersion);
-        // // inject custom tasks to gulpfile
+            let reactVersion = util.detectReactVersion(this);
+
+            // add all package depenedencies configured in addonConfig.json.
+            this._addPackageDependencies(reactVersion);
+        }
+
+        // inject custom tasks to gulpfile
         this._injectToGulpFile();
 
+        // Updated Readme info
+        util.updateReadmeFile(this, readmeInfo);
+
+        // run installation
         util.runInstall(this);
 
     }
