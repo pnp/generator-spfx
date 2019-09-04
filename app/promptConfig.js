@@ -10,11 +10,10 @@ const checkAngular = () => {
 
         const ngVersion = require('@angular/cli/package.json');
 
-        if (ngVersion.version.startsWith('7')) {
-            return false;
-        };
-
-        if (ngVersion.version.startsWith('6')) {
+        // support for Angular 6/7/8
+        if (ngVersion.version.startsWith('6') ||
+            ngVersion.version.startsWith('7') ||
+            ngVersion.version.startsWith('8')) {
             return false;
         };
 

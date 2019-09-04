@@ -71,6 +71,29 @@ module.exports = class extends Generator {
             cwd: angularSolutionPath
         });
 
+        // MOve Angular 8 back to ES5
+        const ngVersion = require('@angular/cli/package.json');
+
+        if (ngVersion.version !== undefined &&
+            ngVersion.version.startsWith("8")) {
+
+            const tsconfig = JSON.parse(
+                fs.readFileSync(
+                    path.join(angularSolutionPath, 'tsconfig.json'), 'utf-8')
+            );
+
+            // Set compiler options to ES5
+            tsconfig.compilerOptions.target = "es5";
+
+            // Save changed tsconfig
+            fs.writeFileSync(
+                path.join(angularSolutionPath, 'tsconfig.json'),
+                JSON.stringify(tsconfig, null, 2)
+            )
+
+        }
+
+
         const pkg = JSON.parse(
             fs.readFileSync(
                 path.join(angularSolutionPath, 'package.json'), 'utf-8')
