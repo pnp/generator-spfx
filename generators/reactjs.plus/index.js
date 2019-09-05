@@ -41,11 +41,17 @@ module.exports = class extends Generator {
 
     install() {
 
-        let reactVersion = util.detectReactVersion(this);
+        // include JEST testing if requestd
+        if (this.options.testFramework !== undefined &&
+            this.options.testFramework.indexOf('jest') !== -1) {
 
-        // add all package depenedencies configured in addonConfig.json.
-        this._addPackageDependencies(reactVersion);
-        // // inject custom tasks to gulpfile
+            let reactVersion = util.detectReactVersion(this);
+
+            // add all package depenedencies configured in addonConfig.json.
+            this._addPackageDependencies(reactVersion);
+        }
+
+        // inject custom tasks to gulpfile
         this._injectToGulpFile();
 
         // Updated Readme info
