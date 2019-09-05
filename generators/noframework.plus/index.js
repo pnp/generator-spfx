@@ -9,6 +9,11 @@ const fs = require('fs');
 // importing utilities
 const util = require('../../lib/util.js');
 
+const readmeInfo = {
+    libraryName: '', // Placeholder for project name
+    techStack: ''
+};
+
 module.exports = class extends Generator {
 
     constructor(args, opts) {
@@ -38,7 +43,13 @@ module.exports = class extends Generator {
 
         // inject custom tasks to gulpfile
         this._injectToGulpFile();
+        // add additonal package dependencides
         this._addPackageDependencies();
+
+        // Updated Readme info
+        util.updateReadmeFile(this, readmeInfo);
+
+        // run installation
         util.runInstall(this);
 
     }

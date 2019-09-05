@@ -13,6 +13,11 @@ const paramCase = require('param-case');
 // importing utilities
 const util = require('../../lib/util.js');
 
+const readmeInfo = {
+    libraryName: '', // Placeholder for project name
+    techStack: 'This project uses [Angular Elements](https://angular.io/guide/elements).'
+};
+
 module.exports = class extends Generator {
 
     constructor(args, opts) {
@@ -179,6 +184,9 @@ module.exports = class extends Generator {
             })
 
         }
+
+        // Updated Readme info
+        util.updateReadmeFile(this, readmeInfo);
 
         // run SPFx install
         util.runInstall(this);

@@ -9,6 +9,11 @@ const fs = require('fs');
 // importing utilities
 const util = require('../../lib/util.js');
 
+const readmeInfo = {
+    libraryName: '', // Placeholder for project name
+    techStack: 'This project uses [Handlebars](https://handlebarsjs.com).'
+};
+
 module.exports = class extends Generator {
 
     constructor(args, opts) {
@@ -52,8 +57,7 @@ module.exports = class extends Generator {
 
     // Run installer normally time to say goodbye
     // If yarn is installed yarn will be used
-    end() {
-    }
+    end() {}
 
     _deployFiles() {
 
@@ -61,6 +65,9 @@ module.exports = class extends Generator {
             this.templatePath('config/copy-static-assets.json'),
             this.destinationPath('config/copy-static-assets.json')
         )
+
+        // Updated Readme info
+        util.updateReadmeFile(this, readmeInfo);
 
     }
 
