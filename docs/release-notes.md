@@ -1,5 +1,11 @@
 # Release Notes
 
+# 1.9.1 Support for Angular 8 added
+- Angular Elements option supports now Angular 6/7 and 8
+- [#199 fixed](https://github.com/pnp/generator-spfx/issues/199) --skip-install not honored when pnpm gets used.
+- TypeScript support for 2.9, 3.0, 3.1, 3.2, 3.3, 3.4, 3.5
+- Suppor for library components is broken in @microsoft/generator-sharePoint. [#195](https://github.com/pnp/generator-spfx/issues/195), [sp-dev-docs#4554](https://github.com/SharePoint/sp-dev-docs/issues/4554)
+
 # 1.9.0 Update to SPFx 1.9.1
 - Upgrade to SPFx 1.9.1
 - Angular v6, v7 support added
