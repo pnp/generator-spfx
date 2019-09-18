@@ -12,6 +12,10 @@ Not all those options generate the same version of SPFx projects and the availab
 
 Depending on the selections mad different options can be supported by the SharePoint Framework.
 
+## Angular Elements
+
+Angular Elements is currently supported using Angular 6, Angular 7, Angular 8.
+
 ## SharePoint Online
 
 This options create a project based on the latest SPFx version 1.7.1
@@ -34,7 +38,7 @@ This options create a project based on the latest SPFx version 1.7.1
 |ReactJS|✅|✅|
 |KnockoutJS|✅|✅|
 |No Framework|✅|✅|
-|VueJS|✅| 
+|VueJS|✅| |
 |HandlebarsJS|✅|✅|
 |Angular Elements|✅|✅|
 
