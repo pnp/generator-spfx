@@ -1,4 +1,4 @@
-# Upgrade Handlebars < pnp/spfx 1.9.1
+# Upgrade Handlebar Projects > pnp/spfx 1.9.1
 
 The pnp/spfx generator comes in version 1.20.0 with a new webpack HandlebarsJS loader. The following steps are required to upgrade older projects before 1.10.0.
 

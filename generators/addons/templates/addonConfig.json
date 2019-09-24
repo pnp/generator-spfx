@@ -44,7 +44,7 @@
     },
     "rush@3.0": {
         "devDependencies": {
-            "@microsoft/rush-stack-compiler-3.0": "~0.6.x",
+            "@microsoft/rush-stack-compiler-3.0": "~0.7.x",
             "typescript": "~3.0.x"
         },
         "tsconfig": {
@@ -56,7 +56,7 @@
     },
     "rush@3.1": {
         "devDependencies": {
-            "@microsoft/rush-stack-compiler-3.1": "~0.6.x",
+            "@microsoft/rush-stack-compiler-3.1": "~0.7.x",
             "typescript": "~3.1.x"
         },
         "tsconfig": {
@@ -68,7 +68,7 @@
     },
     "rush@3.2": {
         "devDependencies": {
-            "@microsoft/rush-stack-compiler-3.2": "~0.3.x",
+            "@microsoft/rush-stack-compiler-3.2": "~0.4.x",
             "typescript": "~3.2.x"
         },
         "tsconfig": {
@@ -80,7 +80,7 @@
     },
     "rush@3.3": {
         "devDependencies": {
-            "@microsoft/rush-stack-compiler-3.3": "~0.2.x",
+            "@microsoft/rush-stack-compiler-3.3": "~0.3.x",
             "typescript": "~3.3.x"
         },
         "tsconfig": {
@@ -92,7 +92,7 @@
     },
     "rush@3.4": {
         "devDependencies": {
-            "@microsoft/rush-stack-compiler-3.4": "~0.1.x",
+            "@microsoft/rush-stack-compiler-3.4": "~0.2.x",
             "typescript": "~3.4.x"
         },
         "tsconfig": {
@@ -104,7 +104,7 @@
     },
     "rush@3.5": {
         "devDependencies": {
-            "@microsoft/rush-stack-compiler-3.5": "~0.1.x",
+            "@microsoft/rush-stack-compiler-3.5": "~0.2.x",
             "typescript": "~3.5.x"
         },
         "tsconfig": {
@@ -131,15 +131,15 @@
     },
     "webpack-analyzer": {
         "devDependencies": {
-            "webpack-bundle-analyzer": "^3.4.1"
+            "webpack-bundle-analyzer": "^3.5.1"
         }
     },
     "stylelint": {
         "devDependencies": {
-            "stylelint": "^10.1.0",
-            "stylelint-config-standard": "^18.3.0",
-            "stylelint-scss": "^3.10.0",
-            "gulp-stylelint": "^8.0.0"
+            "stylelint": "^11.0.0",
+            "stylelint-config-standard": "^19.0.0",
+            "stylelint-scss": "^3.11.1",
+            "gulp-stylelint": "^9.0.0"
         }
     },
     "continuousIntegrationJest": {

@@ -1,10 +1,32 @@
 # Release Notes
 
+# 1.10.0 Support for Angular 8 added
+- Angular Bundle, link and Scaffolding fix [#206](https://github.com/pnp/generator-spfx/issues/206)
+- Updated VueJS
+- Update Handlebars with improved partials and helper support
+[Upgrade Handlebar Projects](https://pnp.github.io/generator-spfx/howtos/handlebars-upgrade/)
+- TypeScript support for 2.9, 3.0, 3.1, 3.2, 3.3, 3.4, 3.5
+- Suppor for library components is broken in @microsoft/generator-sharePoint. [#195](https://github.com/pnp/generator-spfx/issues/195), [sp-dev-docs#4554](https://github.com/SharePoint/sp-dev-docs/issues/4554)
+
+**Includes**
+
+- **Office UI Fabric** - 5.x, 6.x, 6.x Fluent
+- **pnp/pnpjs** - 1.3.5
+- **pnp/spfx-property-controls** - 1.16.0
+- **pnp/spfx-controls-react** - 1.14.0
+- **jQuery** - 3.4.1
+- **webpack-bundle-analyzer** - 3.5.1
+- **Handlebars** - 4.3.0
+- **Vue** - 2.6.10
+- **Office 365 CLI** - 1.23.0
+- **StyleLint** - 11.0.0
+
+ 
 # 1.9.1 Support for Angular 8 added
 - Angular Elements option supports now Angular 6/7 and 8
 - [#199 fixed](https://github.com/pnp/generator-spfx/issues/199) --skip-install not honored when pnpm gets used.
 - TypeScript support for 2.9, 3.0, 3.1, 3.2, 3.3, 3.4, 3.5
-- Suppor for library components is broken in @microsoft/generator-sharePoint. [#195](https://github.com/pnp/generator-spfx/issues/195), [sp-dev-docs#4554](https://github.com/SharePoint/sp-dev-docs/issues/4554)
+- Suppor tfor library components is broken in @microsoft/generator-sharePoint. [#195](https://github.com/pnp/generator-spfx/issues/195), [sp-dev-docs#4554](https://github.com/SharePoint/sp-dev-docs/issues/4554)
 
 # 1.9.0 Update to SPFx 1.9.1
 - Upgrade to SPFx 1.9.1
