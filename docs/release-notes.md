@@ -1,6 +1,6 @@
 # Release Notes
 
-# 1.10.0 Support for Angular 8 added
+# 1.10.0 HandlebarsJS - Webpack loader update
 - Angular Bundle, link and Scaffolding fix [#206](https://github.com/pnp/generator-spfx/issues/206)
 - Updated VueJS
 - Update Handlebars with improved partials and helper support
