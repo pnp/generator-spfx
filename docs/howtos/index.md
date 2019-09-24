@@ -5,3 +5,8 @@ This section contains all the important information about how to work with the p
 * [Angular Elements](angularelements.md)
 * [Continuous Integration](continuousintegration.md)
 * [Use Docker with SPFx](dockerimg.md)
+
+## Upgrade guide
+
+* [Upgrade Handlebars for greater than pnp/spfx 1.10.0](./handlebars-upgrade.md)
+
