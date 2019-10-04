@@ -17,12 +17,20 @@ steps:
     versionSpec: 10.x
     checkLatest: true
 
+#cache files from previous run
+- task: CacheBeta@0
+  inputs:
+    key: $(Agent.OS) | $(Build.SourcesDirectory)/package-lock.json
+    path: $(Build.SourcesDirectory)/node_modules
+    cacheHitVar: CACHE_RESTORED
+
 #install nodejs modules with npm
 - task: Npm@1
   displayName: 'npm install'
   inputs:
     workingDir: '$(Build.SourcesDirectory)'
     verbose: false
+  condition: ne(variables.CACHE_RESTORED, 'true')
 
 #bundle code with gulp
 - task: Gulp@0
