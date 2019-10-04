@@ -144,7 +144,7 @@
     },
     "continuousIntegrationJest": {
         "devDependencies": {
-            "jest-junit": "^6.3.0"
+            "jest-junit": "^7.0.0"
         }
     },
     "gulp-sequence": {
