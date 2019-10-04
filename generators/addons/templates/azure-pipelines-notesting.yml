@@ -53,7 +53,7 @@ steps:
 - task: CopyFiles@2
   displayName: 'Copy Files to: $(build.artifactstagingdirectory)/drop'
   inputs:
-    Contents: '**\*.sppkg'
+    Contents: '**/*.sppkg'
     TargetFolder: '$(build.artifactstagingdirectory)/drop'
 
 #publish artifacts
