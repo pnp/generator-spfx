@@ -4,7 +4,7 @@ trigger:
 - master
 - develop
 pool:
-  vmImage: 'vs2017-win2016'
+  vmImage: 'ubuntu-latest'
   demands:
   - npm
   - node.js
@@ -24,6 +24,15 @@ steps:
     workingDir: '$(Build.SourcesDirectory)'
     verbose: false
 
+#bundle code with gulp
+- task: Gulp@0
+  displayName: 'gulp bundle'
+  inputs:
+    gulpFile: '$(Build.SourcesDirectory)/gulpfile.js'
+    targets: bundle
+    arguments: '--ship'
+  continueOnError: true
+
 #start unit tests
 - task: Npm@1
   displayName: 'npm test'
@@ -35,26 +44,18 @@ steps:
 
 # Publish Test Results to Azure Pipelines/TFS
 - task: PublishTestResults@2
+  displayName: Publish test results
   inputs:
-    testResultsFiles: 'temp/test/junit/junit.xml'
+    testResultsFiles: '**/junit.xml'
     searchFolder: '$(Build.SourcesDirectory)'
+    testResultsFormat: JUnit
 
 # publish coverage test results
 - task: PublishCodeCoverageResults@1
-  displayName: 'Publish Code Coverage Results $(Build.SourcesDirectory)/temp/test/cobertura-coverage.xml'
+  displayName: 'Publish Code Coverage Results'
   inputs:
     codeCoverageTool: Cobertura
-    summaryFileLocation: '$(Build.SourcesDirectory)/temp/test/cobertura-coverage.xml'
-    reportDirectory: '$(Build.SourcesDirectory)/temp/test/'
-
-#bundle code with gulp
-- task: Gulp@0
-  displayName: 'gulp bundle'
-  inputs:
-    gulpFile: '$(Build.SourcesDirectory)/gulpfile.js'
-    targets: bundle
-    arguments: '--ship'
-  continueOnError: true
+    summaryFileLocation: '$(Build.SourcesDirectory)/**/*coverage.xml'
 
 #package solution with gulp
 - task: Gulp@0
