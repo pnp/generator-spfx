@@ -1,6 +1,24 @@
 # Release Notes
 
+# 1.10.1 Better unit testing reporting and pipeline caching
+
+- better unit test and coverage reporting integration with azure devops
+- updated jest-junit dependency
+- added dependencies caching
+- switched to ubuntu agent for better performance
+
+**Upgraded References**
+
+- sass-loader: 8.0.0
+- handlebars: 4.5.3
+- ts-loader: 6.2.1
+- vue-loader: 15.7.2
+- vie-property-decorator: 8.3.0
+- fork-ts-checker-webpack-plugin: 3.0.1
+
+
 # 1.10.0 HandlebarsJS - Webpack loader update
+
 - Angular Bundle, link and Scaffolding fix [#206](https://github.com/pnp/generator-spfx/issues/206)
 - Updated VueJS
 - Update Handlebars with improved partials and helper support
