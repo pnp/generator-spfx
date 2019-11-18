@@ -4,7 +4,7 @@ trigger:
 - master
 - develop
 pool:
-  vmImage: 'vs2017-win2016'
+  vmImage: 'ubuntu-latest'
   demands:
   - npm
   - node.js
@@ -17,12 +17,29 @@ steps:
     versionSpec: 10.x
     checkLatest: true
 
+#cache files from previous run
+- task: CacheBeta@0
+  inputs:
+    key: $(Agent.OS) | $(Build.SourcesDirectory)/package-lock.json
+    path: $(Build.SourcesDirectory)/node_modules
+    cacheHitVar: CACHE_RESTORED
+
 #install nodejs modules with npm
 - task: Npm@1
   displayName: 'npm install'
   inputs:
     workingDir: '$(Build.SourcesDirectory)'
     verbose: false
+  condition: ne(variables.CACHE_RESTORED, 'true')
+
+#bundle code with gulp
+- task: Gulp@0
+  displayName: 'gulp bundle'
+  inputs:
+    gulpFile: '$(Build.SourcesDirectory)/gulpfile.js'
+    targets: bundle
+    arguments: '--ship'
+  continueOnError: true
 
 #start unit tests
 - task: Npm@1
@@ -35,26 +52,18 @@ steps:
 
 # Publish Test Results to Azure Pipelines/TFS
 - task: PublishTestResults@2
+  displayName: Publish test results
   inputs:
-    testResultsFiles: 'temp/test/junit/junit.xml'
+    testResultsFiles: '**/junit.xml'
     searchFolder: '$(Build.SourcesDirectory)'
+    testResultsFormat: JUnit
 
 # publish coverage test results
 - task: PublishCodeCoverageResults@1
-  displayName: 'Publish Code Coverage Results $(Build.SourcesDirectory)/temp/test/cobertura-coverage.xml'
+  displayName: 'Publish Code Coverage Results'
   inputs:
     codeCoverageTool: Cobertura
-    summaryFileLocation: '$(Build.SourcesDirectory)/temp/test/cobertura-coverage.xml'
-    reportDirectory: '$(Build.SourcesDirectory)/temp/test/'
-
-#bundle code with gulp
-- task: Gulp@0
-  displayName: 'gulp bundle'
-  inputs:
-    gulpFile: '$(Build.SourcesDirectory)/gulpfile.js'
-    targets: bundle
-    arguments: '--ship'
-  continueOnError: true
+    summaryFileLocation: '$(Build.SourcesDirectory)/**/*coverage.xml'
 
 #package solution with gulp
 - task: Gulp@0
@@ -68,7 +77,7 @@ steps:
 - task: CopyFiles@2
   displayName: 'Copy Files to: $(build.artifactstagingdirectory)/drop'
   inputs:
-    Contents: '**\*.sppkg'
+    Contents: '**/*.sppkg'
     TargetFolder: '$(build.artifactstagingdirectory)/drop'
 
 #publish artifacts

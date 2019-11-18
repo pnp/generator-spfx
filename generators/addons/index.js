@@ -231,7 +231,7 @@ module.exports = class extends Generator {
             }
 
         })
-
+        tsConfigJson.compilerOptions.esModuleInterop = true;
         fs.writeFileSync(
             this.destinationPath('tsconfig.json'),
             JSON.stringify(tsConfigJson, null, 2)

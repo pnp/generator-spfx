@@ -25,13 +25,6 @@ You have previously upgraded your project to SPFx 1.8.0, if this is not done alr
     npm i jest-junit jest @voitanos/jest-preset-spfx-react16 -D
     rm ./config/karma.conf.js
     ```
-1. In `package.json` add the following node to the root.
-    ```JSON
-    "jest-junit": {
-     "output": "temp/test/junit/junit.xml",
-     "usePathForSuiteName": "true"
-    }
-    ```
 1. in `package.json` add/update the following scripts.
     ```JSON
     "test": "./node_modules/.bin/jest --config ./config/jest.config.json",
@@ -51,7 +44,11 @@ You have previously upgraded your project to SPFx 1.8.0, if this is not done alr
       ],
       "reporters": [
        "default",
-       "jest-junit"
+       ["jest-junit", {
+        "suiteName": "jest tests",
+        "outputDirectory": "temp/test/junit",
+        "outputName": "junit.xml"
+        }]
       ]
     }
     ```
