@@ -40,8 +40,9 @@ module.exports = class extends Generator {
         }
 
         if (this._isAzureCi()) {
-
             this._addContinuousConfig();
+        } else if (this._isAzureCiPreview()) {
+            this._addContinuousConfigPreview();
         }
 
         this._addToolScripts();
@@ -56,7 +57,7 @@ module.exports = class extends Generator {
         let jestFileDestFullPath = path.resolve(this.destinationPath(jestFileDestPath));
         let jestFileAlreadyExists = fs.existsSync(jestFileDestFullPath);
 
-        if (this._isJestTesting() && this._isAzureCi()) {
+        if (this._isJestTesting() && (this._isAzureCi() || this._isAzureCiPreview())) {
             if (jestFileAlreadyExists === true) {
                 let currentConfiguration = JSON.parse(fs.readFileSync(this.destinationPath(jestFileDestPath), 'utf8'));
                 let additionalConfiguration = JSON.parse(fs.readFileSync(this.templatePath(jestFileSourcePath), 'utf8'));
@@ -75,6 +76,10 @@ module.exports = class extends Generator {
 
     _isAzureCi() {
         return this.options.ci && this.options.ci.indexOf('azure') !== -1;
+    }
+
+    _isAzureCi() {
+        return this.options.ci && this.options.ci.indexOf('azure-preview') !== -1;
     }
 
     _isJestTesting() {
@@ -123,7 +128,7 @@ module.exports = class extends Generator {
                 requestedLibraries.concat(this.options.vetting);
 
             // Append Azure DevOps options if selected
-            requestedLibraries = (this._isJestTesting() && this._isAzureCi()) ?
+            requestedLibraries = (this._isJestTesting() && (this._isAzureCi() || this._isAzureCiPreview())) ?
                 requestedLibraries.concat('continuousIntegrationJest') : requestedLibraries;
 
             // Add gulp-sequence for gulp dist automatically
@@ -170,7 +175,7 @@ module.exports = class extends Generator {
                 }
             }
 
-            if (this._isAzureCi() && this._isJestTesting()) {
+            if ((this._isAzureCi() || this._isAzureCiPreview()) && this._isJestTesting()) {
                 newPkgConfig["jest-junit"] = {
                     "output": "temp/test/junit/junit.xml",
                     "usePathForSuiteName": "true"
@@ -192,8 +197,27 @@ module.exports = class extends Generator {
 
     }
 
+    _addContinuousConfigPreview() {
+        // azure pipelines configuration
+        let adoSrcFileName = this._isJestTesting() ? 'azure-pipelines-build-template.yml' : 'azure-pipelines-build-template-notesting.yml';
+        let adoDestFileName = 'azure-pipelines-build-template.yml';
+        let previewPath = 'preview/';
+        this.fs.copy(
+            this.templatePath(previewPath + adoSrcFileName),
+            this.destinationPath(adoDestFileName)
+        );
+        this.fs.copy(
+            this.templatePath(previewPath + 'azure-pipelines-deploy-template.yml'),
+            this.destinationPath(adoDestFileName)
+        );
+        this.fs.copy(
+            this.templatePath(previewPath + 'azure-pipelines.yml'),
+            this.destinationPath(adoDestFileName)
+        );
+    }
+
     _addContinuousConfig() {
-        // azure deevops configuration
+        // azure devops configuration
         let adoSrcFileName = this._isJestTesting() ? 'azure-pipelines.yml' : 'azure-pipelines-notesting.yml';
         let adoDestFileName = 'azure-pipelines.yml';
 
