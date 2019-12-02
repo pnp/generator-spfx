@@ -78,6 +78,10 @@ const vettingOptions = [{
 const ciOptions = [{
     name: 'Azure DevOps',
     value: 'azure'
+},
+{
+    name: 'Azure DevOps Multi-Stage Pipeline with deployment (preview)',
+    value: 'azure-preview'
 }];
 
 // SharePoint Online supported libraries
