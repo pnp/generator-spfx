@@ -96,8 +96,12 @@ const spoLibs = [{
         value: '@pnp/spfx-property-controls'
     },
     {
-        name: "spfx-uifabric-themes - enhanced theming support",
-        value: "spfx-uifabric-themes"
+        name: 'spfx-uifabric-themes - enhanced theming support',
+        value: 'spfx-uifabric-themes'
+    },
+    {
+        name: 'lodash',
+        value: 'lodash'
     }
     // Add a new configuration object in here
 ]
@@ -132,8 +136,8 @@ const configOptions = [
                 case 'onprem19':
                 case 'spo':
                     defaultLibs = spoLibs;
-                    if (answers.framework === "react" ||
-                        answers.framework === "reactjs.plus"
+                    if (answers.framework === 'react' ||
+                        answers.framework === 'reactjs.plus'
                     ) {
                         defaultLibs = defaultLibs.concat(reactLibs)
                     }
