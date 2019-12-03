@@ -170,7 +170,7 @@ const configOptions = [
         choices: vettingOptions
     },
     {
-        type: 'checkbox',
+        type: 'list',
         message: 'Include pipeline configuration?',
         name: 'continuousIntegration',
         choices: ciOptions
