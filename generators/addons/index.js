@@ -39,10 +39,11 @@ module.exports = class extends Generator {
             this._addStylelintConfig();
         }
 
-        if (this._isAzureCi()) {
-            this._addContinuousConfig();
-        } else if (this._isAzureCiPreview()) {
+
+        if (this._isAzureCiPreview()) {
             this._addContinuousConfigPreview();
+        } else if (this._isAzureCi()) {
+            this._addContinuousConfig();
         }
 
         this._addToolScripts();
@@ -78,7 +79,7 @@ module.exports = class extends Generator {
         return this.options.ci && this.options.ci.indexOf('azure') !== -1;
     }
 
-    _isAzureCi() {
+    _isAzureCiPreview() {
         return this.options.ci && this.options.ci.indexOf('azure-preview') !== -1;
     }
 
@@ -208,11 +209,11 @@ module.exports = class extends Generator {
         );
         this.fs.copy(
             this.templatePath(previewPath + 'azure-pipelines-deploy-template.yml'),
-            this.destinationPath(adoDestFileName)
+            this.destinationPath('azure-pipelines-deploy-template.yml')
         );
         this.fs.copy(
             this.templatePath(previewPath + 'azure-pipelines.yml'),
-            this.destinationPath(adoDestFileName)
+            this.destinationPath('azure-pipelines.yml')
         );
     }
 
