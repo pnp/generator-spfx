@@ -154,5 +154,15 @@
     },
     "csscomb": {
         "devDependencies": {}
+    },
+    "lodash": {
+        "devDependencies": {
+            "lodash": "^4.17.15"
+        },
+        "tsconfig": {
+            "compilerOptions": {
+                "allowSyntheticDefaultImports": true
+            }
+        }
     }
 }

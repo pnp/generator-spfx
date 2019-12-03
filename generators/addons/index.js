@@ -218,20 +218,20 @@ module.exports = class extends Generator {
         let tsConfig = fs.readFileSync(this.destinationPath('tsconfig.json'), 'UTF-8'),
             tsConfigJson = JSON.parse(tsConfig);
 
+        const merge = require('lodash/merge');
+
         requestedLibraries.forEach(item => {
 
             if (addonConfig[item].tsconfig !== undefined) {
 
-                Object.keys(addonConfig[item].tsconfig).forEach((key) => {
-
-                    tsConfigJson[key] = addonConfig[item].tsconfig[key];
-
-                });
+                tsConfigJson = merge(tsConfigJson, addonConfig[item].tsconfig);
 
             }
 
         })
+
         tsConfigJson.compilerOptions.esModuleInterop = true;
+
         fs.writeFileSync(
             this.destinationPath('tsconfig.json'),
             JSON.stringify(tsConfigJson, null, 2)
