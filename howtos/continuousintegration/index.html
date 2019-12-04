@@ -572,8 +572,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#upgrading-from-the-karmajs-infrastructure" class="md-nav__link">
-    Upgrading from the KarmaJS infrastructure
+  <a href="#upgrading-from-the-single-stage-to-the-multi-stage-pipeline-infrastructure" class="md-nav__link">
+    Upgrading from the single stage to the multi-stage pipeline infrastructure
   </a>
   
     <nav class="md-nav">
@@ -588,6 +588,33 @@
         
           <li class="md-nav__item">
   <a href="#steps" class="md-nav__link">
+    Steps
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#upgrading-from-the-karmajs-infrastructure" class="md-nav__link">
+    Upgrading from the KarmaJS infrastructure
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pre-reqs_1" class="md-nav__link">
+    Pre-reqs:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#steps_1" class="md-nav__link">
     Steps
   </a>
   
@@ -626,10 +653,32 @@
 Once your yaml definition file is committed and pushed, you will see a "name of your repository - CI" build definition appear under the same team project.  </p>
 <p>If you want to set up automated deployments of your solution, you can then follow the "Continuous Deployment" section of the <a href="https://docs.microsoft.com/en-us/sharepoint/dev/spfx/toolchain/implement-ci-cd-with-azure-devops#continuous-deployment">official documentation</a>.  </p>
 <p>Simply select the new build definition and update the paths to match the artifact name.</p>
-<h2 id="upgrading-from-the-karmajs-infrastructure">Upgrading from the KarmaJS infrastructure<a class="headerlink" href="#upgrading-from-the-karmajs-infrastructure" title="Permanent link">&para;</a></h2>
+<h2 id="upgrading-from-the-single-stage-to-the-multi-stage-pipeline-infrastructure">Upgrading from the single stage to the multi-stage pipeline infrastructure<a class="headerlink" href="#upgrading-from-the-single-stage-to-the-multi-stage-pipeline-infrastructure" title="Permanent link">&para;</a></h2>
+<p>Multi-stage pipelines are a preview feature on Azure DevOps that allow you to describe other stages in addition to the build stage directly in your YAML pipeline definition.<br />
+A good practice to ease maintenance and reusability of stages is to leverage templates instead of defining the stage right in the main pipeline file.</p>
 <h3 id="pre-reqs">Pre-reqs:<a class="headerlink" href="#pre-reqs" title="Permanent link">&para;</a></h3>
-<p>You have previously upgraded your project to SPFx 1.8.0, if this is not done already, checkout the dedicated <a href="https://pnp.github.io/office365-cli/cmd/spfx/project/project-upgrade/">Office 365 CLI command</a></p>
+<p>Make sure you enable the preview feature called <em>Multi-stage pipelines</em></p>
 <h3 id="steps">Steps<a class="headerlink" href="#steps" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Update the generator.</li>
+<li>Scaffold a new project:<ul>
+<li>Select the multi-stage pipeline option on the CI question</li>
+</ul>
+</li>
+<li>Copy the following files to your existing repository:<ul>
+<li><code>azure-pipelines.yml</code></li>
+<li><code>azure-pipelines-deploy-template.yml</code></li>
+<li><code>azure-pipelines-build-template.yml</code></li>
+</ul>
+</li>
+<li>Create a <em>Variable group</em> named <code>qa_configuration</code> containing the values described in the deploy template for the deployment stage.</li>
+<li>Commit and push the changed files</li>
+<li>Run the pipeline to update the configuration.</li>
+</ol>
+<h2 id="upgrading-from-the-karmajs-infrastructure">Upgrading from the KarmaJS infrastructure<a class="headerlink" href="#upgrading-from-the-karmajs-infrastructure" title="Permanent link">&para;</a></h2>
+<h3 id="pre-reqs_1">Pre-reqs:<a class="headerlink" href="#pre-reqs_1" title="Permanent link">&para;</a></h3>
+<p>You have previously upgraded your project to SPFx 1.8.0, if this is not done already, checkout the dedicated <a href="https://pnp.github.io/office365-cli/cmd/spfx/project/project-upgrade/">Office 365 CLI command</a></p>
+<h3 id="steps_1">Steps<a class="headerlink" href="#steps_1" title="Permanent link">&para;</a></h3>
 <ol>
 <li>Run the following commands in your shell.
     <code>Shell
