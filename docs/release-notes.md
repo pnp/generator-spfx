@@ -1,5 +1,20 @@
 # Release Notes
 
+# 1.10.2 Lodash & Azure DevOps Multi-stage pipeline
+
+- Azure DevOps Multi-stage pipeline - Preview
+- Minor Azure DevOps updates on mono-stage build pipeline
+- Lodash integration for smaller builds
+
+Documentation update on [continous integration](https://pnp.github.io/generator-spfx/howtos/continuousintegration/)
+
+**Upgraded Libraries**
+
+- JEST Presets
+  - @voitanos/jest-preset-spfx - 1.2.2
+  - @voitanos/jest-preset-spfx-react15 - 1.3.2
+  - @voitanos/jest-preset-spfx-react16 - 1.3.2
+
 # 1.10.1 Better unit testing reporting and pipeline caching
 
 - better unit test and coverage reporting integration with azure devops
