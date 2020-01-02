@@ -73,10 +73,12 @@
     ],
     "dependencies": {
         "@microsoft/generator-sharepoint": "1.9.1",
+        "@pnp/generator-spfx": "1.10.3-alpha6",
         "@pnp/office365-cli": "^2.3.0",
         "applicationinsights": "^1.6.0",
         "chalk": "^3.0.0",
         "command-exists": "^1.2.8",
+        "global": "^4.4.0",
         "lodash": "^4.17.15",
         "param-case": "^3.0.1",
         "update-notifier": "^3.0.1",
