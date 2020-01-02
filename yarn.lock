@@ -94,6 +94,23 @@
     update-notifier "^3.0.1"
     yeoman-generator "~4.2.0"
 
+"@pnp/generator-spfx@1.10.3-alpha8":
+  version "1.10.3-alpha8"
+  resolved "https://registry.yarnpkg.com/@pnp/generator-spfx/-/generator-spfx-1.10.3-alpha8.tgz#c93608d26240c81f98923f919a3746106fe5879f"
+  integrity sha512-ALg3Ib0KLkRxYcWOOfF37G0wJBzQo0emoVbvsKshghdABXhhAEDi/SNQZ2WzMc9FmWT1sggTZMtBEQA5GMLyRA==
+  dependencies:
+    "@microsoft/generator-sharepoint" "1.9.1"
+    "@pnp/generator-spfx" "1.10.3-alpha7"
+    "@pnp/office365-cli" "^2.3.0"
+    applicationinsights "^1.6.0"
+    chalk "^3.0.0"
+    command-exists "^1.2.8"
+    global "^4.4.0"
+    lodash "^4.17.15"
+    param-case "^3.0.1"
+    update-notifier "^3.0.1"
+    yeoman-generator "~4.2.0"
+
 "@pnp/office365-cli@^2.3.0":
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/@pnp/office365-cli/-/office365-cli-2.3.0.tgz#62bca85393cd76f0362f0bf78cfe39ca01664d03"

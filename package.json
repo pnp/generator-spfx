@@ -73,7 +73,7 @@
     ],
     "dependencies": {
         "@microsoft/generator-sharepoint": "1.9.1",
-        "@pnp/generator-spfx": "1.10.3-alpha7",
+        "@pnp/generator-spfx": "1.10.3-alpha8",
         "@pnp/office365-cli": "^2.3.0",
         "applicationinsights": "^1.6.0",
         "chalk": "^3.0.0",
