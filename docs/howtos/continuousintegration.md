@@ -26,15 +26,15 @@ Make sure you enable the preview feature called _Multi-stage pipelines_
 ### Steps
 
 1. Update the generator.
-1. Scaffold a new project:
+2. Scaffold a new project:
     - Select the multi-stage pipeline option on the CI question
-1. Copy the following files to your existing repository:
+3. Copy the following files to your existing repository:
     - `azure-pipelines.yml`
     - `azure-pipelines-deploy-template.yml`
     - `azure-pipelines-build-template.yml`
-1. Create a _Variable group_ named `qa_configuration` containing the values described in the deploy template for the deployment stage.
-1. Commit and push the changed files
-1. Run the pipeline to update the configuration.
+4. Create a _Variable group_ named `qa_configuration` containing the values described in the deploy template for the deployment stage.
+5. Commit and push the changed files
+6. Run the pipeline to update the configuration.
 
 ## Upgrading from the KarmaJS infrastructure
 
@@ -51,12 +51,12 @@ You have previously upgraded your project to SPFx 1.8.0, if this is not done alr
     npm i jest-junit jest @voitanos/jest-preset-spfx-react16 -D
     rm ./config/karma.conf.js
     ```
-1. in `package.json` add/update the following scripts.
+2. in `package.json` add/update the following scripts.
     ```JSON
     "test": "./node_modules/.bin/jest --config ./config/jest.config.json",
     "test:watch": "./node_modules/.bin/jest --config ./config/jest.config.json --watchAll"
     ```
-1. Add a `config/jest.config.json` file with the following content.
+3. Add a `config/jest.config.json` file with the following content.
     ```JSON
     {
       "preset": "@voitanos/jest-preset-spfx-react16",
@@ -78,7 +78,7 @@ You have previously upgraded your project to SPFx 1.8.0, if this is not done alr
       ]
     }
     ```
-1. In `gulpfile.js` remove the following lines
+4. In `gulpfile.js` remove the following lines
      ```JS
      var buildConfig = build.getConfig();
      var karmaTaskCandidates = buildConfig.uniqueTasks.filter((t) => t.name === 'karma');
@@ -87,5 +87,5 @@ You have previously upgraded your project to SPFx 1.8.0, if this is not done alr
       karmaTask.taskConfig.configPath = './config/karma.config.js';
      }
      ```
-1. Rename your `.test.ts` files in `.spec.ts` and migrate the code like the [following example](https://github.com/SharePoint/sp-dev-build-extensions/samples/azure-devops-ci-cd-spfx/src/webparts/devOps/tests/DevOpsWebPart.spec.ts). 
-1. Update your `azure-pipelines.yml` to match the [following sample](https://github.com/SharePoint/sp-dev-build-extensions/samples/azure-devops-ci-cd-spfx/azure-pipelines.yml).
+5. Rename your `.test.ts` files in `.spec.ts` and migrate the code like the [following example](https://github.com/SharePoint/sp-dev-build-extensions/samples/azure-devops-ci-cd-spfx/src/webparts/devOps/tests/DevOpsWebPart.spec.ts). 
+6. Update your `azure-pipelines.yml` to match the [following sample](https://github.com/SharePoint/sp-dev-build-extensions/samples/azure-devops-ci-cd-spfx/azure-pipelines.yml).
