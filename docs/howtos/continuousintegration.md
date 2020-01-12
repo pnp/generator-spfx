@@ -88,4 +88,4 @@ You have previously upgraded your project to SPFx 1.8.0, if this is not done alr
      }
      ```
 1. Rename your `.test.ts` files in `.spec.ts` and migrate the code like the [following example](https://github.com/SharePoint/sp-dev-build-extensions/samples/azure-devops-ci-cd-spfx/src/webparts/devOps/tests/DevOpsWebPart.spec.ts). 
-1. Update your `azure-pipelines.yml` to match the [following sample](https://github.com/SharePoint/sp-dev-build-extensions/samples/azure-devops-ci-cd-spfx/azure-pipelines.yml).
+1. Update your `azure-pipelines.yml` to match the [following sample](https://github.com/SharePoint/sp-dev-build-extensions/blob/master/samples/azure-devops-ci-cd-spfx/azure-pipelines.yml).
