@@ -44,7 +44,7 @@
     },
     "rush@3.4": {
         "devDependencies": {
-            "@microsoft/rush-stack-compiler-3.4": "~0.2.x",
+            "@microsoft/rush-stack-compiler-3.4": "^0.2.x",
             "typescript": "~3.4.x"
         },
         "tsconfig": {
@@ -56,7 +56,7 @@
     },
     "rush@3.5": {
         "devDependencies": {
-            "@microsoft/rush-stack-compiler-3.5": "~0.2.x",
+            "@microsoft/rush-stack-compiler-3.5": "^0.2.x",
             "typescript": "~3.5.x"
         },
         "tsconfig": {
@@ -68,7 +68,7 @@
     },
     "rush@3.6": {
         "devDependencies": {
-            "@microsoft/rush-stack-compiler-3.6": "~0.2.x",
+            "@microsoft/rush-stack-compiler-3.6": "^0.2.x",
             "typescript": "~3.6.x"
         },
         "tsconfig": {
@@ -80,7 +80,7 @@
     },
     "rush@3.7": {
         "devDependencies": {
-            "@microsoft/rush-stack-compiler-3.6": "~0.2.x",
+            "@microsoft/rush-stack-compiler-3.6": "^0.2.x",
             "typescript": "~3.7.x"
         },
         "tsconfig": {
@@ -92,7 +92,7 @@
     },
     "@pnp/pnpjs": {
         "dependencies": {
-            "@pnp/pnpjs": "^1.3.7"
+            "@pnp/pnpjs": "^2.0.0"
         }
     },
     "@pnp/spfx-property-controls": {
@@ -102,7 +102,7 @@
     },
     "@pnp/spfx-controls-react": {
         "dependencies": {
-            "@pnp/spfx-controls-react": "1.15.0"
+            "@pnp/spfx-controls-react": "1.16.0"
         }
     },
     "webpack-analyzer": {
