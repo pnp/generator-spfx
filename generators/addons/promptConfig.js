@@ -21,7 +21,7 @@ const ouifrOptions = [{
 }]
 
 const rushCompilerOption = [{
-        'name': 'TypeScript v2.9 - Default',
+        'name': 'TypeScript v2.9',
         'value': 'rush@2.9'
     },
     {
@@ -37,8 +37,9 @@ const rushCompilerOption = [{
         'value': 'rush@3.2'
     },
     {
-        'name': 'TypeScript v3.3',
-        'value': 'rush@3.3'
+        'name': 'TypeScript v3.3 - Default',
+        'value': 'rush@3.3',
+        default: true
     },
     {
         'name': 'TypeScript v3.4',
