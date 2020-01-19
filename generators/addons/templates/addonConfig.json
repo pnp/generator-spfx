@@ -12,10 +12,10 @@
     },
     "ouifr@6": {
         "dependencies": {
-            "office-ui-fabric-react": "^6.182.0"
+            "office-ui-fabric-react": "^6.189.2"
         },
         "devDependencies": {
-            "@types/react": "^16.7.22"
+            "@types/react": "^16.9.17"
         },
         "rmDependencies": [
             "@microsoft/rush-stack-compiler-2.9"
@@ -26,16 +26,30 @@
     },
     "ouifr@6fluent": {
         "dependencies": {
-            "office-ui-fabric-react": "^6.182.0",
-            "@uifabric/fluent-theme": "^0.16.9"
+            "office-ui-fabric-react": "^6.189.2",
+            "@uifabric/fluent-theme": "^7.1.5"
         },
         "devDependencies": {
-            "@types/react": "^16.7.22"
+            "@types/react": "^16.9.17"
+        }
+    },
+    "ouifr@7": {
+        "dependencies": {
+            "office-ui-fabric-react": "^7.83.1"
+        },
+        "devDependencies": {
+            "@types/react": "^16.9.17"
+        },
+        "rmDependencies": [
+            "@microsoft/rush-stack-compiler-2.9"
+        ],
+        "tsconfig": {
+            "extends": "./node_modules/@microsoft/rush-stack-compiler-3.3/includes/tsconfig-web.json"
         }
     },
     "spfx-uifabric-themes":{
         "devDependencies": {
-            "spfx-uifabric-themes": "^0.7.1"
+            "spfx-uifabric-themes": "^0.8.0"
         }
     },
     "rush@3.3": {
@@ -44,7 +58,7 @@
     },
     "rush@3.4": {
         "devDependencies": {
-            "@microsoft/rush-stack-compiler-3.4": "^0.2.x",
+            "@microsoft/rush-stack-compiler-3.4": "^0.4.x",
             "typescript": "~3.4.x"
         },
         "tsconfig": {
@@ -56,7 +70,7 @@
     },
     "rush@3.5": {
         "devDependencies": {
-            "@microsoft/rush-stack-compiler-3.5": "^0.2.x",
+            "@microsoft/rush-stack-compiler-3.5": "^0.4.x",
             "typescript": "~3.5.x"
         },
         "tsconfig": {
@@ -80,7 +94,7 @@
     },
     "rush@3.7": {
         "devDependencies": {
-            "@microsoft/rush-stack-compiler-3.6": "^0.2.x",
+            "@microsoft/rush-stack-compiler-3.7": "^0.2.x",
             "typescript": "~3.7.x"
         },
         "tsconfig": {
@@ -107,20 +121,20 @@
     },
     "webpack-analyzer": {
         "devDependencies": {
-            "webpack-bundle-analyzer": "^3.5.1"
+            "webpack-bundle-analyzer": "^3.6.0"
         }
     },
     "stylelint": {
         "devDependencies": {
-            "stylelint": "^11.0.0",
+            "stylelint": "^13.0.0",
             "stylelint-config-standard": "^19.0.0",
-            "stylelint-scss": "^3.11.1",
-            "gulp-stylelint": "^9.0.0"
+            "stylelint-scss": "^3.13.0",
+            "gulp-stylelint": "^11.0.0"
         }
     },
     "continuousIntegrationJest": {
         "devDependencies": {
-            "jest-junit": "^8.0.0"
+            "jest-junit": "^10.0.0"
         }
     },
     "gulp-sequence": {
