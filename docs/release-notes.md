@@ -2,18 +2,13 @@
 
 # 1.11.0 Lodash & Azure DevOps Multi-stage pipeline
 
-- Azure DevOps Multi-stage pipeline - Preview
-- Minor Azure DevOps updates on mono-stage build pipeline
-- Lodash integration for smaller builds
-
-Documentation update on [continous integration](https://pnp.github.io/generator-spfx/howtos/continuousintegration/)
-
-**Upgraded Libraries**
-
-- JEST Presets
-  - @voitanos/jest-preset-spfx - 1.2.2
-  - @voitanos/jest-preset-spfx-react15 - 1.3.2
-  - @voitanos/jest-preset-spfx-react16 - 1.3.2
+- Improved support for yarn, pnpm
+- Microsoft Graph types added
+- Update dependencies for [Handlebars](https://handlebarsjs.com), [VueJS](https://vuejs.org)
+- VueJS - Bugfix [#213](https://github.com/pnp/generator-spfx/issues/213)
+- Upgrade to @microsoft/generator-spfx version 1.10.0
+- Bugfixes [#216](https://github.com/pnp/generator-spfx/issues/216), [#218](https://github.com/pnp/generator-spfx/issues/218), [#219](https://github.com/pnp/generator-spfx/issues/219), [#222](https://github.com/pnp/generator-spfx/issues/222), 
+- Documentation update [#220](https://github.com/pnp/generator-spfx/issues/220)
 
 # 1.10.2 Lodash & Azure DevOps Multi-stage pipeline
 
