@@ -1,6 +1,6 @@
 # Release Notes
 
-# 1.11.0 Lodash & Azure DevOps Multi-stage pipeline
+# 1.11.0 Upgrade to version 1.10.0 @microsoft/sharepoint
 
 - Improved support for yarn, pnpm
 - Microsoft Graph types added
