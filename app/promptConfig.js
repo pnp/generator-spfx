@@ -82,7 +82,7 @@ const spoFrameworks = [
         value: 'reactjs.plus'
     },
     {
-        name: '- Knockout',
+        name: '- Knockout (deprecated)',
         value: 'knockout.plus'
     },
     {
@@ -101,7 +101,7 @@ const onPremFrameworks = [
         value: 'reactjs.plus'
     },
     {
-        name: '- Knockout',
+        name: '- Knockout (deprecated)',
         value: 'knockout.plus'
     },
     {
