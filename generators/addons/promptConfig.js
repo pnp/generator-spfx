@@ -13,32 +13,21 @@ const jqueryOptions = [{
 ]
 
 const ouifrOptions = [{
-    'name': '6.x.x',
+    'name': '6.x.x - Default',
     'value': '6'
 }, {
     'name': '6.x.x incl. Fluent Theme',
     'value': '6fluent'
+},
+{
+    'name': '7.x.x - Preview',
+    'value': '7'
 }]
 
 const rushCompilerOption = [{
-        'name': 'TypeScript v2.9 - Default',
-        'value': 'rush@2.9'
-    },
-    {
-        'name': 'TypeScript v3.0',
-        'value': 'rush@3.0'
-    },
-    {
-        'name': 'TypeScript v3.1',
-        'value': 'rush@3.1'
-    },
-    {
-        'name': 'TypeScript v3.2',
-        'value': 'rush@3.2'
-    },
-    {
-        'name': 'TypeScript v3.3',
-        'value': 'rush@3.3'
+        'name': 'TypeScript v3.3 - Default',
+        'value': 'rush@3.3',
+        default: true
     },
     {
         'name': 'TypeScript v3.4',
@@ -47,6 +36,14 @@ const rushCompilerOption = [{
     {
         'name': 'TypeScript v3.5',
         'value': 'rush@3.5'
+    },
+    {
+        'name': 'TypeScript v3.6',
+        'value': 'rush@3.6'
+    },
+    {
+        'name': 'TypeScript v3.7',
+        'value': 'rush@3.7'
     }
 ]
 

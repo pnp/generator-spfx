@@ -8,7 +8,7 @@ const fs = require('fs');
 const path = require('path');
 const glob = require('glob');
 
-const paramCase = require('param-case');
+const paramCase = require('param-case').paramCase;
 
 // importing utilities
 const util = require('../../lib/util.js');
