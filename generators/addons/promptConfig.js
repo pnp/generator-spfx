@@ -89,6 +89,9 @@ const ciOptions = [{
 const spoLibs = [{
         name: 'jQuery',
         value: 'jquery@3'
+    },{
+        name: 'Microsoft Graph - Type Definitions',
+        value: 'msgraph'
     }, {
         name: 'pnpjs',
         value: '@pnp/pnpjs'

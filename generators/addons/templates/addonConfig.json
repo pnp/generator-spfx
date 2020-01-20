@@ -5,6 +5,11 @@
             "@types/jquery": "^3.3.31"
         }
     },
+    "msgraph": {
+        "devDependencies": {
+            "@microsoft/microsoft-graph-types": "^1.12.0"
+        }
+    },
     "ouifr@5": {
         "dependencies": {
             "office-ui-fabric-react": "^5.112.0"
