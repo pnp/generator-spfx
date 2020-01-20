@@ -710,16 +710,19 @@ A good practice to ease maintenance and reusability of stages is to leverage tem
         }]
       ]
     }</code></li>
-<li>In <code>gulpfile.js</code> remove the following lines
+<li>
+<p>In <code>gulpfile.js</code> remove the following lines
      <code>JS
      var buildConfig = build.getConfig();
      var karmaTaskCandidates = buildConfig.uniqueTasks.filter((t) =&gt; t.name === 'karma');
      if(karmaTaskCandidates &amp;&amp; karmaTaskCandidates.length &gt; 0) {
       var karmaTask = karmaTaskCandidates[0];
       karmaTask.taskConfig.configPath = './config/karma.config.js';
-     }</code></li>
-<li>Rename your <code>.test.ts</code> files in <code>.spec.ts</code> and migrate the code like the <a href="https://github.com/SharePoint/sp-dev-build-extensions/tree/master/samples/azure-devops-ci-cd-spfx/">following example</a>. </li>
-<li>Update your <code>azure-pipelines.yml</code> to match the <a href="https://github.com/SharePoint/sp-dev-build-extensions/tree/master/samples/azure-devops-ci-cd-spfx">following sample</a>.</li>
+     }</code></p>
+</li>
+<li>
+<p>Update your <code>azure-pipelines.yml</code> to match the <a href="https://github.com/SharePoint/sp-dev-build-extensions/blob/master/samples/azure-devops-ci-cd-spfx/azure-pipelines.yml">following sample</a>.</p>
+</li>
 </ol>
                 
                   
