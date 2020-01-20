@@ -87,5 +87,6 @@ You have previously upgraded your project to SPFx 1.8.0, if this is not done alr
       karmaTask.taskConfig.configPath = './config/karma.config.js';
      }
      ```
+
 1. Rename your `.test.ts` files in `.spec.ts` and migrate the code like the [following example](https://github.com/SharePoint/sp-dev-build-extensions/tree/master/samples/azure-devops-ci-cd-spfx/). 
 1. Update your `azure-pipelines.yml` to match the [following sample](https://github.com/SharePoint/sp-dev-build-extensions/tree/master/samples/azure-devops-ci-cd-spfx).
