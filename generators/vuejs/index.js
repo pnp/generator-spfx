@@ -75,10 +75,10 @@ module.exports = class extends Generator {
         var destCopyAssets = fs.readFileSync(this.destinationPath('config/copy-assets.json'), 'UTF-8');
         const tempCopyAssets = fs.readFileSync(this.templatePath('config/copy-assets.json'), 'UTF-8');
 
-         // Udpate TS Config
+         // Update TS Config
          fs.writeFileSync(
             this.destinationPath('config/copy-assets.json'),
-            JSON.stringify(tempCopyAssets, null, 4)
+            tempCopyAssets
         )
 
         this.fs.copy(
