@@ -1,5 +1,10 @@
 # Release Notes
 
+# 1.11.1 Improvmentens
+
+- SP 2019 Projects: VueJS was removed due to SPFx 1.4.1
+- Project re-run detection improvement [#232](https://github.com/pnp/generator-spfx/issues/232)
+
 # 1.11.0 Upgrade to version 1.10.0 @microsoft/sharepoint
 
 - Improved support for yarn, pnpm
