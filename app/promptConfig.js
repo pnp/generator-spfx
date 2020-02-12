@@ -13,8 +13,6 @@ const checkAngular = (() => {
 
         const ngVersion = require('@angular/cli/package.json');
 
-        console.log('NG Version::::', ngVersion);
-
         // support for Angular 6/7/8
         if (ngVersion.version.startsWith('6') ||
             ngVersion.version.startsWith('7') ||
@@ -93,6 +91,37 @@ const spoFrameworks = [
     }
 ];
 
+// SharePoint Online and on-premise 2019 supported frameworks
+const onPrem19Frameworks = [
+    new inquirer.Separator(
+        fgYellow('Additional Frameworks')
+    ),
+    {
+        name: '- Handlebars',
+        value: 'handlebars'
+    },
+    {
+        name: '- Angular Elements' + angularVersion,
+        value: 'angularelements',
+        disabled: checkAngular
+    },
+    new inquirer.Separator(
+        fgYellow('Enhanced SPFx')
+    ),
+    {
+        name: '- ReactJS',
+        value: 'reactjs.plus'
+    },
+    {
+        name: '- Knockout (deprecated)',
+        value: 'knockout.plus'
+    },
+    {
+        name: '- No Framework',
+        value: 'none.plus'
+    }
+];
+
 // On-premises 2016 frameworks
 const onPremFrameworks = [
     new inquirer.Separator(
@@ -124,6 +153,7 @@ let configOptions = [
                 case 'onprem':
                     return onPremFrameworks;
                 case 'onprem19':
+                    return onPrem19Frameworks;
                 case 'spo':
                     return spoFrameworks;
                 default: // default to spo, but should log error here
