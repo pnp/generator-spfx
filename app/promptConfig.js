@@ -13,6 +13,8 @@ const checkAngular = (() => {
 
         const ngVersion = require('@angular/cli/package.json');
 
+        console.log('NG Version::::', ngVersion);
+
         // support for Angular 6/7/8
         if (ngVersion.version.startsWith('6') ||
             ngVersion.version.startsWith('7') ||
