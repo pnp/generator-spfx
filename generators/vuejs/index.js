@@ -72,6 +72,15 @@ module.exports = class extends Generator {
 
     _deployFiles() {
 
+        var destCopyAssets = fs.readFileSync(this.destinationPath('config/copy-assets.json'), 'UTF-8');
+        const tempCopyAssets = fs.readFileSync(this.templatePath('config/copy-assets.json'), 'UTF-8');
+
+         // Update TS Config
+         fs.writeFileSync(
+            this.destinationPath('config/copy-assets.json'),
+            tempCopyAssets
+        )
+
         this.fs.copy(
             this.templatePath('config/copy-static-assets.json'),
             this.destinationPath('config/copy-static-assets.json')

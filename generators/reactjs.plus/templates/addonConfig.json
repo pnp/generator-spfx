@@ -2,13 +2,13 @@
     "react15": {
         "devDependencies": {
             "jest": "^23.6.0",
-            "@voitanos/jest-preset-spfx-react15": "^1.1.0"
+            "@voitanos/jest-preset-spfx-react15": "^1.3.2"
         }
     },
     "react16": {
         "devDependencies": {
             "jest": "^23.6.0",
-            "@voitanos/jest-preset-spfx-react16": "^1.1.0"
+            "@voitanos/jest-preset-spfx-react16": "^1.3.2"
         }
     }
 }

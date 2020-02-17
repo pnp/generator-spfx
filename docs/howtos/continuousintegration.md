@@ -14,23 +14,42 @@ If you want to set up automated deployments of your solution, you can then follo
 
 Simply select the new build definition and update the paths to match the artifact name.
 
-## Upgrading from the KarmaJS infrastructure
+## Upgrading from the single stage to the multi-stage pipeline infrastructure
+
+Multi-stage pipelines are a preview feature on Azure DevOps that allow you to describe other stages in addition to the build stage directly in your YAML pipeline definition.  
+A good practice to ease maintenance and reusability of stages is to leverage templates instead of defining the stage right in the main pipeline file.
+
 ### Pre-reqs:
+
+Make sure you enable the preview feature called _Multi-stage pipelines_
+
+### Steps
+
+1. Update the generator.
+1. Scaffold a new project:
+    - Select the multi-stage pipeline option on the CI question
+1. Copy the following files to your existing repository:
+    - `azure-pipelines.yml`
+    - `azure-pipelines-deploy-template.yml`
+    - `azure-pipelines-build-template.yml`
+1. Create a _Variable group_ named `qa_configuration` containing the values described in the deploy template for the deployment stage.
+1. Commit and push the changed files
+1. Run the pipeline to update the configuration.
+
+## Upgrading from the KarmaJS infrastructure
+
+### Pre-reqs:
+
 You have previously upgraded your project to SPFx 1.8.0, if this is not done already, checkout the dedicated [Office 365 CLI command](https://pnp.github.io/office365-cli/cmd/spfx/project/project-upgrade/
 )
+
 ### Steps
+
 1. Run the following commands in your shell.
     ```Shell
     npm un @types/chai-as-promised chai-as-promised karma-junit-reporter -D
     npm i jest-junit jest @voitanos/jest-preset-spfx-react16 -D
     rm ./config/karma.conf.js
-    ```
-1. In `package.json` add the following node to the root.
-    ```JSON
-    "jest-junit": {
-     "output": "temp/test/junit/junit.xml",
-     "usePathForSuiteName": "true"
-    }
     ```
 1. in `package.json` add/update the following scripts.
     ```JSON
@@ -51,7 +70,11 @@ You have previously upgraded your project to SPFx 1.8.0, if this is not done alr
       ],
       "reporters": [
        "default",
-       "jest-junit"
+       ["jest-junit", {
+        "suiteName": "jest tests",
+        "outputDirectory": "temp/test/junit",
+        "outputName": "junit.xml"
+        }]
       ]
     }
     ```
@@ -64,5 +87,5 @@ You have previously upgraded your project to SPFx 1.8.0, if this is not done alr
       karmaTask.taskConfig.configPath = './config/karma.config.js';
      }
      ```
-1. Rename your `.test.ts` files in `.spec.ts` and migrate the code like the [following example](https://github.com/SharePoint/sp-dev-build-extensions/samples/azure-devops-ci-cd-spfx/src/webparts/devOps/tests/DevOpsWebPart.spec.ts). 
-1. Update your `azure-pipelines.yml` to match the [following sample](https://github.com/SharePoint/sp-dev-build-extensions/samples/azure-devops-ci-cd-spfx/azure-pipelines.yml).
+ 
+1. Update your `azure-pipelines.yml` to match the [following sample](https://github.com/SharePoint/sp-dev-build-extensions/blob/master/samples/azure-devops-ci-cd-spfx/azure-pipelines.yml).

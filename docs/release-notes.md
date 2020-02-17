@@ -1,10 +1,80 @@
 # Release Notes
 
+# 1.11.1 Improvmentens
+
+- SP 2019 Projects: VueJS was removed due to SPFx 1.4.1
+- Project re-run detection improvement [#232](https://github.com/pnp/generator-spfx/issues/232)
+
+# 1.11.0 Upgrade to version 1.10.0 @microsoft/sharepoint
+
+- Improved support for yarn, pnpm
+- Microsoft Graph types added
+- Update dependencies for [Handlebars](https://handlebarsjs.com), [VueJS](https://vuejs.org)
+- VueJS - Bugfix [#213](https://github.com/pnp/generator-spfx/issues/213)
+- Upgrade to @microsoft/generator-spfx version 1.10.0
+- Bugfixes [#216](https://github.com/pnp/generator-spfx/issues/216), [#218](https://github.com/pnp/generator-spfx/issues/218), [#219](https://github.com/pnp/generator-spfx/issues/219), [#222](https://github.com/pnp/generator-spfx/issues/222), 
+- Documentation update [#220](https://github.com/pnp/generator-spfx/issues/220)
+
+# 1.10.2 Lodash & Azure DevOps Multi-stage pipeline
+
+- Azure DevOps Multi-stage pipeline - Preview
+- Minor Azure DevOps updates on mono-stage build pipeline
+- Lodash integration for smaller builds
+
+Documentation update on [continous integration](https://pnp.github.io/generator-spfx/howtos/continuousintegration/)
+
+**Upgraded Libraries**
+
+- JEST Presets
+  - @voitanos/jest-preset-spfx - 1.2.2
+  - @voitanos/jest-preset-spfx-react15 - 1.3.2
+  - @voitanos/jest-preset-spfx-react16 - 1.3.2
+
+# 1.10.1 Better unit testing reporting and pipeline caching
+
+- better unit test and coverage reporting integration with azure devops
+- updated jest-junit dependency
+- added dependencies caching
+- switched to ubuntu agent for better performance
+
+**Upgraded References**
+
+- sass-loader: 8.0.0
+- handlebars: 4.5.3
+- ts-loader: 6.2.1
+- vue-loader: 15.7.2
+- vie-property-decorator: 8.3.0
+- fork-ts-checker-webpack-plugin: 3.0.1
+
+
+# 1.10.0 HandlebarsJS - Webpack loader update
+
+- Angular Bundle, link and Scaffolding fix [#206](https://github.com/pnp/generator-spfx/issues/206)
+- Updated VueJS
+- Update Handlebars with improved partials and helper support
+[Upgrade Handlebar Projects](https://pnp.github.io/generator-spfx/howtos/handlebars-upgrade/)
+- TypeScript support for 2.9, 3.0, 3.1, 3.2, 3.3, 3.4, 3.5
+- Suppor for library components is broken in @microsoft/generator-sharePoint. [#195](https://github.com/pnp/generator-spfx/issues/195), [sp-dev-docs#4554](https://github.com/SharePoint/sp-dev-docs/issues/4554)
+
+**Includes**
+
+- **Office UI Fabric** - 5.x, 6.x, 6.x Fluent
+- **pnp/pnpjs** - 1.3.5
+- **pnp/spfx-property-controls** - 1.16.0
+- **pnp/spfx-controls-react** - 1.14.0
+- **jQuery** - 3.4.1
+- **webpack-bundle-analyzer** - 3.5.1
+- **Handlebars** - 4.3.0
+- **Vue** - 2.6.10
+- **Office 365 CLI** - 1.23.0
+- **StyleLint** - 11.0.0
+
+ 
 # 1.9.1 Support for Angular 8 added
 - Angular Elements option supports now Angular 6/7 and 8
 - [#199 fixed](https://github.com/pnp/generator-spfx/issues/199) --skip-install not honored when pnpm gets used.
 - TypeScript support for 2.9, 3.0, 3.1, 3.2, 3.3, 3.4, 3.5
-- Suppor for library components is broken in @microsoft/generator-sharePoint. [#195](https://github.com/pnp/generator-spfx/issues/195), [sp-dev-docs#4554](https://github.com/SharePoint/sp-dev-docs/issues/4554)
+- Suppor tfor library components is broken in @microsoft/generator-sharePoint. [#195](https://github.com/pnp/generator-spfx/issues/195), [sp-dev-docs#4554](https://github.com/SharePoint/sp-dev-docs/issues/4554)
 
 # 1.9.0 Update to SPFx 1.9.1
 - Upgrade to SPFx 1.9.1

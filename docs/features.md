@@ -58,14 +58,15 @@ This options create a project based on the latest SPFx version 1.7.1
 
 This option creates a project based on SPFx version 1.4.0
 
+In version 1.11.1 - Support for VueJS was removed due limitations of the SPFx project setup
+
 ### Addons
 
 | | jQuery | pnp/pnpjs | PnP Property Controls | PnP Reusable Controls |
 |:-----|:-----:|:-----:|:-----:|:-----:|
 | ReactJS|✅|✅|✅|✅|
 | KnockoutJS|✅|✅|✅| 
-| No Framework|✅|✅|✅| 
-| VueJS|✅|✅|✅| 
+| No Framework|✅|✅|✅|  
 | HandlebarsJS|✅|✅|✅| 
 | Angular Elements|✅|✅|✅|
 
@@ -76,7 +77,6 @@ This option creates a project based on SPFx version 1.4.0
 |ReactJS|✅|✅|
 |KnockoutJS|✅|✅|
 |No Framework|✅|✅|
-|VueJS|✅| 
 |HandlebarsJS|✅|✅|
 |Angular Elements|✅|✅|
 
@@ -87,7 +87,6 @@ This option creates a project based on SPFx version 1.4.0
 | ReactJS |✅|
 | KnockoutJS| | 
 | No Framework|✅|
-| VueJS| |
 | HandlebarsJS| |
 | Angular Elements| |
 

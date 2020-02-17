@@ -1,0 +1,5 @@
+{
+    "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/copy-assets.schema.json",
+    "deployCdnPath": "temp/deploy",
+    "extsToIgnore": ["vue", "d.ts", "d.ts.map"]
+}

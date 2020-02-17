@@ -40,6 +40,9 @@ module.exports = class extends Generator {
             process.exit(1);
         }
 
+        // Update to config.existed based on .yo-rc file
+        this.config.existed = util.configExists();
+
         /* Generator Main Logic */
         // if config existed fallback to default generator
         if (this.config.existed) {

@@ -1,6 +1,6 @@
 {
     "name": "dummypackage",
-    "version": "0.0.1",
+    "version": "1.11.1",
     "description": "Only used to check for upgrades",
     "author": {
         "name": "Office 365 / SharePoint PnP Core Team",
@@ -8,29 +8,23 @@
     },
     "license": "MIT",
     "dependencies": {
-
         "@pnp/spfx-property-controls": "1.16.0",
         "jquery": "^3.4.1",
         "@types/jquery": "^3.3.31",
-        "@pnp/pnpjs": "^1.3.5",
-        "@pnp/spfx-controls-react": "1.14.0",
-
-
+        "@pnp/pnpjs": "^1.3.7",
+        "@pnp/spfx-controls-react": "1.15.0",
         "vue": "^2.6.10",
-        "vue-class-component": "^7.1.0",
-        "vue-property-decorator": "^8.2.2",
-        "sass-loader": "^7.3.1",
-
-        "handlebars": "^4.1.2"
+        "vue-class-component": "7.1.0",
+        "vue-property-decorator": "^8.3.0",
+        "sass-loader": "^8.0.0",
+        "handlebars": "^4.5.3"
     },
     "devDependencies": {
-
-        "sass-loader": "^7.3.1",
-        "ts-loader": "^6.0.4",
-        "fork-ts-checker-webpack-plugin": "^1.5.0",
-        "vue-loader": "^15.7.1",
+        "sass-loader": "^8.0.0",
+        "ts-loader": "^6.2.1",
+        "fork-ts-checker-webpack-plugin": "^3.1.0",
+        "vue-loader": "^15.7.2",
         "vue-template-compiler": "^2.6.10",
-
         "handlebars-template-loader": "^1.0.0",
         "@types/handlebars": "^4.1.0"
     }

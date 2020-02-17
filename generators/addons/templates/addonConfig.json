@@ -5,6 +5,11 @@
             "@types/jquery": "^3.3.31"
         }
     },
+    "msgraph": {
+        "devDependencies": {
+            "@microsoft/microsoft-graph-types": "^1.12.0"
+        }
+    },
     "ouifr@5": {
         "dependencies": {
             "office-ui-fabric-react": "^5.112.0"
@@ -12,10 +17,10 @@
     },
     "ouifr@6": {
         "dependencies": {
-            "office-ui-fabric-react": "^6.182.0"
+            "office-ui-fabric-react": "^6.189.2"
         },
         "devDependencies": {
-            "@types/react": "^16.7.22"
+            "@types/react": "^16.9.17"
         },
         "rmDependencies": [
             "@microsoft/rush-stack-compiler-2.9"
@@ -26,97 +31,87 @@
     },
     "ouifr@6fluent": {
         "dependencies": {
-            "office-ui-fabric-react": "^6.182.0",
-            "@uifabric/fluent-theme": "^0.16.9"
+            "office-ui-fabric-react": "^6.189.2",
+            "@uifabric/fluent-theme": "^7.1.5"
         },
         "devDependencies": {
-            "@types/react": "^16.7.22"
+            "@types/react": "^16.9.17"
+        }
+    },
+    "ouifr@7": {
+        "dependencies": {
+            "office-ui-fabric-react": "^7.83.1"
+        },
+        "devDependencies": {
+            "@types/react": "^16.9.17"
+        },
+        "rmDependencies": [
+            "@microsoft/rush-stack-compiler-2.9"
+        ],
+        "tsconfig": {
+            "extends": "./node_modules/@microsoft/rush-stack-compiler-3.3/includes/tsconfig-web.json"
         }
     },
     "spfx-uifabric-themes":{
         "devDependencies": {
-            "spfx-uifabric-themes": "^0.7.1"
+            "spfx-uifabric-themes": "^0.8.0"
         }
     },
-    "rush@2.9": {
+    "rush@3.3": {
         "dependencies": {},
         "devDependencies": {}
     },
-    "rush@3.0": {
-        "devDependencies": {
-            "@microsoft/rush-stack-compiler-3.0": "~0.6.x",
-            "typescript": "~3.0.x"
-        },
-        "tsconfig": {
-            "extends": "./node_modules/@microsoft/rush-stack-compiler-3.0/includes/tsconfig-web.json"
-        },
-        "rmDependencies": [
-            "@microsoft/rush-stack-compiler-2.9"
-        ]
-    },
-    "rush@3.1": {
-        "devDependencies": {
-            "@microsoft/rush-stack-compiler-3.1": "~0.6.x",
-            "typescript": "~3.1.x"
-        },
-        "tsconfig": {
-            "extends": "./node_modules/@microsoft/rush-stack-compiler-3.1/includes/tsconfig-web.json"
-        },
-        "rmDependencies": [
-            "@microsoft/rush-stack-compiler-2.9"
-        ]
-    },
-    "rush@3.2": {
-        "devDependencies": {
-            "@microsoft/rush-stack-compiler-3.2": "~0.3.x",
-            "typescript": "~3.2.x"
-        },
-        "tsconfig": {
-            "extends": "./node_modules/@microsoft/rush-stack-compiler-3.2/includes/tsconfig-web.json"
-        },
-        "rmDependencies": [
-            "@microsoft/rush-stack-compiler-2.9"
-        ]
-    },
-    "rush@3.3": {
-        "devDependencies": {
-            "@microsoft/rush-stack-compiler-3.3": "~0.2.x",
-            "typescript": "~3.3.x"
-        },
-        "tsconfig": {
-            "extends": "./node_modules/@microsoft/rush-stack-compiler-3.3/includes/tsconfig-web.json"
-        },
-        "rmDependencies": [
-            "@microsoft/rush-stack-compiler-2.9"
-        ]
-    },
     "rush@3.4": {
         "devDependencies": {
-            "@microsoft/rush-stack-compiler-3.4": "~0.1.x",
+            "@microsoft/rush-stack-compiler-3.4": "^0.4.x",
             "typescript": "~3.4.x"
         },
         "tsconfig": {
             "extends": "./node_modules/@microsoft/rush-stack-compiler-3.4/includes/tsconfig-web.json"
         },
         "rmDependencies": [
-            "@microsoft/rush-stack-compiler-2.9"
+            "@microsoft/rush-stack-compiler-3.3"
         ]
     },
     "rush@3.5": {
         "devDependencies": {
-            "@microsoft/rush-stack-compiler-3.5": "~0.1.x",
+            "@microsoft/rush-stack-compiler-3.5": "^0.4.x",
             "typescript": "~3.5.x"
         },
         "tsconfig": {
             "extends": "./node_modules/@microsoft/rush-stack-compiler-3.5/includes/tsconfig-web.json"
         },
         "rmDependencies": [
-            "@microsoft/rush-stack-compiler-2.9"
+            "@microsoft/rush-stack-compiler-3.3"
+        ]
+    },
+    "rush@3.6": {
+        "devDependencies": {
+            "@microsoft/rush-stack-compiler-3.6": "^0.2.x",
+            "typescript": "~3.6.x"
+        },
+        "tsconfig": {
+            "extends": "./node_modules/@microsoft/rush-stack-compiler-3.6/includes/tsconfig-web.json"
+        },
+        "rmDependencies": [
+            "@microsoft/rush-stack-compiler-3.3"
+        ]
+    },
+    "rush@3.7": {
+        "devDependencies": {
+            "@microsoft/rush-stack-compiler-3.7": "^0.2.x",
+            "typescript": "~3.7.x"
+        },
+        "tsconfig": {
+            "extends": "./node_modules/@microsoft/rush-stack-compiler-3.7/includes/tsconfig-web.json"
+        },
+        "rmDependencies": [
+            "@microsoft/rush-stack-compiler-3.3"
         ]
     },
     "@pnp/pnpjs": {
         "dependencies": {
-            "@pnp/pnpjs": "^1.3.5"
+            "@pnp/pnpjs": "^2.0.2"
         }
     },
     "@pnp/spfx-property-controls": {
@@ -126,25 +121,25 @@
     },
     "@pnp/spfx-controls-react": {
         "dependencies": {
-            "@pnp/spfx-controls-react": "1.14.0"
+            "@pnp/spfx-controls-react": "1.16.0"
         }
     },
     "webpack-analyzer": {
         "devDependencies": {
-            "webpack-bundle-analyzer": "^3.4.1"
+            "webpack-bundle-analyzer": "^3.6.0"
         }
     },
     "stylelint": {
         "devDependencies": {
-            "stylelint": "^10.1.0",
-            "stylelint-config-standard": "^18.3.0",
-            "stylelint-scss": "^3.10.0",
-            "gulp-stylelint": "^8.0.0"
+            "stylelint": "^13.0.0",
+            "stylelint-config-standard": "^19.0.0",
+            "stylelint-scss": "^3.13.0",
+            "gulp-stylelint": "^11.0.0"
         }
     },
     "continuousIntegrationJest": {
         "devDependencies": {
-            "jest-junit": "^6.3.0"
+            "jest-junit": "^10.0.0"
         }
     },
     "gulp-sequence": {
@@ -154,5 +149,15 @@
     },
     "csscomb": {
         "devDependencies": {}
+    },
+    "lodash": {
+        "devDependencies": {
+            "lodash": "^4.17.15"
+        },
+        "tsconfig": {
+            "compilerOptions": {
+                "allowSyntheticDefaultImports": true
+            }
+        }
     }
 }

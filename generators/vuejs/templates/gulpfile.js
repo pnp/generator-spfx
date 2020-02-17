@@ -28,8 +28,7 @@ const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
                 resourceQuery: /vue&type=script&lang=ts/, // typescript
                 loader: 'ts-loader',
                 options: {
-                    appendTsSuffixTo: [/\.vue$/],
-                    transpileOnly: true
+                    appendTsSuffixTo: [/\.vue$/]
                 }
             }, {
                 resourceQuery: /vue&type=style.*&lang=scss/, // scss

@@ -86,7 +86,38 @@ const spoFrameworks = [
         value: 'reactjs.plus'
     },
     {
-        name: '- Knockout',
+        name: '- Knockout (deprecated)',
+        value: 'knockout.plus'
+    },
+    {
+        name: '- No Framework',
+        value: 'none.plus'
+    }
+];
+
+// SharePoint Online and on-premise 2019 supported frameworks
+const onPrem19Frameworks = [
+    new inquirer.Separator(
+        fgYellow('Additional Frameworks')
+    ),
+    {
+        name: '- Handlebars',
+        value: 'handlebars'
+    },
+    {
+        name: '- Angular Elements' + angularVersion,
+        value: 'angularelements',
+        disabled: checkAngular
+    },
+    new inquirer.Separator(
+        fgYellow('Enhanced SPFx')
+    ),
+    {
+        name: '- ReactJS',
+        value: 'reactjs.plus'
+    },
+    {
+        name: '- Knockout (deprecated)',
         value: 'knockout.plus'
     },
     {
@@ -105,7 +136,7 @@ const onPremFrameworks = [
         value: 'reactjs.plus'
     },
     {
-        name: '- Knockout',
+        name: '- Knockout (deprecated)',
         value: 'knockout.plus'
     },
     {
@@ -126,6 +157,7 @@ let configOptions = [
                 case 'onprem':
                     return onPremFrameworks;
                 case 'onprem19':
+                    return onPrem19Frameworks;
                 case 'spo':
                     return spoFrameworks;
                 default: // default to spo, but should log error here

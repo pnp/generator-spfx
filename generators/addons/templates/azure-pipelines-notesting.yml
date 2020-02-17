@@ -4,10 +4,12 @@ trigger:
 - master
 - develop
 pool:
-  vmImage: 'vs2017-win2016'
+  vmImage: 'ubuntu-latest'
   demands:
   - npm
   - node.js
+variables:
+  npm_config_cache: $(Pipeline.Workspace)/.npm
 
 steps:
 #install node 10.x
@@ -17,12 +19,16 @@ steps:
     versionSpec: 10.x
     checkLatest: true
 
-#install nodejs modules with npm
-- task: Npm@1
-  displayName: 'npm install'
+#cache files from previous run
+- task: CacheBeta@1
   inputs:
-    workingDir: '$(Build.SourcesDirectory)'
-    verbose: false
+    key: npm | $(Agent.OS) | package-lock.json
+    path: $(npm_config_cache)
+    cacheHitVar: CACHE_RESTORED
+
+#install nodejs modules with npm
+- script: npm ci
+  displayName: 'npm ci'
 
 #bundle code with gulp
 - task: Gulp@0
@@ -45,7 +51,7 @@ steps:
 - task: CopyFiles@2
   displayName: 'Copy Files to: $(build.artifactstagingdirectory)/drop'
   inputs:
-    Contents: '**\*.sppkg'
+    Contents: '**/*.sppkg'
     TargetFolder: '$(build.artifactstagingdirectory)/drop'
 
 #publish artifacts
