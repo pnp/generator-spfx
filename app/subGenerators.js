@@ -7,6 +7,8 @@ module.exports = {
     'handlebars': require.resolve('../generators/handlebars'),
     //VueJs
     'vuejs': require.resolve('../generators/vuejs'),
+    //Aurelia
+    'aurelia': require.resolve('../generators/aurelia'),
     // React Plus generator to support further customisation of all react components
     'reactjs.plus': require.resolve('../generators/reactjs.plus'),
     // Knockout Plus generator to support further customisation of all react components

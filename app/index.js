@@ -196,6 +196,7 @@ module.exports = class extends Generator {
             case "handlebars":
             case "vuejs":
             case "angularelements":
+            case "aurelia":
                 generatorFramework = 'none';
                 break;
 

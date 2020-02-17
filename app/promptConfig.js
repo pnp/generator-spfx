@@ -70,6 +70,10 @@ const spoFrameworks = [
         value: 'vuejs'
     },
     {
+        name: '- Aurelia',
+        value: 'aurelia'
+    },
+    {
         name: '- Angular Elements' + angularVersion,
         value: 'angularelements',
         disabled: checkAngular
@@ -142,6 +146,10 @@ configOptions = configOptions.concat(angularElements);
 // Add configuration of Vue.JS generator
 const vuejs = require('../generators/vuejs/promptConfig');
 configOptions = configOptions.concat(vuejs);
+
+// Add configuration of Vue.JS generator
+const aurelia = require('../generators/aurelia/promptConfig');
+configOptions = configOptions.concat(aurelia);
 
 // Add configuration of reactjs.plus generator
 const reactplus = require('../generators/reactjs.plus/promptConfig');
