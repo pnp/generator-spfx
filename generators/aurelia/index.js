@@ -8,6 +8,7 @@ const path = require('path');
 const util = require('../../lib/util');
 const paramCase = require('param-case');
 const pascalCase = require('pascalcase');
+const _ = require('lodash');
 
 const readmeInfo = {
     libraryName: '', // Placeholder for project name
@@ -22,7 +23,7 @@ module.exports = class extends Generator {
 
     }
 
-    // Initialisation geenerator
+    // Initialisation generator
     initializing() {
 
     }
@@ -59,9 +60,11 @@ module.exports = class extends Generator {
         // remove default scss
         //this._removeWebPartScss();
         // Update/add templates
+
         const ejsInject = {
-            componentNameKebabCase: paramCase(manifest.componentName),
-            componentNamePascalCase: pascalCase(manifest.componentName)
+            componentNameKebabCase: paramCase.paramCase(manifest.componentName),
+            componentNamePascalCase: pascalCase(manifest.componentName),
+            componentNameCamelCase: _.camelCase(manifest.componentName)
         };
         util.deployTemplates(this,ejsInject);
         // Updated Readme info

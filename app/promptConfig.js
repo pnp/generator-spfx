@@ -105,6 +105,10 @@ const onPrem19Frameworks = [
         value: 'handlebars'
     },
     {
+        name: '- Aurelia',
+        value: 'aurelia'
+    },
+    {
         name: '- Angular Elements' + angularVersion,
         value: 'angularelements',
         disabled: checkAngular
@@ -179,7 +183,7 @@ configOptions = configOptions.concat(angularElements);
 const vuejs = require('../generators/vuejs/promptConfig');
 configOptions = configOptions.concat(vuejs);
 
-// Add configuration of Vue.JS generator
+// Add configuration of Aurelia generator
 const aurelia = require('../generators/aurelia/promptConfig');
 configOptions = configOptions.concat(aurelia);
 
