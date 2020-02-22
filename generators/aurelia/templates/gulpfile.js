@@ -17,16 +17,12 @@ build.configureWebpack.mergeConfig({
         var rule2 = { test: /\.ts$/i, use: "ts-loader" };
         generatedConfiguration.module.rules.push(rule2);
         
-        // Do we need this for IE11?
-        //var rule3 = { test: /[\/\\]node_modules[\/\\]bluebird[\/\\].+\.js$/, loader: 'expose-loader?Promise' };
-        //generatedConfiguration.module.rules.push(rule3);
-  
         generatedConfiguration.plugins.push(new AureliaPlugin(
         {
           aureliaApp: undefined
         }));
       
-        // Fix for SPFx 1.10.0
+        // Fix for SPFx 1.10.0, since it is missing the lib configuration
         if(!generatedConfiguration.resolve.modules.includes('lib'))
         {
           generatedConfiguration.resolve.modules.push('lib');
