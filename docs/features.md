@@ -30,6 +30,7 @@ This options create a project based on the latest SPFx version 1.7.1
 | VueJS|✅|✅|✅| 
 | HandlebarsJS|✅|✅|✅| 
 | Angular Elements|✅|✅|✅|
+| Aurelia|✅|✅|✅|
 
 ### Vetting Options
 
@@ -41,6 +42,7 @@ This options create a project based on the latest SPFx version 1.7.1
 |VueJS|✅| |
 |HandlebarsJS|✅|✅|
 |Angular Elements|✅|✅|
+|Aurelia|✅|✅|
 
 ### Test Framework
 
@@ -69,6 +71,7 @@ In version 1.11.1 - Support for VueJS was removed due limitations of the SPFx pr
 | No Framework|✅|✅|✅|  
 | HandlebarsJS|✅|✅|✅| 
 | Angular Elements|✅|✅|✅|
+| Aurelia|✅|✅|✅|
 
 ### Vetting Options
 
@@ -79,6 +82,7 @@ In version 1.11.1 - Support for VueJS was removed due limitations of the SPFx pr
 |No Framework|✅|✅|
 |HandlebarsJS|✅|✅|
 |Angular Elements|✅|✅|
+|Aurelia|✅|✅|
 
 ### Test Framework
 

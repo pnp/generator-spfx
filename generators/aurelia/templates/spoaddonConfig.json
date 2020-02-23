@@ -1,0 +1,12 @@
+{
+    "aurelia": {
+        "dependencies": {
+            "aurelia-bootstrapper": "^2.3.3"
+        },
+        "devDependencies": {
+            "ajv": "^6.9.1",
+            "aurelia-webpack-plugin": "^4.0.0",
+            "expose-loader": "^0.7.5"
+        }
+    }
+}
