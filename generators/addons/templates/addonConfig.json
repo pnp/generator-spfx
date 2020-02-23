@@ -2,7 +2,7 @@
     "jquery@3": {
         "dependencies": {
             "jquery": "^3.4.1",
-            "@types/jquery": "^3.3.31"
+            "@types/jquery": "^3.3.33"
         }
     },
     "msgraph": {
@@ -111,7 +111,7 @@
     },
     "@pnp/pnpjs": {
         "dependencies": {
-            "@pnp/pnpjs": "^2.0.2"
+            "@pnp/pnpjs": "^2.0.3"
         }
     },
     "@pnp/spfx-property-controls": {
@@ -132,9 +132,9 @@
     "stylelint": {
         "devDependencies": {
             "stylelint": "^13.0.0",
-            "stylelint-config-standard": "^19.0.0",
-            "stylelint-scss": "^3.13.0",
-            "gulp-stylelint": "^11.0.0"
+            "stylelint-config-standard": "^20.0.0",
+            "stylelint-scss": "^3.14.2",
+            "gulp-stylelint": "^13.0.0"
         }
     },
     "continuousIntegrationJest": {

@@ -36,18 +36,12 @@ jobs:
       - run:
           name: Test Run All
           command: npm run test
-    #   - run:
-    #       name: Test React
-    #       command: npm run test-react
-    #   - run:
-    #       name: Test Handlebars
-    #       command: npm run test-handlebars
       - store_artifacts:
           path: testresult
   deploy_docs:
     version: 2
     docker:
-      - image: circleci/python:2.7-jessie-node
+      - image: circleci/python:3.6.6-jessie-node
     steps:
       - checkout
       - attach_workspace:
@@ -60,7 +54,10 @@ jobs:
           command: sudo pip install mkdocs
       - run:
           name: Install MkDocs theme
-          command: sudo pip install mkdocs-material
+          command: sudo pip install mkdocs-material==3.1.0
+      - run:
+          name: Install PyMdown Extensions
+          command: sudo pip install pymdown-extensions==6.0
       - run:
           name: Avoid hosts unknown for github
           command: echo -e "Host github.com\n\tStrictHostKeyChecking no\n" > ~/.ssh/config

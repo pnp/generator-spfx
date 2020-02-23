@@ -5,7 +5,6 @@ const fgYellow = chalk.whiteBright.bold;
 
 let angularVersion = "";
 
-
 // check if @angular/cli is installed - otherwise disable this option
 const checkAngular = (() => {
 
@@ -62,14 +61,6 @@ const spoFrameworks = [
         fgYellow('Additional Frameworks')
     ),
     {
-        name: '- Handlebars',
-        value: 'handlebars'
-    },
-    {
-        name: '- Vue.js',
-        value: 'vuejs'
-    },
-    {
         name: '- Aurelia',
         value: 'aurelia'
     },
@@ -77,6 +68,14 @@ const spoFrameworks = [
         name: '- Angular Elements' + angularVersion,
         value: 'angularelements',
         disabled: checkAngular
+    },
+    {
+        name: '- Handlebars',
+        value: 'handlebars'
+    },
+    {
+        name: '- Vue.js',
+        value: 'vuejs'
     },
     new inquirer.Separator(
         fgYellow('Enhanced SPFx')
@@ -101,17 +100,17 @@ const onPrem19Frameworks = [
         fgYellow('Additional Frameworks')
     ),
     {
-        name: '- Handlebars',
-        value: 'handlebars'
+        name: '- Angular Elements' + angularVersion,
+        value: 'angularelements',
+        disabled: checkAngular
     },
     {
         name: '- Aurelia',
         value: 'aurelia'
     },
     {
-        name: '- Angular Elements' + angularVersion,
-        value: 'angularelements',
-        disabled: checkAngular
+        name: '- Handlebars',
+        value: 'handlebars'
     },
     new inquirer.Separator(
         fgYellow('Enhanced SPFx')
