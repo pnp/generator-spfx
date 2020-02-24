@@ -42,6 +42,10 @@
     ],
     "contributors": [
         {
+            "name": "Magnus Danielson",
+            "url": "https://github.com/magnusdanielson"
+        },
+        {
             "name": "Matthew Farrell",
             "url": "https://github.com/matthewfarrell"
         },

@@ -8,7 +8,7 @@ The official SPFx generator targets for three specific platforms:
 
 Not all those options generate the same version of SPFx projects and the available features are limited to the lowest supported version.
 
-![Target framework seletion](./assets/framework-selection-options.png)
+![Target framework seletion](./assets/yo-running.png)
 
 Depending on the selections mad different options can be supported by the SharePoint Framework.
 
