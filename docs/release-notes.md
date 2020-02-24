@@ -1,5 +1,9 @@
 # Release Notes
 
+# 1.12.0 Aurelia Framework added
+
+- Aurelia Framework added
+
 # 1.11.1 Improvmentens
 
 - SP 2019 Projects: VueJS was removed due to SPFx 1.4.1
