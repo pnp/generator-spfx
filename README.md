@@ -72,3 +72,4 @@ More details can also be found in the documentation on [how to extend this gener
 ![SharePoint Patterns and Practices](https://devoffice.blob.core.windows.net/media/Default/PnP/pnplogoblue.png)
 
 **Sharing is caring!**
+
