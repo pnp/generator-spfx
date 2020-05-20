@@ -1,7 +1,7 @@
 {
     "handlebars": {
         "dependencies": {
-            "handlebars": "^4.7.2"
+            "handlebars": "^4.7.6"
         },
         "devDependencies": {
             "handlebars-loader": "^1.7.1"

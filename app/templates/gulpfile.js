@@ -47,26 +47,31 @@ gulp.task('dev', gulpSequence('clean', 'bundle', 'package-solution'));
  * Webpack Bundle Anlayzer
  * Reference and gulp task
  */
-const bundleAnalyzer = require('webpack-bundle-analyzer');
+if (process.argv.indexOf('--analyze') ||
+  process.argv.indexOf('dist') ||
+  process.argv.indexOf('dev')) {
 
-build.configureWebpack.mergeConfig({
+  const bundleAnalyzer = require('webpack-bundle-analyzer');
+
+  build.configureWebpack.mergeConfig({
 
     additionalConfiguration: (generatedConfiguration) => {
-        const lastDirName = path.basename(__dirname);
-        const dropPath = path.join(__dirname, 'temp', 'stats');
-        generatedConfiguration.plugins.push(new bundleAnalyzer.BundleAnalyzerPlugin({
-            openAnalyzer: false,
-            analyzerMode: 'static',
-            reportFilename: path.join(dropPath, `${lastDirName}.stats.html`),
-            generateStatsFile: true,
-            statsFilename: path.join(dropPath, `${lastDirName}.stats.json`),
-            logLevel: 'error'
-        }));
+      const lastDirName = path.basename(__dirname);
+      const dropPath = path.join(__dirname, 'temp', 'stats');
+      generatedConfiguration.plugins.push(new bundleAnalyzer.BundleAnalyzerPlugin({
+        openAnalyzer: false,
+        analyzerMode: 'static',
+        reportFilename: path.join(dropPath, `${lastDirName}.stats.html`),
+        generateStatsFile: true,
+        statsFilename: path.join(dropPath, `${lastDirName}.stats.json`),
+        logLevel: 'error'
+      }));
 
-        return generatedConfiguration;
+      return generatedConfiguration;
     }
 
-});
+  });
+}
 <% }; %>
 <% if(stylelint) {%>
 /**

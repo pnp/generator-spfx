@@ -1,8 +1,8 @@
 {
     "jquery@3": {
         "dependencies": {
-            "jquery": "^3.4.1",
-            "@types/jquery": "^3.3.33"
+            "jquery": "^3.5.1",
+            "@types/jquery": "^3.3.38"
         }
     },
     "msgraph": {
@@ -32,7 +32,7 @@
     "ouifr@6fluent": {
         "dependencies": {
             "office-ui-fabric-react": "^6.189.2",
-            "@uifabric/fluent-theme": "^7.1.5"
+            "@uifabric/fluent-theme": "^7.1.82"
         },
         "devDependencies": {
             "@types/react": "^16.9.17"
@@ -40,10 +40,10 @@
     },
     "ouifr@7": {
         "dependencies": {
-            "office-ui-fabric-react": "^7.83.1"
+            "office-ui-fabric-react": "^7.115.1"
         },
         "devDependencies": {
-            "@types/react": "^16.9.17"
+            "@types/react": "^16.9.35"
         },
         "rmDependencies": [
             "@microsoft/rush-stack-compiler-2.9"
@@ -111,29 +111,29 @@
     },
     "@pnp/pnpjs": {
         "dependencies": {
-            "@pnp/pnpjs": "^2.0.3"
+            "@pnp/pnpjs": "^2.0.5"
         }
     },
     "@pnp/spfx-property-controls": {
         "dependencies": {
-            "@pnp/spfx-property-controls": "1.16.0"
+            "@pnp/spfx-property-controls": "1.18.0"
         }
     },
     "@pnp/spfx-controls-react": {
         "dependencies": {
-            "@pnp/spfx-controls-react": "1.16.0"
+            "@pnp/spfx-controls-react": "1.18.0"
         }
     },
     "webpack-analyzer": {
         "devDependencies": {
-            "webpack-bundle-analyzer": "^3.6.0"
+            "webpack-bundle-analyzer": "^3.8.0"
         }
     },
     "stylelint": {
         "devDependencies": {
-            "stylelint": "^13.0.0",
+            "stylelint": "^13.5.0",
             "stylelint-config-standard": "^20.0.0",
-            "stylelint-scss": "^3.14.2",
+            "stylelint-scss": "^3.17.2",
             "gulp-stylelint": "^13.0.0"
         }
     },
