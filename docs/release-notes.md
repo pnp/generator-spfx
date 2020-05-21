@@ -2,6 +2,21 @@
 
 # 1.12.0 Aurelia Framework added
 
+**Webpack bundle analyzer optimisation**
+- run only on 'gulp dist' and 'gulp dev' for faster build time
+
+**Updated dependencies**
+- @pnp/spfx-controls-react - 1.18.0
+- @pnp/pnpjs - 2.0.5
+- @pnp/spfx-controls-react - 1.18.0
+- office-ui-fabric-react - 7.115.1
+- JQuery - 3.5.1
+- webpack-analyzer - 3.8.0
+- stylelint - 13.5.0
+- Handlebars - 4.7.6
+
+# 1.12.0 Aurelia Framework added
+
 - Aurelia Framework added
 
 # 1.11.1 Improvmentens

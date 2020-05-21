@@ -47,9 +47,9 @@ gulp.task('dev', gulpSequence('clean', 'bundle', 'package-solution'));
  * Webpack Bundle Anlayzer
  * Reference and gulp task
  */
-if (process.argv.indexOf('--analyze') ||
-  process.argv.indexOf('dist') ||
-  process.argv.indexOf('dev')) {
+if (process.argv.indexOf('--analyze') !== -1 ||
+  process.argv.indexOf('dist') !== -1 ||
+  process.argv.indexOf('dev') !== -1) {
 
   const bundleAnalyzer = require('webpack-bundle-analyzer');
 
