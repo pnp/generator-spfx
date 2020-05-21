@@ -4,6 +4,7 @@
 
 **Webpack bundle analyzer optimisation**
 - run only on 'gulp dist' and 'gulp dev' for faster build time
+- Runnig during development can accomplished with the switch `--analyze`
 
 **Updated dependencies**
 - @pnp/spfx-controls-react - 1.18.0
