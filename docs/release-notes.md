@@ -4,7 +4,7 @@
 
 **Webpack bundle analyzer optimisation**
 
-- run only on 'gulp dist' and 'gulp dev' for faster build time
+- run only on `gulp dist` and `gulp dev` for faster build times during development
 - Runnig during development can accomplished with the switch `--analyze`
 
 **Updated dependencies**
