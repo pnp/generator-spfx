@@ -64,21 +64,25 @@ module.exports = class extends Generator {
             cwd: path.dirname(angularSolutionPath)
         });
 
+        const ngVersion = require('@angular/cli/package.json');
+        
         const generateComponentOptions = [];
         generateComponentOptions.push('generate');
         generateComponentOptions.push('component');
         generateComponentOptions.push(manifest.componentClassName);
         generateComponentOptions.push('--viewEncapsulation=Emulated');
-        generateComponentOptions.push('--entry-component=true');
+        
+        /** Entry Components are Deprecated in Angular 9 */
+        if(ngVersion.version && parseFloat(ngVersion.version) < 9 ){
+            generateComponentOptions.push('--entry-component=true');
+        }
 
         // ORIGINAME this.spawnCommandSync(`ng generate component ${manifest.componentClassName} -v Native --entry-component`, [], {cwd: angularSolutionPath});
         this.spawnCommandSync('ng', generateComponentOptions, {
             cwd: angularSolutionPath
         });
 
-        // MOve Angular 8 back to ES5
-        const ngVersion = require('@angular/cli/package.json');
-
+        // Move Angular 8 back to ES5
         if (ngVersion.version !== undefined &&
             ngVersion.version.startsWith("8")) {
 
@@ -118,7 +122,8 @@ module.exports = class extends Generator {
             angularSolutionName: angularSolutionName,
             angularSolutionNameKebabCase: paramCase(angularSolutionName),
             componentClassName: manifest.componentClassName,
-            componentClassNameKebabCase: paramCase(manifest.componentClassName)
+            componentClassNameKebabCase: paramCase(manifest.componentClassName),
+            ngVersion: ngVersion.version
         };
 
         util.deployTemplatesToPath(this, ejsInject, this.templatePath('./angular'), angularSolutionPath);
