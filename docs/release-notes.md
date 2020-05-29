@@ -1,5 +1,9 @@
 # Release Notes
 
+# 1.13.1 Webpack bundle analyzer optimisation
+
+**Bugfix:** [#263](https://github.com/pnp/generator-spfx/issues/263) Incorrect version check during adding new web part
+
 # 1.13.0 Webpack bundle analyzer optimisation
 
 **Webpack bundle analyzer optimisation**
