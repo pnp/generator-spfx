@@ -8,22 +8,22 @@
     },
     "license": "MIT",
     "dependencies": {
-        "@pnp/spfx-property-controls": "1.16.0",
-        "jquery": "^3.4.1",
-        "@types/jquery": "^3.3.33",
-        "@pnp/pnpjs": "^2.0.3",
-        "@pnp/spfx-controls-react": "1.16.0",
+        "@pnp/spfx-property-controls": "1.19.0",
+        "jquery": "^3.5.1",
+        "@types/jquery": "^3.3.38",
+        "@pnp/pnpjs": "^2.0.6",
+        "@pnp/spfx-controls-react": "1.19.0",
         "vue": "^2.6.11",
         "vue-class-component": "7.2.3",
-        "vue-property-decorator": "^8.4.0",
+        "vue-property-decorator": "^8.5.0",
         "sass-loader": "^8.0.2",
-        "handlebars": "^4.7.3"
+        "handlebars": "^4.7.6"
     },
     "devDependencies": {
         "sass-loader": "^8.0.2",
-        "ts-loader": "^6.2.1",
-        "fork-ts-checker-webpack-plugin": "^4.0.4",
-        "vue-loader": "^15.9.0",
+        "ts-loader": "^7.0.5",
+        "fork-ts-checker-webpack-plugin": "^5.0.1",
+        "vue-loader": "^15.9.2",
         "vue-template-compiler": "^2.6.11",
         "handlebars-template-loader": "^1.0.0",
         "@types/handlebars": "^4.1.0"
