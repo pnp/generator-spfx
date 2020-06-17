@@ -9,13 +9,14 @@ let angularVersion = "";
 const checkAngular = (() => {
 
     try {
-
+    
         const ngVersion = require('@angular/cli/package.json');
-
-        // support for Angular 6/7/8
+        
+        // support for Angular 6/7/8/9
         if (ngVersion.version.startsWith('6') ||
             ngVersion.version.startsWith('7') ||
-            ngVersion.version.startsWith('8')) {
+            ngVersion.version.startsWith('8') || 
+            ngVersion.version.startsWith('9')) {
 
             angularVersion = ` (uses @angular/cli ${ ngVersion.version})`;
 
@@ -25,7 +26,7 @@ const checkAngular = (() => {
         return true;
 
     } catch (error) {
-
+        
         // Angular is disabled because no Valid client could be found
         return true;
 
