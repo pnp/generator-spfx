@@ -35,7 +35,7 @@
             "@uifabric/fluent-theme": "^7.1.82"
         },
         "devDependencies": {
-            "@types/react": "^16.9.17"
+            "@types/react": "^16.9.38"
         }
     },
     "ouifr@7": {
@@ -43,7 +43,7 @@
             "office-ui-fabric-react": "^7.115.1"
         },
         "devDependencies": {
-            "@types/react": "^16.9.35"
+            "@types/react": "^16.9.38"
         },
         "rmDependencies": [
             "@microsoft/rush-stack-compiler-2.9"
@@ -63,7 +63,7 @@
     },
     "rush@3.4": {
         "devDependencies": {
-            "@microsoft/rush-stack-compiler-3.4": "^0.4.x",
+            "@microsoft/rush-stack-compiler-3.4": "^0.6.x",
             "typescript": "~3.4.x"
         },
         "tsconfig": {
@@ -75,7 +75,7 @@
     },
     "rush@3.5": {
         "devDependencies": {
-            "@microsoft/rush-stack-compiler-3.5": "^0.4.x",
+            "@microsoft/rush-stack-compiler-3.5": "^0.6.x",
             "typescript": "~3.5.x"
         },
         "tsconfig": {
@@ -87,7 +87,7 @@
     },
     "rush@3.6": {
         "devDependencies": {
-            "@microsoft/rush-stack-compiler-3.6": "^0.2.x",
+            "@microsoft/rush-stack-compiler-3.6": "^0.4.x",
             "typescript": "~3.6.x"
         },
         "tsconfig": {
@@ -99,7 +99,7 @@
     },
     "rush@3.7": {
         "devDependencies": {
-            "@microsoft/rush-stack-compiler-3.7": "^0.2.x",
+            "@microsoft/rush-stack-compiler-3.7": "^0.4.x",
             "typescript": "~3.7.x"
         },
         "tsconfig": {
@@ -131,7 +131,7 @@
     },
     "stylelint": {
         "devDependencies": {
-            "stylelint": "^13.5.0",
+            "stylelint": "^13.6.1",
             "stylelint-config-standard": "^20.0.0",
             "stylelint-config-css-modules": "^2.2.0",
             "stylelint-scss": "^3.17.2",
