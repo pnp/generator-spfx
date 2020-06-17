@@ -116,7 +116,7 @@
     },
     "@pnp/spfx-property-controls": {
         "dependencies": {
-            "@pnp/spfx-property-controls": "1.18.0"
+            "@pnp/spfx-property-controls": "1.19.0"
         }
     },
     "@pnp/spfx-controls-react": {
