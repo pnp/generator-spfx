@@ -121,7 +121,7 @@
     },
     "@pnp/spfx-controls-react": {
         "dependencies": {
-            "@pnp/spfx-controls-react": "1.18.0"
+            "@pnp/spfx-controls-react": "1.19.0"
         }
     },
     "webpack-analyzer": {
