@@ -44,6 +44,14 @@ const rushCompilerOption = [{
     {
         'name': 'TypeScript v3.7',
         'value': 'rush@3.7'
+    },
+    {
+        'name': 'TypeScript v3.8',
+        'value': 'rush@3.7'
+    },
+    {
+        'name': 'TypeScript v3.9',
+        'value': 'rush@3.7'
     }
 ]
 
