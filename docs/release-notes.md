@@ -1,5 +1,15 @@
 # Release Notes
 
+# 1.14.0 Angular 9 Support added
+
+- Addes Angular 9 support and is capable of Angular 6/7/8/
+- TypeScript 3.8/3.9 added
+- Minor update VueJS
+- @pnp/spfx-controls-react - v1.19.0
+- @pnp/pnpjs - 2.0.6
+- Office 365 CLI 2.10.0 added
+
+
 # 1.13.1 Webpack bundle analyzer optimisation
 
 **Bugfix:** [#263](https://github.com/pnp/generator-spfx/issues/263) Incorrect version check during adding new web part
