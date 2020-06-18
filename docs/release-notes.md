@@ -2,7 +2,8 @@
 
 # 1.14.0 Angular 9 Support added
 
-- Addes Angular 9 support and is capable of Angular 6/7/8/
+- Addes Angular 9 support and is capable of Angular 6/7/8
+- [CSS Module](https://github.com/css-modules/css-modules) support for [StyleLinter](https://stylelint.io) added
 - TypeScript 3.8/3.9 added
 - Minor update VueJS
 - @pnp/spfx-controls-react - v1.19.0

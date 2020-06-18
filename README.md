@@ -17,6 +17,8 @@ This is an open-source extension for native out of the box SPFx generator to int
 
 More details can be found in the documentation at [https://aka.ms/pnpgenerator](https://aka.ms/pnpgenerator)
 
+- [Release notes](https://pnp.github.io/generator-spfx/release-notes/)
+
 ## Installation
 
 ### via NPM
