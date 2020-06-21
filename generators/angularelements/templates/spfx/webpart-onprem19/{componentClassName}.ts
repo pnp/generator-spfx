@@ -9,7 +9,9 @@ import { escape } from '@microsoft/sp-lodash-subset';
 
 import * as strings from '<%= componentStrings %>';
 
+/** Include Angular Elements JS and Style */
 import '<%= angularSolutionNameKebabCase %>/dist/<%= angularSolutionName %>/bundle.js';
+require('../../../node_modules/<%= angularSolutionNameKebabCase %>/dist/<%= angularSolutionName %>/styles.css');
 
 export interface I<%= componentClassName %>Props {
   description: string;
