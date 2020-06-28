@@ -1,5 +1,10 @@
 # Release Notes
 
+# 1.14.1 Angular 9 style support extended
+
+- Include Angular Elements Styles in SPFx Webpart [#266](https://github.com/pnp/generator-spfx/pull/266)
+
+
 # 1.14.0 Angular 9 Support added
 
 - Addes Angular 9 support and is capable of Angular 6/7/8
