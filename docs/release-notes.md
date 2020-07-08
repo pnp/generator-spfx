@@ -1,5 +1,10 @@
 # Release Notes
 
+# 1.14.2 Solution / Component naming arguments fix
+
+- Generator does not respect solution/component naming arguments [#2668](https://github.com/pnp/generator-spfx/pull/268)
+
+
 # 1.14.1 Angular 9 style support extended
 
 - Include Angular Elements Styles in SPFx Webpart [#266](https://github.com/pnp/generator-spfx/pull/266)
