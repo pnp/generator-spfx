@@ -80,7 +80,7 @@
             "url": "https://github.com/AJIXuMuK"
         }
     ],
-    "dependencies": {
+ "dependencies": {
         "@microsoft/generator-sharepoint": "1.10.0",
         "@pnp/office365-cli": "^2.10.0",
         "applicationinsights": "^1.7.6",
