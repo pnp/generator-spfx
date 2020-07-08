@@ -369,18 +369,26 @@ module.exports = class extends Generator {
 
         if (this.options['component-description'] !== undefined) {
             this.options.SpfxOptions['componentDescription'] = this.options['component-description'];
+            // for testing only
+            this.options.SpfxOptions['component-description'] = this.options['component-description'];
         }
 
         if (this.options['component-name'] !== undefined) {
             this.options.SpfxOptions['componentName'] = this.options['component-name'];
+            // for testing only
+            this.options.SpfxOptions['component-name'] = this.options['component-name'];
         }
 
         if (this.options['component-type'] !== undefined) {
             this.options.SpfxOptions['componentType'] = this.options['component-type'];
+            // for testing only
+            this.options.SpfxOptions['component-type'] = this.options['component-type'];
         }
 
         if (this.options['solution-name'] !== undefined) {
             this.options.SpfxOptions['solutionName'] = this.options['solution-name'];
+            // for testing only
+            this.options.SpfxOptions['solution-name'] = this.options['solution-name'];
         }
 
         if (this.options['plusbeta'] !== undefined) {

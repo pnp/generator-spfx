@@ -7,7 +7,7 @@ class FileContent {
     constructor() {
 
         this.yorc = '.yo-rc.json';
-        this.package = 'package.json';
+        this.package = 'HelloWorld/package.json';
 
     }
 

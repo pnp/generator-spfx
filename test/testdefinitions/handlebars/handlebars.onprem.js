@@ -1,4 +1,4 @@
-const baseTest = require('../../tools/testGenerator/"coreTestDefinition');
+const baseTest = require('../../tools/testGenerator/coreTestDefinition');
 
 
 const testSuite = new baseTest.TestSuite();
