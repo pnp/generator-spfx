@@ -368,11 +368,11 @@ module.exports = class extends Generator {
     _generateSPFxOptions() {
 
         if (this.options['component-description'] !== undefined) {
-            this.options.SpfxOptions['component-description'] = this.options['component-description'];
+            this.options.SpfxOptions['componentDescription'] = this.options['component-description'];
         }
 
         if (this.options['component-name'] !== undefined) {
-            this.options.SpfxOptions['component-name'] = this.options['component-name'];
+            this.options.SpfxOptions['componentName'] = this.options['component-name'];
         }
 
         if (this.options['component-type'] !== undefined) {
@@ -380,7 +380,7 @@ module.exports = class extends Generator {
         }
 
         if (this.options['solution-name'] !== undefined) {
-            this.options.SpfxOptions['solution-name'] = this.options['solution-name'];
+            this.options.SpfxOptions['solutionName'] = this.options['solution-name'];
         }
 
         if (this.options['plusbeta'] !== undefined) {

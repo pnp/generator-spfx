@@ -82,18 +82,18 @@
     ],
     "dependencies": {
         "@microsoft/generator-sharepoint": "1.10.0",
-        "@pnp/office365-cli": "^2.10.0",
-        "applicationinsights": "^1.7.6",
+        "@pnp/office365-cli": "^2.11.0",
+        "applicationinsights": "^1.8.1",
         "chalk": "^4.1.0",
         "command-exists": "^1.2.9",
         "global": "^4.4.0",
-        "lodash": "^4.17.15",
+        "lodash": "^4.17.19",
         "param-case": "^3.0.3",
         "update-notifier": "^4.1.0",
-        "yeoman-generator": "~4.10.1"
+        "yeoman-generator": "~4.11.0"
     },
     "devDependencies": {
-        "mocha": "~7.1.2",
+        "mocha": "~8.0.1",
         "rimraf": "^3.0.2",
         "yeoman-assert": "~3.1.1",
         "yeoman-test": "~2.6.0"
