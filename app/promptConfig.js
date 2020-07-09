@@ -9,24 +9,18 @@ let angularVersion = "";
 const checkAngular = (() => {
 
     try {
-    
         const ngVersion = require('@angular/cli/package.json');
         
-        // support for Angular 6/7/8/9
-        if (ngVersion.version.startsWith('6') ||
-            ngVersion.version.startsWith('7') ||
-            ngVersion.version.startsWith('8') || 
-            ngVersion.version.startsWith('9')) {
-
-            angularVersion = ` (uses @angular/cli ${ ngVersion.version})`;
-
+        // support for Angular 6 and all above versions
+        if ((+ngVersion.version.split('.')[0]) >= 6) {
+            angularVersion = ` (uses @angular/cli ${ngVersion.version})`;
             return false;
         };
 
         return true;
 
     } catch (error) {
-        
+
         // Angular is disabled because no Valid client could be found
         return true;
 
@@ -35,17 +29,17 @@ const checkAngular = (() => {
 })();
 
 const supportedSPFxTargets = [{
-        name: 'SharePoint Online only (latest)',
-        value: 'spo'
-    },
-    {
-        name: 'SharePoint 2019 onwards, including SharePoint Online',
-        value: 'onprem19'
-    },
-    {
-        name: 'SharePoint 2016 onwards, including 2019 and SharePoint Online',
-        value: 'onprem'
-    }
+    name: 'SharePoint Online only (latest)',
+    value: 'spo'
+},
+{
+    name: 'SharePoint 2019 onwards, including SharePoint Online',
+    value: 'onprem19'
+},
+{
+    name: 'SharePoint 2016 onwards, including 2019 and SharePoint Online',
+    value: 'onprem'
+}
 ];
 
 // if environment optiosn have been specified
