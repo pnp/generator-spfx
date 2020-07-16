@@ -1,5 +1,14 @@
 # Release Notes
 
+# 1.15.0 SPFx 1.11.0 / Angular 10 Support added
+
+- Upgrade to SPFx 1.11.0
+- Support for Angular 10 added
+- Update Typescript compiler versions
+- Update Addons to latest versions
+- Remove Knockout Support
+
+
 # 1.14.2 Solution / Component naming arguments fix
 
 - Generator does not respect solution/component naming arguments [#2668](https://github.com/pnp/generator-spfx/pull/268)
