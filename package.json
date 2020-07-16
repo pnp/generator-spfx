@@ -1,6 +1,6 @@
 {
     "name": "@pnp/generator-spfx",
-    "version": "1.14.2",
+    "version": "1.15.0",
     "description": "This Yeoman generator helps organisations to improve their development workflow with the SharePoint Framework. It extends the functionalities of the @microsoft/generator-sharepoint based on best pattern and practices. This generator extends the capabilities of ReactJS, and Knockout projects add support for additional frameworks and include advanced code analysis tools.",
     "homepage": "https://aka.ms/pnpgenerator",
     "author": {
