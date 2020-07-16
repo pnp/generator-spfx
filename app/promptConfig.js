@@ -85,10 +85,10 @@ const spoFrameworks = [
         name: '- ReactJS',
         value: 'reactjs.plus'
     },
-    {
-        name: '- Knockout (deprecated)',
-        value: 'knockout.plus'
-    },
+    // {
+    //     name: '- Knockout (deprecated)',
+    //     value: 'knockout.plus'
+    // },
     {
         name: '- No Framework',
         value: 'none.plus'
@@ -120,10 +120,10 @@ const onPrem19Frameworks = [
         name: '- ReactJS',
         value: 'reactjs.plus'
     },
-    {
-        name: '- Knockout (deprecated)',
-        value: 'knockout.plus'
-    },
+    // {
+    //     name: '- Knockout (deprecated)',
+    //     value: 'knockout.plus'
+    // },
     {
         name: '- No Framework',
         value: 'none.plus'
@@ -139,10 +139,10 @@ const onPremFrameworks = [
         name: '- ReactJS',
         value: 'reactjs.plus'
     },
-    {
-        name: '- Knockout (deprecated)',
-        value: 'knockout.plus'
-    },
+    // {
+    //     name: '- Knockout (deprecated)',
+    //     value: 'knockout.plus'
+    // },
     {
         name: '- No Framework',
         value: 'none.plus'

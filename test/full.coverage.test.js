@@ -2,8 +2,8 @@ let testRunner = require('../tools/test-engine/testRunner');
 
 let onpremWebPart = [
     require('./testdefinitions/handlebars/handlebars.onprem.webpart'),
-    require('./testdefinitions/knockout/knockout.onprem.webpart'),
-    require('./testdefinitions/knockout.plus/knockout.onprem.webpart'),
+    // require('./testdefinitions/knockout/knockout.onprem.webpart'),
+    // require('./testdefinitions/knockout.plus/knockout.onprem.webpart'),
     require('./testdefinitions/noframework/noframework.onprem.webpart'),
     require('./testdefinitions/noframework.plus/noframework.onprem.webpart'),
     require('./testdefinitions/reactjs/react.onprem.webpart'),
@@ -13,8 +13,8 @@ let onpremWebPart = [
 
 let onprem19WebPart = [
     require('./testdefinitions/handlebars/handlebars.onprem19.webpart'),
-    require('./testdefinitions/knockout/knockout.onprem19.webpart'),
-    require('./testdefinitions/knockout.plus/knockout.onprem19.webpart'),
+    // require('./testdefinitions/knockout/knockout.onprem19.webpart'),
+    // require('./testdefinitions/knockout.plus/knockout.onprem19.webpart'),
     require('./testdefinitions/noframework/noframework.onprem19.webpart'),
     require('./testdefinitions/noframework.plus/noframework.onprem19.webpart'),
     require('./testdefinitions/reactjs/react.onprem19.webpart'),
@@ -24,8 +24,8 @@ let onprem19WebPart = [
 
 let spoWebPart = [
     require('./testdefinitions/handlebars/handlebars.spo.webpart'),
-    require('./testdefinitions/knockout/knockout.spo.webpart'),
-    require('./testdefinitions/knockout.plus/knockout.spo.webpart'),
+    // require('./testdefinitions/knockout/knockout.spo.webpart'),
+    // require('./testdefinitions/knockout.plus/knockout.spo.webpart'),
     require('./testdefinitions/noframework/noframework.spo.webpart'),
     require('./testdefinitions/noframework.plus/noframework.spo.webpart'),
     require('./testdefinitions/reactjs/react.spo.webpart'),

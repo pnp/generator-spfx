@@ -6,11 +6,11 @@
             "vue-property-decorator": "^8.5.0"
         },
         "devDependencies": {
-            "vue-loader": "^15.9.2",
+            "vue-loader": "^15.9.3",
             "vue-template-compiler": "^2.6.11",
             "sass-loader": "^8.0.2",
             "ts-loader": "^6.2.1",
-            "fork-ts-checker-webpack-plugin": "^4.1.4"
+            "fork-ts-checker-webpack-plugin": "^5.0.7"
         }
     }
 }
