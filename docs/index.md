@@ -19,8 +19,8 @@ This generator supports a variaty of of frameworks and features such as:
 
 * VueJS
 * Handlebars
-* Angular Elements
-* Aurelia
+* [Angular Elements](https://pnp.github.io/generator-spfx/howtos/angularelements/)
+* [Aurelia](https://pnp.github.io/generator-spfx/howtos/aurelia/)
 * Addons such as JEST, StyleLint or WebPack Bundle analyser
 
 More on that in the [features section](/generator-spfx/features/).
