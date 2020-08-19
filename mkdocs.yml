@@ -41,7 +41,7 @@ markdown_extensions:
 extra:
   social:
     - type: 'twitter'
-      link: 'https://twitter.com/officedevpnp'
+      link: 'https://twitter.com/pnpspfx'
     - type: 'youtube'
       link: 'http://aka.ms/sppnp-videos'
     - type: 'link'
