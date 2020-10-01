@@ -65,13 +65,13 @@ module.exports = class extends Generator {
         });
 
         const ngVersion = require('@angular/cli/package.json');
-        
+
         const generateComponentOptions = [];
         generateComponentOptions.push('generate');
         generateComponentOptions.push('component');
         generateComponentOptions.push(manifest.componentClassName);
         generateComponentOptions.push('--viewEncapsulation=Emulated');
-        
+
         /** Entry Components are Deprecated in Angular 9 */
         if(ngVersion.version && parseFloat(ngVersion.version) < 9 ){
             generateComponentOptions.push('--entry-component=true');
@@ -102,13 +102,14 @@ module.exports = class extends Generator {
 
         }
 
-
+        
         const pkg = JSON.parse(
             fs.readFileSync(
                 path.join(angularSolutionPath, 'package.json'), 'utf-8')
         );
 
-        pkg.scripts['bundle'] = 'ng build --prod --output-hashing none && node elements-build.js';
+        //added --optimization=false to solve the issue of over minification of angular element bundle
+        pkg.scripts['bundle'] = 'ng build --prod --output-hashing none --optimization=false && node elements-build.js';
 
         pkg.dependencies['concat'] = '^1.0.3';
         pkg.dependencies['@webcomponents/custom-elements'] = '^1.2.0';
