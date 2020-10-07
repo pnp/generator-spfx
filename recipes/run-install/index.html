@@ -685,45 +685,38 @@
 <p>The pnpm package manager is available via a command line switch when the yeoman generator gets launched.</p>
 <p>To install dependencies with a specific package manager, the following options exist:</p>
 <p><strong>To explicitly use npm:</strong></p>
-<div class="codehilite"><pre><span></span><code>yo @pnp/spfx --pm npm
+<div class="sh codehilite"><pre><span></span><code>yo @pnp/spfx --pm npm
 </code></pre></div>
-
 
 <p>or</p>
-<div class="codehilite"><pre><span></span><code>yo @pnp/spfx --package-manager npm
+<div class="sh codehilite"><pre><span></span><code>yo @pnp/spfx --package-manager npm
 </code></pre></div>
-
 
 <p><strong>To explicitly use pnpm:</strong></p>
-<div class="codehilite"><pre><span></span><code>yo @pnp/spfx --pm pnpm
+<div class="sh codehilite"><pre><span></span><code>yo @pnp/spfx --pm pnpm
 </code></pre></div>
-
 
 <p>or</p>
-<div class="codehilite"><pre><span></span><code>yo @pnp/spfx --package-manager pnpm
+<div class="sh codehilite"><pre><span></span><code>yo @pnp/spfx --package-manager pnpm
 </code></pre></div>
-
 
 <p><strong>To explicitly use pnpm:</strong></p>
-<div class="codehilite"><pre><span></span><code>yo @pnp/spfx --pm yarn
+<div class="sh codehilite"><pre><span></span><code>yo @pnp/spfx --pm yarn
 </code></pre></div>
-
 
 <p>or</p>
-<div class="codehilite"><pre><span></span><code>yo @pnp/spfx --package-manager yarn
+<div class="sh codehilite"><pre><span></span><code>yo @pnp/spfx --package-manager yarn
 </code></pre></div>
-
 
 <h2 id="reference-to-the-util">Reference to the Util<a class="headerlink" href="#reference-to-the-util" title="Permanent link">&para;</a></h2>
 <p>Your generators <code>index.js</code> should include the following line of code somewhere at the start:</p>
-<div class="codehilite"><pre><span></span><code><span class="c1">// importing utilities</span>
+<div class="js codehilite"><pre><span></span><code><span class="c1">// importing utilities</span>
 <span class="kr">const</span> <span class="nx">util</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;../../lib/util.js&#39;</span><span class="p">);</span>
 </code></pre></div>
 
-
 <h2 id="call-npm-package-installation">Call npm package installation<a class="headerlink" href="#call-npm-package-installation" title="Permanent link">&para;</a></h2>
 <p>Add the following line of code in the install method of your generator:</p>
-<div class="codehilite"><pre><span></span><code><span class="nx">install</span><span class="p">(){</span>
+<div class="js codehilite"><pre><span></span><code><span class="nx">install</span><span class="p">(){</span>
 
     <span class="cm">/* Custom configuration code should be placed before the installer */</span>
     <span class="nx">util</span><span class="p">.</span><span class="nx">runInstall</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>

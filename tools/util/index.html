@@ -626,7 +626,7 @@ Path to any gulp file you would like to use as a template.</p>
 <p><strong>customTemplate</strong><br />
 Contains all your custom gulp tasks you would like to inject.</p>
 <p>The core template in the generator provided by SPFx is located in the folder <code>/app/templates/gulpfile.js</code> and contains the following <a href="http://ejs.co">EJS</a> code:</p>
-<div class="codehilite"><pre><span></span><code><span class="s1">&#39;use strict&#39;</span><span class="p">;</span>
+<div class="js codehilite"><pre><span></span><code><span class="s1">&#39;use strict&#39;</span><span class="p">;</span>
 
 <span class="kr">const</span> <span class="nx">gulp</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;gulp&#39;</span><span class="p">);</span>
 <span class="kr">const</span> <span class="nx">build</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@microsoft/sp-build-web&#39;</span><span class="p">);</span>
@@ -638,20 +638,17 @@ Contains all your custom gulp tasks you would like to inject.</p>
 <span class="nx">build</span><span class="p">.</span><span class="nx">initialize</span><span class="p">(</span><span class="nx">gulp</span><span class="p">);</span>
 </code></pre></div>
 
-
 <p>The custom generator can point to this file using the following code:</p>
-<div class="codehilite"><pre><span></span><code><span class="kd">let</span> <span class="nx">coreGulpTemplate</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">templatePath</span><span class="p">(</span><span class="s1">&#39;../../../app/templates/gulpfile.js&#39;</span><span class="p">);</span>
+<div class="js codehilite"><pre><span></span><code><span class="kd">let</span> <span class="nx">coreGulpTemplate</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">templatePath</span><span class="p">(</span><span class="s1">&#39;../../../app/templates/gulpfile.js&#39;</span><span class="p">);</span>
 </code></pre></div>
 
-
 <p>The following example shows a simple custom code snippet that should be included in the gulp file:</p>
-<div class="codehilite"><pre><span></span><code><span class="c1">// code to inject in gulp file</span>
+<div class="js codehilite"><pre><span></span><code><span class="c1">// code to inject in gulp file</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Hello PnP SPFx generator&#39;</span><span class="p">);</span>
 </code></pre></div>
 
-
 <p>The resulting <code>gulpfile.js</code> after the merge in this case will be:</p>
-<div class="codehilite"><pre><span></span><code><span class="s1">&#39;use strict&#39;</span><span class="p">;</span>
+<div class="js codehilite"><pre><span></span><code><span class="s1">&#39;use strict&#39;</span><span class="p">;</span>
 
 <span class="kr">const</span> <span class="nx">gulp</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;gulp&#39;</span><span class="p">);</span>
 <span class="kr">const</span> <span class="nx">build</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@microsoft/sp-build-web&#39;</span><span class="p">);</span>

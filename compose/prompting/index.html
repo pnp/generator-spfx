@@ -602,24 +602,23 @@
                 <h1 id="how-to-implement-prompting">How to implement prompting<a class="headerlink" href="#how-to-implement-prompting" title="Permanent link">&para;</a></h1>
 <p>Yeoman generator use a library named <a href="https://github.com/SBoudrias/Inquirer.js/">Inquirer.js</a> for the prompt configuration. To read more on the general prompting behaviour checkout <a href="http://yeoman.io/authoring/user-interactions.html">Interacting with the User</a> in the Yeoman documentation.</p>
 <p>To support multiple Yeoman generators with different prompting configurations, a special method was implemented in the core generators such as the addon generator.</p>
-<div class="codehilite"><pre><span></span><code>generators/addons
+<div class="bash codehilite"><pre><span></span><code>generators/addons
 ├── index.js
 ├── promptConfig.js    <span class="c1"># &lt;- this is the configuration file for the prompts</span>
 └── templates
     └── addonConfig.json
 </code></pre></div>
 
-
 <p>All prompts required by the generator are included in the prompt config file directly inside the Yeoman generator.</p>
-<div class="codehilite"><pre><span></span><code><span class="kr">const</span> <span class="nx">chalk</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;chalk&#39;</span><span class="p">);</span>
+<div class="js codehilite"><pre><span></span><code><span class="kr">const</span> <span class="nx">chalk</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;chalk&#39;</span><span class="p">);</span>
 
 <span class="kr">const</span> <span class="nx">jqueryOptions</span> <span class="o">=</span> <span class="p">[{</span>
         <span class="s1">&#39;name&#39;</span><span class="o">:</span> <span class="s1">&#39;3.x.x (recommended)&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;value&#39;</span><span class="o">:</span> <span class="mi">3</span>
+        <span class="s1">&#39;value&#39;</span><span class="o">:</span> <span class="mf">3</span>
     <span class="p">},</span>
     <span class="p">{</span>
         <span class="s1">&#39;name&#39;</span><span class="o">:</span> <span class="s1">&#39;2.x.x&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;value&#39;</span><span class="o">:</span> <span class="mi">2</span>
+        <span class="s1">&#39;value&#39;</span><span class="o">:</span> <span class="mf">2</span>
     <span class="p">}</span>
 <span class="p">]</span>
 
@@ -643,17 +642,16 @@
         <span class="nx">message</span><span class="o">:</span> <span class="sb">`</span><span class="si">${</span><span class="nx">chalk</span><span class="p">.</span><span class="nx">bold</span><span class="p">.</span><span class="nx">yellow</span><span class="p">(</span><span class="s1">&#39;jQuery: &#39;</span><span class="p">)</span><span class="si">}</span><span class="sb"> Please choose a version:`</span><span class="p">,</span>
         <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;jQueryVersion&#39;</span><span class="p">,</span>
         <span class="nx">choices</span><span class="o">:</span> <span class="nx">jqueryOptions</span><span class="p">,</span>
-        <span class="nx">when</span><span class="o">:</span> <span class="nx">answers</span> <span class="p">=&gt;</span> <span class="nx">answers</span><span class="p">.</span><span class="nx">jsLibrary</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s1">&#39;jquery&#39;</span><span class="p">)</span> <span class="o">!==</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="nx">when</span><span class="o">:</span> <span class="nx">answers</span> <span class="p">=&gt;</span> <span class="nx">answers</span><span class="p">.</span><span class="nx">jsLibrary</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s1">&#39;jquery&#39;</span><span class="p">)</span> <span class="o">!==</span> <span class="o">-</span><span class="mf">1</span>
     <span class="p">}</span>
 <span class="p">]</span>
 
 <span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nx">configOptions</span><span class="p">;</span>
 </code></pre></div>
 
-
 <p>This example defines the questions for jQuery when used in the PnP SPFx generator and will be exported as a module in node. This is required because all configuration options will then be collected together in the main generator and is located in the <code>/app</code> folder.</p>
 <p>Inside this folder is another promptConfig and the particular configuration of the addon generator prompting gets imported.</p>
-<div class="codehilite"><pre><span></span><code><span class="c1">// Add configuration of Addon generator</span>
+<div class="js codehilite"><pre><span></span><code><span class="c1">// Add configuration of Addon generator</span>
 <span class="kr">const</span> <span class="nx">addon</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;../generators/addons/promptConfig&#39;</span><span class="p">);</span>
 <span class="nx">configOptions</span> <span class="o">=</span> <span class="nx">configOptions</span><span class="p">.</span><span class="nx">concat</span><span class="p">(</span><span class="nx">addon</span><span class="p">);</span>
 
@@ -664,9 +662,8 @@
 <span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nx">promptConfig</span><span class="p">;</span>
 </code></pre></div>
 
-
 <p>This code imports the module of the addon configuraton and adds the settings to the default generator prompting. This config file will again be exported as a module and gets used in the main generator code.</p>
-<div class="codehilite"><pre><span></span><code><span class="nx">prompting</span><span class="p">()</span> <span class="p">{</span>
+<div class="js codehilite"><pre><span></span><code><span class="nx">prompting</span><span class="p">()</span> <span class="p">{</span>
 
     <span class="cm">/* DO NOT ENTER CODE HERE */</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">prompt</span><span class="p">(</span><span class="nx">prompting</span><span class="p">.</span><span class="nx">config</span><span class="p">)</span>
@@ -688,7 +685,6 @@
 
 <span class="p">}</span>
 </code></pre></div>
-
 
 <p>So this makes sure that all prompt configurations can be centrally managed - even the ones specific to additional generators.</p>
 <div class="admonition info">

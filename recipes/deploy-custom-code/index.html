@@ -661,7 +661,7 @@
                 <h1 id="update-provisioned-artifacts-for-web-parts-extensions-and-customizer-with-generator">Update provisioned artifacts for web parts, extensions and customizer with generator<a class="headerlink" href="#update-provisioned-artifacts-for-web-parts-extensions-and-customizer-with-generator" title="Permanent link">&para;</a></h1>
 <p>It is possible to inject code that directly references web parts and extensions. Right now this is only supported for SharePoint Online projects and not for on-premises.</p>
 <p>The tools folder provides templates to inject code directly in the web part, application customizer, command set, and/or field customizer.</p>
-<div class="codehilite"><pre><span></span><code>tools/spfx
+<div class="bash codehilite"><pre><span></span><code>tools/spfx
 ├── applicationcustomizer-spo
 │   └── <span class="o">{</span>componentClassName<span class="o">}</span>.ts
 ├── commandset-spo
@@ -674,11 +674,10 @@
     └── <span class="o">{</span>componentClassName<span class="o">}</span>.ts
 </code></pre></div>
 
-
 <p>These files will be maintained and updated with every new major release of the Microsoft SharePoint Framework generator.</p>
 <h2 id="copy-these-template-files-to-your-generator">Copy these template files to your generator<a class="headerlink" href="#copy-these-template-files-to-your-generator" title="Permanent link">&para;</a></h2>
 <p>Copy the files located in the template folder to your custom generator in the template path. The overall setup of the generator should match the following pattern.</p>
-<div class="codehilite"><pre><span></span><code>generators/your-generator/
+<div class="bash codehilite"><pre><span></span><code>generators/your-generator/
 ├── index.js
 └── templates
     ├── addonConfig.json
@@ -698,9 +697,8 @@
             └── <span class="o">{</span>componentClassName<span class="o">}</span>.ts
 </code></pre></div>
 
-
 <p>Now modify the files to match your requirements. For example, the HandlebarsJS generator has the following lines of code added to the import statements when generating a web part:</p>
-<div class="codehilite"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Version</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@microsoft/sp-core-library&#39;</span><span class="p">;</span>
+<div class="js codehilite"><pre><span></span><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Version</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@microsoft/sp-core-library&#39;</span><span class="p">;</span>
 <span class="kr">import</span> <span class="p">{</span>
   <span class="nx">BaseClientSideWebPart</span><span class="p">,</span>
   <span class="nx">IPropertyPaneConfiguration</span><span class="p">,</span>
@@ -721,28 +719,24 @@
 <span class="p">...</span>
 </code></pre></div>
 
-
 <p>The only code in this example that was added is the following line:</p>
-<div class="codehilite"><pre><span></span><code><span class="kr">import</span> <span class="o">*</span> <span class="nx">as</span> <span class="nx">Handlebars</span> <span class="nx">from</span> <span class="s1">&#39;handlebars&#39;</span><span class="p">;</span>
+<div class="js codehilite"><pre><span></span><code><span class="kr">import</span> <span class="o">*</span> <span class="nx">as</span> <span class="nx">Handlebars</span> <span class="nx">from</span> <span class="s1">&#39;handlebars&#39;</span><span class="p">;</span>
 </code></pre></div>
-
 
 <p>This make sure that after the provisioning of a web part, coding can start immediately.</p>
 <h2 id="deploy-custom-code-in-generator">Deploy custom code in generator<a class="headerlink" href="#deploy-custom-code-in-generator" title="Permanent link">&para;</a></h2>
 <p>The files located in the SPFx folder serve as templates for all customizable assets. The names should not be changed because this will cause the whole deployment to break. To make sure the template gets deployed, a small utility needs to be called directly in the installation method of the Yeoman generator.</p>
 <p>Make sure you reference the utility class in your Yeoman generator code:</p>
-<div class="codehilite"><pre><span></span><code><span class="c1">// importing utilities</span>
+<div class="js codehilite"><pre><span></span><code><span class="c1">// importing utilities</span>
 <span class="kr">const</span> <span class="nx">util</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;../../lib/util.js&#39;</span><span class="p">);</span>
 </code></pre></div>
 
-
 <p>In the install method call the following utility method:</p>
-<div class="codehilite"><pre><span></span><code><span class="nx">install</span><span class="p">()</span> <span class="p">{</span>
+<div class="js codehilite"><pre><span></span><code><span class="nx">install</span><span class="p">()</span> <span class="p">{</span>
     <span class="c1">// # BUG currently only appears just in test</span>
     <span class="nx">util</span><span class="p">.</span><span class="nx">deployTemplates</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
-
 
 <p>This utility will detect which component got added during the regular SPFx runtime and adds the code directly to the file.</p>
                 
