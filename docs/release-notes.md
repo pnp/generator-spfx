@@ -1,5 +1,11 @@
 # Release Notes
 
+# 1.15.1 Graph Toolkit added
+
+- Graph Toolkit support added [#275](https://github.com/pnp/generator-spfx/issues/275)
+- Angular: Minifcation issue fixed [#278](https://github.com/pnp/generator-spfx/issues/278)
+
+
 # 1.15.0 SPFx 1.11.0 / Angular 10 Support added
 
 - Upgrade to SPFx 1.11.0
@@ -11,7 +17,7 @@
 
 # 1.14.2 Solution / Component naming arguments fix
 
-- Generator does not respect solution/component naming arguments [#2668](https://github.com/pnp/generator-spfx/pull/268)
+- Generator does not respect solution/component naming arguments [#268](https://github.com/pnp/generator-spfx/pull/268)
 
 
 # 1.14.1 Angular 9 style support extended
