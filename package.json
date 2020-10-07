@@ -38,13 +38,13 @@
             "name": "Stefan Bauer",
             "email": "office@n8d.at",
             "url": "https://www.n8d.at/"
+        },
+        {
+            "name": "Chandani Prajapati (Angular)",
+            "url": "https://twitter.com/Chandani_SPD"
         }
     ],
     "contributors": [
-        {
-            "name": "Chandani Prajapati",
-            "url": "https://twitter.com/Chandani_SPD"
-        },
         {
             "name": "Magnus Danielson",
             "url": "https://github.com/magnusdanielson"
