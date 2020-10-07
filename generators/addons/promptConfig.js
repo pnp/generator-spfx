@@ -100,6 +100,9 @@ const spoLibs = [{
     },{
         name: 'Microsoft Graph - Type Definitions',
         value: 'msgraph'
+    },{
+        name: 'Microsoft Graph ToolKit',
+        value: 'msgt'
     }, {
         name: 'pnpjs',
         value: '@pnp/pnpjs'
