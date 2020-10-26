@@ -26,7 +26,7 @@ jobs:
           patterns: '**/*.sppkg'
         - script: sudo npm install --global @pnp/office365-cli
           displayName: Install Office365 CLI
-        - script: o365 login $(o365_app_catalog_site_url) --authType password --userName $(o365_user_login) --password $(o365_user_password)
+        - script: o365 login $(o365_app_catalog_site_url) --authType password --userName $(o365_user_login) --password '$(o365_user_password)'
           displayName: Login to Office365
         - script: |
             CMD_GET_SPPKG_NAME=$(find $(Pipeline.Workspace)/drop -name '*.sppkg' -exec basename {} \;)
