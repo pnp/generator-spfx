@@ -109,7 +109,7 @@ module.exports = class extends Generator {
         );
 
         //added --optimization=false to solve the issue of over minification of angular element bundle
-        pkg.scripts['bundle'] = 'ng build --prod --output-hashing none --optimization=false && node elements-build.js';
+        pkg.scripts['bundle'] = 'ng build --prod --output-hashing none --optimization=false --single-bundle --source-map';
 
         pkg.dependencies['concat'] = '^1.0.3';
         pkg.dependencies['@webcomponents/custom-elements'] = '^1.2.0';
@@ -174,6 +174,10 @@ module.exports = class extends Generator {
             )
 
             this.spawnCommandSync('ng', ['add', '@angular/elements'], {
+                cwd: angularSolutionPath
+            });
+
+            this.spawnCommandSync('ng', ['add', 'ngx-build-plus'], {
                 cwd: angularSolutionPath
             });
 
