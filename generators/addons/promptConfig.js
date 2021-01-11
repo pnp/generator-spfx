@@ -13,6 +13,7 @@ const jqueryOptions = [{
 ]
 
 const ouifrOptions = [{
+<<<<<<< HEAD
         'name': '7.x.x',
         'value': '7'
     },
@@ -24,6 +25,18 @@ const ouifrOptions = [{
         'value': '6fluent'
     }
 ]
+=======
+    'name': '6.x.x',
+    'value': '6'
+}, {
+    'name': '6.x.x incl. Fluent Theme',
+    'value': '6fluent'
+},
+{
+    'name': '7.x.x',
+    'value': '7'
+}]
+>>>>>>> dev
 
 const rushCompilerOption = [{
         'name': 'TypeScript v3.3 - Default',
