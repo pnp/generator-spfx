@@ -13,14 +13,14 @@ const jqueryOptions = [{
 ]
 
 const ouifrOptions = [{
-    'name': '6.x.x - Default',
+    'name': '6.x.x',
     'value': '6'
 }, {
     'name': '6.x.x incl. Fluent Theme',
     'value': '6fluent'
 },
 {
-    'name': '7.x.x - Preview',
+    'name': '7.x.x',
     'value': '7'
 }]
 
