@@ -11,7 +11,7 @@
         "@pnp/spfx-property-controls": "2.2.0",
         "jquery": "^3.5.5",
         "@types/jquery": "^3.5.5",
-        "@pnp/pnpjs": "^2.0.6",
+        "@pnp/pnpjs": "^2.0.13",
         "@pnp/spfx-controls-react": "2.3.0",
         "vue": "^2.6.11",
         "vue-class-component": "7.2.3",
