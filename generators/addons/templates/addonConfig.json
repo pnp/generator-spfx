@@ -1,8 +1,8 @@
 {
     "jquery@3": {
         "dependencies": {
-            "jquery": "^3.5.1",
-            "@types/jquery": "^3.5.0"
+            "jquery": "^3.5.5",
+            "@types/jquery": "^3.5.4"
         }
     },
     "msgraph": {
