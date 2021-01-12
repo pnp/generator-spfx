@@ -1,5 +1,21 @@
 # Release Notes
 
+# 1.16.0 Angular 11 support added
+
+Angular 11 is now supported by this version. Angular also supports now Source Maps for SPFx
+
+other updates:
+
+- Fluent UI Fabric 7
+- pnp/controls / pnp/property-controls (2.2, 2.3)
+- pnpjs 2.0.13
+- VueJS 2.6
+- Stylelint
+- lodash
+- jquery 3.5.5
+- Update to latest Yoeman generator version
+
+
 # 1.15.1 Graph Toolkit added
 
 - Graph Toolkit support added [#275](https://github.com/pnp/generator-spfx/issues/275)
