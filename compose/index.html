@@ -605,7 +605,7 @@
 <p>The following sections explain the overall setup and considerations.</p>
 <h2 id="project-setup">Project Setup<a class="headerlink" href="#project-setup" title="Permanent link">&para;</a></h2>
 <p>The following directory listing gives you an overview of the main directories in the generator:</p>
-<div class="txt codehilite"><pre><span></span><code>├── app                &lt;-- Main Generator
+<div class="codehilite"><pre><span></span><code>├── app                &lt;-- Main Generator
 ├── docs               &lt;-- Documentation
 ├── generators         &lt;-- Custom Generators
 │   ├── addons         &lt;-- Addon Generator reserved for client libraries only
@@ -627,7 +627,7 @@
 <h3 id="user-prompt-for-sub-generator">User prompt for sub generator<a class="headerlink" href="#user-prompt-for-sub-generator" title="Permanent link">&para;</a></h3>
 <p>If your generator needs some additional information from the user, questions can be configured in the file <code>promptconfig.js</code>. The content of this file follows the default Yeoman generator user prompting described in the article <a href="http://yeoman.io/authoring/user-interactions.html">Interacting with the User</a>.</p>
 <p>The library Yeoman uses is <a href="https://github.com/SBoudrias/Inquirer.js/">Inquirer.js</a>.</p>
-<div class="js codehilite"><pre><span></span><code><span class="s2">&quot;use strict&quot;</span>
+<div class="codehilite"><pre><span></span><code><span class="s2">&quot;use strict&quot;</span>
 
 <span class="c1">// These are just sample selection of options</span>
 <span class="kr">const</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">[{</span>
@@ -662,7 +662,7 @@
 <h3 id="generator-implementation-indexjs">Generator implementation - index.js<a class="headerlink" href="#generator-implementation-indexjs" title="Permanent link">&para;</a></h3>
 <p>All actions required for a new custom generator need to be implemented in the <code>index.js</code> file.</p>
 <p>The default template currently lists all possible methods in the correct call order provided by the default Yeoman generator:</p>
-<div class="js codehilite"><pre><span></span><code><span class="c1">// Base Yeoman generator</span>
+<div class="codehilite"><pre><span></span><code><span class="c1">// Base Yeoman generator</span>
 <span class="kr">const</span> <span class="nx">Generator</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;yeoman-generator&#39;</span><span class="p">);</span>
 <span class="c1">// prompt configuration</span>
 <span class="kr">const</span> <span class="nx">prompts</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;./promptConfig&#39;</span><span class="p">);</span>
@@ -726,7 +726,7 @@
 <p>Because of the dependency on the Microsoft Yeoman Generator, the actions need to be delayed to the next step. After the SPFx generator has written the files to the file system through its <code>writing()</code> method, the custom generator is able to update the configuration with additional information.</p>
 <p>Instead of adding the code of the custom generator to the <code>writing()</code> method, the code has to be added to the <code>install()</code> method.</p>
 <p>In the case of the Handlebars generator, the following functions get called in the <code>install()</code> method:</p>
-<div class="js codehilite"><pre><span></span><code><span class="nx">install</span><span class="p">()</span> <span class="p">{</span>
+<div class="codehilite"><pre><span></span><code><span class="nx">install</span><span class="p">()</span> <span class="p">{</span>
     <span class="c1">// deploy additional files to the project directory</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">_deployFiles</span><span class="p">();</span>
 

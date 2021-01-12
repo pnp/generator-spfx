@@ -613,13 +613,13 @@
 <p>The pnp/spfx generator comes in version 1.20.0 with a new webpack HandlebarsJS loader. The following steps are required to upgrade older projects before 1.10.0.</p>
 <h2 id="upgrade-packagejson">Upgrade <strong>package.json</strong><a class="headerlink" href="#upgrade-packagejson" title="Permanent link">&para;</a></h2>
 <p>The <strong>package.json</strong> before 1.10.0 has the following handlebars related content.</p>
-<div class="json codehilite"><pre><span></span><code><span class="err">...</span>
-  <span class="s2">&quot;dependencies&quot;</span><span class="err">:</span> <span class="p">{</span>
+<div class="codehilite"><pre><span></span><code><span class="err">...</span>
+  <span class="nt">&quot;dependencies&quot;</span><span class="p">:</span> <span class="p">{</span>
       <span class="err">...</span>
       <span class="nt">&quot;handlebars&quot;</span><span class="p">:</span> <span class="s2">&quot;^4.1.2&quot;</span>
       <span class="err">...</span>
-  <span class="p">}</span><span class="err">,</span>
-  <span class="s2">&quot;devDependencies&quot;</span><span class="err">:</span> <span class="p">{</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;devDependencies&quot;</span><span class="p">:</span> <span class="p">{</span>
       <span class="err">...</span>
       <span class="nt">&quot;handlebars-template-loader&quot;</span><span class="p">:</span> <span class="s2">&quot;^1.0.0&quot;</span><span class="p">,</span>
       <span class="nt">&quot;@types/handlebars&quot;</span><span class="p">:</span> <span class="s2">&quot;^4.1.0&quot;</span><span class="p">,</span>
@@ -629,16 +629,16 @@
 </code></pre></div>
 
 <p>To upgrade the dependencies execute this npm command:</p>
-<div class="bash codehilite"><pre><span></span><code>npm uninstall handlebars-template-loader @types/handlebars
+<div class="codehilite"><pre><span></span><code>npm uninstall handlebars-template-loader @types/handlebars
 </code></pre></div>
 
 <p>Install the following dependencies.</p>
-<div class="bash codehilite"><pre><span></span><code>npm install handlebars-loader --save-dev
+<div class="codehilite"><pre><span></span><code>npm install handlebars-loader --save-dev
 </code></pre></div>
 
 <h2 id="upgrade-gulpfilejs">Upgrade <strong>gulpfile.js</strong><a class="headerlink" href="#upgrade-gulpfilejs" title="Permanent link">&para;</a></h2>
 <p>In the <strong>gulpfile.js</strong> the configuration of the <code>handlebars-template-loader</code> is configured like this:</p>
-<div class="javascript codehilite"><pre><span></span><code><span class="cm">/**</span>
+<div class="codehilite"><pre><span></span><code><span class="cm">/**</span>
 <span class="cm"> * Custom Framework Specific gulp tasks</span>
 <span class="cm"> */</span>
 <span class="c1">// definition of Handlebars loader</span>
@@ -649,7 +649,7 @@
 </code></pre></div>
 
 <p>Update the configuration to:</p>
-<div class="javascript codehilite"><pre><span></span><code><span class="cm">/**</span>
+<div class="codehilite"><pre><span></span><code><span class="cm">/**</span>
 <span class="cm"> * Custom Framework Specific gulp tasks</span>
 <span class="cm"> */</span>
 <span class="c1">// definition of Handlebars loader</span>

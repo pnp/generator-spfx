@@ -620,7 +620,7 @@
 <p>The following definiton of a Docker file can be used to run @pnp/generator-spfx in Docker.</p>
 <h2 id="create-a-folder-for-your-docker-file">Create a folder for your Docker file<a class="headerlink" href="#create-a-folder-for-your-docker-file" title="Permanent link">&para;</a></h2>
 <p>Create a folder on your hard drive and add a file named 'Dockerfile'.</p>
-<div class="bash codehilite"><pre><span></span><code>FROM node:8.12.0
+<div class="codehilite"><pre><span></span><code>FROM node:8.12.0
 
 EXPOSE <span class="m">5432</span> <span class="m">4321</span> <span class="m">35729</span>
 
@@ -640,15 +640,15 @@ CMD /bin/bash
 <h2 id="build-the-image">Build the image<a class="headerlink" href="#build-the-image" title="Permanent link">&para;</a></h2>
 <p>The following command creates a persitent container for pnp/spfx. It allows you to start the image faster from any spfx container on your hard drive.</p>
 <p>To build the docker image execute the form of command:</p>
-<div class="bash codehilite"><pre><span></span><code>docker build -t &lt;imagename&gt;:&lt;tag&gt; .
+<div class="codehilite"><pre><span></span><code>docker build -t &lt;imagename&gt;:&lt;tag&gt; .
 </code></pre></div>
 
 <p>For example a pnpspfx generator version 1.6.2 could be built and tagged like this.</p>
-<div class="bash codehilite"><pre><span></span><code>docker build -t pnpspfx:v162 .
+<div class="codehilite"><pre><span></span><code>docker build -t pnpspfx:v162 .
 </code></pre></div>
 
 <p>After the completion of this command the image can be verified with the following command.</p>
-<div class="bash codehilite"><pre><span></span><code>docker image ls
+<div class="codehilite"><pre><span></span><code>docker image ls
 </code></pre></div>
 
 <p>The returned output should look similar to this:</p>

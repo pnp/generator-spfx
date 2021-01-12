@@ -646,7 +646,7 @@
                 
                 <h1 id="inject-dependencies-using-your-custom-generator">Inject dependencies using your custom generator<a class="headerlink" href="#inject-dependencies-using-your-custom-generator" title="Permanent link">&para;</a></h1>
 <p>It is possible to inject dependencies into the generated project using your custom generator. The sub generator for Handlebars, for example, does this. A config file for all required npm packages to include can be found in this generator:</p>
-<div class="js codehilite"><pre><span></span><code><span class="p">{</span>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
     <span class="s2">&quot;handlebars&quot;</span><span class="o">:</span> <span class="p">{</span>
         <span class="s2">&quot;dependencies&quot;</span><span class="o">:</span> <span class="p">{</span>
             <span class="s2">&quot;handlebars&quot;</span><span class="o">:</span> <span class="s2">&quot;^4.0.6&quot;</span>
@@ -661,7 +661,7 @@
 
 <p>The <a href="https://github.com/pnp/generator-spfx/tree/master/generators/handlebars/templates">addonConfig.json</a> in the handlebar generator contains all required dependencies. Those npm packages that are required during runtime and those required during development.</p>
 <p>To inject those dependecies to the generated <code>package.json</code>, call the following method in your generator code.</p>
-<div class="js codehilite"><pre><span></span><code>    <span class="nx">_addPackageDependencies</span><span class="p">()</span> <span class="p">{</span>
+<div class="codehilite"><pre><span></span><code>    <span class="nx">_addPackageDependencies</span><span class="p">()</span> <span class="p">{</span>
 
         <span class="k">if</span> <span class="p">(</span><span class="nx">fs</span><span class="p">.</span><span class="nx">existsSync</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">destinationPath</span><span class="p">(</span><span class="s1">&#39;package.json&#39;</span><span class="p">)))</span> <span class="p">{</span>
 
@@ -733,7 +733,7 @@
 </code></pre></div>
 
 <p>For the requested libraries parameter, pass in an array of identifiers stored in your addon configuration. In the case of the handlebar generator this is just 'handlebars':</p>
-<div class="js codehilite"><pre><span></span><code><span class="kd">let</span> <span class="nx">requestedLibraries</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;handlebars&#39;</span><span class="p">];</span>
+<div class="codehilite"><pre><span></span><code><span class="kd">let</span> <span class="nx">requestedLibraries</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;handlebars&#39;</span><span class="p">];</span>
 </code></pre></div>
 
 <p>You can have multiple identifiers in this array.</p>
