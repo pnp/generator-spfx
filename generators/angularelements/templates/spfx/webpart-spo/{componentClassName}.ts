@@ -10,8 +10,8 @@ import { escape } from '@microsoft/sp-lodash-subset';
 import * as strings from '<%= componentStrings %>';
 
 /** Include Angular Elements JS and Style */
-import '<%= angularSolutionNameKebabCase %>/dist/<%= angularSolutionName %>/main';
 import '<%= angularSolutionNameKebabCase %>/dist/<%= angularSolutionName %>/polyfills';
+import '<%= angularSolutionNameKebabCase %>/dist/<%= angularSolutionName %>/main';
 require('<%= angularSolutionNameKebabCase %>/dist/<%= angularSolutionName %>/styles.css');
 
 export interface I<%= componentClassName %>Props {
