@@ -145,12 +145,12 @@
     },
     "@pnp/spfx-property-controls": {
         "dependencies": {
-            "@pnp/spfx-property-controls": "2.2.0"
+            "@pnp/spfx-property-controls": "2.4.0"
         }
     },
     "@pnp/spfx-controls-react": {
         "dependencies": {
-            "@pnp/spfx-controls-react": "2.3.0"
+            "@pnp/spfx-controls-react": "2.5.0"
         }
     },
     "webpack-analyzer": {
