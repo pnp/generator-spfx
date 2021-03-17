@@ -17,11 +17,11 @@ if (undefined !== SpfxOptions) {
         stylelint = true;
     }
 
-    if(SpfxOptions['pnp-vetting'].indexOf('spfx-fast-serve') !== -1){
+    if(SpfxOptions['pnp-fast-serve'].indexOf('spfx-fast-serve') !== -1){
         spfxFastServe  = true;
     }
 
-    if(SpfxOptions['pnp-vetting'].indexOf('spfx-fast-serve-library') !== -1){
+    if(SpfxOptions['pnp-fast-serve'].indexOf('spfx-fast-serve-library') !== -1){
         spfxFastServeLibrary  = true;
     }
 

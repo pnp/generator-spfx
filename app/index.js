@@ -52,6 +52,7 @@ module.exports = class extends Generator {
             this.options.SpfxOptions['pnp-framework'] = this.config.get('framework');
             this.options.SpfxOptions['pnp-libraries'] = this.config.get('pnp-libraries');
             this.options.SpfxOptions['pnp-vetting'] = this.config.get('pnp-vetting');
+            this.options.SpfxOptions['pnp-fast-serve'] = this.config.get('pnp-fast-serve');
             this.options.SpfxOptions['pnp-ci'] = this.config.get('pnp-ci');
 
             this.options.pnpFramework = this.config.get('pnpFramework') !== 'angularelements' ? this.config.get('pnpFramework') : "none";
@@ -78,6 +79,7 @@ module.exports = class extends Generator {
                     this.options.environment = this.options.environment || answers.spfxenv;
                     this.options.pnpFramework = answers.framework;
                     this.options.vetting = answers.vetting;
+                    this.options.fastServe = answers.fastServe;
                     this.options.ci = answers.continuousIntegration;
                     this.options.testFramework = answers.testframework; // this is needed for CI and unit testing integration
 
@@ -101,6 +103,9 @@ module.exports = class extends Generator {
 
                     // Addon Vetting options
                     this.options.SpfxOptions['pnp-vetting'] = this.options.vetting;
+
+                    // Addon fast serve
+                    this.options.SpfxOptions['pnp-fast-serve'] = this.options.fastServe;
 
                     // Addon continouse integration
                     this.options.SpfxOptions['pnp-ci'] = this.options.ci;
@@ -126,6 +131,7 @@ module.exports = class extends Generator {
                     this.config.set('framework', this.options.SpfxOptions['framework']);
                     this.config.set('pnpFramework', this.options.pnpFramework);
                     this.config.set('pnp-libraries', this.options.libraries);
+                    this.config.set('pnp-fast-serve', this.options.fastServe);
                     this.config.set('pnp-ci', this.options.ci);
                     this.config.set('pnp-vetting', this.options.vetting);
                     this.config.set('spfxenv', this.options.SpfxOptions['environment']);

@@ -76,15 +76,21 @@ const vettingOptions = [{
     {
         name: 'CSS Comb',
         value: 'csscomb'
-    },
-    {
-        name: 'SPFx Fast Serve (for web parts and extensions)',
-        value: 'spfx-fast-serve'
-    },
-    {
-        name: 'SPFx Fast Serve (for library component)',
-        value: 'spfx-fast-serve-library'
     }
+];
+
+// fast serve options
+const fastServeOptions = [{
+    name: 'None',
+    value: 'no-fast-serve'
+}, {
+    name: 'SPFx Fast Serve (for web parts and extensions)',
+    value: 'spfx-fast-serve'
+},
+{
+    name: 'SPFx Fast Serve (for library component)',
+    value: 'spfx-fast-serve-library'
+}
 ];
 
 // continuous integrations options
@@ -195,6 +201,12 @@ const configOptions = [
         message: 'Vetting Options',
         name: 'vetting',
         choices: vettingOptions
+    },
+    {
+        type: 'list',
+        message: 'Configure SPFx Fast Serve?',
+        name: 'fastServe',
+        choices: fastServeOptions
     },
     {
         type: 'list',
