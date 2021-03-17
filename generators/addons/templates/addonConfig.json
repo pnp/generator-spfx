@@ -57,7 +57,7 @@
             "extends": "./node_modules/@microsoft/rush-stack-compiler-3.3/includes/tsconfig-web.json"
         }
     },
-    "spfx-uifabric-themes":{
+    "spfx-uifabric-themes": {
         "devDependencies": {
             "spfx-uifabric-themes": "^0.8.0"
         }
@@ -179,6 +179,16 @@
     },
     "csscomb": {
         "devDependencies": {}
+    },
+    "spfx-fast-serve": {
+        "devDependencies": {
+            "spfx-fast-serve": "^1.11.0"
+        }
+    },
+    "spfx-fast-serve-library": {
+        "devDependencies": {
+            "spfx-fast-serve": "^1.11.0"
+        }
     },
     "lodash": {
         "devDependencies": {

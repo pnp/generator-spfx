@@ -57,6 +57,9 @@ module.exports = class extends Generator {
         // Updated Readme info
         util.updateReadmeFile(this, readmeInfo);
 
+        // add spfx-fast-serve
+        util.configureFastServe(this);
+
         // run installation
         util.runInstall(this);
 

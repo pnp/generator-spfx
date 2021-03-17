@@ -2,6 +2,8 @@
 
 var webpackBundleAnalyzer = false;
 var stylelint = false;
+var spfxFastServe = false;
+var spfxFastServeLibrary = false;
 var ci = false;
 
 if (undefined !== SpfxOptions) {
@@ -13,6 +15,14 @@ if (undefined !== SpfxOptions) {
 
     if(SpfxOptions['pnp-vetting'].indexOf('stylelint') !== -1){
         stylelint = true;
+    }
+
+    if(SpfxOptions['pnp-vetting'].indexOf('spfx-fast-serve') !== -1){
+        spfxFastServe  = true;
+    }
+
+    if(SpfxOptions['pnp-vetting'].indexOf('spfx-fast-serve-library') !== -1){
+        spfxFastServeLibrary  = true;
     }
 
     if(SpfxOptions['pnp-ci'].length !== 0){
@@ -72,6 +82,21 @@ if (process.argv.indexOf('--analyze') !== -1 ||
 
   });
 }
+<% }; %>
+<% if(webpackBundleAnalyzer && (spfxFastServe || spfxFastServeLibrary)) {%>
+    /**
+     * spfx-fast-serve configuration
+     * Reference and gulp task
+     */
+    const fs = require("fs");
+
+    build.configureWebpack.mergeConfig({
+
+        additionalConfiguration: (generatedConfiguration) => {
+            fs.writeFileSync("./temp/_webpack_config.json", JSON.stringify(generatedConfiguration, null, 2));
+            return generatedConfiguration;
+        }
+    });
 <% }; %>
 <% if(stylelint) {%>
 /**
