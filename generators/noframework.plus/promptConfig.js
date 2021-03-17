@@ -7,6 +7,22 @@ const options = [{
     }
 ];
 
+// fast serve options
+const fastServeOptions = [
+    {
+        name: 'None',
+        value: 'no-fast-serve'
+    },
+    {
+        name: 'SPFx Fast Serve (for web parts and extensions)',
+        value: 'spfx-fast-serve'
+    },
+    {
+        name: 'SPFx Fast Serve (for library component)',
+        value: 'spfx-fast-serve-library'
+    }
+];
+
 const configOptions = [
     // Sample content of questions
     {
@@ -17,8 +33,16 @@ const configOptions = [
         when: answers => {
             return answers.framework && answers.framework === 'none.plus'
         }
-
-    }
+    },
+    {
+        type: 'list',
+        message: 'Configure SPFx Fast Serve?',
+        name: 'fastServe',
+        choices: fastServeOptions,
+        when: answers => {
+            return answers.framework && answers.framework === 'none.plus'
+        }
+    },
     // , addon
 ]
 
