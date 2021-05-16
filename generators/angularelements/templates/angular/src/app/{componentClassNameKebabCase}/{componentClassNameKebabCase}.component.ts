@@ -7,7 +7,7 @@ import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
   encapsulation: ViewEncapsulation.Emulated
 })
 export class <%= componentClassName %>Component implements OnInit {
-  @Input() description: string;
+  @Input() description!: string;
 
   constructor() { }
 
