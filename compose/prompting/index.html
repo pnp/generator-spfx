@@ -610,9 +610,9 @@
 </code></pre></div>
 
 <p>All prompts required by the generator are included in the prompt config file directly inside the Yeoman generator.</p>
-<div class="codehilite"><pre><span></span><code><span class="kr">const</span> <span class="nx">chalk</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;chalk&#39;</span><span class="p">);</span>
+<div class="codehilite"><pre><span></span><code><span class="kd">const</span> <span class="nx">chalk</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;chalk&#39;</span><span class="p">);</span>
 
-<span class="kr">const</span> <span class="nx">jqueryOptions</span> <span class="o">=</span> <span class="p">[{</span>
+<span class="kd">const</span> <span class="nx">jqueryOptions</span> <span class="o">=</span> <span class="p">[{</span>
         <span class="s1">&#39;name&#39;</span><span class="o">:</span> <span class="s1">&#39;3.x.x (recommended)&#39;</span><span class="p">,</span>
         <span class="s1">&#39;value&#39;</span><span class="o">:</span> <span class="mf">3</span>
     <span class="p">},</span>
@@ -622,7 +622,7 @@
     <span class="p">}</span>
 <span class="p">]</span>
 
-<span class="kr">const</span> <span class="nx">configOptions</span> <span class="o">=</span> <span class="p">[</span>
+<span class="kd">const</span> <span class="nx">configOptions</span> <span class="o">=</span> <span class="p">[</span>
     <span class="c1">// Library selection</span>
     <span class="p">{</span>
         <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;checkbox&#39;</span><span class="p">,</span>
@@ -652,10 +652,10 @@
 <p>This example defines the questions for jQuery when used in the PnP SPFx generator and will be exported as a module in node. This is required because all configuration options will then be collected together in the main generator and is located in the <code>/app</code> folder.</p>
 <p>Inside this folder is another promptConfig and the particular configuration of the addon generator prompting gets imported.</p>
 <div class="codehilite"><pre><span></span><code><span class="c1">// Add configuration of Addon generator</span>
-<span class="kr">const</span> <span class="nx">addon</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;../generators/addons/promptConfig&#39;</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">addon</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;../generators/addons/promptConfig&#39;</span><span class="p">);</span>
 <span class="nx">configOptions</span> <span class="o">=</span> <span class="nx">configOptions</span><span class="p">.</span><span class="nx">concat</span><span class="p">(</span><span class="nx">addon</span><span class="p">);</span>
 
-<span class="kr">const</span> <span class="nx">promptConfig</span> <span class="o">=</span> <span class="p">{</span>
+<span class="kd">const</span> <span class="nx">promptConfig</span> <span class="o">=</span> <span class="p">{</span>
     <span class="nx">config</span><span class="o">:</span> <span class="nx">configOptions</span>
 <span class="p">}</span>
 
