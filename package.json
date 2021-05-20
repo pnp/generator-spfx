@@ -83,14 +83,14 @@
     "dependencies": {
         "@microsoft/generator-sharepoint": "1.11.0",
         "@pnp/office365-cli": "^2.12.0",
-        "applicationinsights": "^1.8.2",
+        "applicationinsights": "^1.8.8",
         "chalk": "^4.1.0",
         "command-exists": "^1.2.9",
         "global": "^4.4.0",
-        "lodash": "^4.17.19",
-        "param-case": "^3.0.3",
+        "lodash": "^4.17.20",
+        "param-case": "^3.0.4",
         "update-notifier": "^4.1.0",
-        "yeoman-generator": "~4.11.0"
+        "yeoman-generator": "^4.12.0"
     },
     "devDependencies": {
         "mocha": "~7.1.2",
