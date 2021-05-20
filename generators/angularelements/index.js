@@ -73,7 +73,7 @@ module.exports = class extends Generator {
         generateComponentOptions.push('--viewEncapsulation=Emulated');
 
         /** Entry Components are Deprecated in Angular 9 */
-        if(ngVersion.version && parseFloat(ngVersion.version) < 9 ){
+        if (ngVersion.version && parseFloat(ngVersion.version) < 9) {
             generateComponentOptions.push('--entry-component=true');
         }
 
@@ -102,14 +102,15 @@ module.exports = class extends Generator {
 
         }
 
-        
+
         const pkg = JSON.parse(
             fs.readFileSync(
                 path.join(angularSolutionPath, 'package.json'), 'utf-8')
         );
 
         //added --optimization=false to solve the issue of over minification of angular element bundle
-        pkg.scripts['bundle'] = 'ng build --prod --output-hashing none --optimization=false --single-bundle --source-map';
+        //Option "--prod" is deprecated in angular 12:  --prod replaced with "--configuration production".
+        pkg.scripts['bundle'] = 'ng build --configuration production --output-hashing none --optimization=false --single-bundle --source-map';
 
         pkg.dependencies['concat'] = '^1.0.3';
         pkg.dependencies['@webcomponents/custom-elements'] = '^1.2.0';
@@ -154,7 +155,7 @@ module.exports = class extends Generator {
 
         // finally run install
         if (!this.options.SpfxOptions['testrun']) {
-
+        
             const polyfills = this.fs.read(
                 this.templatePath('angular/src/polyfills.ts'),
                 'utf-8');
@@ -172,6 +173,26 @@ module.exports = class extends Generator {
                 path.join(angularSolutionPath, 'src/browserslist'),
                 browserslist
             )
+
+            const angJSon = JSON.parse(
+                fs.readFileSync(
+                    path.join(angularSolutionPath, 'angular.json'), 'utf-8')
+            );
+
+            /** Get angualr json budgets */
+            const angBudgets = angJSon.projects[angularSolutionName].architect.build.configurations.production.budgets;
+
+            /** Updates initial budgets */
+            angBudgets[0].maximumWarning = '4mb';
+            angBudgets[0].maximumError = '5mb';
+
+            /** Updates component style budgets */
+            angBudgets[1].maximumWarning = '4mb';
+            angBudgets[1].maximumError = '5mb';
+
+            fs.writeFileSync(
+                path.join(angularSolutionPath, 'angular.json'),
+                JSON.stringify(angJSon, null, null));
 
             this.spawnCommandSync('ng', ['add', '@angular/elements'], {
                 cwd: angularSolutionPath
