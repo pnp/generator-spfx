@@ -39,10 +39,56 @@ module.exports = class extends Generator {
 
     }
 
+    //use to update warning size
+    _updateAngularJSON() {
+        if (fs.existsSync(this.destinationPath('angular.json'))) {
+
+            let angularConfig;
+
+            try {
+                angularConfig = JSON.parse(fs.readFileSync(
+                    this.destinationPath('angular.json')
+                ));
+
+            } catch (error) {
+                throw error;
+            }
+        }
+    }
+
+    // adds dependencies to the package.json
+    _addPackageDependencies() {
+
+        if (fs.existsSync(this.destinationPath('package.json'))) {
+
+            // request the spfx default package file
+            let spfxConfig;
+
+            try {
+                spfxConfig = JSON.parse(fs.readFileSync(
+                    this.destinationPath('package.json')
+                ));
+
+            } catch (error) {
+                throw error;
+            }
+
+            let solutionName = this.options.solutionName;
+            const spfxSolutionPath = this.destinationPath(`../${solutionName}-spfx`);
+
+            spfxConfig.dependencies[paramCase(solutionName)] = `file:../${solutionName}`;
+
+            fs.writeFileSync(
+                path.join(spfxSolutionPath, 'package.json'),
+                JSON.stringify(spfxConfig, null, 2));
+        }
+    }
 
     writing() {}
 
     install() {
+
+        this._addPackageDependencies();
 
         const manifest = util.getComponentManifest(this);
 
@@ -73,7 +119,7 @@ module.exports = class extends Generator {
         generateComponentOptions.push('--viewEncapsulation=Emulated');
 
         /** Entry Components are Deprecated in Angular 9 */
-        if(ngVersion.version && parseFloat(ngVersion.version) < 9 ){
+        if(ngVersion.version && parseFloat(ngVersion.version) < 9){
             generateComponentOptions.push('--entry-component=true');
         }
 
@@ -99,8 +145,28 @@ module.exports = class extends Generator {
                 path.join(angularSolutionPath, 'tsconfig.json'),
                 JSON.stringify(tsconfig, null, 2)
             )
-
         }
+
+        //read 'angular.json'
+        const angularJSON = JSON.parse(
+            fs.readFileSync(
+                path.join(angularSolutionPath, 'angular.json'), 'utf-8')
+        );
+
+        const projectName = angularJSON.defaultProject;
+        const budgets = angularJSON.projects[projectName].architect.build.configurations.production.budgets;
+        const initialBudgets = budgets.find(f => f.type === "initial");
+
+        //Set initial budgets warning and error
+        if (initialBudgets) {
+            initialBudgets.maximumWarning = '2mb';
+            initialBudgets.maximumError = '5mb';
+        }
+
+        // Save changed angular.json
+        fs.writeFileSync(
+            path.join(angularSolutionPath, 'angular.json'),
+            JSON.stringify(angularJSON, null, 2));
 
         
         const pkg = JSON.parse(
@@ -109,11 +175,13 @@ module.exports = class extends Generator {
         );
 
         //added --optimization=false to solve the issue of over minification of angular element bundle
-        pkg.scripts['bundle'] = 'ng build --prod --output-hashing none --optimization=false --single-bundle --source-map';
+        pkg.scripts['bundle'] = 'ng build --output-hashing none --optimization=false --single-bundle --source-map';
 
         pkg.dependencies['concat'] = '^1.0.3';
         pkg.dependencies['@webcomponents/custom-elements'] = '^1.2.0';
         pkg.dependencies['@webcomponents/webcomponentsjs'] = '^2.1.2';
+
+        pkg.devDependencies['typescript'] = '~4.4.2';
 
         fs.writeFileSync(
             path.join(angularSolutionPath, 'package.json'),
@@ -189,9 +257,13 @@ module.exports = class extends Generator {
                 cwd: angularSolutionPath
             });
 
-            this.spawnCommand('npm', ['install', `../${angularSolutionName}`], {
+            this.spawnCommand('npm', ['install'], {
                 cwd: angularSolutionPath + '-spfx'
             })
+
+            // this.spawnCommand('npm', ['install', `../${angularSolutionName}`], {
+            //     cwd: angularSolutionPath + '-spfx'
+            // })
 
         }
 
