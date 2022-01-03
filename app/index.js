@@ -47,7 +47,7 @@ module.exports = class extends Generator {
         // if config existed fallback to default generator
         if (this.config.existed) {
 
-            // add proper opptions in here
+            // add proper options in here
             this.options.SpfxOptions['framework'] = this.config.get('framework');
             this.options.SpfxOptions['pnp-framework'] = this.config.get('framework');
             this.options.SpfxOptions['pnp-libraries'] = this.config.get('pnp-libraries');
@@ -305,9 +305,7 @@ module.exports = class extends Generator {
         });
 
         this.option('environment', {
-            description: `The target environment for the solution:
-                                        - "onprem"
-                                        - "onprem19"
+            description: `The target environment for the solution:                                        
                                         - "spo".`,
             type: String
         });
