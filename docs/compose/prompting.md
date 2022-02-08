@@ -99,5 +99,5 @@ prompting() {
 So this makes sure that all prompt configurations can be centrally managed - even the ones specific to additional generators.
 
 !!! info
-    If your custom generator has a special promting configuration, please add a comment in your Pull Request saying so
+    If your custom generator has a special prompting configuration, please add a comment in your Pull Request saying so
 
