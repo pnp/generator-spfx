@@ -24,7 +24,7 @@ jobs:
           key: node_modules-${{ hashFiles('**/package-lock.json') }}
       - name: Restore dependencies
         if: steps.cache.outputs.cache-hit != 'true'
-        run: npm ci
+        run: npm ci --package-lock-only
 
   publish-npm:
     needs: build
