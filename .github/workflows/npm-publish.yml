@@ -25,6 +25,7 @@ jobs:
       - name: Restore dependencies
         if: steps.cache.outputs.cache-hit != 'true'
         run: npm ci
+
   publish-npm:
     needs: build
     runs-on: ubuntu-latest
@@ -34,7 +35,7 @@ jobs:
         with:
           node-version: 12
           registry-url: https://registry.npmjs.org/
-                - name: Cache node modules
+      - name: Cache node modules
         id: cache
         uses: actions/cache@v3
         with:
