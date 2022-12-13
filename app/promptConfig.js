@@ -31,16 +31,7 @@ const checkAngular = (() => {
 const supportedSPFxTargets = [{
     name: 'SharePoint Online only (latest)',
     value: 'spo'
-},
-{
-    name: 'SharePoint 2019 onwards, including SharePoint Online',
-    value: 'onprem19'
-},
-{
-    name: 'SharePoint 2016 onwards, including 2019 and SharePoint Online',
-    value: 'onprem'
-}
-];
+}];
 
 // if environment optiosn have been specified
 const environmentOptions = [{
@@ -89,61 +80,6 @@ const spoFrameworks = [
     }
 ];
 
-// SharePoint Online and on-premise 2019 supported frameworks
-const onPrem19Frameworks = [
-    new inquirer.Separator(
-        fgYellow('Additional Frameworks')
-    ),
-    {
-        name: '- Angular Elements' + angularVersion,
-        value: 'angularelements',
-        disabled: checkAngular
-    },
-    {
-        name: '- Aurelia',
-        value: 'aurelia'
-    },
-    {
-        name: '- Handlebars',
-        value: 'handlebars'
-    },
-    new inquirer.Separator(
-        fgYellow('Enhanced SPFx')
-    ),
-    {
-        name: '- ReactJS',
-        value: 'reactjs.plus'
-    },
-    // {
-    //     name: '- Knockout (deprecated)',
-    //     value: 'knockout.plus'
-    // },
-    {
-        name: '- No Framework',
-        value: 'none.plus'
-    }
-];
-
-// On-premises 2016 frameworks
-const onPremFrameworks = [
-    new inquirer.Separator(
-        fgYellow('Enhanced SPFx')
-    ),
-    {
-        name: '- ReactJS',
-        value: 'reactjs.plus'
-    },
-    // {
-    //     name: '- Knockout (deprecated)',
-    //     value: 'knockout.plus'
-    // },
-    {
-        name: '- No Framework',
-        value: 'none.plus'
-    }
-];
-
-
 let configOptions = [
     // select your framework
     {
@@ -151,15 +87,13 @@ let configOptions = [
         message: 'Choose your framework',
         name: 'framework',
         choices: answers => {
-            switch (answers.spfxenv) {
-                case 'onprem':
-                    return onPremFrameworks;
-                case 'onprem19':
-                    return onPrem19Frameworks;
-                case 'spo':
+            if (answers.spfxenv) {
+                try {
                     return spoFrameworks;
-                default: // default to spo, but should log error here
-                    return spoFrameworks;
+                }
+                catch (error) {
+                    throw error;
+                }
             }
         }
     }
@@ -193,7 +127,7 @@ const promptConfig = () => {
 
     // return questions based on the environmen command line switch
     const _getConfigOptions = (environment) => {
-
+ 
         if (environment === undefined) {
 
             // embed environment selection into questions

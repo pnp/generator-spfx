@@ -122,16 +122,6 @@ const spoLibs = [{
     // Add a new configuration object in here
 ]
 
-// On premises supported libraries
-const onpremLibs = [{
-        name: 'jQuery',
-        value: 'jquery@3'
-    }, {
-        name: 'pnpjs',
-        value: '@pnp/pnpjs'
-    }
-    // Add a new configuration object in here
-]
 
 // generat configuration options
 const configOptions = [
@@ -145,24 +135,14 @@ const configOptions = [
             let defaultLibs = [];
 
             // Select supported libraries base on environment
-            switch (answers.spfxenv) {
-                case 'onprem':
-                    defaultLibs = onpremLibs;
-                    break;
-                case 'onprem19':
-                case 'spo':
-                    defaultLibs = spoLibs;
-                    if (answers.framework === 'react' ||
-                        answers.framework === 'reactjs.plus'
-                    ) {
-                        defaultLibs = defaultLibs.concat(reactLibs)
-                    }
-                    break;
-                default:
-                    break;
-
-            }
-
+            if (answers.spfxenv) {
+                defaultLibs = spoLibs;
+                if (answers.framework === 'react' ||
+                    answers.framework === 'reactjs.plus'
+                ) {
+                    defaultLibs = defaultLibs.concat(reactLibs)
+                }
+            }            
             return defaultLibs;
 
         }
