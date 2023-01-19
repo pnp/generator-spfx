@@ -2,7 +2,7 @@
 
 [![CircleCI](https://circleci.com/gh/pnp/generator-spfx.svg?style=shield)](https://circleci.com/gh/pnp/generator-spfx) [![Gitter chat](https://badges.gitter.im/gitterHQ/gitter.png)](https://gitter.im/generator-spfx/generator)
 
-❗️❗️❗️ Jan 2024 - generator-SPFx is currently not actively mainatained anymore. ❗️❗️❗️
+❗️❗️❗️ Jan 2023 - generator-SPFx is currently not actively mainatained anymore. ❗️❗️❗️
 
 This Yeoman generator provides improved governance for SharePoint Framework projects. It extends the out of the box Yeoman generator from Microsoft (@microsoft/generator-sharepoint) with recommended patterns and additional capabilities.
  
