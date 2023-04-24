@@ -93,7 +93,7 @@
         "yeoman-generator": "^4.12.0"
     },
     "devDependencies": {
-        "mocha": "~7.1.2",
+        "mocha": "~10.2.0",
         "rimraf": "^3.0.2",
         "yeoman-assert": "~3.1.1",
         "yeoman-test": "~2.7.0"
