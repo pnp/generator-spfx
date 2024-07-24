@@ -1,3 +1,4 @@
+:warning: **This project is no longer maintained**
 # PnP SPFx Yeoman generator
 This Yeoman generator provides improved governance for SharePoint Framework projects. It extends the out of the box Yeoman generator from Microsoft (@microsoft/generator-sharepoint) with recommended patterns and additional capabilities.
 
